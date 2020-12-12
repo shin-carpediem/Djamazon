@@ -1,0 +1,54 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<form method="post" action="{% url 'app:signup' %}">{% csrf_token %}
+  <label>Email</label>
+  {{ form.email }}
+  {{ form.email.errors }} <br>
+  <label>Password</label>
+  {{ form.password1 }}
+  {{ form.password1.errors }}
+  <br>
+  <label>password(Again)</label>
+  {{ form.password2 }}
+  {{ form.password2.errors }}
+  <br>
+  <input type="submit" value="Signup">
+</form>
+
+
+
+
+<div class="under-message">
+  <div class="fly-in">
+    <div>
+      Welcome to DJAMAZON!!
+    </div>
+    <div>
+      YOU will FIND
+    </div>
+    <div>
+      AWESOME
+    </div>
+    <div>
+      UNIQUE
+    </div>
+    <div>
+      TECHNICAL ITEMS
+    </div>
+    <div>
+      FROM NOW
+    </div>
+    <div>
+      YOU are OUR FAMILY
+    </div>
+    <div>
+      ENJOY Shopping
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

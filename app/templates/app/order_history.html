@@ -1,0 +1,38 @@
+{% extends 'app/base.html' %}
+{% load humanize %}
+
+{% block content %}
+
+<div class="order-history">
+  <h2>Order-history</h2>
+  {% for sale in sales %}
+  <div class="order-item">
+    <div class="order-item-image">
+      <a href="{% url 'app:detail' sale.product.id %}">
+        <img src="{{ sale.product.image.url }}" class="product-img" alt="product-img">
+      </a>
+    </div>
+
+    <div class="order-item-info">
+      <h2>{{ sale.product.name }}</h2>
+      <div>Price：<span class="info-value">{{ sale.price | intcomma }}
+        </span>
+      </div>
+      <div>Number：<span class="info-value">{{ sale.amount | intcomma }}
+        </span>
+      </div>
+      <hr>
+      <div>Sum：<span class="info-value">{{ sale.total_price | intcomma }}
+        </span>
+      </div>
+      <span class="info-timestamp">{{ sale.created_at | date:"Y/m/d" }}
+      </span>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+{% load humanize %}
+
+{% block content %}
+
+{% if 'fav_products' in request.path %}
+<div style="font-weight: bold; font-size: 28px; margin-bottom: 20px;">
+  Favorite items
+</div>
+{% endif %}
+
+
+<div class="product-container">
+  {% for product in products %}
+  <div class="product">
+    <a href="{% url 'app:detail' product.id %}">
+      <img src="{{ product.image.url }}" class="product-img" alt="product-img">
+    </a>
+    <div class="product-info">
+      <div class="product-name">{{ product.name }}</div>
+      <div class="product-price">Point: {{ product.price | intcomma }}</div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+{% endblock %}

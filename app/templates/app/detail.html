@@ -1,0 +1,49 @@
+{% extends 'app/base.html' %}
+{% load humanize %}
+
+{% block content %}
+
+<div class="product-detail">
+  <div class="product-detail-image">
+    <img src="{{ product.image.url }}" class="product-img" alt="product-img">
+  </div>
+
+  <div class="product-detail-info">
+    <h2>{{ product.name }}</h2>
+    <hr>
+    <div class="point-fav-section">
+      <h4>{{ product.price | intcomma }}Point</h4>
+      {% if request.user.is_authenticated %}
+      <form action="{% url 'app:toggle_fav_product_status' %}" mothod="post">{% csrf_token %}
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+        {% if product in user.fav_products.all %}
+        <input type="submit" name="submit" class="fav_button" value="Remove from my Favorite">
+        {% else %}
+        <input type="submit" name="submit" class="fav_button" value="Add to my Favorite">
+        {% endif %}
+      </form>
+      {% endif %}
+    </div>
+    <p>{{ product.description }}</p>
+
+    <div>
+      {% if request.user.is_authenticated %}
+      <form action="{% url 'app:detail' product.id %}" mothod="post">{% csrf_token %}
+        {{ add_to_cart_form.as_p }}
+        <button class="purchase-button" type="submit">Add to my Cart</button>
+      </form>
+      {% else %}
+      <a href="{% url 'app:login' %}?next={{ request.path }}">
+        <button class="purchase-button">Login and purchase</button>
+      </a>
+      {% endif %}
+    </div>
+
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}
