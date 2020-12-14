@@ -50,7 +50,7 @@ MIDDLEWARE = [
    # 'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'django-env.eba-fpfqrcpi.ap-northeast-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'django-env.eba-fpfqrcpi.ap-northeast-1.elasticbeanstalk.com', '54.95.104.230', '172.31.42.122']
 
 ROOT_URLCONF = 'ecsite.urls'
 
