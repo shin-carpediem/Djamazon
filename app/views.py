@@ -5,10 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 import json
 import requests
-from .forms import CustomUserCreationForm, AddToCartForm
-from .models import Product
-from .models import Sale
-from .forms import PurchaseForm
+from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
+from .models import Product, Sale
+
 
 # Create your views here.
 def index(request):
@@ -38,14 +37,17 @@ def detail(request, product_id):
     if add_to_cart_form.is_valid():
         num = add_to_cart_form.cleaned_data['num']
 
+# セッションに cart というキーがあるかどうかで処理を分ける
         if 'cart' in request.session:
+            # すでに特定の商品の個数があれば新しい個数を加算、なければ新しくキ ーを追加する
             if str(product_id) in request.session['cart']:
                 request.session['cart'][str(product_id)] += num
             else:
                 request.session['cart'][str(product_id)] = num
         else:
+            # 新しく cart というセッションのキーを追加
             request.session['cart'] = {str(product_id): num}
-        messages.success(request, f"{product.name}を{num}個カートに入れました！")
+        messages.success(request, f"You added{num}{product.name} into your cart!")
         return redirect('app:detail', product_id=product_id)
     context = {
         'product': product,
@@ -75,6 +77,7 @@ def toggle_fav_product_status(request):
 
 @login_required
 def cart(request):
+    user = request.user
     cart = request.session.get('cart', {})
     cart_products = dict()
     total_price = 0
@@ -82,11 +85,67 @@ def cart(request):
         product = Product.objects.get(id=product_id)
         cart_products[product] = num
         total_price += product.price * num
+
+    purchase_form = PurchaseForm(request.POST or None)
+    if purchase_form.is_valid():
+        # 住所検索ボタンが押された場合
+        if 'search_address' in request_POST:
+            zip_code = request.POST['zip_code']
+            address = get_address(zip_code)
+            # 住所が取得できなかった場合はメッセージを出してリダイレクト
+            if not address:
+                messages.warning(request, "住所を取得できませんでした。")
+                return redirect('app:cart')
+            # 住所が取得できたらフォームに入力してあげる
+            purchase_form = PurchaseForm(initial={'zip_code': zip_code, 'address': address })
+
+# 購入ボタンが押された場合
+        if 'buy_product' in request.POST:
+            # 住所が入力済みか確認する
+            if not purchase_form.cleaned_data['address']:
+                messages.warning(request, "住所の入力は必須です")
+                return redirect('app:cart')
+                # カートが空じゃないか確認
+            if not bool(cart):
+                messages.warning(request, "カートは空です")
+                return redirect('app:cart')
+
+# 所持ポイントが十分にあるか確認
+        if total_price > user.point:
+            messages.warning(request, "所持ポイントが足りません")
+            return redirect('app:cart')
+
+# 各プロダクトの Sale 情報を保存
+        for product_id, num in cart.items():
+            if not Product.objects.filter(pk=product_id).exists():
+                del cart[product_id]
+            product = Product.objects.get(pk=product_id)
+            sale = Sale(product=product, user=request.user, amount=num, price=product.price, total_price=num*product.price)
+            sale.save()
+
+# ポイントを削減
+        user.point -= total_price
+        user.save()
+        del request.session['cart']
+        messages.success(request, "商品の購入が完了しました！")
+        return redirect('app:cart')
+
+    else:
+        return redirect('app:cart')
+
     context = {
+        'purchase_form': purchase_form,
         'cart_products': cart_products,
-        'totla_price': total_price,
+        'total_price': total_price
     }
     return render(request, 'app/cart.html', context)
+
+
+@login_required
+def order_history(request):
+    user = request.user
+    sales = Sale.objects.filter(user=user).order_by('-created_at')
+    return render(request, 'app/order_history.html', {'sales': sales })
 
 
 @login_required
@@ -114,67 +173,3 @@ def get_address(zip_code):
         result = result[0]
         address = result['address1'] + result['address2'] + result['address3']
     return address
-
-
-@login_required
-def cart(request):
-    user = request.user
-    cart = request.session.get('cart', {})
-    cart_products = dict()
-    total_price = 0
-    for product_id, num in cart.items():
-        product = Product.objects.get(id=product_id)
-        cart_products[product] = num
-        total_price += product.price * num
-
-    purchase_form = PurchaseForm(request.POST or None)
-    if purchase_form.is_valid():
-        if 'search_address' in request_POST:
-            zip_code = request.POST['zip_code']
-            address = get_address(zip_code)
-            if not address:
-                messages.warning(request, "住所を取得できませんでした。")
-                return redirect('app:cart')
-            purchase_form = PurchaseForm(initial={'zip_code': zip_code, 'address': address })
-
-        if 'buy_product' in request.POST:
-            if not purchase_form.cleaned_data['address']:
-                messages.warning(request, "住所の入力は必須です")
-                return redirect('app:cart')
-            if not bool(cart):
-                messages.warning(request, "カートは空です")
-                return redirect('app:cart')
-
-        if total_price > user.point:
-            messages.warning(request, "所持ポイントが足りません")
-            return redirect('app:cart')
-
-        for product_id, num in cart.items():
-            if not Product.objects.filter(pk=product_id).exists():
-                del cart[product_id]
-            product = Product.objects.get(pk=product_id)
-            sale = Sale(product=product, user=request.user, amount=num, price=product.price, total_price=num*product.price)
-            sale.save()
-
-        user.point -= total_price
-        user.save()
-        del request.session['cart']
-        messages.success(request, "商品の購入が完了しました！")
-        return redirect('app:cart')
-
-    else:
-        return redirect('app:cart')
-
-    context = {
-        'purchase_form': purchase_form,
-        'cart_products': cart_products,
-        'total_price': total_price
-    }
-    return render(request, 'app/cart.html', context)
-
-
-@login_required
-def order_history(request):
-    user = request.user
-    sales = Sale.objects.filter(user=user).order_by('-created_at')
-    return render(request, 'app/order_history.html', {'sales': sales })

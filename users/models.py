@@ -37,8 +37,8 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    initial_point = 10000
-    email = models.EmailField("メールアドレス", unique=True)
+    initial_point = 50000
+    email = models.EmailField("email_address", unique=True)
     point = models.PositiveIntegerField(default=initial_point)
     fav_products = models.ManyToManyField(Product, blank=True)
     is_staff = models.BooleanField("is_staff", default=False)

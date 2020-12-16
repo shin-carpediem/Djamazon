@@ -16,6 +16,6 @@ class Sale(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     user = models.ForeignKey('users.User', on_delete=models.PROTECT)
     amount = models.PositiveIntegerField(default=0)
-    price = models.PositiveIntegerField("商品単価")
-    total_price = models.PositiveIntegerField("小計")
+    price = models.PositiveIntegerField("Product unit price")
+    total_price = models.PositiveIntegerField("subtotal")
     created_at = models.DateTimeField(auto_now=True)
