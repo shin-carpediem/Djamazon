@@ -2,20 +2,82 @@
 
 
 {% block content %}
-{% block account %}
 <form class="form-signin" method="post">{% csrf_token %}
   {% if form.errors %}
   <p>Username or password is wrong.</p>
   {% endif %}
-  <h2>Login</h2>
-  <label>Email</label>
-  <input name="username">
-  <!--emailではない-->
-  <br>
-  <label>Password</label>
-  <input type="password" name="password">
-  <br>
-  <input type="submit" value="Login">
+
+  <h2 class="d-flex justify-content-center pb-5">Login</h2>
+  <div class="row">
+    <div class="col-lg-8 col-12 row">
+
+      <div class="col-lg-4">
+        <label>Email</label>
+        <!--emailではない-->
+        <input name="username">
+        <br>
+      </div>
+
+      <div class="col-lg-4">
+        <label>Password</label>
+        <input type="password" name="password">
+        <br>
+      </div>
+
+      <div class="col-lg-4 d-flex flex-end">
+        <input type="submit" value="Login" class="col-lg-4">
+      </div>
+
+    </div>
+
+
+    <div class="col-lg-4 col-12 d-flex end-block">
+      <div class="social_account">..or Login with your Google account</div>
+      <ul>
+        <li><a href="{% url 'social:begin' 'google-oauth2' %}"><img src="./../media/google.png"
+              style="width: 30px; height: auto;" alt=""></a></li>
+      </ul>
+    </div>
+
+  </div>
 </form>
-{% endblock %}
+
+
+
+
+<div class="under-message">
+  <div class="fly-in">
+    <div>
+      Welcome to DJAMAZON!!
+    </div>
+    <div>
+      YOU will FIND
+    </div>
+    <div>
+      AWESOME
+    </div>
+    <div>
+      UNIQUE
+    </div>
+    <div>
+      TECHNICAL ITEMS
+    </div>
+    <div>
+      FROM NOW
+    </div>
+    <div>
+      YOU are OUR FAMILY
+    </div>
+    <div>
+      ENJOY Shopping
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 {% endblock %}

@@ -1,20 +1,81 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-{% block account %}
 <form method="post" action="{% url 'app:signup' %}">{% csrf_token %}
-  <label>Email</label>
-  {{ form.email }}
-  {{ form.email.errors }} <br>
-  <label>Password</label>
-  {{ form.password1 }}
-  {{ form.password1.errors }}
-  <br>
-  <label>password(Again)</label>
-  {{ form.password2 }}
-  {{ form.password2.errors }}
-  <br>
-  <input type="submit" value="Signup">
+  <h2 class="d-flex justify-content-center pb-5">Signup</h2>
+  <div class="row">
+    <div class="col-lg-8 col-12 row">
+      <div class="col-lg-3">
+        <label>Email</label>
+        {{ form.email }}
+        {{ form.email.errors }}
+        <br>
+      </div>
+
+      <div class="col-lg-3">
+        <label>Password</label>
+        {{ form.password1 }}
+        {{ form.password1.errors }}
+        <br>
+      </div>
+
+      <div class="col-lg-3">
+        <label>password(Again)</label>
+        {{ form.password2 }}
+        {{ form.password2.errors }}
+        <br>
+      </div>
+
+      <div class="col-lg-3 d-flex flex-end">
+        <input type="submit" value="Signup">
+      </div>
+
+    </div>
+
+
+
+    <div class="col-lg-4 col-12 d-flex end-block">
+      <div class="social_account">..or signup with your Google account</div>
+      <ul>
+        <li><a href="{% url 'social:begin' 'google-oauth2' %}"><img src="./../media/google.png"
+              style="width: 30px; height: auto;" alt=""></a></li>
+      </ul>
+    </div>
+  </div>
 </form>
-{% endblock %}
+
+
+
+
+
+<div class="under-message">
+  <div class="fly-in">
+    <div>
+      Welcome to DJAMAZON!!
+    </div>
+    <div>
+      YOU will FIND
+    </div>
+    <div>
+      AWESOME
+    </div>
+    <div>
+      UNIQUE
+    </div>
+    <div>
+      TECHNICAL ITEMS
+    </div>
+    <div>
+      FROM NOW
+    </div>
+    <div>
+      YOU are OUR FAMILY
+    </div>
+    <div>
+      ENJOY Shopping
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}

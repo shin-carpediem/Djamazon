@@ -12,6 +12,10 @@ a:hover {
   color: #0F4B34;
 }
 
+li {
+  list-style: none;
+}
+
 body > .container {
   width: 65%;
   padding-top: 60px;
