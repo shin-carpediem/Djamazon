@@ -139,10 +139,6 @@ AUTHENTICATION_BACKENDS = (
    'django.contrib.auth.backends.ModelBackend',
 )
 
-# クライアントID
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1861949194-g3f66d9pv0i3gegf9t49ftu41aboo4i3.apps.googleusercontent.com'
-# クライアント シークレット
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'YDronu00agggNDNXgiyYX5eY'
 
 #SOCIALACCOUNT_PROVIDERS = {
  #   'facebook': {
