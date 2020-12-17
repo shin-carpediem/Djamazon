@@ -9,7 +9,7 @@ a {
 }
 
 a:hover {
-  text-decoration: none;
+  color: #0F4B34;
 }
 
 body > .container {
@@ -342,7 +342,7 @@ header .header-menu a {
   border-radius: 4px;
 }
 
-/* signup */
+/* signup & login */
 .under-message {
   color: #111;
   text-align: center;

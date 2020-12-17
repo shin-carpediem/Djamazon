@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+
+{% if %}
+{% block account %}{% endblock %}
+{% else %}
+{% endif %}
+
+
+<div class="social_account">..or signup with your Google account</div>
+<ul>
+  <li><a href="{% url 'social:begin' 'google-oauth2' %}"><img src="./../media/google.png" style="width: 10px; height: auto;" alt=""></a></li>
+</ul>
+
+
+<div class="under-message">
+  <div class="fly-in">
+    <div>
+      Welcome to DJAMAZON!!
+    </div>
+    <div>
+      YOU will FIND
+    </div>
+    <div>
+      AWESOME
+    </div>
+    <div>
+      UNIQUE
+    </div>
+    <div>
+      TECHNICAL ITEMS
+    </div>
+    <div>
+      FROM NOW
+    </div>
+    <div>
+      YOU are OUR FAMILY
+    </div>
+    <div>
+      ENJOY Shopping
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -6,12 +6,12 @@ html, body {
 a{
   color: #000;
   &:hover {
-    text-decoration: none;
+    color: #0F4B34;
   }
 }
-body > .container { 
+body > .container {
   width: 65%;
-  padding-top: 60px; 
+  padding-top: 60px;
 }
 
 @font-face {
@@ -39,6 +39,10 @@ body > .container {
   margin-top: 150px;
   overflow: auto;
 }
+
+
+
+
 
 header {
   border-bottom: solid 2px #000;
@@ -99,6 +103,11 @@ header {
     }
   }
 }
+
+
+
+
+
 .product {
   width: calc(100%/3);
   float: left;
@@ -122,6 +131,11 @@ header {
     background-color: #000;
   }
 }
+
+
+
+
+
 .user-name {
   font-size: 30px;
 }
@@ -147,61 +161,61 @@ header {
 
 
 
-/* product detail */ 
+/* product detail */
 .product-detail {
-  display: flex; 
-  justify-content: flex-start; 
+  display: flex;
+  justify-content: flex-start;
   padding: 10px;
   margin-top: 170px;
 }
-.product-detail-image { 
+.product-detail-image {
   flex: 1;
 }
-.product-detail-info { 
+.product-detail-info {
   flex: 1;
 }
-.product-img { 
+.product-img {
   object-fit: contain;
 }
-.product-detail-info { 
+.product-detail-info {
   margin-left: 10px;
-  .point-fav-section { 
+  .point-fav-section {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
   }
-  .fav_button { 
+  .fav_button {
     text-align: center;
     display: inline-block;
     padding: 8px 16px;
-    border: 2px solid blue; 
-    border-radius: 4px; 
-    font-size: 16px; 
-    font-weight: bold; 
+    border: 2px solid blue;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
     color: blue;
   }
-  .is_faved { 
-    background-color: blue; 
-    border-color: blue;
-    color: #FFF;
-  }
-  .fav_button:hover { 
+  .is_faved {
     background-color: blue;
     border-color: blue;
     color: #FFF;
   }
-  .purchase-button { 
+  .fav_button:hover {
+    background-color: blue;
+    border-color: blue;
+    color: #FFF;
+  }
+  .purchase-button {
     display: inline-block;
     text-align: center;
     background-color: orange;
     font-size: 16px;
     color: #FFF;
     font-weight: bold;
-    padding: 10px 16px; 
-    border-radius: 4px; 
+    padding: 10px 16px;
+    border-radius: 4px;
     border-bottom: 4px solid #a26a03;
   }
-  .purchase-button:active { 
+  .purchase-button:active {
     transform: translateY(4px);
     border-bottom: none;
   }
@@ -218,36 +232,36 @@ header {
 
 
 
-/* cart */ 
+/* cart */
 .cart {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
-.purchase-form { 
-  width: 100%; 
+.purchase-form {
+  width: 100%;
   margin: 10px auto;
-  .purchase-button { 
-    display: inline-block; 
-    text-align: center; 
-    background-color: orange; 
+  .purchase-button {
+    display: inline-block;
+    text-align: center;
+    background-color: orange;
     font-size: 16px;
     color: #FFF;
     font-weight: bold;
     padding: 10px 16px;
     float: right;
-    margin-right: 5px; 
-    border-radius: 4px; 
+    margin-right: 5px;
+    border-radius: 4px;
     border-bottom: 4px solid #a26a03;
   }
 }
-.purchase-form-container { 
+.purchase-form-container {
   width: 100%;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
-.purchase-form-address { 
+.purchase-form-address {
   flex: 1;
 }
-.purchase-form-pay { 
+.purchase-form-pay {
   flex: 1;
 }
 
@@ -265,41 +279,41 @@ header {
   padding: 20px;
   display: flex;
 }
-.order-item-image { 
+.order-item-image {
   flex: 1;
 }
-.order-item-info { 
-  flex: 1; 
+.order-item-info {
+  flex: 1;
   font-size: 16px;
-  .info-value { 
+  .info-value {
     float: right;
   }
-  .info-timestamp { 
+  .info-timestamp {
     float: right;
     font-size: 12px;
     font-style: italic;
-    margin-top: 8px; 
+    margin-top: 8px;
   }
 }
-.order-item-amount-form { 
+.order-item-amount-form {
   float: right;
   margin: 10px;
-  input { 
+  input {
     font-size: 20px;
   }
 }
 .message-success {
-  background-color: #00d1b2; 
+  background-color: #00d1b2;
   color: white;
-  padding: 10px; 
-  padding-left: 30px; 
+  padding: 10px;
+  padding-left: 30px;
   border-radius: 4px;
 }
-.message-warning { 
-  background-color: #ffc107; 
+.message-warning {
+  background-color: #ffc107;
   color: white;
-  padding: 10px; 
-  padding-left: 30px; 
+  padding: 10px;
+  padding-left: 30px;
   border-radius: 4px;
 }
 
@@ -308,7 +322,8 @@ header {
 
 
 
-/* signup */
+/* signup & login */
+
 .under-message {
   color: #111;
   text-align: center;

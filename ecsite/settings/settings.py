@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'users',
     'app',
-    # 'social_django',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -46,8 +46,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-   # 'social_django.middleware.SocialAuthExceptionMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'django-env.eba-fpfqrcpi.ap-northeast-1.elasticbeanstalk.com', '54.95.104.230', '172.31.42.122']
@@ -65,9 +64,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-               # 'social_django.context_processors.backends',
-               # 'social_django.context_processors.login_redirect',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
             # 'loaders': [
             #     (
@@ -130,17 +128,21 @@ NUMBER_GROUPING = 3
 
 SESSION_SAVE_EVERY_REQUEST = False
 
-#AUTHENTICATION_BACKENDS = (
- #   'social_core.backends.open_id.OpenIdAuth',
- #   'social_core.backends.google.GoogleOpenId',
- #   'social_core.backends.google.GoogleOAuth2',
+# https://nmomos.com/tips/2019/07/05/django-social-auth/
+AUTHENTICATION_BACKENDS = (
+#    'social_core.backends.open_id.OpenIdAuth',
+#    'social_core.backends.google.GoogleOpenId',
+   'social_core.backends.google.GoogleOAuth2',
+#    'social_core.backends.github.GithubOAuth2',
+#    'social_core.backends.twitter.TwitterOAuth',
+#    'social_core.backends.facebook.FacebookOAuth2',
+   'django.contrib.auth.backends.ModelBackend',
+)
 
- #   'social_core.backends.github.GithubOAuth2',
- #   'social_core.backends.twitter.TwitterOAuth',
- #   'social_core.backends.facebook.FacebookOAuth2',
-
- #   'django.contrib.auth.backends.ModelBackend',
-#)
+# クライアントID
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1861949194-g3f66d9pv0i3gegf9t49ftu41aboo4i3.apps.googleusercontent.com'
+# クライアント シークレット
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'YDronu00agggNDNXgiyYX5eY'
 
 #SOCIALACCOUNT_PROVIDERS = {
  #   'facebook': {
