@@ -8,7 +8,6 @@
   <meta charset="UTF-8">
   <!-- Device related -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -23,16 +22,16 @@
 
 <body>
   <header>
-    <div>
+    <div class="header-wrapper">
       <h1 class="header-title" contenteditable>Djamazon</h1>
       <div class="header-menu row">
         {% if request.user.is_authenticated %}
-        <span class="col-lg-2 col-4"><a href="{% url 'app:index' %}">Home</a></span>
-        <span class="col-lg-2 col-4"><a href="{% url 'app:fav_products' %}">Favorite</a></span>
-        <span class="col-lg-2 col-4"><a href="{% url 'app:cart' %}">Cart</a></span>
-        <span class="col-lg-2 col-4"><a href="{% url 'app:order_history' %}">Order-history</a></span>
-        <span class="col-lg-2 col-4"><a href="{% url 'app:logout' %}">Logout</a></span>
-        <span class="col-lg-2 col-4">Point: {{ user.point | intcomma }}</span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:index' %}">Home</a></span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:fav_products' %}">Favorite</a></span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:cart' %}">Cart</a></span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}">Order-history</a></span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:logout' %}">Logout</a></span>
+        <span class="col-lg-2 col-sm-4 col-6">Point: {{ user.point | intcomma }}</span>
         {% else %}
         <span class="col-6"><a href="{% url 'app:login' %}">Login</a></span>
         <span class="col-6"><a href="{% url 'app:signup' %}">Signup</a></span>
@@ -42,6 +41,8 @@
   </header>
 
   <div class="container">
+    <img src="media/left-person.svg" alt="" class="left-person">
+
     {% for message in messages %}
     <p class="message-{{ message.tags }}">{{ message }}</p>
     {% endfor %}
@@ -49,6 +50,27 @@
   </div>
 
 
+
+  <footer>
+    <div class="footer-wrapper row">
+
+      <div class="footer-left col-lg-7 col-12">
+        <p>
+          Copyright ©
+          2020 Djamazon Corporation All Rights
+          . All rights reserved.
+        </p>
+      </div>
+
+      <div class="col-lg-5 col-12 footer-right">
+        <ul class="row">
+          <li><a href="#" class="col-6">Privacy Policy</a></li>
+          <li><a href="#" class="col-6">Terms of Service</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
 
 
 

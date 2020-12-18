@@ -38,12 +38,19 @@ body > .container {
     font-variation-settings: 'SSTR' 0;
   }
 }
-.container {
-  width: 80%;
-  margin-top: 150px;
-  overflow: auto;
-}
 
+
+body {
+  position: relative;
+  .left-person {
+    position: absolute;
+    top: 200px;
+    left: 80px;
+    opacity: 0.15;
+    z-index: -1;
+    transform: scale(1.5);
+  }
+}
 
 
 
@@ -106,6 +113,15 @@ header {
     }
   }
 }
+
+
+
+.container {
+  width: 80%;
+  margin-top: 150px;
+  overflow: auto;
+}
+
 
 
 
@@ -322,6 +338,27 @@ header {
 
 
 
+/* footer */
+footer {
+  width: 100%;
+  border-top: 2px solid black;
+  height: 150px;
+  .footer-wrapper {
+    width: 65%;
+    margin: 70px auto;
+    display: flex;
+    justify-content: space-around;
+    .footer-left {
+      text-align: center;
+      p {
+        font-size: smaller;
+      }
+    }
+    .footer-right {
+      text-align: center;
+    }
+  }
+}
 
 
 
@@ -380,25 +417,46 @@ header {
 
 
 /* responsive */
+@media (max-width: 990px) {
+  footer {
+    .footer-wrapper {
+      flex-direction: column-reverse;
+    }
+    ul {
+      justify-content: center;
+    }
+  }
+}
+
+
+
 @media (max-width: 768px) {
   header {
-    height: 100px;
+    .header-wrapper {
+      padding-top: 30px;
     .header-title {
       display: inline-block;
       float: left;
-      padding-left: 30px;
+      padding: 10px 10px 0 30px;
     }
+   }
   }
   .product {
     width: calc(100%/2);
   }
-}
+  footer {
+    .footer-wrapper {
+      margin: 40px auto;
+    }
+  }
+ }
+
+
+
+
 @media (max-width: 414px) {
   body {
     font-size: 0.7rem;
-  }
-  header {
-    height: 90px;
   }
   .product {
     width: 100%;
