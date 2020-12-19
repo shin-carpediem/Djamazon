@@ -12,18 +12,19 @@
     <h2>{{ product.name }}</h2>
     <hr>
     <div class="point-fav-section">
-      <h4>{{ product.price | intcomma }}Point</h4>
+      <h4>{{ product.price | intcomma }}ポイント</h4>
       {% if request.user.is_authenticated %}
-      <form action="{% url 'app:toggle_fav_product_status' %}" mothod="post">{% csrf_token %}
+      <form action="{% url 'app:toggle_fav_product_status' %}" method="post">{% csrf_token %}
         <input type="hidden" name="product_id" value="{{ product.id }}">
         {% if product in user.fav_products.all %}
-        <input type="submit" name="submit" class="fav_button" value="Remove from my Favorite">
+        <input type="submit" name="submit" class="fav_button" value="remove from your favorite" />
         {% else %}
-        <input type="submit" name="submit" class="fav_button" value="Add to my Favorite">
+        <input type="submit" name="submit" class="fav_button" value="add to your favorite" />
         {% endif %}
       </form>
       {% endif %}
     </div>
+
 
     <p>{{ product.description }}</p>
 

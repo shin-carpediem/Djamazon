@@ -14,7 +14,6 @@ def index(request):
     products = Product.objects.all().order_by('-id')
     return render(request, 'app/index.html', {'products': products})
 
-
 def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -30,14 +29,12 @@ def signup(request):
         form = CustomUserCreationForm()
     return render(request, 'app/signup.html', {'form': form})
 
-
 def detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     add_to_cart_form = AddToCartForm(request.POST or None)
     if add_to_cart_form.is_valid():
         num = add_to_cart_form.cleaned_data['num']
-
-# セッションに cart というキーがあるかどうかで処理を分ける
+        # セッションに cart というキーがあるかどうかで処理を分ける
         if 'cart' in request.session:
             # すでに特定の商品の個数があれば新しい個数を加算、なければ新しくキーを追加する
             if str(product_id) in request.session['cart']:
@@ -55,25 +52,22 @@ def detail(request, product_id):
     }
     return render(request, 'app/detail.html', context)
 
-
 @login_required
 @require_POST
 def toggle_fav_product_status(request):
     product = get_object_or_404(Product, pk=request.POST["product_id"])
     user = request.user
-    if product in user.fav_products_all():
+    if product in user.fav_products.all():
         user.fav_products.remove(product)
     else:
         user.fav_products.add(product)
     return redirect('app:detail', product_id=product.id)
-
 
 @login_required
 def fav_products(request):
     user = request.user
     products = user.fav_products.all()
     return render(request, 'app/index.html', {'products': products})
-
 
 @login_required
 def cart(request):
@@ -98,55 +92,41 @@ def cart(request):
                 return redirect('app:cart')
             # 住所が取得できたらフォームに入力してあげる
             purchase_form = PurchaseForm(initial={'zip_code': zip_code, 'address': address})
-
-# 購入ボタンが押された場合
+        # 購入ボタンが押された場合
         if 'buy_product' in request.POST:
             # 住所が入力済みか確認する
             if not purchase_form.cleaned_data['address']:
                 messages.warning(request, "住所の入力は必須です")
                 return redirect('app:cart')
-                # カートが空じゃないか確認
+            # カートが空じゃないか確認
             if not bool(cart):
                 messages.warning(request, "カートは空です")
                 return redirect('app:cart')
-
-# 所持ポイントが十分にあるか確認
-        if total_price > user.point:
-            messages.warning(request, "所持ポイントが足りません")
+            # 所持ポイントが十分にあるか確認
+            if total_price > user.point:
+                messages.warning(request, "所持ポイントが足りません")
+                return redirect('app:cart')
+            # 各プロダクトの Sale 情報を保存
+            for product_id, num in cart.items():
+                if not Product.objects.filter(pk=product_id).exists():
+                    del cart[product_id]
+                product = Product.objects.get(pk=product_id)
+                sale = Sale(product=product, user=request.user, amount=num, price=product.price, total_price=num*product.price)
+                sale.save()
+           # ポイントを削減
+            user.point -= total_price
+            user.save()
+            del request.session['cart']
+            messages.success(request, "商品の購入が完了しました！")
             return redirect('app:cart')
-
-# 各プロダクトの Sale 情報を保存
-        for product_id, num in cart.items():
-            if not Product.objects.filter(pk=product_id).exists():
-                del cart[product_id]
-            product = Product.objects.get(pk=product_id)
-            sale = Sale(product=product, user=request.user, amount=num, price=product.price, total_price=num*product.price)
-            sale.save()
-
-# ポイントを削減
-        user.point -= total_price
-        user.save()
-        del request.session['cart']
-        messages.success(request, "商品の購入が完了しました！")
-        return redirect('app:cart')
-
-    else:
-        return redirect('app:cart')
-
+        else:
+            return redirect('app:cart')
     context = {
         'purchase_form': purchase_form,
         'cart_products': cart_products,
         'total_price': total_price,
     }
     return render(request, 'app/cart.html', context)
-
-
-@login_required
-def order_history(request):
-    user = request.user
-    sales = Sale.objects.filter(user=user).order_by('-created_at')
-    return render(request, 'app/order_history.html', {'sales': sales})
-
 
 @login_required
 @require_POST
@@ -162,7 +142,6 @@ def change_item_amount(request):
             del cart_session[product_id]
     return redirect('app:cart')
 
-
 def get_address(zip_code):
     REQUEST_URL = f'http://zipcloud.ibsnet.co.jp/api/search?zipcode={zip_code}'
     address = ''
@@ -173,3 +152,9 @@ def get_address(zip_code):
         result = result[0]
         address = result['address1'] + result['address2'] + result['address3']
     return address
+
+@login_required
+def order_history(request):
+    user = request.user
+    sales = Sale.objects.filter(user=user).order_by('-created_at')
+    return render(request, 'app/order_history.html', {'sales': sales})
