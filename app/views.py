@@ -34,7 +34,6 @@ def detail(request, product_id):
     add_to_cart_form = AddToCartForm(request.POST or None)
     if add_to_cart_form.is_valid():
         num = add_to_cart_form.cleaned_data['num']
-
         # セッションに cart というキーがあるかどうかで処理を分ける
         if 'cart' in request.session:
             # すでに特定の商品の個数があれば新しい個数を加算、なければ新しくキーを追加する
@@ -91,7 +90,7 @@ def cart(request):
             address = get_address(zip_code)
             # 住所が取得できなかった場合はメッセージを出してリダイレクト
             if not address:
-                messages.warning(request, "住所を取得できませんでした。")
+                messages.warning(request, "You could not get the adrress.")
                 return redirect('app:cart')
             # 住所が取得できたらフォームに入力してあげる
             purchase_form = PurchaseForm(initial={'zip_code': zip_code, 'address': address})
@@ -99,15 +98,15 @@ def cart(request):
         if 'buy_product' in request.POST:
             # 住所が入力済みか確認する
             if not purchase_form.cleaned_data['address']:
-                messages.warning(request, "住所の入力は必須です")
+                messages.warning(request, "You need to input address.")
                 return redirect('app:cart')
             # カートが空じゃないか確認
             if not bool(cart):
-                messages.warning(request, "カートは空です")
+                messages.warning(request, "Your cart is empty.")
                 return redirect('app:cart')
             # 所持ポイントが十分にあるか確認
             if total_price > user.point:
-                messages.warning(request, "所持ポイントが足りません")
+                messages.warning(request, "You do not have enough points.")
                 return redirect('app:cart')
             # 各プロダクトの Sale 情報を保存
             for product_id, num in cart.items():
@@ -120,7 +119,7 @@ def cart(request):
             user.point -= total_price
             user.save()
             del request.session['cart']
-            messages.success(request, "商品の購入が完了しました!")
+            messages.success(request, "You purchased items!")
             return redirect('app:cart')
         else:
             return redirect('app:cart')
@@ -145,6 +144,7 @@ def change_item_amount(request):
             del cart_session[product_id]
     return redirect('app:cart')
 
+# 郵便番号検索の API を利用する関数
 def get_address(zip_code):
     REQUEST_URL = f'http://zipcloud.ibsnet.co.jp/api/search?zipcode={zip_code}'
     address = ''
