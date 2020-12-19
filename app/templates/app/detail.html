@@ -12,7 +12,7 @@
     <h2>{{ product.name }}</h2>
     <hr>
     <div class="point-fav-section">
-      <h4>{{ product.price | intcomma }}ポイント</h4>
+      <h4>{{ product.price | intcomma }} Point</h4>
       {% if request.user.is_authenticated %}
       <form action="{% url 'app:toggle_fav_product_status' %}" method="post">{% csrf_token %}
         <input type="hidden" name="product_id" value="{{ product.id }}">
@@ -32,7 +32,7 @@
       {% if request.user.is_authenticated %}
       <form action="{% url 'app:detail' product.id %}" mothod="post">{% csrf_token %}
         {{ add_to_cart_form.as_p }}
-        <button class="purchase-button" type="submit">Add to my Cart</button>
+        <button class="purchase-button" type="submit">Add to Cart</button>
       </form>
       {% else %}
       <a href="{% url 'app:login' %}?next={{ request.path }}">

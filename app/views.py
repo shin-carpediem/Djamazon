@@ -34,6 +34,7 @@ def detail(request, product_id):
     add_to_cart_form = AddToCartForm(request.POST or None)
     if add_to_cart_form.is_valid():
         num = add_to_cart_form.cleaned_data['num']
+
         # セッションに cart というキーがあるかどうかで処理を分ける
         if 'cart' in request.session:
             # すでに特定の商品の個数があれば新しい個数を加算、なければ新しくキーを追加する
@@ -44,11 +45,11 @@ def detail(request, product_id):
         else:
             # 新しく cart というセッションのキーを追加
             request.session['cart'] = {str(product_id): num}
-        messages.success(request, f"You added{num}{product.name} into your cart!")
+        messages.success(request, f"You added {num} {product.name} !")
         return redirect('app:detail', product_id=product_id)
     context = {
-        'product': product,
-        'add_to_cart_form': add_to_cart_form,
+       'product': product,
+       'add_to_cart_form': add_to_cart_form,
     }
     return render(request, 'app/detail.html', context)
 
@@ -59,8 +60,10 @@ def toggle_fav_product_status(request):
     user = request.user
     if product in user.fav_products.all():
         user.fav_products.remove(product)
+        messages.warning(request, f"You removed {product.name} from your Favorite!")
     else:
         user.fav_products.add(product)
+        messages.success(request, f"You added {product.name} to your Favorite!")
     return redirect('app:detail', product_id=product.id)
 
 @login_required
@@ -83,7 +86,7 @@ def cart(request):
     purchase_form = PurchaseForm(request.POST or None)
     if purchase_form.is_valid():
         # 住所検索ボタンが押された場合
-        if 'search_address' in request_POST:
+        if 'search_address' in request.POST:
             zip_code = request.POST['zip_code']
             address = get_address(zip_code)
             # 住所が取得できなかった場合はメッセージを出してリダイレクト
@@ -113,11 +116,11 @@ def cart(request):
                 product = Product.objects.get(pk=product_id)
                 sale = Sale(product=product, user=request.user, amount=num, price=product.price, total_price=num*product.price)
                 sale.save()
-           # ポイントを削減
+            # ポイントを削減
             user.point -= total_price
             user.save()
             del request.session['cart']
-            messages.success(request, "商品の購入が完了しました！")
+            messages.success(request, "商品の購入が完了しました!")
             return redirect('app:cart')
         else:
             return redirect('app:cart')
