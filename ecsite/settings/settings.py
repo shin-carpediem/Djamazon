@@ -67,12 +67,6 @@ TEMPLATES = [
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
             ],
-            # 'loaders': [
-            #     (
-            #         'django.template.loaders.filesystem.Loader',
-            #         # [os.path.join(BASE_DIR, 'templates')],
-            #     ),
-            # ],
         },
     },
 ]
@@ -126,16 +120,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 NUMBER_GROUPING = 3
 
-SESSION_SAVE_EVERY_REQUEST = False
+# セッションを毎回更新する
+SESSION_SAVE_EVERY_REQUEST = True
 
 # https://nmomos.com/tips/2019/07/05/django-social-auth/
 AUTHENTICATION_BACKENDS = (
-#    'social_core.backends.open_id.OpenIdAuth',
-#    'social_core.backends.google.GoogleOpenId',
    'social_core.backends.google.GoogleOAuth2',
-#    'social_core.backends.github.GithubOAuth2',
-#    'social_core.backends.twitter.TwitterOAuth',
-#    'social_core.backends.facebook.FacebookOAuth2',
    'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -167,6 +157,9 @@ AUTHENTICATION_BACKENDS = (
 # need to cuppling later
 #SOCIAL_AUTH_FACEBOOK_KEY = '1067023380377702'
 #SOCIAL_AUTH_FACEBOOK_SECRET = '7d3f4a8e9f568e1bd6722296bdfd6c89'
+
+
+
 
 
 

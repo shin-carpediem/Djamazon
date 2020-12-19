@@ -39,7 +39,7 @@ def detail(request, product_id):
 
 # セッションに cart というキーがあるかどうかで処理を分ける
         if 'cart' in request.session:
-            # すでに特定の商品の個数があれば新しい個数を加算、なければ新しくキ ーを追加する
+            # すでに特定の商品の個数があれば新しい個数を加算、なければ新しくキーを追加する
             if str(product_id) in request.session['cart']:
                 request.session['cart'][str(product_id)] += num
             else:
@@ -136,7 +136,7 @@ def cart(request):
     context = {
         'purchase_form': purchase_form,
         'cart_products': cart_products,
-        'total_price': total_price
+        'total_price': total_price,
     }
     return render(request, 'app/cart.html', context)
 
