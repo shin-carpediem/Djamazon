@@ -12,7 +12,7 @@ from .models import Product, Sale
 # Create your views here.
 def index(request):
     products = Product.objects.all().order_by('-id')
-    return render(request, 'app/index.html', {'products': products })
+    return render(request, 'app/index.html', {'products': products})
 
 
 def signup(request):
@@ -28,7 +28,7 @@ def signup(request):
                 return redirect('app:index')
     else:
         form = CustomUserCreationForm()
-    return render(request, 'app/signup.html', {'form': form })
+    return render(request, 'app/signup.html', {'form': form})
 
 
 def detail(request, product_id):
@@ -57,13 +57,6 @@ def detail(request, product_id):
 
 
 @login_required
-def fav_products(request):
-    user = request.user
-    products = user.fav_products.all()
-    return render(request, 'app/index.html', {'products': products })
-
-
-@login_required
 @require_POST
 def toggle_fav_product_status(request):
     product = get_object_or_404(Product, pk=request.POST["product_id"])
@@ -73,6 +66,13 @@ def toggle_fav_product_status(request):
     else:
         user.fav_products.add(product)
     return redirect('app:detail', product_id=product.id)
+
+
+@login_required
+def fav_products(request):
+    user = request.user
+    products = user.fav_products.all()
+    return render(request, 'app/index.html', {'products': products})
 
 
 @login_required
@@ -97,7 +97,7 @@ def cart(request):
                 messages.warning(request, "住所を取得できませんでした。")
                 return redirect('app:cart')
             # 住所が取得できたらフォームに入力してあげる
-            purchase_form = PurchaseForm(initial={'zip_code': zip_code, 'address': address })
+            purchase_form = PurchaseForm(initial={'zip_code': zip_code, 'address': address})
 
 # 購入ボタンが押された場合
         if 'buy_product' in request.POST:
@@ -145,7 +145,7 @@ def cart(request):
 def order_history(request):
     user = request.user
     sales = Sale.objects.filter(user=user).order_by('-created_at')
-    return render(request, 'app/order_history.html', {'sales': sales })
+    return render(request, 'app/order_history.html', {'sales': sales})
 
 
 @login_required

@@ -25,4 +25,7 @@ urlpatterns = [
     path('oauth/', include('social_django.urls', namespace='social')),
 # path('accounts/profile/', views.index, name='index')
     path('', include('app.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+# MEDIA_ROOT を公開する(アクセス可能にする)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

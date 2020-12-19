@@ -1,18 +1,20 @@
 from django.db import models
-from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
+from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.core.mail import send_mail
 from django.utils import timezone
 from app.models import Product
 
 # Create your models here.
 class UserManager(BaseUserManager):
-
+    # """カスタムユーザーマネージャー"""
     use_in_migrations = True
 
     def _create_user(self, email, password, **extra_fields):
+        # email を必須にする
         if not email:
             raise ValueError('The given email must be set')
+        # email で User モデルを作成
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
@@ -38,6 +40,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     initial_point = 50000
+    # """カスタムユーザーモデル"""
     email = models.EmailField("email_address", unique=True)
     point = models.PositiveIntegerField(default=initial_point)
     fav_products = models.ManyToManyField(Product, blank=True)
