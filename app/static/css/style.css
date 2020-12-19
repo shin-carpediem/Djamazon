@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body {
   background: rgba(160, 160, 160, 0.1);
   font-family: 'Piedra', cursive;
@@ -51,20 +52,6 @@ body > .container {
   50% {
     font-variation-settings: 'SSTR' 0;
   }
-}
-
-body {
-  position: relative;
-}
-
-body .left-person {
-  position: absolute;
-  top: 200px;
-  left: 80px;
-  opacity: 0.15;
-  z-index: -1;
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
 }
 
 header {
@@ -171,6 +158,55 @@ header .header-menu a {
           transform: perspective(100px) translateZ(20px);
 }
 
+.bg-img {
+  position: relative;
+}
+
+.bg-img .bg-1 {
+  position: absolute;
+  top: -1400px;
+  left: 80px;
+  opacity: 0.15;
+  z-index: -1;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+/* footer */
+footer {
+  width: 100%;
+  border-top: 2px solid black;
+  height: 150px;
+}
+
+footer .footer-wrapper {
+  width: 65%;
+  margin: 70px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+footer .footer-wrapper .footer-left {
+  text-align: center;
+}
+
+footer .footer-wrapper .footer-left p {
+  font-size: smaller;
+}
+
+footer .footer-wrapper .footer-right {
+  text-align: center;
+  margin: 0 auto;
+}
+
+footer .footer-wrapper .footer-right li:first-child {
+  float: left;
+}
+
+/* ここまでtop page */
 /* product detail */
 .product-detail {
   display: -webkit-box;
@@ -360,37 +396,8 @@ header .header-menu a {
   border-radius: 4px;
 }
 
-/* footer */
-footer {
-  width: 100%;
-  border-top: 2px solid black;
-  height: 150px;
-}
-
-footer .footer-wrapper {
-  width: 65%;
-  margin: 70px auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-footer .footer-wrapper .footer-left {
-  text-align: center;
-}
-
-footer .footer-wrapper .footer-left p {
-  font-size: smaller;
-}
-
-footer .footer-wrapper .footer-right {
-  text-align: center;
-}
-
 /* signup & login */
-.under-message {
+.welcome-message {
   color: #111;
   text-align: center;
   width: 100%;
@@ -398,14 +405,14 @@ footer .footer-wrapper .footer-right {
   overflow: hidden;
 }
 
-.under-message .fly-in {
+.welcome-message .fly-in {
   font-size: 3em;
-  margin: 20vh auto;
+  margin: 10vh auto;
   height: 30vh;
   text-transform: uppercase;
 }
 
-.under-message .fly-in div {
+.welcome-message .fly-in div {
   position: fixed;
   opacity: 0;
   left: 10%;
@@ -414,37 +421,37 @@ footer .footer-wrapper .footer-right {
           animation: switch 32s linear infinite;
 }
 
-.under-message .fly-in div:nth-child(2) {
+.welcome-message .fly-in div:nth-child(2) {
   -webkit-animation-delay: 4s;
           animation-delay: 4s;
 }
 
-.under-message .fly-in div:nth-child(3) {
+.welcome-message .fly-in div:nth-child(3) {
   -webkit-animation-delay: 8s;
           animation-delay: 8s;
 }
 
-.under-message .fly-in div:nth-child(4) {
+.welcome-message .fly-in div:nth-child(4) {
   -webkit-animation-delay: 12s;
           animation-delay: 12s;
 }
 
-.under-message .fly-in div:nth-child(5) {
+.welcome-message .fly-in div:nth-child(5) {
   -webkit-animation-delay: 16s;
           animation-delay: 16s;
 }
 
-.under-message .fly-in div:nth-child(6) {
+.welcome-message .fly-in div:nth-child(6) {
   -webkit-animation-delay: 20s;
           animation-delay: 20s;
 }
 
-.under-message .fly-in div:nth-child(7) {
+.welcome-message .fly-in div:nth-child(7) {
   -webkit-animation-delay: 24s;
           animation-delay: 24s;
 }
 
-.under-message .fly-in div:nth-child(8) {
+.welcome-message .fly-in div:nth-child(8) {
   -webkit-animation-delay: 28s;
           animation-delay: 28s;
 }
@@ -525,16 +532,14 @@ footer .footer-wrapper .footer-right {
 
 /* responsive */
 @media (max-width: 990px) {
+  .bg-img {
+    display: none;
+  }
   footer .footer-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
-  }
-  footer ul {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
   }
 }
 
@@ -547,11 +552,11 @@ footer .footer-wrapper .footer-right {
     float: left;
     padding: 10px 10px 0 30px;
   }
-  .product {
-    width: calc(100%/2);
-  }
   footer .footer-wrapper {
     margin: 40px auto;
+  }
+  .product {
+    width: calc(100%/2);
   }
 }
 

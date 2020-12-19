@@ -1,54 +1,7 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-<form method="post" action="{% url 'app:signup' %}">{% csrf_token %}
-  <h2 class="d-flex justify-content-center pb-5">Signup</h2>
-  <div class="row">
-    <div class="col-lg-8 col-12 row">
-      <div class="col-lg-3">
-        <label>Email</label>
-        {{ form.email }}
-        {{ form.email.errors }}
-        <br>
-      </div>
-
-      <div class="col-lg-3">
-        <label>Password</label>
-        {{ form.password1 }}
-        {{ form.password1.errors }}
-        <br>
-      </div>
-
-      <div class="col-lg-3">
-        <label>password(Again)</label>
-        {{ form.password2 }}
-        {{ form.password2.errors }}
-        <br>
-      </div>
-
-      <div class="col-lg-3 d-flex flex-end">
-        <input type="submit" value="Signup">
-      </div>
-
-    </div>
-
-
-
-    <div class="col-lg-4 col-12 d-flex end-block">
-      <div class="social_account">..or signup with your Google account</div>
-      <ul>
-        <li><a href="{% url 'social:begin' 'google-oauth2' %}"><img src="./../media/google.png"
-              style="width: 30px; height: auto;" alt=""></a></li>
-      </ul>
-    </div>
-  </div>
-</form>
-
-
-
-
-
-<div class="under-message">
+<div class="welcome-message">
   <div class="fly-in">
     <div>
       Welcome to DJAMAZON!!
@@ -76,6 +29,60 @@
     </div>
   </div>
 </div>
+
+
+
+
+<form method="post" action="{% url 'app:signup' %}">{% csrf_token %}
+  <h2 class="d-flex justify-content-center pb-5">Signup</h2>
+
+  <div class="row">
+    <div class="col-sm-8 col-12">
+      <div>
+        <label>Email</label><br>
+        {{ form.email }}
+        {{ form.email.errors }}
+        <br>
+      </div>
+
+      <div>
+        <label>Password</label><br>
+        {{ form.password1 }}
+        {{ form.password1.errors }}
+        <br>
+      </div>
+
+      <div>
+        <label>password(Again)</label><br>
+        {{ form.password2 }}
+        {{ form.password2.errors }}
+        <br>
+      </div>
+
+      <div class="pt-3 pb-5">
+        <input type="submit" value="Signup">
+      </div>
+
+    </div>
+
+
+
+    <div class="col-sm-4 col-12">
+      <ul class="d-flex align-items-center"></ul>
+        <li class="social_account pb-2">..or signup with<br> your Google account</li>
+        <li class="pb-5"><a href="{% url 'social:begin' 'google-oauth2' %}"><img src="./../media/google.png"
+              style="width: 30px; height: auto;" alt=""></a></li>
+      </ul>
+    </div>
+
+  </div>
+</form>
+
+
+
+
+
+
 
 
 {% endblock %}

@@ -21,6 +21,8 @@
 </head>
 
 <body>
+
+
   <header>
     <div class="header-wrapper">
       <h1 class="header-title" contenteditable>Djamazon</h1>
@@ -40,8 +42,10 @@
     </div>
   </header>
 
+
+
   <div class="container">
-    <img src="media/left-person.svg" alt="" class="left-person">
+
 
     {% for message in messages %}
     <p class="message-{{ message.tags }}">{{ message }}</p>
@@ -49,7 +53,9 @@
     {% block content %}{% endblock %}
   </div>
 
-
+<div class="bg-img">
+  <img src="media/bg-1.svg" alt="" class="bg-1">
+</div>
 
   <footer>
     <div class="footer-wrapper row">
@@ -63,9 +69,9 @@
       </div>
 
       <div class="col-lg-5 col-12 footer-right">
-        <ul class="row">
-          <li><a href="#" class="col-6">Privacy Policy</a></li>
-          <li><a href="#" class="col-6">Terms of Service</a></li>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
         </ul>
       </div>
 
