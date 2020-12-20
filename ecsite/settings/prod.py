@@ -29,12 +29,12 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 # manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス」を記述。
 # ここに指定したパスが、STATIC_ROOTと重複している場合、The STATICFILES_DIRS setting should not contain the STATIC_ROOT settingというエラーが出る。
 # https://7me.nobiki.com/2017/django-collectstatic.html
 STATICFILES_DIRS = (
-   os.path.join(BASE_DIR, 'app/static'),
+   os.path.join(BASE_DIR, '..', 'app/static'),
 )
 
 # #誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセットしてください。

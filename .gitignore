@@ -4,7 +4,7 @@
 # __pycache__
 # eb-virt
 # db.sqlite3
-/static
+collected_static
 # .DS_Store
 
 ## Elastic Beanstalk Files
