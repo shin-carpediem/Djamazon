@@ -82,47 +82,88 @@ def cart(request):
         cart_products[product] = num
         total_price += product.price * num
 
+    # purchase_form = PurchaseForm(request.POST or None)
+    # if purchase_form.is_valid():
+    #     # 住所検索ボタンが押された場合
+    #     if 'search_address' in request.POST:
+    #         zip_code = request.POST['zip_code']
+    #         address = get_address(zip_code)
+    #         # 住所が取得できなかった場合はメッセージを出してリダイレクト
+    #         if not address:
+    #             messages.warning(request, "You could not get the adrress.")
+    #             return redirect('app:cart')
+    #         # 住所が取得できたらフォームに入力してあげる
+    #         purchase_form = PurchaseForm(initial={'zip_code': zip_code, 'address': address})
+    #     # 購入ボタンが押された場合
+    #     if 'buy_product' in request.POST:
+    #         # 住所が入力済みか確認する
+    #         if not purchase_form.cleaned_data['address']:
+    #             messages.warning(request, "You need to input address.")
+    #             return redirect('app:cart')
+    #         # カートが空じゃないか確認
+    #         if not bool(cart):
+    #             messages.warning(request, "Your cart is empty.")
+    #             return redirect('app:cart')
+    #         # 所持ポイントが十分にあるか確認
+    #         if total_price > user.point:
+    #             messages.warning(request, "You do not have enough points.")
+    #             return redirect('app:cart')
+    #         # 各プロダクトの Sale 情報を保存
+    #         for product_id, num in cart.items():
+    #             if not Product.objects.filter(pk=product_id).exists():
+    #                 del cart[product_id]
+    #             product = Product.objects.get(pk=product_id)
+    #             sale = Sale(product=product, user=request.user, amount=num, price=product.price, total_price=num*product.price)
+    #             sale.save()
+    #         # ポイントを削減
+    #         user.point -= total_price
+    #         user.save()
+    #         del request.session['cart']
+    #         messages.success(request, "You purchased items!")
+    #         return redirect('app:cart')
+
     purchase_form = PurchaseForm(request.POST or None)
-    if purchase_form.is_valid():
+    # if purchase_form.is_valid():
         # 住所検索ボタンが押された場合
-        if 'search_address' in request.POST:
-            zip_code = request.POST['zip_code']
-            address = get_address(zip_code)
+    if 'search_address' in request.POST:
+        zip_code = request.POST['zip_code']
+        address = get_address(zip_code)
             # 住所が取得できなかった場合はメッセージを出してリダイレクト
-            if not address:
-                messages.warning(request, "You could not get the adrress.")
-                return redirect('app:cart')
+        if not address:
+            messages.warning(request, "You could not get the adrress.")
+            return redirect('app:cart')
             # 住所が取得できたらフォームに入力してあげる
-            purchase_form = PurchaseForm(initial={'zip_code': zip_code, 'address': address})
+        purchase_form = PurchaseForm(initial={'zip_code': zip_code, 'address': address})
         # 購入ボタンが押された場合
-        if 'buy_product' in request.POST:
+    if 'buy_product' in request.POST:
             # 住所が入力済みか確認する
-            if not purchase_form.cleaned_data['address']:
-                messages.warning(request, "You need to input address.")
-                return redirect('app:cart')
+        if not purchase_form.cleaned_data['address']:
+            messages.warning(request, "You need to input address.")
+            return redirect('app:cart')
             # カートが空じゃないか確認
-            if not bool(cart):
-                messages.warning(request, "Your cart is empty.")
-                return redirect('app:cart')
+        if not bool(cart):
+            messages.warning(request, "Your cart is empty.")
+            return redirect('app:cart')
             # 所持ポイントが十分にあるか確認
-            if total_price > user.point:
-                messages.warning(request, "You do not have enough points.")
-                return redirect('app:cart')
+        if total_price > user.point:
+            messages.warning(request, "You do not have enough points.")
+            return redirect('app:cart')
             # 各プロダクトの Sale 情報を保存
-            for product_id, num in cart.items():
-                if not Product.objects.filter(pk=product_id).exists():
-                    del cart[product_id]
-                product = Product.objects.get(pk=product_id)
-                sale = Sale(product=product, user=request.user, amount=num, price=product.price, total_price=num*product.price)
-                sale.save()
+        for product_id, num in cart.items():
+            if not Product.objects.filter(pk=product_id).exists():
+                del cart[product_id]
+            product = Product.objects.get(pk=product_id)
+            sale = Sale(product=product, user=request.user, amount=num, price=product.price, total_price=num*product.price)
+            sale.save()
             # ポイントを削減
-            user.point -= total_price
-            user.save()
-            del request.session['cart']
-            messages.success(request, "You purchased items!")
-            return redirect('app:cart')
-        else:
-            return redirect('app:cart')
+        user.point -= total_price
+        user.save()
+        del request.session['cart']
+        messages.success(request, "You purchased items!")
+        return redirect('app:cart')
+
+    # else:
+    #     return redirect('app:cart')
     context = {
         'purchase_form': purchase_form,
         'cart_products': cart_products,

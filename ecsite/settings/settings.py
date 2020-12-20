@@ -49,9 +49,14 @@ MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'django-env.eba-fpfqrcpi.ap-northeast-1.elasticbeanstalk.com', '54.95.104.230', '172.31.42.122']
+ALLOWED_HOSTS = ['127.0.0.1', '']
 
 ROOT_URLCONF = 'ecsite.urls'
+
+# メディアファイル配信URL
+MEDIA_URL = '/media/'
+# メディアファイルの保存先
+MEDIA_ROOT = os.path.join(BASE_DIR, 'app/media')
 
 TEMPLATES = [
     {
@@ -94,7 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'ja'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Asia/Tokyo'
 
@@ -113,11 +118,6 @@ LOGIN_URL = 'app:login'
 LOGIN_REDIRECT_URL = 'app:index'
 LOGOUT_REDIRECT_URL = 'app:index'
 
-# メディアファイル配信URL
-MEDIA_URL = '/media/'
-# メディアファイルの保存先
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 NUMBER_GROUPING = 3
 
 # セッションを毎回更新する
@@ -128,31 +128,6 @@ AUTHENTICATION_BACKENDS = (
    'social_core.backends.google.GoogleOAuth2',
    'django.contrib.auth.backends.ModelBackend',
 )
-
-
-#SOCIALACCOUNT_PROVIDERS = {
- #   'facebook': {
- #       'METHOD': 'oauth2',
- #       'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
- #       'SCOPE': ['email', 'public_profile'],
- #       'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
- #       'INIT_PARAMS': {'cookie': True},
- #       'FIELDS': [
- #           'id',
- #           'first_name',
- #           'last_name',
- #           'middle_name',
- #           'name',
- #           'name_format',
- #           'picture',
- #           'short_name'
- #       ],
- #       'EXCHANGE_TOKEN': True,
- #       'LOCALE_FUNC': 'path.to.callable',
- #       'VERIFIED_EMAIL': False,
- #       'VERSION': 'v7.0',
- #   }
-#}
 
 # need to cuppling later
 #SOCIAL_AUTH_FACEBOOK_KEY = '1067023380377702'
