@@ -285,37 +285,36 @@ footer {
 
 /* cart */
 .cart {
-  margin-bottom: 20px;
+ .purchase-form {
+   width: 100%;
+   margin: 10px auto;
+   .purchase-button {
+     display: inline-block;
+     text-align: center;
+     background-color: orange;
+     font-size: 16px;
+     color: #FFF;
+     font-weight: bold;
+     padding: 10px 16px;
+     border-radius: 4px;
+     border-bottom: 4px solid #a26a03;
+   }
+ }
+ .purchase-form-container {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+ }
+ .purchase-form-pay {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   .amount {
+     display: flex;
+     align-items: center;
+   }
+ }
 }
-.purchase-form {
-  width: 100%;
-  margin: 10px auto;
-  .purchase-button {
-    display: inline-block;
-    text-align: center;
-    background-color: orange;
-    font-size: 16px;
-    color: #FFF;
-    font-weight: bold;
-    padding: 10px 16px;
-    float: right;
-    margin-right: 5px;
-    border-radius: 4px;
-    border-bottom: 4px solid #a26a03;
-  }
-}
-.purchase-form-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.purchase-form-address {
-  flex: 1;
-}
-.purchase-form-pay {
-  flex: 1;
-}
-
 
 
 

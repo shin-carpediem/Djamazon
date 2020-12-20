@@ -161,3 +161,9 @@ def order_history(request):
     user = request.user
     sales = Sale.objects.filter(user=user).order_by('-created_at')
     return render(request, 'app/order_history.html', {'sales': sales})
+
+def policy(request):
+    return render(request, 'app/policy.html')
+
+def terms(request):
+    return render(request, 'app/terms.html')

@@ -294,16 +294,12 @@ footer .footer-wrapper .footer-right li:first-child {
 }
 
 /* cart */
-.cart {
-  margin-bottom: 20px;
-}
-
-.purchase-form {
+.cart .purchase-form {
   width: 100%;
   margin: 10px auto;
 }
 
-.purchase-form .purchase-button {
+.cart .purchase-form .purchase-button {
   display: inline-block;
   text-align: center;
   background-color: orange;
@@ -311,13 +307,11 @@ footer .footer-wrapper .footer-right li:first-child {
   color: #FFF;
   font-weight: bold;
   padding: 10px 16px;
-  float: right;
-  margin-right: 5px;
   border-radius: 4px;
   border-bottom: 4px solid #a26a03;
 }
 
-.purchase-form-container {
+.cart .purchase-form-container {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -327,16 +321,25 @@ footer .footer-wrapper .footer-right li:first-child {
           justify-content: space-between;
 }
 
-.purchase-form-address {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.cart .purchase-form-pay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.purchase-form-pay {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.cart .purchase-form-pay .amount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /* order history */

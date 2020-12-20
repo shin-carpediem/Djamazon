@@ -5,57 +5,63 @@
 
 {% block content %}
 
-<div class="cart">
+<div class="cart mb-5">
 
 
-<h2>Cart</h2>
-<div class="purchase-form">
-  <form action="{% url 'app:cart' %}" method="post">{% csrf_token %}
-    <div class="purchase-form-container">
-      <div class="purchase-form-address">
-        <div>
-          {{ purchase_form.non_field_errors }}
-          {{ purchase_form.zip_code.label_tag }}
-          {{ purchase_form.zip_code }}
-          <input type="submit" name="search_address" value="Search Address">
-          <span>{{ purchase_form.zip_code.help_text }}</span>
+  <h2>Cart</h2>
+  <div class="purchase-form">
+    <form action="{% url 'app:cart' %}" method="post">{% csrf_token %}
+      <div class="purchase-form-container row">
+
+        <div class="purchase-form-address col-sm-6 col-12 p-3">
+          <div>
+            {{ purchase_form.non_field_errors }}
+            {{ purchase_form.zip_code.label_tag }}<br>
+            {{ purchase_form.zip_code }}
+            <input type="submit" name="search_address" value="Search Address" class="mt-2">
+            <span>{{ purchase_form.zip_code.help_text }}</span>
+          </div>
+          <div class="mt-2">
+            {{ purchase_form.address.label_tag }}<br>
+            {{ purchase_form.address }}
+          </div>
         </div>
-        <div>
-          {{ purchase_form.address.label_tag }}
-          {{ purchase_form.address }}
+
+        <div class="purchase-form-pay col-sm-6 col-12 row">
+          <p class="col-lg-6 col-12 mt-4 py-3 amount">
+            Billing amount：{{ total_price | intcomma }}
+          </p>
+          <input type="submit" name="buy_product" class="col-lg-6 col-12 purchase-button mt-4" value="Purchase">
         </div>
       </div>
-      <div class="purchase-form-pay">
-        Billing amount：{{ total_price | intcomma }}
-        <input type="submit" name="buy_product" class="purchase-button" value="Purchase">
-      </div>
-    </div>
-  </form>
-</div>
-
-
-
-{% for product, num in cart_products.items %}
-<div class="order-item">
-  <div class="order-item-image">
-    <a href="{% url 'app:detail' product.id %}">
-      <img src="{{ product.image.url }}" class="product-img">
-    </a> </div>
-  <div class="order-item-info">
-    <h2>{{ product.name }}</h2>
-    <div>Price:<span class="info-value">{{ product.price | intcomma }}</span></div>
-    <div>Number:<span class="info-value">{{ num | intcomma }}</span></div>
-    <hr>
-    <div>Subtotal:<span class="info-value">{% multiply product.price num %}</span></div>
-    <div class="order-item-amount-form">
-      <form action="{% url 'app:change_item_amount' %}" method="post">{% csrf_token %}
-        <input type="hidden" name="product_id" value="{{ product.id }}">
-        <input type="submit" name="action_remove" value="一つ減らす" />
-        <input type="submit" name="action_add" value="一つ増やす" /> </form>
-    </div>
-
+    </form>
   </div>
-</div>
+
+
+
+  {% for product, num in cart_products.items %}
+  <div class="order-item">
+    <div class="order-item-image">
+      <a href="{% url 'app:detail' product.id %}">
+        <img src="{{ product.image.url }}" class="product-img">
+      </a>
+    </div>
+    <div class="order-item-info">
+      <h2>{{ product.name }}</h2>
+      <div>Price:<span class="info-value">{{ product.price | intcomma }}</span></div>
+      <div>Number:<span class="info-value">{{ num | intcomma }}</span></div>
+      <hr>
+      <div>Subtotal:<span class="info-value">{% multiply product.price num %}</span></div>
+      <div class="order-item-amount-form">
+        <form action="{% url 'app:change_item_amount' %}" method="post">{% csrf_token %}
+          <input type="hidden" name="product_id" value="{{ product.id }}">
+          <input type="submit" name="action_remove" value="一つ減らす" />
+          <input type="submit" name="action_add" value="一つ増やす" />
+        </form>
+      </div>
+
+    </div>
+  </div>
   {% endfor %}
 
 
