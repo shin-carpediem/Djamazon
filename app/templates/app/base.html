@@ -5,11 +5,23 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <!-- Device related -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178766347-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-178766347-1');
+  </script>
+
+  <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- Device related -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link rel="icon" type="image/svg" href="../../media/favicon.svg">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -53,9 +65,9 @@
     {% block content %}{% endblock %}
   </div>
 
-<div class="bg-img">
-  <img src="../../media/bg-1.svg" alt="" class="bg-1">
-</div>
+  <div class="bg-img">
+    <img src="../../media/bg-1.svg" alt="" class="bg-1">
+  </div>
 
   <footer>
     <div class="footer-wrapper row">
