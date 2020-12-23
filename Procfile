@@ -1,1 +1,1 @@
-web: gunicorn --bind :8000 --workers 3 --threads 2 ecsite.wsgi:application
+web: gunicorn -b :8000 -w 1 ecsite.wsgi:application
