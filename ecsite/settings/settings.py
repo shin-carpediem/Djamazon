@@ -49,7 +49,8 @@ MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
-ALLOWED_HOSTS = ['127.0.0.1', 'Djamazon2-dev.ap-northeast-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'Djamazon2-dev.elasticbeanstalk.com']
+# ALLOWED_HOSTS = ['127.0.0.1', 'Djamazon2-dev.ap-northeast-1.elasticbeanstalk.com']
 
 ROOT_URLCONF = 'ecsite.urls'
 
