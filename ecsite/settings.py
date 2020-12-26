@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 SECRET_KEY = '2wg520dum$jg5&=q5)etp7v3%9=1ywakh(q663yt062bd$!)-h'
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -59,25 +59,13 @@ DATABASES = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-
-# STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
-# # manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス」を記述。
-# # ここに指定したパスが、STATIC_ROOTと重複している場合、The STATICFILES_DIRS setting should not contain the STATIC_ROOT settingというエラーが出る。
-# # https://7me.nobiki.com/2017/django-collectstatic.html
-# STATICFILES_DIRS = (
-#    os.path.join(BASE_DIR, '..', 'app/static'),
-# )
-
-# STATIC_ROOT = os.path.join(BASE_DIR, 'app/collected_static')
-# STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
-STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス」を記述。
-# ここに指定したパスが、STATIC_ROOTと重複している場合、The STATICFILES_DIRS setting should not contain the STATIC_ROOT settingというエラーが出る。
-# https://7me.nobiki.com/2017/django-collectstatic.html
-# STATICFILES_DIRS = (
-#    os.path.join(BASE_DIR, '..', 'static'),
-# )
+STATIC_URL = '/static/'
+
+# メディアファイルの保存先
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# メディアファイル配信URL
+MEDIA_URL = '/media/'
 
 MIDDLEWARE = [
 # Django can also be configured to email errors about broken links
@@ -98,14 +86,6 @@ ALLOWED_HOSTS = ['127.0.0.1', '.elasticbeanstalk.com', '.pythonanywhere.com']
 # ALLOWED_HOSTS = ['127.0.0.1', 'Djamazon2-dev.ap-northeast-1.elasticbeanstalk.com']
 
 ROOT_URLCONF = 'ecsite.urls'
-
-# メディアファイル配信URL
-MEDIA_URL = '/media/'
-# MEDIA_URL = 'media'
-# メディアファイルの保存先
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'app/media')
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 TEMPLATES = [
     {
@@ -159,8 +139,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-
-
 AUTH_USER_MODEL = 'users.User'
 
 LOGIN_URL = 'app:login'
@@ -182,10 +160,56 @@ AUTHENTICATION_BACKENDS = (
 #SOCIAL_AUTH_FACEBOOK_KEY = '1067023380377702'
 #SOCIAL_AUTH_FACEBOOK_SECRET = '7d3f4a8e9f568e1bd6722296bdfd6c89'
 
+# パフォーマンスの最適化
+# DEBUG = False をセットすることで、開発向けの複数の機能が無効化されます。
+# 加えて、以下の設定をチューンすることもできます。
+# 永続的なデータベース接続を有効化すると、リクエストのプロセス時間の多くの部分に対するデータベースアカウントへの接続において、高速になります。
+# 限られたネットワーク性能の仮想化ホストにおいて、とても効果的です。
+CONN_MAX_AGE = 0
 
+# 誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセットしてください。
+CSRF_COOKIE_SECURE = False
+# 誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセットしてください。
+SESSION_COOKIE_SECURE = False
 
-
-
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {    # ログの書式を設定
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'mail_admins': {    # メールを送信する
+            'level': 'ERROR',    # ERROR以上の場合出力
+            'class': 'django.utils.log.AdminEmailHandler',    # ログを出力するクラス
+        }
+    },
+    'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
+        'django': {
+            'handlers': ['mail_admins'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        # 自分で追加したアプリケーション全般のログを拾うロガー
+        '': {
+            'handlers': ['mail_admins'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    }
+}
 
 # #あなたのサイトがEメールを送信する場合、設定値が正しくセットされている必要があります。
 # #デフォルトでは、Djangoは webmaster@localhost と root@localhost からEメールを送信します。
@@ -226,58 +250,3 @@ AUTHENTICATION_BACKENDS = (
 #     pw = user.pass_word
 #     cc = user.credit_card_number
 #     name = user.name
-
-
-
-# # パフォーマンスの最適化
-# # DEBUG = False をセットすることで、開発向けの複数の機能が無効化されます。
-# # 加えて、以下の設定をチューンすることもできます。
-# # 永続的なデータベース接続を有効化すると、
-# # リクエストのプロセス時間の多くの部分に対するデータベースアカウントへの接続において、
-# # 高速になります。
-# # 限られたネットワーク性能の仮想化ホストにおいて、とても効果的です。
-CONN_MAX_AGE = 0
-
-# #誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセットしてください。
-CSRF_COOKIE_SECURE = True
-# #誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセットしてください。
-SESSION_COOKIE_SECURE = True
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {    # ログの書式を設定
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-            'style': '{',
-        },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
-        },
-    },
-    'handlers': {
-        'mail_admins': {    # メールを送信する
-            'level': 'ERROR',    # ERROR以上の場合出力
-            'class': 'django.utils.log.AdminEmailHandler',    # ログを出力するクラス
-        }
-    },
-    'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
-        'django': {
-            'handlers': ['mail_admins'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': False,
-        },
-        # 自分で追加したアプリケーション全般のログを拾うロガー
-        '': {
-            'handlers': ['mail_admins'],
-            'level': 'INFO',
-            'propagate': False,
-        },
-    }
-}

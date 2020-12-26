@@ -1,28 +1,27 @@
-## for pycharm
-*.pyc
+# python cache
+# *.pyc
+# __pycache__
 
-## for other project
-*~
+# other project
+# *~
 
-## for visual studio code
-/.vscode
-.idea
+# visual studio code
+# /.vscode
+# .idea
 
-## for python
-__pycache__
-
-## virtual environment
+# virtual environment
 eb-virt
+# env
 
-## for test database
+# test database
 # db.sqlite3
 
-## for prod
+# production
 /static/
 
-.DS_Store
+# .DS_Store
 
-## Elastic Beanstalk Files
+# Elastic Beanstalk Files
 # .elasticbeanstalk/*
 # !.elasticbeanstalk/*.cfg.yml
 # !.elasticbeanstalk/*.global.yml
