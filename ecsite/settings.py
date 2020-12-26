@@ -71,7 +71,7 @@ DATABASES = {
 # STATIC_ROOT = os.path.join(BASE_DIR, 'app/collected_static')
 # STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス」を記述。
 # ここに指定したパスが、STATIC_ROOTと重複している場合、The STATICFILES_DIRS setting should not contain the STATIC_ROOT settingというエラーが出る。
 # https://7me.nobiki.com/2017/django-collectstatic.html
@@ -103,7 +103,7 @@ ROOT_URLCONF = 'ecsite.urls'
 MEDIA_URL = '/media/'
 # MEDIA_URL = 'media'
 # メディアファイルの保存先
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'app/media')
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
