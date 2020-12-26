@@ -60,13 +60,24 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+# # manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス」を記述。
+# # ここに指定したパスが、STATIC_ROOTと重複している場合、The STATICFILES_DIRS setting should not contain the STATIC_ROOT settingというエラーが出る。
+# # https://7me.nobiki.com/2017/django-collectstatic.html
+# STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, '..', 'app/static'),
+# )
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'app/collected_static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス」を記述。
 # ここに指定したパスが、STATIC_ROOTと重複している場合、The STATICFILES_DIRS setting should not contain the STATIC_ROOT settingというエラーが出る。
 # https://7me.nobiki.com/2017/django-collectstatic.html
-STATICFILES_DIRS = (
-   os.path.join(BASE_DIR, '..', 'app/static'),
-)
+# STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, '..', 'static'),
+# )
 
 MIDDLEWARE = [
 # Django can also be configured to email errors about broken links
@@ -90,8 +101,11 @@ ROOT_URLCONF = 'ecsite.urls'
 
 # メディアファイル配信URL
 MEDIA_URL = '/media/'
+# MEDIA_URL = 'media'
 # メディアファイルの保存先
-MEDIA_ROOT = os.path.join(BASE_DIR, 'app/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'app/media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 TEMPLATES = [
     {
