@@ -1,4 +1,4 @@
-from .settings import *
+# from .settings import *
 
 
 # Quick-start development settings - unsuitable for production

@@ -1,4 +1,4 @@
-from .settings import *
+# from .settings import *
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '2wg520dum$jg5&=q5)etp7v3%9=1ywakh(q663yt062bd$!)-h'
