@@ -11,7 +11,9 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecsite.settings.prod')
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecsite.settings.prod')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecsite.settings')
 # os.environ['DJANGO_SETTINGS_MODULE'] = 'Djamazon.ecsite.settings.prod'
+# os.environ['DJANGO_SETTINGS_MODULE'] = 'ecsite.settings'
 
 application = get_wsgi_application()
