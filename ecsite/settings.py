@@ -46,6 +46,28 @@ INSTALLED_APPS = [
     'social_django',
 ]
 
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+# manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス」を記述。
+# ここに指定したパスが、STATIC_ROOTと重複している場合、The STATICFILES_DIRS setting should not contain the STATIC_ROOT settingというエラーが出る。
+# https://7me.nobiki.com/2017/django-collectstatic.html
+STATICFILES_DIRS = (
+   os.path.join(BASE_DIR, '..', 'app/static'),
+)
+
 MIDDLEWARE = [
 # Django can also be configured to email errors about broken links
 #  (404 "page not found" errors).
@@ -202,28 +224,6 @@ AUTHENTICATION_BACKENDS = (
 # # 限られたネットワーク性能の仮想化ホストにおいて、とても効果的です。
 CONN_MAX_AGE = 0
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
-# manage.py collectstaticを実行した時に、STATIC_ROOTに追加で出力するファイルがあるパス」を記述。
-# ここに指定したパスが、STATIC_ROOTと重複している場合、The STATICFILES_DIRS setting should not contain the STATIC_ROOT settingというエラーが出る。
-# https://7me.nobiki.com/2017/django-collectstatic.html
-STATICFILES_DIRS = (
-   os.path.join(BASE_DIR, '..', 'app/static'),
-)
-
 # #誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセットしてください。
 CSRF_COOKIE_SECURE = True
 # #誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセットしてください。
@@ -267,4 +267,3 @@ LOGGING = {
         },
     }
 }
-
