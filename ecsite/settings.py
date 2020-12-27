@@ -17,7 +17,7 @@ SECRET_KEY = '2wg520dum$jg5&=q5)etp7v3%9=1ywakh(q663yt062bd$!)-h'
 # SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # クライアントID
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1861949194-g3f66d9pv0i3gegf9t49ftu41aboo4i3.apps.googleusercontent.com'
@@ -55,17 +55,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
-
-# メディアファイルの保存先
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# メディアファイル配信URL
-MEDIA_URL = '/media/'
 
 MIDDLEWARE = [
 # Django can also be configured to email errors about broken links
@@ -149,6 +138,17 @@ NUMBER_GROUPING = 3
 
 # セッションを毎回更新する
 SESSION_SAVE_EVERY_REQUEST = True
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# メディアファイル配信URL
+MEDIA_URL = '/media/'
+# メディアファイルの保存先
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # https://nmomos.com/tips/2019/07/05/django-social-auth/
 AUTHENTICATION_BACKENDS = (
