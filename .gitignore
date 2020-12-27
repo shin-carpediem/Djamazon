@@ -17,7 +17,7 @@ eb-virt
 # db.sqlite3
 
 # production
-/static/
+/assets/
 
 # .DS_Store
 
