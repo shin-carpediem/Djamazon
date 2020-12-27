@@ -17,7 +17,7 @@ DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # if DEBUG:
-    SECRET_KEY = '2wg520dum$jg5&=q5)etp7v3%9=1ywakh(q663yt062bd$!)-h'
+SECRET_KEY = '2wg520dum$jg5&=q5)etp7v3%9=1ywakh(q663yt062bd$!)-h'
 # else:
     # SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
