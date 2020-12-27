@@ -16,10 +16,10 @@ import os
 DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
-if DEBUG:
+# if DEBUG:
     SECRET_KEY = '2wg520dum$jg5&=q5)etp7v3%9=1ywakh(q663yt062bd$!)-h'
-else:
-    SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+# else:
+    # SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # クライアントID
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1861949194-g3f66d9pv0i3gegf9t49ftu41aboo4i3.apps.googleusercontent.com'
@@ -261,44 +261,6 @@ else:
         }
     }
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'formatters': {    # ログの書式を設定
-#         'verbose': {
-#             'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-#             'style': '{',
-#         },
-#         'simple': {
-#             'format': '{levelname} {message}',
-#             'style': '{',
-#         },
-#     },
-#     'handlers': {
-#         'mail_admins': {    # メールを送信する
-#             'level': 'ERROR',    # ERROR以上の場合出力
-#             'class': 'django.utils.log.AdminEmailHandler',    # ログを出力するクラス
-#         }
-#     },
-#     'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
-#         'django': {
-#             'handlers': ['mail_admins'],
-#             'level': 'INFO',
-#             'propagate': True,
-#         },
-#         'django.request': {
-#             'handlers': ['mail_admins'],
-#             'level': 'ERROR',
-#             'propagate': False,
-#         },
-#         # 自分で追加したアプリケーション全般のログを拾うロガー
-#         '': {
-#             'handlers': ['mail_admins'],
-#             'level': 'INFO',
-#             'propagate': False,
-#         },
-#     }
-# }
 
 # #あなたのサイトがEメールを送信する場合、設定値が正しくセットされている必要があります。
 # #デフォルトでは、Djangoは webmaster@localhost と root@localhost からEメールを送信します。
