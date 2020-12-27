@@ -12,12 +12,14 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2wg520dum$jg5&=q5)etp7v3%9=1ywakh(q663yt062bd$!)-h'
-# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
+# SECURITY WARNING: keep the secret key used in production secret!
+if DEBUG:
+    SECRET_KEY = '2wg520dum$jg5&=q5)etp7v3%9=1ywakh(q663yt062bd$!)-h'
+else:
+    SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # クライアントID
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1861949194-g3f66d9pv0i3gegf9t49ftu41aboo4i3.apps.googleusercontent.com'
@@ -26,7 +28,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'YDronu00agggNDNXgiyYX5eY'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -71,8 +72,10 @@ MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
-ALLOWED_HOSTS = ['127.0.0.1', '.elasticbeanstalk.com', '.pythonanywhere.com']
-# ALLOWED_HOSTS = ['127.0.0.1', 'Djamazon2-dev.ap-northeast-1.elasticbeanstalk.com']
+if DEBUG:
+    ALLOWED_HOSTS = ['127.0.0.1']
+else:
+    ALLOWED_HOSTS = ['.elasticbeanstalk.com', '.pythonanywhere.com']
 
 ROOT_URLCONF = 'ecsite.urls'
 
@@ -172,49 +175,130 @@ AUTHENTICATION_BACKENDS = (
 # 限られたネットワーク性能の仮想化ホストにおいて、とても効果的です。
 CONN_MAX_AGE = 0
 
+if DEBUG:
 # 誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセットしてください。
-CSRF_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
 # 誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセットしてください。
-SESSION_COOKIE_SECURE = False
+    SESSION_COOKIE_SECURE = False
+else:
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {    # ログの書式を設定
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-            'style': '{',
+
+
+if DEBUG:
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'formatters': {    # ログの書式を設定
+            'verbose': {
+                'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+                'style': '{',
+            },
+            'simple': {
+                'format': '{levelname} {message}',
+                'style': '{',
+            },
         },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
+        'handlers': {
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                'formatter': 'simple'    # どの出力フォーマットで出すかを名前で指定
+            },
         },
-    },
-    'handlers': {
-        'mail_admins': {    # メールを送信する
-            'level': 'ERROR',    # ERROR以上の場合出力
-            'class': 'django.utils.log.AdminEmailHandler',    # ログを出力するクラス
+        'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
+            'django': {
+                'handlers': ['console'],
+                'level': 'INFO',
+                'propagate': True,
+            },
+            # 自分で追加したアプリケーション全般のログを拾うロガー
+            '': {
+                'handlers': ['console'],
+                'level': 'INFO',
+                'propagate': False,
+            },
         }
-    },
-    'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
-        'django': {
-            'handlers': ['mail_admins'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': False,
-        },
-        # 自分で追加したアプリケーション全般のログを拾うロガー
-        '': {
-            'handlers': ['mail_admins'],
-            'level': 'INFO',
-            'propagate': False,
-        },
     }
-}
+else:
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'formatters': {    # ログの書式を設定
+            'verbose': {
+                'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+                'style': '{',
+            },
+            'simple': {
+                'format': '{levelname} {message}',
+                'style': '{',
+            },
+        },
+        'handlers': {
+            'mail_admins': {    # メールを送信する
+                'level': 'ERROR',    # ERROR以上の場合出力
+                'class': 'django.utils.log.AdminEmailHandler',    # ログを出力するクラス
+            }
+        },
+        'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
+            'django': {
+                'handlers': ['mail_admins'],
+                'level': 'INFO',
+                'propagate': True,
+            },
+            'django.request': {
+                'handlers': ['mail_admins'],
+                'level': 'ERROR',
+                'propagate': False,
+            },
+            # 自分で追加したアプリケーション全般のログを拾うロガー
+            '': {
+                'handlers': ['mail_admins'],
+                'level': 'INFO',
+                'propagate': False,
+           },
+        }
+    }
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {    # ログの書式を設定
+#         'verbose': {
+#             'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+#             'style': '{',
+#         },
+#         'simple': {
+#             'format': '{levelname} {message}',
+#             'style': '{',
+#         },
+#     },
+#     'handlers': {
+#         'mail_admins': {    # メールを送信する
+#             'level': 'ERROR',    # ERROR以上の場合出力
+#             'class': 'django.utils.log.AdminEmailHandler',    # ログを出力するクラス
+#         }
+#     },
+#     'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
+#         'django': {
+#             'handlers': ['mail_admins'],
+#             'level': 'INFO',
+#             'propagate': True,
+#         },
+#         'django.request': {
+#             'handlers': ['mail_admins'],
+#             'level': 'ERROR',
+#             'propagate': False,
+#         },
+#         # 自分で追加したアプリケーション全般のログを拾うロガー
+#         '': {
+#             'handlers': ['mail_admins'],
+#             'level': 'INFO',
+#             'propagate': False,
+#         },
+#     }
+# }
 
 # #あなたのサイトがEメールを送信する場合、設定値が正しくセットされている必要があります。
 # #デフォルトでは、Djangoは webmaster@localhost と root@localhost からEメールを送信します。
