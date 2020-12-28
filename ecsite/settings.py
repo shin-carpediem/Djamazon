@@ -14,7 +14,7 @@ import os
 from django.utils.translation import ugettext_lazy as _
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
@@ -264,11 +264,20 @@ else:
         }
     }
 
+# メールを実際には送らずに、コンソールに表示してくれる設定
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# メールを実際に送信。Djangoのデフォルト
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-# #あなたのサイトがEメールを送信する場合、設定値が正しくセットされている必要があります。
-# #デフォルトでは、Djangoは webmaster@localhost と root@localhost からEメールを送信します。
-# #しかし、いくつかのメールプロバイダはこれらのアドレスを拒否します。
-# #異なる送信者アドレスを使用するには、DEFAULT_FROM_EMAIL と SERVER_EMAIL 設定を修正してください。
+# メールサーバーへの接続設定
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_POST = 587
+EMAIL_HOST_USER = 'buru.aoshin@gmail.com'
+EMAIL_HOST_PASSWORD = 'RuBp32!?'
+EMAIL_USE_TLS = True
+
 #DEFAULT_FROM_EMAIL = 'buru.aoshin-gmail.com'
 #SERVER_EMAIL = 'buru.aoshin-gmail.com'
 
@@ -285,22 +294,3 @@ else:
 #     ['fke129@icloud.com'],
 #     fail_silently=False,
 # )
-
-
-# # A list of all the people who get code error notifications.
-# # When DEBUG=False and AdminEmailHandler is configured in LOGGING (done by default),
-# # Django emails these people the details of exceptions raised in the request/response cycle.
-# ADMINS = [('shin_aa', 'buru.aoshin@gmail.com'),]
-
-
-
-# # the values for the user,
-# # pw and cc variables will be hidden and replaced with stars (**********)
-# # n the error reports, whereas the value of the name variable will be disclosed.
-# from django.views.decorators.debug import sensitive_variables
-
-# @sensitive_variables('user', 'pw', 'cc')
-# def process_info(user):
-#     pw = user.pass_word
-#     cc = user.credit_card_number
-#     name = user.name
