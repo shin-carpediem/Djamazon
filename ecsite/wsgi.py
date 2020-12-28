@@ -12,11 +12,10 @@ import sys
 import pymysql
 
 from django.core.wsgi import get_wsgi_application
+from django.core.management import execute_from_command_line
 
 pymysql.install_as_MySQLdb()
-if __name__ == '__main__':
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecsite.settings')
-try:
-django.core.management import execute_from_command_line
 
 application = get_wsgi_application()
