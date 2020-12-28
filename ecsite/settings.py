@@ -56,9 +56,9 @@ else:
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shinac$default',
-        'USER': 'shinac',
-        'PASSWORD': 'MY9@Eexhwe7GJkm',
+        'NAME': os.environ.get['DB_NAME'],
+        'USER': os.environ.get['shinac'],
+        'PASSWORD': os.environ.get['MY9@Eexhwe7GJkm'],
     }
 }
 
@@ -108,7 +108,6 @@ WSGI_APPLICATION = 'ecsite.wsgi.application'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -126,18 +125,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
-
 LANGUAGE_CODE = 'en'
-
 TIME_ZONE = 'Asia/Tokyo'
-
 # enable translations
 USE_I18N = True
 # 日付フォーマット設定
 USE_L10N = True
-
 USE_TZ = True
-
 LANGUAGES = [
     ('en', _('English')),
     ('ja', _('Japanese')),

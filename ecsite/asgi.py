@@ -12,6 +12,5 @@ import os
 from django.core.asgi import get_asgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecsite.settings')
-# os.environ.setdefault['DJANGO_SETTINGS_MODULE'] = 'Djamazon.ecsite.settings.prod'
 
 application = get_asgi_application()
