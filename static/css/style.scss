@@ -3,6 +3,10 @@ html, body {
   font-family: 'Piedra', cursive;
   font-family: 'Righteous', cursive;
 }
+@media (max-width: 414px) {
+  body {
+    font-size: 0.7rem;
+  }
 a{
   color: #000;
   &:hover {
@@ -17,6 +21,7 @@ body > .container {
   width: 65%;
   padding-top: 60px;
 }
+
 
 @font-face {
   font-family:'Decovar Regular24';
@@ -52,6 +57,16 @@ header {
   position: fixed;
   top: 0px;
   z-index: 10000;
+  @media screen and (max-width: 768px) {
+    .header-wrapper {
+      padding-top: 30px;
+      .header-title {
+        display: inline-block;
+        float: left;
+        padding: 10px 10px 0 30px;
+      }
+    }
+  }
   h1 {
     height: 100%;
     line-height: 70px;
@@ -227,7 +242,6 @@ header {
 
 
 
-
 .container {
   width: 80%;
   margin-top: 150px;
@@ -245,6 +259,12 @@ header {
   padding: 10px;
   margin-bottom: 15px;
   z-index: 100;
+  @media screen and (max-width: 768px) {
+    width: calc(100%/2);
+  }
+  @media screen and (max-width: 414px) {
+    width: 100%;
+  }
   a {
     display: block;
   }
@@ -287,6 +307,9 @@ header {
 
 .bg-img {
   position: relative;
+  @media screen and (max-width: 990px) {
+    display: none;
+  }
   .bg-1 {
     position: absolute;
     top: -1400px;
@@ -310,6 +333,12 @@ footer {
     margin: 70px auto;
     display: flex;
     justify-content: space-around;
+    @media screen and (max-width: 990px) {
+      flex-direction: column-reverse;
+    }
+    @media screen and (max-width: 768px) {
+      margin: 40px auto;
+    }
     .footer-left {
       text-align: center;
       p {
@@ -326,6 +355,10 @@ footer {
   }
 }
 /* ここまでtop page */
+
+
+
+
 
 
 
@@ -539,70 +572,3 @@ footer {
     80% { opacity: 0}
     100% { opacity: 0}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* responsive */
-@media (max-width: 990px) {
-  .bg-img {
-    display: none;
-  }
-  footer {
-    .footer-wrapper {
-      flex-direction: column-reverse;
-   }
-  }
-}
-
-
-
-@media (max-width: 768px) {
-  header {
-    .header-wrapper {
-      padding-top: 30px;
-    .header-title {
-      display: inline-block;
-      float: left;
-      padding: 10px 10px 0 30px;
-    }
-   }
-  }
-
-  footer {
-    .footer-wrapper {
-      margin: 40px auto;
-    }
-  }
-
-
-  .product {
-    width: calc(100%/2);
-  }
- }
-
-
-
-
-@media (max-width: 414px) {
-  body {
-    font-size: 0.7rem;
-  }
-
-
-  .product {
-    width: 100%;
-  }
-}
-
-

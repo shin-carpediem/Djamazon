@@ -11,9 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from django.utils.translation import ugettext_lazy as _
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # if DEBUG:
@@ -64,6 +65,8 @@ MIDDLEWARE = [
     'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+# https://sinyblog.com/django/translation-001/
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -124,11 +127,18 @@ LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Asia/Tokyo'
 
+# enable translations
 USE_I18N = True
-
+# 日付フォーマット設定
 USE_L10N = True
 
 USE_TZ = True
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('ja', _('Japanese')),
+]
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
 
 AUTH_USER_MODEL = 'users.User'

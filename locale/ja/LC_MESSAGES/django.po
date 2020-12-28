@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-28 16:04+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: app/templates/app/base.html:63
+msgid "Set"
+msgstr "セット"
+
+#: app/templates/app/base.html:69
+msgid "Home"
+msgstr "ホーム"
+
+#: app/templates/app/base.html:70
+msgid "Favorite"
+msgstr "お気に入り"
+
+#: app/templates/app/base.html:71
+msgid "Cart"
+msgstr "カート"
+
+#: app/templates/app/base.html:72
+msgid "Order-history"
+msgstr "注文履歴"
+
+#: app/templates/app/base.html:73
+msgid "Logout"
+msgstr "ログアウト"
+
+#: app/templates/app/base.html:74
+msgid "Point: "
+msgstr "ポイント: "
+
+#: app/templates/app/base.html:76
+msgid "Login"
+msgstr "ログイン"
+
+#: app/templates/app/base.html:77
+msgid "Signup"
+msgstr "サインアップ"
+
+#: app/templates/app/base.html:113
+msgid "Privacy Policy"
+msgstr "プライバシーポリシー"
+
+#: app/templates/app/base.html:114
+msgid "Terms of Service"
+msgstr "利用規約"
+
+#: app/views.py:134
+msgid "You could not get the adrress."
+msgstr "住所を取得できません。"
+
+#: app/views.py:142
+msgid "You need to input address."
+msgstr "住所を入力してください。"
+
+#: app/views.py:146
+msgid "Your cart is empty."
+msgstr "カートが空です。"
+
+#: app/views.py:150
+msgid "You do not have enough points."
+msgstr "ポイントが足りません。"
+
+#: app/views.py:163
+msgid "You purchased items!"
+msgstr "商品を購入しました！"
+
+#: ecsite/settings.py:138
+msgid "English"
+msgstr "英語"
+
+#: ecsite/settings.py:139
+msgid "Japanese"
+msgstr "日本語"
+
+#: users/admin.py:23
+msgid "Permissions"
+msgstr "許可"
+
+#: users/admin.py:24
+msgid "Important dates"
+msgstr "重要な日付"
