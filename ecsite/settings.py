@@ -14,18 +14,14 @@ import os
 from django.utils.translation import ugettext_lazy as _
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# if DEBUG:
-SECRET_KEY = '2wg520dum$jg5&=q5)etp7v3%9=1ywakh(q663yt062bd$!)-h'
-# else:
-    # SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-
-# クライアントID
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1861949194-g3f66d9pv0i3gegf9t49ftu41aboo4i3.apps.googleusercontent.com'
-# クライアント シークレット
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'YDronu00agggNDNXgiyYX5eY'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+# Google認証のクライアントID
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+# Google認証のクライアント シークレット
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -174,10 +170,6 @@ AUTHENTICATION_BACKENDS = (
    'django.contrib.auth.backends.ModelBackend',
 )
 
-# need to cuppling later
-#SOCIAL_AUTH_FACEBOOK_KEY = '1067023380377702'
-#SOCIAL_AUTH_FACEBOOK_SECRET = '7d3f4a8e9f568e1bd6722296bdfd6c89'
-
 # パフォーマンスの最適化
 # DEBUG = False をセットすることで、開発向けの複数の機能が無効化されます。
 # 加えて、以下の設定をチューンすることもできます。
@@ -193,6 +185,7 @@ if DEBUG:
 else:
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
+
 
 
 
