@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 import json
 import requests
@@ -130,7 +131,7 @@ def cart(request):
         address = get_address(zip_code)
             # 住所が取得できなかった場合はメッセージを出してリダイレクト
         if not address:
-            messages.warning(request, "You could not get the adrress.")
+            messages.warning(request, _("You could not get the adrress."))
             return redirect('app:cart')
             # 住所が取得できたらフォームに入力してあげる
         purchase_form = PurchaseForm(initial={'zip_code': zip_code, 'address': address})
@@ -138,15 +139,15 @@ def cart(request):
     if 'buy_product' in request.POST:
             # 住所が入力済みか確認する
         if not purchase_form.cleaned_data['address']:
-            messages.warning(request, "You need to input address.")
+            messages.warning(request, _("You need to input address."))
             return redirect('app:cart')
             # カートが空じゃないか確認
         if not bool(cart):
-            messages.warning(request, "Your cart is empty.")
+            messages.warning(request, _("Your cart is empty."))
             return redirect('app:cart')
             # 所持ポイントが十分にあるか確認
         if total_price > user.point:
-            messages.warning(request, "You do not have enough points.")
+            messages.warning(request, _("You do not have enough points."))
             return redirect('app:cart')
             # 各プロダクトの Sale 情報を保存
         for product_id, num in cart.items():
@@ -159,7 +160,7 @@ def cart(request):
         user.point -= total_price
         user.save()
         del request.session['cart']
-        messages.success(request, "You purchased items!")
+        messages.success(request, _("You purchased items!"))
         return redirect('app:cart')
 
     # else:

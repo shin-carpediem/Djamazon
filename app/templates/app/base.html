@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 {% load humanize %}
 
@@ -43,20 +44,40 @@
 
   <header>
     <div class="header-wrapper">
+
       <h1 class="header-title" contenteditable>Djamazon</h1>
+
       <div class="header-menu row">
         {% if request.user.is_authenticated %}
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:index' %}">Home</a></span>
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:fav_products' %}">Favorite</a></span>
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:cart' %}">Cart</a></span>
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}">Order-history</a></span>
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:logout' %}">Logout</a></span>
-        <span class="col-lg-2 col-sm-4 col-6">Point: {{ user.point | intcomma }}</span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:index' %}">{% trans "Home" %}</a></span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:fav_products' %}">{% trans "Favorite" %}</a></span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:cart' %}">{% trans "Cart" %}</a></span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}">{% trans "Order-history" %}</a></span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:logout' %}">{% trans "Logout" %}</a></span>
+        <span class="col-lg-2 col-sm-4 col-6">{% trans "Point: " %}{{ user.point | intcomma }}</span>
         {% else %}
-        <span class="col-6"><a href="{% url 'app:login' %}">Login</a></span>
-        <span class="col-6"><a href="{% url 'app:signup' %}">Signup</a></span>
+        <span class="col-6"><a href="{% url 'app:login' %}">{% trans "Login" %}</a></span>
+        <span class="col-6"><a href="{% url 'app:signup' %}">{% trans "Signup" %}</a></span>
         {% endif %}
       </div>
+
+      <div class="btn-group float-right mt-lg-5 mr-lg-5 mt-sm-3 mr-sm-3 mt-1 mr-1 lang-change">
+        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+          <input name="next" type="hidden" value="{{ redirect_to }}">
+          <select name="language">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+              {{ language.name_local }} ({{ language.code }})
+            </option>
+            {% endfor %}
+          </select>
+          <button>{% trans "Set" %}</button>
+        </form>
+      </div>
+
     </div>
   </header>
 
@@ -90,8 +111,8 @@
 
       <div class="col-lg-5 col-12 footer-right">
         <ul>
-          <li><a href="{% url 'app:policy' %}">Privacy Policy</a></li>
-          <li><a href="{% url 'app:terms' %}">Terms of Service</a></li>
+          <li><a href="{% url 'app:policy' %}">{% trans "Privacy Policy" %}</a></li>
+          <li><a href="{% url 'app:terms' %}">{% trans "Terms of Service" %}</a></li>
         </ul>
       </div>
 
