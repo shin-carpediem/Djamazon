@@ -56,9 +56,9 @@ else:
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get['DB_NAME'],
-        'USER': os.environ.get['shinac'],
-        'PASSWORD': os.environ.get['MY9@Eexhwe7GJkm'],
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('shinac'),
+        'PASSWORD': os.environ.get('MY9@Eexhwe7GJkm'),
     }
 }
 
