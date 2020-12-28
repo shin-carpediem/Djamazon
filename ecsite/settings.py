@@ -30,7 +30,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,11 +45,20 @@ INSTALLED_APPS = [
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get['DB_NAME'],
+        'USER': os.environ.get['shinac'],
+        'PASSWORD': os.environ.get['MY9@Eexhwe7GJkm'],
     }
 }
 
@@ -74,7 +82,7 @@ MIDDLEWARE = [
 if DEBUG:
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
-    ALLOWED_HOSTS = ['.elasticbeanstalk.com', '.pythonanywhere.com']
+    ALLOWED_HOSTS = ['.elasticbeanstalk.com', 'https://shinac.pythonanywhere.com/']
 
 ROOT_URLCONF = 'ecsite.urls'
 
@@ -100,7 +108,6 @@ WSGI_APPLICATION = 'ecsite.wsgi.application'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -118,18 +125,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
-
 LANGUAGE_CODE = 'en'
-
 TIME_ZONE = 'Asia/Tokyo'
-
 # enable translations
 USE_I18N = True
 # 日付フォーマット設定
 USE_L10N = True
-
 USE_TZ = True
-
 LANGUAGES = [
     ('en', _('English')),
     ('ja', _('Japanese')),
@@ -264,11 +266,20 @@ else:
         }
     }
 
+# メールを実際には送らずに、コンソールに表示してくれる設定
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# メールを実際に送信。Djangoのデフォルト
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-# #あなたのサイトがEメールを送信する場合、設定値が正しくセットされている必要があります。
-# #デフォルトでは、Djangoは webmaster@localhost と root@localhost からEメールを送信します。
-# #しかし、いくつかのメールプロバイダはこれらのアドレスを拒否します。
-# #異なる送信者アドレスを使用するには、DEFAULT_FROM_EMAIL と SERVER_EMAIL 設定を修正してください。
+# メールサーバーへの接続設定
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_POST = 587
+EMAIL_HOST_USER = 'buru.aoshin@gmail.com'
+EMAIL_HOST_PASSWORD = 'RuBp32!?'
+EMAIL_USE_TLS = True
+
 #DEFAULT_FROM_EMAIL = 'buru.aoshin-gmail.com'
 #SERVER_EMAIL = 'buru.aoshin-gmail.com'
 
@@ -285,22 +296,3 @@ else:
 #     ['fke129@icloud.com'],
 #     fail_silently=False,
 # )
-
-
-# # A list of all the people who get code error notifications.
-# # When DEBUG=False and AdminEmailHandler is configured in LOGGING (done by default),
-# # Django emails these people the details of exceptions raised in the request/response cycle.
-# ADMINS = [('shin_aa', 'buru.aoshin@gmail.com'),]
-
-
-
-# # the values for the user,
-# # pw and cc variables will be hidden and replaced with stars (**********)
-# # n the error reports, whereas the value of the name variable will be disclosed.
-# from django.views.decorators.debug import sensitive_variables
-
-# @sensitive_variables('user', 'pw', 'cc')
-# def process_info(user):
-#     pw = user.pass_word
-#     cc = user.credit_card_number
-#     name = user.name
