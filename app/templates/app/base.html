@@ -7,7 +7,14 @@
 
 <head>
   <!-- Google Tag Manager -->
-
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-K8S5PL7');</script>
   <!-- End Google Tag Manager -->
   <!-- Google Analytics -->
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -22,6 +29,7 @@
   <!-- End Google Analytics -->
   <meta charset="UTF-8">
   <!-- Google Search Console Tag-->
+  <meta name="google-site-verification" content="kWVl84MdZ2_36F2tAvQrEk-Sv796Nr5cKB9e5lDW27U">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -40,7 +48,10 @@
 </head>
 
 <body>
-
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8S5PL7" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <header>
     <div class="header-wrapper">
@@ -52,7 +63,8 @@
         <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:index' %}">{% trans "Home" %}</a></span>
         <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:fav_products' %}">{% trans "Favorite" %}</a></span>
         <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:cart' %}">{% trans "Cart" %}</a></span>
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}">{% trans "Order-history" %}</a></span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}">{% trans "Order-history"
+            %}</a></span>
         <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:logout' %}">{% trans "Logout" %}</a></span>
         <span class="col-lg-2 col-sm-4 col-6">{% trans "Point: " %}{{ user.point | intcomma }}</span>
         {% else %}
@@ -69,7 +81,7 @@
             {% get_available_languages as LANGUAGES %}
             {% get_language_info_list for LANGUAGES as languages %}
             {% for language in languages %}
-            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+            <option value="{{ language.code }}" {% if language.code==LANGUAGE_CODE %} selected{% endif %}>
               {{ language.name_local }} ({{ language.code }})
             </option>
             {% endfor %}
