@@ -88,7 +88,7 @@ MIDDLEWARE = [
 if DEBUG:
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
-    ALLOWED_HOSTS = ['.elasticbeanstalk.com', 'https://shinac.pythonanywhere.com/']
+    ALLOWED_HOSTS = ['.elasticbeanstalk.com', 'shinac.pythonanywhere.com']
 
 ROOT_URLCONF = 'ecsite.urls'
 
