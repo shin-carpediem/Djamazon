@@ -1,0 +1,1 @@
+web: gunicorn -b :8000 -w 1 swan.wsgi:application
