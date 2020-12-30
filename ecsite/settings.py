@@ -283,8 +283,8 @@ else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     # メールサーバーへの接続設定
     EMAIL_HOST = 'smtp.googlemail.com'
-    EMAIL_HOST_USER = 'buru.aoshin@gmail.com'
-    EMAIL_HOST_PASSWORD = 'RuBp32!?'
+    EMAIL_HOST_USER =  os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD =  os.environ.get('EMAIL_HOST_PASSWORD')
     EMAIL_POST = 587
     EMAIL_USE_TLS = True
 
