@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -15,9 +16,30 @@ from .models import Product, Sale
 
 
 # Create your views here.
+# def index(request):
+#     products = Product.objects.all().order_by('-id')
+#     return render(request, 'app/index.html', {'products': products})
+
+def paginate_queryset(request, queryset, count):
+    # Pageオブジェクトを返す。countは、1ページに表示する件数。
+    paginator = Paginator(queryset, count)
+    page = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+    return page_obj
+
 def index(request):
     products = Product.objects.all().order_by('-id')
-    return render(request, 'app/index.html', {'products': products})
+    page_obj = paginate_queryset(request, products, 12)
+    context = {
+        'products': page_obj.object_list,
+        'page_obj': page_obj,
+    }
+    return render(request, 'app/index.html', context)
 
 def signup(request):
     if request.method == 'POST':
