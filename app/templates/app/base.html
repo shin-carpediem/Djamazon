@@ -80,19 +80,10 @@
         {% endif %}
       </div>
 
-      <div class="float-right mt-lg-5 mr-lg-5 mt-sm-3 mr-sm-3 mt-1 mr-1">
-        <form action="{% url 'app:result' %}" method="GET">
-          <div style="width: 100%;">
-            <input type="text" placeholder="Search" name="q">
-            <button type="submit"><i class="fas fa-search"></i></button>
-          </div>
-        </form>
-      </div>
-
       <div class="btn-group  mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-1 ml-1 lang-change">
         <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
           <input name="next" type="hidden" value="{{ redirect_to }}">
-          <select name="language">
+          <select name="language" style="border-radius: 5px;">
             {% get_current_language as LANGUAGE_CODE %}
             {% get_available_languages as LANGUAGES %}
             {% get_language_info_list for LANGUAGES as languages %}
@@ -102,7 +93,16 @@
             </option>
             {% endfor %}
           </select>
-          <button>{% trans "Set" %}</button>
+          <button style="border-radius: 10px;">{% trans "Set" %}</button>
+        </form>
+      </div>
+
+      <div class="float-right mt-lg-5 mr-lg-5 mt-sm-3 mr-sm-3 mt-1 mr-1">
+        <form action="{% url 'app:result' %}" method="GET">
+          <div style="width: 100%;">
+            <input type="text" placeholder="Search" name="q" style="border-radius: 5px;">
+            <button type="submit" style="border-radius: 10px;"><i class="fas fa-search"></i></button>
+          </div>
         </form>
       </div>
 
