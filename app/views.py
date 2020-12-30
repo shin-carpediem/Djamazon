@@ -1,4 +1,7 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.mail import send_mail, EmailMessage
+from django.conf import settings
+from django.template.loader import get_template
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -11,15 +14,12 @@ from functools import reduce
 from operator import and_
 import json
 import requests
+from users.models import UserManager
 from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
 from .models import Product, Sale
 
 
 # Create your views here.
-# def index(request):
-#     products = Product.objects.all().order_by('-id')
-#     return render(request, 'app/index.html', {'products': products})
-
 def paginate_queryset(request, queryset, count):
     # Pageオブジェクトを返す。countは、1ページに表示する件数。
     paginator = Paginator(queryset, count)
@@ -51,10 +51,29 @@ def signup(request):
             new_user = authenticate(email=input_email, password=input_password)
             if new_user is not None:
                 login(request, new_user)
-                return redirect('app:index')
+            # メース送信処理
+            template = get_template('app/mail.html')
+            mail_ctx = {
+                'user_email': form.cleaned_data['email'],
+            }
+            EmailMessage (
+                subject='【Djamazon】Your account is created now',
+                body=template.render(mail_ctx),
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[
+                    {{ user_email }},
+                ],
+                cc=[
+                ],
+                bcc=[
+                ]
+            ).send()
+            return redirect('app:index')
     else:
         form = CustomUserCreationForm()
     return render(request, 'app/signup.html', {'form': form})
+
+
 
 def detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
@@ -95,7 +114,7 @@ def toggle_fav_product_status(request):
 @login_required
 def fav_products(request):
     user = request.user
-    products = user.fav_products.all()
+    products = user.fav_products.all().order_by('-id')
     return render(request, 'app/index.html', {'products': products})
 
 @login_required
