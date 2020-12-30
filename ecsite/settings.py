@@ -276,16 +276,16 @@ else:
     }
 
 # メールを実際には送らずに、コンソールに表示してくれる設定
-# if DEBUG:
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # メールを実際に送信。Djangoのデフォルト
-# else:
-#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#     # メールサーバーへの接続設定
-#     EMAIL_HOST = "smtp.gmail.com"
-#     EMAIL_HOST_USER =  os.environ.get('EMAIL_HOST_USER')
-#     EMAIL_HOST_PASSWORD =  os.environ.get('EMAIL_HOST_PASSWORD')
-#     EMAIL_POST = 587
-#     EMAIL_USE_TLS = True
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    # メールサーバーへの接続設定
+    EMAIL_HOST = "smtp.gmail.com"
+    EMAIL_HOST_USER =  os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD =  os.environ.get('EMAIL_HOST_PASSWORD')
+    EMAIL_POST = 587
+    EMAIL_USE_TLS = True
 
 DEFAULT_FROM_EMAIL = 'buru.aoshin@gmail.com'

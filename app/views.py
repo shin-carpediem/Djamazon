@@ -61,7 +61,7 @@ def signup(request):
                 body=template.render(mail_ctx),
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 to=[
-                    {{ user_email }},
+                    'user_email',
                 ],
                 cc=[
                 ],
