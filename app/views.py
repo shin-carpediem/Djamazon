@@ -50,44 +50,43 @@ def signup(request):
             input_email = form.cleaned_data['email']
             input_password = form.cleaned_data['password1']
             new_user = authenticate(email=input_email, password=input_password)
+            # メース送信処理
+            template = get_template('app/mail.html')
+            mail_ctx = {
+                'user_email': form.cleaned_data['email'],
+            }
+            EmailMessage (
+                subject='【Djamazon】Your account is created now',
+                body=template.render(mail_ctx),
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[
+                    'buru.aoshin@gmail.com',
+                ],
+                # cc=[
+                # ],
+                # bcc=[
+                # ]
+            ).send()
+        #     if DEBUG:
+        #         # メース送信処理
+        #         template = get_template('app/mail.html')
+        #         mail_ctx = {
+        #             'user_email': form.cleaned_data['email'],
+        #         }
+        #         EmailMessage (
+        #             subject='【Djamazon】Your account is created now',
+        #             body=template.render(mail_ctx),
+        #             from_email=settings.DEFAULT_FROM_EMAIL,
+        #             to=[
+        #                 'buru.aoshin@gmail.com',
+        #             ],
+        #             # cc=[
+        #             # ],
+        #             # bcc=[
+        #             # ]
+        #         ).send()
             if new_user is not None:
                 login(request, new_user)
-            # # メース送信処理
-            # template = get_template('app/mail.html')
-            # mail_ctx = {
-            #     'user_email': form.cleaned_data['email'],
-            # }
-            # EmailMessage (
-            #     subject='【Djamazon】Your account is created now',
-            #     body=template.render(mail_ctx),
-            #     from_email=settings.DEFAULT_FROM_EMAIL,
-            #     to=[
-            #         'buru.aoshin@gmail.com',
-            #     ],
-            #     # cc=[
-            #     # ],
-            #     # bcc=[
-            #     # ]
-            # ).send()
-            # return redirect('app:index')
-            if DEBUG:
-                # メース送信処理
-                template = get_template('app/mail.html')
-                mail_ctx = {
-                    'user_email': form.cleaned_data['email'],
-                }
-                EmailMessage (
-                    subject='【Djamazon】Your account is created now',
-                    body=template.render(mail_ctx),
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    to=[
-                        'buru.aoshin@gmail.com',
-                    ],
-                    # cc=[
-                    # ],
-                    # bcc=[
-                    # ]
-                ).send()
                 return redirect('app:index')
     else:
         form = CustomUserCreationForm()
