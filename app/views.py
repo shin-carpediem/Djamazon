@@ -61,12 +61,12 @@ def signup(request):
                 body=template.render(mail_ctx),
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 to=[
-                    'user_email',
+                    'buru.aoshin@gmail.com',
                 ],
-                cc=[
-                ],
-                bcc=[
-                ]
+                # cc=[
+                # ],
+                # bcc=[
+                # ]
             ).send()
             return redirect('app:index')
     else:
