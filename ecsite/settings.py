@@ -162,7 +162,6 @@ SESSION_SAVE_EVERY_REQUEST = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
@@ -282,27 +281,11 @@ if DEBUG:
 # メールを実際に送信。Djangoのデフォルト
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    # メールサーバーへの接続設定
+    EMAIL_HOST = 'smtp.googlemail.com'
+    EMAIL_HOST_USER = 'buru.aoshin@gmail.com'
+    EMAIL_HOST_PASSWORD = 'RuBp32!?'
+    EMAIL_POST = 587
+    EMAIL_USE_TLS = True
 
-# メールサーバーへの接続設定
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_POST = 587
-EMAIL_HOST_USER = 'buru.aoshin@gmail.com'
-EMAIL_HOST_PASSWORD = 'RuBp32!?'
-EMAIL_USE_TLS = True
-
-#DEFAULT_FROM_EMAIL = 'buru.aoshin-gmail.com'
-#SERVER_EMAIL = 'buru.aoshin-gmail.com'
-
-# from django.core.mail import send_mail
-
-# send_mail(
-#     # 'Subject here',
-#     'test',
-#     # 'Here is the message.',
-#     'test',
-#     # 'from@example.com',
-#     'buru.aoshin-gmail.com',
-#     # ['to@example.com'],
-#     ['fke129@icloud.com'],
-#     fail_silently=False,
-# )
+DEFAULT_FROM_EMAIL = 'buru.aoshin@gmail.com'
