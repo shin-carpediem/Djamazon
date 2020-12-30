@@ -7,7 +7,7 @@ from app.models import Product
 
 # Create your models here.
 class UserManager(BaseUserManager):
-    # """カスタムユーザーマネージャー"""
+    # カスタムユーザーマネージャー
     use_in_migrations = True
 
     def _create_user(self, email, password, **extra_fields):
@@ -40,7 +40,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     initial_point = 50000
-    # """カスタムユーザーモデル"""
+    # カスタムユーザーモデル
     email = models.EmailField("email_address", unique=True)
     point = models.PositiveIntegerField(default=initial_point)
     fav_products = models.ManyToManyField(Product, blank=True)

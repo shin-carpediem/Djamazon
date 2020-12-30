@@ -36,6 +36,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
+  <!-- font awesome -->
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
   <!-- Device related -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,8 +71,7 @@
         <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:index' %}">{% trans "Home" %}</a></span>
         <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:fav_products' %}">{% trans "Favorite" %}</a></span>
         <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:cart' %}">{% trans "Cart" %}</a></span>
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}">{% trans "Order-history"
-            %}</a></span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}">{% trans "Order-history" %}</a></span>
         <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:logout' %}">{% trans "Logout" %}</a></span>
         <span class="col-lg-2 col-sm-4 col-6">{% trans "Point: " %}{{ user.point | intcomma }}</span>
         {% else %}
@@ -78,10 +80,10 @@
         {% endif %}
       </div>
 
-      <div class="btn-group float-right mt-lg-5 mr-lg-5 mt-sm-3 mr-sm-3 mt-1 mr-1 lang-change">
+      <div class="btn-group  mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-1 ml-1 lang-change">
         <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
           <input name="next" type="hidden" value="{{ redirect_to }}">
-          <select name="language">
+          <select name="language" style="border-radius: 5px;">
             {% get_current_language as LANGUAGE_CODE %}
             {% get_available_languages as LANGUAGES %}
             {% get_language_info_list for LANGUAGES as languages %}
@@ -91,7 +93,16 @@
             </option>
             {% endfor %}
           </select>
-          <button>{% trans "Set" %}</button>
+          <button style="border-radius: 10px;">{% trans "Set" %}</button>
+        </form>
+      </div>
+
+      <div class="float-right mt-lg-5 mr-lg-5 mt-sm-3 mr-sm-3 mt-1 mr-1">
+        <form action="{% url 'app:result' %}" method="GET">
+          <div style="width: 100%;">
+            <input type="text" placeholder="Search" name="q" style="border-radius: 5px;">
+            <button type="submit" style="border-radius: 10px;"><i class="fas fa-search"></i></button>
+          </div>
         </form>
       </div>
 
@@ -99,9 +110,7 @@
   </header>
 
 
-
   <div class="container">
-
 
     {% for message in messages %}
     <p class="message-{{ message.tags }}">{{ message }}</p>
@@ -109,11 +118,47 @@
     {% block content %}{% endblock %}
   </div>
 
+
   <div class="bg-img">
     <img src="../../media/bg-1.svg" alt="" class="bg-1">
   </div>
 
+
+  <nav aria-label="Page navigation example" class="my-5">
+    <ul class="pagination justify-content-center">
+
+      <!-- 前へ の部分 -->
+      {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
+      </li>
+      {% endif %}
+
+      <!-- 数字の部分 -->
+      {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+      <li class="page-item active">
+        <a class="page-link" href="#">{{ num }}</a>
+      </li>
+      {% else %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+
+      <!-- 次へ の部分 -->
+      {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+
+
   <a href="#top" id="btn-backtotop"><span class="arrow arrow_up"></span></a>
+
 
   <footer>
     <div class="footer-wrapper row">

@@ -1,9 +1,14 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
+from django.views.generic import ListView
+from django.db.models import Q
+from functools import reduce
+from operator import and_
 import json
 import requests
 from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
@@ -11,9 +16,30 @@ from .models import Product, Sale
 
 
 # Create your views here.
+# def index(request):
+#     products = Product.objects.all().order_by('-id')
+#     return render(request, 'app/index.html', {'products': products})
+
+def paginate_queryset(request, queryset, count):
+    # Pageオブジェクトを返す。countは、1ページに表示する件数。
+    paginator = Paginator(queryset, count)
+    page = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+    return page_obj
+
 def index(request):
     products = Product.objects.all().order_by('-id')
-    return render(request, 'app/index.html', {'products': products})
+    page_obj = paginate_queryset(request, products, 12)
+    context = {
+        'products': page_obj.object_list,
+        'page_obj': page_obj,
+    }
+    return render(request, 'app/index.html', context)
 
 def signup(request):
     if request.method == 'POST':
@@ -203,6 +229,33 @@ def order_history(request):
     user = request.user
     sales = Sale.objects.filter(user=user).order_by('-created_at')
     return render(request, 'app/order_history.html', {'sales': sales})
+
+
+class SearchResultView(ListView):
+    template_name = 'app/result.html'
+    context_object_name = 'result_list'
+
+    def get_queryset(self):
+        if self.request.GET.get('q', ''):
+            params = self.parse_search_params(self.request.GET['q'])
+            query = reduce(and_, [Q(name__icontains=p) for p in params])
+            results = Product.objects.filter(query).order_by('-id')
+            return results
+        else:
+            return None
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['query'] = self.request.GET.get('q', '')
+        return ctx
+
+    def parse_search_params(self, words: str):
+        search_words = words.replace(' ', ' ').split()
+        return search_words
+
+    def results(self):
+        return render(request, 'app/result.html', {'results': results})
+
 
 def policy(request):
     return render(request, 'app/policy.html')

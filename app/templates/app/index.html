@@ -11,7 +11,7 @@
 
 
 <div class="product-container">
-{% for product in products %}
+  {% for product in products %}
   <div class="product">
     <a href="{% url 'app:detail' product.id %}">
       <img src="{{ product.image.url }}" class="product-img" alt="product-img">
@@ -21,7 +21,7 @@
       <div class="product-price">Point: {{ product.price | intcomma }}</div>
     </div>
   </div>
-{% endfor %}
+  {% endfor %}
 </div>
 
 
