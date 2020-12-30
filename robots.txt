@@ -1,3 +1,4 @@
-User-Agent: *
-Disallow:
-Sitemap:
+User-Agent:*
+Disallow:/ecsite/
+Disallow:/db.sqlite3
+Sitemap:https://shinac.pythonanywhere.com/sitemap.xml

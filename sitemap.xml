@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!--  created with free sitemap generation system www.sitemapxml.jp  -->
+<url>
+  <loc>https://shinac.pythonanywhere.com/</loc>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/signup/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/product/21/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/product/20/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/product/19/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/product/18/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/product/17/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/product/16/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/product/15/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/product/13/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/product/12/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/product/11/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/product/10/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/product/9/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/policy/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/terms/</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/?next=/product/21/</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/?next=/product/20/</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/?next=/product/19/</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/?next=/product/18/</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/?next=/product/17/</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/?next=/product/16/</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/?next=/product/15/</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/?next=/product/13/</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/?next=/product/12/</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/?next=/product/11/</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/?next=/product/10/</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://shinac.pythonanywhere.com/login/?next=/product/9/</loc>
+  <priority>0.7</priority>
+</url>
+
+</urlset>
