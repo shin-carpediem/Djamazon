@@ -68,8 +68,7 @@
         <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:index' %}">{% trans "Home" %}</a></span>
         <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:fav_products' %}">{% trans "Favorite" %}</a></span>
         <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:cart' %}">{% trans "Cart" %}</a></span>
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}">{% trans "Order-history"
-            %}</a></span>
+        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}">{% trans "Order-history" %}</a></span>
         <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:logout' %}">{% trans "Logout" %}</a></span>
         <span class="col-lg-2 col-sm-4 col-6">{% trans "Point: " %}{{ user.point | intcomma }}</span>
         {% else %}
@@ -98,6 +97,14 @@
     </div>
   </header>
 
+  <div class="">
+    <form action="{% url 'app:result' %}" method="GET">
+      <div class="" style="width: 100%;">
+        <input type="text" placeholder="Search" name="q">
+        <button type="submit" class=""><i class="search icon"></i></button>
+      </div>
+    </form>
+  </div>
 
 
   <div class="container">

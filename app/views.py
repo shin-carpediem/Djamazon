@@ -1,9 +1,13 @@
 from django.shortcuts import get_object_or_404, render, redirect
+from django.db.models import Q
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
+from django.views.generic import ListView
+from functools import reduce
+from operator import and_
 import json
 import requests
 from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
@@ -203,6 +207,32 @@ def order_history(request):
     user = request.user
     sales = Sale.objects.filter(user=user).order_by('-created_at')
     return render(request, 'app/order_history.html', {'sales': sales})
+
+
+class SearchResultView(ListView):
+    template_name = 'app/result.html'
+    context_object_name = 'result_list'
+
+    def get_queryset(self):
+        if self.request.GET.get('q', ''):
+            params = self.parse_search_params(self.request.GET['q'])
+            query = reduce(
+                lambda x,y : x & y,
+                list(map(lambda  z: Q(name__icontains=z), params))
+            )
+            return Product.objects.filter(query)
+        else:
+            return None
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['query'] = self.request.GET.get('q', '')
+        return ctx
+
+    def parse_search_params(self, words: str):
+        search_words = words.replace(' ', ' ').split()
+        return search_words
+
 
 def policy(request):
     return render(request, 'app/policy.html')
