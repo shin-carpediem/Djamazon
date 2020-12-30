@@ -1,11 +1,11 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from django.db.models import Q
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 from django.views.generic import ListView
+from django.db.models import Q
 from functools import reduce
 from operator import and_
 import json
@@ -216,11 +216,9 @@ class SearchResultView(ListView):
     def get_queryset(self):
         if self.request.GET.get('q', ''):
             params = self.parse_search_params(self.request.GET['q'])
-            query = reduce(
-                lambda x,y : x & y,
-                list(map(lambda  z: Q(name__icontains=z), params))
-            )
-            return Product.objects.filter(query)
+            query = reduce(and_, [Q(name__icontains=p) for p in params])
+            results = Product.objects.filter(query).order_by('-id')
+            return results
         else:
             return None
 
@@ -232,6 +230,9 @@ class SearchResultView(ListView):
     def parse_search_params(self, words: str):
         search_words = words.replace(' ', ' ').split()
         return search_words
+
+    def results(self):
+        return render(request, 'app/result.html', {'results': results})
 
 
 def policy(request):

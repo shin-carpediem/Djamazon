@@ -1,34 +1,30 @@
 {% extends 'app/base.html' %}
+{% load humanize %}
 
 {% block content %}
 
 <div class="search-results">
-  <div>
 
-  </div>
-  <div class="">
-    <h3>Search Results</h3>
-    <form action="{% url 'app:result' %}" method="GET">
-      <div class="" style="width: 100%;">
-        <input type="text" placeholder="Search" value="{{query}}" name="q">
-        <button type="submit" class=""><i class="fas fa-search"></i></button>
-      </div>
-    </form>
+  <h3>Search Results</h3>
 
-    {% if result_list %}
-    {% for result in result_list %}
-    <div class="">
-      <h3>
-        <a href="{% url 'app:detail' product.id %}">{{ result.title }}</a>
-      </h3>
+  {% if result_list %}
+  {% for result in result_list %}
+  <div class="product">
+    <a href="{% url 'app:detail' result.id %}">
+      <img src="{{ result.image.url }}" class="product-img" alt="product-img">
+    </a>
+    <div class="product-info">
+      <div class="product-name">{{ result.name }}</div>
+      <div class="product-price">Point: {{ result.price | intcomma }}</div>
     </div>
-    {% endfor %}
-    {% else %}
-    <div class="">
-      <p>No Results in Search</p>
-    </div>
-    {% endif %}
   </div>
+  {% endfor %}
+  {% else %}
+  <div class="py-5 my-5">
+    <p class="text-center">No Results in Search</p>
+  </div>
+  {% endif %}
+
 </div>
 
 {% endblock %}
