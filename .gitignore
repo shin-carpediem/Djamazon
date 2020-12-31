@@ -14,7 +14,7 @@ eb-virt
 # env
 
 # test database
-# db.sqlite3
+db.sqlite3
 
 # production
 /assets/
