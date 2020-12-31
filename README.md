@@ -5,4 +5,4 @@ via pythonanywhere
 via elasticbeanstalk
 👉 http://djamazon2-dev.ap-northeast-1.elasticbeanstalk.com/
 
-✅ Product image size should be less than 500px *500px.
+✅ Product image size should be 320px * 320px.
