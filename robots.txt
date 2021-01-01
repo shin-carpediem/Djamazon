@@ -1,4 +1,3 @@
 User-Agent:*
-Disallow:/ecsite/
-Disallow:/db.sqlite3
+Disallow:
 Sitemap:https://shinac.pythonanywhere.com/sitemap.xml
