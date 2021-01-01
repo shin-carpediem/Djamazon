@@ -14,7 +14,7 @@ import os
 from django.utils.translation import ugettext_lazy as _
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
@@ -22,7 +22,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # クライアントID
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
 # クライアント シークレット
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get(
+    'SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -75,9 +76,9 @@ DATABASES = {
 # }
 
 MIDDLEWARE = [
-# Django can also be configured to email errors about broken links
-#  (404 "page not found" errors).
-# Django sends emails about 404 errors
+    # Django can also be configured to email errors about broken links
+    #  (404 "page not found" errors).
+    # Django sends emails about 404 errors
     'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -178,8 +179,8 @@ print("MEDIA_ROOT", MEDIA_ROOT)
 
 # https://nmomos.com/tips/2019/07/05/django-social-auth/
 AUTHENTICATION_BACKENDS = (
-   'social_core.backends.google.GoogleOAuth2',
-   'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 # パフォーマンスの最適化
@@ -190,7 +191,7 @@ AUTHENTICATION_BACKENDS = (
 CONN_MAX_AGE = 0
 
 if DEBUG:
-# 誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセット。
+    # 誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセット。
     CSRF_COOKIE_SECURE = False
 # 誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセット。
     SESSION_COOKIE_SECURE = False
@@ -276,7 +277,7 @@ else:
                 'handlers': ['mail_admins'],
                 'level': 'INFO',
                 'propagate': False,
-           },
+            },
         }
     }
 

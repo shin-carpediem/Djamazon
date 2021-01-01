@@ -1,5 +1,5 @@
 /* Set core root defaults */
-$light-grey: #f8f8f8;
+$light-grey: #ececec;
 $django-green: #36a57b;
 $green: #0f4b34;
 $black: #000;
@@ -52,17 +52,7 @@ html {
         height: 100%;
         line-height: 70px;
       }
-      // @font-face {
-      //   font-family: 'Decovar Regular24';
-      //   src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Decovar-VF.ttf');
-      // }
       .header-title {
-        font-size: 4vw;
-        font-family: "Decovar Regular24";
-        color: $light-grey;
-        font-variation-settings: "SSTR" 1000;
-        animation: loadin 4s infinite linear;
-        padding-top: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -86,16 +76,7 @@ html {
         @media screen and (max-width: 768px) {
           .header-title {
             display: inline-block;
-            float: left;
             padding: 10px 10px 0 30px;
-          }
-        }
-        @keyframes loadin {
-          0% {
-            font-variation-settings: "SSTR" 1000;
-          }
-          50% {
-            font-variation-settings: "SSTR" 0;
           }
         }
       }
@@ -116,6 +97,7 @@ html {
         }
         .set-button {
           border-radius: 10px;
+          background-color: transparent;
           border: transparent;
           &:hover {
             transform: scale(0.9);
@@ -291,7 +273,7 @@ html {
       border-radius: 4px;
       transition-duration: 0.5s;
       &:hover {
-        transform: scale(1.4);
+        transform: scale(1.2);
       }
     }
 
@@ -557,5 +539,27 @@ html {
         }
       }
     }
+  }
+}
+
+// animation of title
+@font-face {
+  font-family: "Decovar Regular24";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Decovar-VF.ttf");
+}
+.header-title {
+  font-size: 4vw;
+  font-family: "Decovar Regular24";
+  color: white;
+  font-variation-settings: "SSTR" 1000;
+  animation: loadin 4s infinite linear;
+}
+
+@keyframes loadin {
+  0% {
+    font-variation-settings: "SSTR" 1000;
+  }
+  50% {
+    font-variation-settings: "SSTR" 0;
   }
 }

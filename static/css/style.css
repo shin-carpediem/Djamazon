@@ -8,7 +8,7 @@ html {
 
 html body {
   text-rendering: optimizeSpeed;
-  background-color: #f8f8f8;
+  background-color: #ececec;
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
   /* ========================================================
@@ -54,7 +54,7 @@ html body > .container {
 
 html body header {
   border-bottom: solid 2px #000;
-  background-color: #f8f8f8;
+  background-color: #ececec;
   height: 150px;
   width: 100%;
   position: fixed;
@@ -74,13 +74,6 @@ html body header h1 {
 }
 
 html body header .header-title {
-  font-size: 4vw;
-  font-family: "Decovar Regular24";
-  color: #f8f8f8;
-  font-variation-settings: "SSTR" 1000;
-  -webkit-animation: loadin 4s infinite linear;
-          animation: loadin 4s infinite linear;
-  padding-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,26 +94,7 @@ html body header .header-title {
 @media screen and (max-width: 768px) {
   html body header .header-title .header-title {
     display: inline-block;
-    float: left;
     padding: 10px 10px 0 30px;
-  }
-}
-
-@-webkit-keyframes loadin {
-  0% {
-    font-variation-settings: "SSTR" 1000;
-  }
-  50% {
-    font-variation-settings: "SSTR" 0;
-  }
-}
-
-@keyframes loadin {
-  0% {
-    font-variation-settings: "SSTR" 1000;
-  }
-  50% {
-    font-variation-settings: "SSTR" 0;
   }
 }
 
@@ -149,6 +123,7 @@ html body header .lang-change .choice {
 
 html body header .lang-change .set-button {
   border-radius: 10px;
+  background-color: transparent;
   border: transparent;
 }
 
@@ -200,8 +175,8 @@ html body .arrow_up::before {
   bottom: 8px;
   width: 10px;
   height: 10px;
-  border-top: 3px solid #f8f8f8;
-  border-right: 3px solid #f8f8f8;
+  border-top: 3px solid #ececec;
+  border-right: 3px solid #ececec;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
@@ -341,7 +316,7 @@ html body .product-info .category {
   padding: 2px 5px;
   border-radius: 4px;
   font-size: 12px;
-  color: #f8f8f8;
+  color: #ececec;
   background-color: #000;
 }
 
@@ -361,8 +336,8 @@ html body .product-img {
 }
 
 html body .product-img:hover {
-  -webkit-transform: scale(1.4);
-          transform: scale(1.4);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 html body .bg-img {
@@ -423,7 +398,7 @@ html body footer .footer-wrapper .footer-left {
 
 html body footer .footer-wrapper .footer-left p {
   font-size: smaller;
-  color: #f8f8f8;
+  color: #ececec;
 }
 
 html body footer .footer-wrapper .footer-right {
@@ -432,7 +407,7 @@ html body footer .footer-wrapper .footer-right {
 }
 
 html body footer .footer-wrapper .footer-right a {
-  color: #f8f8f8;
+  color: #ececec;
 }
 
 html body footer .footer-wrapper .footer-right a:hover {
@@ -506,7 +481,7 @@ html body .product-detail-info .fav_button:hover {
 html body .product-detail-info .is_faved {
   background-color: #0f4b34;
   border-color: #0f4b34;
-  color: #f8f8f8;
+  color: #ececec;
 }
 
 html body .product-detail-info .purchase-button {
@@ -514,7 +489,7 @@ html body .product-detail-info .purchase-button {
   text-align: center;
   background-color: #0f4b34;
   font-size: 16px;
-  color: #f8f8f8;
+  color: #ececec;
   font-weight: bold;
   padding: 10px 16px;
   border-radius: 10px;
@@ -536,7 +511,7 @@ html body .cart .purchase-form .purchase-button {
   text-align: center;
   background-color: #0f4b34;
   font-size: 16px;
-  color: #f8f8f8;
+  color: #ececec;
   font-weight: bold;
   padding: 10px 16px;
   border-radius: 10px;
@@ -621,7 +596,7 @@ html body .order-item-amount-form input {
 
 html body .message-success {
   background-color: #0f4b34;
-  color: #f8f8f8;
+  color: #ececec;
   padding: 10px;
   padding-left: 30px;
   border-radius: 4px;
@@ -629,7 +604,7 @@ html body .message-success {
 
 html body .message-warning {
   background-color: #ffc107;
-  color: #f8f8f8;
+  color: #ececec;
   padding: 10px;
   padding-left: 30px;
   border-radius: 4px;
@@ -765,6 +740,38 @@ html body .welcome-message .fly-in div:nth-child(8) {
   }
   100% {
     opacity: 0;
+  }
+}
+
+@font-face {
+  font-family: "Decovar Regular24";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Decovar-VF.ttf");
+}
+
+.header-title {
+  font-size: 4vw;
+  font-family: "Decovar Regular24";
+  color: white;
+  font-variation-settings: "SSTR" 1000;
+  -webkit-animation: loadin 4s infinite linear;
+          animation: loadin 4s infinite linear;
+}
+
+@-webkit-keyframes loadin {
+  0% {
+    font-variation-settings: "SSTR" 1000;
+  }
+  50% {
+    font-variation-settings: "SSTR" 0;
+  }
+}
+
+@keyframes loadin {
+  0% {
+    font-variation-settings: "SSTR" 1000;
+  }
+  50% {
+    font-variation-settings: "SSTR" 0;
   }
 }
 /*# sourceMappingURL=style.css.map */
