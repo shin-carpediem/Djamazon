@@ -14,13 +14,14 @@ import os
 from django.utils.translation import ugettext_lazy as _
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-# Google認証のクライアントID
+# Google認証
+# クライアントID
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
-# Google認証のクライアント シークレット
+# クライアント シークレット
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -157,7 +158,7 @@ LOGOUT_REDIRECT_URL = 'app:index'
 
 NUMBER_GROUPING = 3
 
-# セッションを毎回更新する
+# セッションを毎回更新
 SESSION_SAVE_EVERY_REQUEST = True
 
 # Static files (CSS, JavaScript, Images)
@@ -182,22 +183,28 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # パフォーマンスの最適化
-# DEBUG = False をセットすることで、開発向けの複数の機能が無効化されます。
+# DEBUG = False をセットすることで、開発向けの複数の機能が無効化。
 # 加えて、以下の設定をチューンすることもできます。
 # 永続的なデータベース接続を有効化すると、リクエストのプロセス時間の多くの部分に対するデータベースアカウントへの接続において、高速になります。
-# 限られたネットワーク性能の仮想化ホストにおいて、とても効果的です。
+# 限られたネットワーク性能の仮想化ホストにおいて、とても効果的。
 CONN_MAX_AGE = 0
 
 if DEBUG:
-# 誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセットしてください。
+# 誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセット。
     CSRF_COOKIE_SECURE = False
-# 誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセットしてください。
+# 誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセット。
     SESSION_COOKIE_SECURE = False
 else:
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
 
-
+# https://django-docs-ja.readthedocs.io/en/latest/topics/cache.html#id4
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.chache.backends.db.DatabaseCache',
+        'LOCATION': 'cache',
+    }
+}
 
 
 if DEBUG:
