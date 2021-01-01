@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-  <!-- Font Awesome -->
+  <!-- font awesome -->
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
   <!-- Device related -->
@@ -55,16 +55,11 @@
   <meta name="keywords" content="Django Amazon unique funny">
 </head>
 
-
-
-
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8S5PL7" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-
-
 
   <header>
     <div class="header-wrapper">
@@ -88,7 +83,7 @@
       <div class="btn-group  mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-1 ml-1 lang-change">
         <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
           <input name="next" type="hidden" value="{{ redirect_to }}">
-          <select name="language" class="choice">
+          <select name="language" style="border-radius: 5px;">
             {% get_current_language as LANGUAGE_CODE %}
             {% get_available_languages as LANGUAGES %}
             {% get_language_info_list for LANGUAGES as languages %}
@@ -98,23 +93,21 @@
             </option>
             {% endfor %}
           </select>
-          <button class="set-button">{% trans "Set" %}</button>
+          <button style="border-radius: 10px;">{% trans "Set" %}</button>
         </form>
       </div>
 
-      <div class="float-right mt-lg-5 mr-lg-5 mt-sm-3 mr-sm-3 mt-1 mr-1 search">
+      <div class="float-right mt-lg-5 mr-lg-5 mt-sm-3 mr-sm-3 mt-1 mr-1">
         <form action="{% url 'app:result' %}" method="GET">
-          <div class="search-wrapper">
-            <input type="text" placeholder="Search" name="q" class="search-input">
-            <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+          <div style="width: 100%;">
+            <input type="text" placeholder="Search" name="q" style="border-radius: 5px;">
+            <button type="submit" style="border-radius: 10px;"><i class="fas fa-search"></i></button>
           </div>
         </form>
       </div>
 
     </div>
   </header>
-
-
 
 
   <div class="container">
@@ -165,8 +158,6 @@
 
 
   <a href="#top" id="btn-backtotop"><span class="arrow arrow_up"></span></a>
-
-
 
 
   <footer>

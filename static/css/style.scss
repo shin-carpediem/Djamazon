@@ -1,14 +1,9 @@
 /* Set core root defaults */
-$light-grey: #ececec;
-$green: #36a57b;
-$django-green: #0F4B34;
-$black: #000;
-$white: #fff;
-
-
-
+:root {
+  --light-grey: #ececec;
+}
 html, body {
-  background-color: $light-grey;
+  background-color: const(--light-grey);
   font-family: 'Piedra', cursive;
   font-family: 'Righteous', cursive;
 }
@@ -23,11 +18,10 @@ body {
       font-size: 0.7rem;
     }
   }
-  a {
-    color: $black;
-    &:hover {
-      color: $green;
-    }
+a {
+  color: #000;
+  &:hover {
+    color: #0F4B34;
   }
 }
 li {
@@ -44,13 +38,13 @@ body > .container {
 
 
 @font-face {
-  font-family: 'Decovar Regular24';
-  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Decovar-VF.ttf');
+  font-family:'Decovar Regular24';
+  src:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Decovar-VF.ttf');
 }
 .header-title {
   font-size: 4vw;
   font-family: "Decovar Regular24";
-  color: $white;
+  color: white;
   font-variation-settings: 'SSTR' 1000;
   animation: loadin 4s infinite linear;
 }
@@ -70,8 +64,8 @@ body > .container {
 
 
 header {
-  border-bottom: solid 2px $black;
-  background-color: $light-grey;
+  border-bottom: solid 2px #000;
+  background-color: var(--light-grey);
   height: 150px;
   width: 100%;
   position: fixed;
@@ -137,32 +131,6 @@ header {
       margin-left: 10px;
     }
   }
-  .lang-change {
-    .choice {
-      border-radius: 5px;
-    }
-    .set-button {
-      border-radius: 10px;
-      border: transparent;
-      &:hover {
-        transform: scale(0.9);
-      }
-    }
-  }
-  .search {
-    .search-wrapper {
-      width: 100%;
-      .search-input {
-        border-radius: 5px;
-      }
-      .search-button {
-        border-radius: 10px;
-        &:hover {
-          transform: scale(0.9);
-        }
-      }
-    }
-  }
 }
 
 
@@ -180,7 +148,7 @@ header {
   position: relative;
   display: inline-block;
   padding: 0 0 0 16px;
-  color: $green;
+  color: #000;
   vertical-align: middle;
   text-decoration: none;
   &::after,
@@ -202,8 +170,8 @@ header {
   bottom: 8px;
   width: 10px;
   height: 10px;
-  border-top: 3px solid $white;
-  border-right: 3px solid $white;
+  border-top: 3px solid #fff;
+  border-right: 3px solid #fff;
   transform: rotate(-45deg);
 }
 
@@ -251,7 +219,7 @@ header {
     height: 80px;
     padding: 4px;
     border-radius: 8px;
-    background-color: $green;
+    background-color: #000;
     transition: all .3s;
     transform: scale(0.8) rotate(45deg);
     transition: background-color 0.5s ease-out;
@@ -321,8 +289,8 @@ header {
     padding: 2px 5px;
     border-radius: 4px;
     font-size: 12px;
-    color: $white;
-    background-color: $black;
+    color: #fff;
+    background-color: #000;
   }
 }
 
@@ -340,7 +308,7 @@ header {
   border-radius: 4px;
   transition-duration: 0.5s;
   &:hover {
-    transform: scale(1.4);
+    transform: perspective(100px) translateZ(20px);
   }
 }
 
@@ -368,7 +336,7 @@ header {
 /* footer */
 footer {
   width: 100%;
-  border-top: 2px solid $black;
+  border-top: 2px solid black;
   height: 150px;
   .footer-wrapper {
     width: 65%;
@@ -444,35 +412,42 @@ footer {
     text-align: center;
     display: inline-block;
     padding: 8px 16px;
-    border: 2px solid $green;
-    border-radius: 10px;
+    border: 2px solid blue;
+    border-radius: 4px;
     font-size: 16px;
     font-weight: bold;
-    color: $green;
-    &:hover {
-      transform: scale(0.9);
-    }
+    color: blue;
   }
   .is_faved {
-    background-color: $green;
-    border-color: $green;
-    color: $white;
+    background-color: blue;
+    border-color: blue;
+    color: #FFF;
+  }
+  .fav_button:hover {
+    background-color: blue;
+    border-color: blue;
+    color: #FFF;
   }
   .purchase-button {
     display: inline-block;
     text-align: center;
-    background-color: $green;
+    background-color: orange;
     font-size: 16px;
-    color: $white;
+    color: #FFF;
     font-weight: bold;
     padding: 10px 16px;
-    border-radius: 10px;
-    border: transparent;
-    &:hover {
-      transform: scale(0.9);
-    }
+    border-radius: 4px;
+    border-bottom: 4px solid #a26a03;
+  }
+  .purchase-button:active {
+    transform: translateY(4px);
+    border-bottom: none;
   }
 }
+
+
+
+
 
 
 
@@ -489,16 +464,13 @@ footer {
    .purchase-button {
      display: inline-block;
      text-align: center;
-     background-color: $green;
+     background-color: orange;
      font-size: 16px;
-     color: $white;
+     color: #FFF;
      font-weight: bold;
      padding: 10px 16px;
-     border-radius: 10px;
-     border: transparent;
-     &:hover {
-       transform: scale(0.9);
-     }
+     border-radius: 4px;
+     border-bottom: 4px solid #a26a03;
    }
  }
  .purchase-form-container {
@@ -554,15 +526,15 @@ footer {
   }
 }
 .message-success {
-  background-color: $green;
-  color: $white;
+  background-color: #00d1b2;
+  color: white;
   padding: 10px;
   padding-left: 30px;
   border-radius: 4px;
 }
 .message-warning {
   background-color: #ffc107;
-  color: $white;
+  color: white;
   padding: 10px;
   padding-left: 30px;
   border-radius: 4px;
@@ -600,12 +572,13 @@ footer {
   .fly-in div:nth-child(6) { animation-delay: 20s}
   .fly-in div:nth-child(7) { animation-delay: 24s}
   .fly-in div:nth-child(8) { animation-delay: 28s}
-  @keyframes switch {
+}
+
+@keyframes switch {
     0% { opacity: 0;filter: blur(20px); transform:scale(12)}
     3% { opacity: 1;filter: blur(0); transform:scale(1)}
     10% { opacity: 1;filter: blur(0); transform:scale(.9)}
     13% { opacity: 0;filter: blur(10px); transform:scale(.1)}
     80% { opacity: 0}
     100% { opacity: 0}
-  }
 }
