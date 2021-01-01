@@ -198,14 +198,12 @@ else:
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
 
-# https://django-docs-ja.readthedocs.io/en/latest/topics/cache.html#id4
 CACHES = {
     'default': {
         'BACKEND': 'django.core.chache.backends.db.DatabaseCache',
         'LOCATION': 'cache',
     }
 }
-
 
 if DEBUG:
     LOGGING = {
