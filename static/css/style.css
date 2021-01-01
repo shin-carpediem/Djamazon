@@ -358,8 +358,8 @@ header .search .search-wrapper .search-button:hover {
 }
 
 .product-img:hover {
-  -webkit-transform: perspective(100px) translateZ(20px);
-          transform: perspective(100px) translateZ(20px);
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
 }
 
 .bg-img {
