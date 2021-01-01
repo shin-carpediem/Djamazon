@@ -5,6 +5,8 @@ $django-green: #0F4B34;
 $black: #000;
 $white: #fff;
 
+
+
 html, body {
   background-color: $light-grey;
   font-family: 'Piedra', cursive;
@@ -42,8 +44,8 @@ body > .container {
 
 
 @font-face {
-  font-family:'Decovar Regular24';
-  src:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Decovar-VF.ttf');
+  font-family: 'Decovar Regular24';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Decovar-VF.ttf');
 }
 .header-title {
   font-size: 4vw;
@@ -338,7 +340,7 @@ header {
   border-radius: 4px;
   transition-duration: 0.5s;
   &:hover {
-    transform: perspective(100px) translateZ(20px);
+    transform: scale(1.4);
   }
 }
 

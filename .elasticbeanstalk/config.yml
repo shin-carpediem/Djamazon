@@ -1,4 +1,6 @@
 branch-defaults:
+  develop:
+    environment: Djamazon2-dev
   master:
     environment: Djamazon2-dev
     group_suffix: null
