@@ -21,25 +21,25 @@ from ecsite.settings import DEBUG
 
 
 # Create your views here.
-class CacheRouter(object):
-    """すべてのデータベースキャッシュ操作をコントロールするルーター"""
+class CacheRouter:
+    """A router to control all database cache operations"""
 
     def db_for_read(self, model, **hints):
-        "すべてのキャッシュ読み込み操作をスレーブへ"
-        if model._meta.app_label in ('django_cache',):
-            return 'cache_slave'
+        "All cache read operations go to the replica"
+        if model._meta.app_label == 'django_cache':
+            return 'cache_replica'
         return None
 
     def db_for_write(self, model, **hints):
-        "すべてのキャッシュ読み込み操作をマスターへ"
-        if model._meta.app_label in ('django_cache',):
-            return 'cache_master'
+        "All cache write operations go to primary"
+        if model._meta.app_label == 'django_cache':
+            return 'cache_primary'
         return None
 
-    def allow_syncdb(self, db, model):
-        "キャッシュモデルはマスターにだけ同期"
-        if model._meta.app_label in ('django_cache',):
-            return db == 'cache_master'
+    def allow_migrate(self, db, app_label, model_name=None, **hints):
+        "Only install the cache model on primary"
+        if app_label == 'django_cache':
+            return db == 'cache_primary'
         return None
 
 
