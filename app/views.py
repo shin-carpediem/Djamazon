@@ -21,6 +21,28 @@ from ecsite.settings import DEBUG
 
 
 # Create your views here.
+class CacheRouter(object):
+    """すべてのデータベースキャッシュ操作をコントロールするルーター"""
+
+    def db_for_read(self, model, **hints):
+        "すべてのキャッシュ読み込み操作をスレーブへ"
+        if model._meta.app_label in ('django_cache',):
+            return 'cache_slave'
+        return None
+
+    def db_for_write(self, model, **hints):
+        "すべてのキャッシュ読み込み操作をマスターへ"
+        if model._meta.app_label in ('django_cache',):
+            return 'cache_master'
+        return None
+
+    def allow_syncdb(self, db, model):
+        "キャッシュモデルはマスターにだけ同期"
+        if model._meta.app_label in ('django_cache',):
+            return db == 'cache_master'
+        return None
+
+
 def paginate_queryset(request, queryset, count):
     # Pageオブジェクトを返す。countは、1ページに表示する件数。
     paginator = Paginator(queryset, count)
