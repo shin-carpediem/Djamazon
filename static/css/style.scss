@@ -88,6 +88,9 @@ html {
         #menuToggle {
           display: flex;
           position: relative;
+          align-items: right;
+          justify-content: right;
+          text-align: right;
           input {
             display: flex;
             position: absolute;
@@ -151,6 +154,9 @@ html {
         }
       }
       .lang-change {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         .choice {
           border-radius: 5px;
         }
@@ -165,11 +171,14 @@ html {
       .search {
         .search-wrapper {
           width: 100%;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
           .search-input {
             border-radius: 5px;
           }
           .search-button {
-            border-radius: 10px;
+            border-radius: transparent;
             &:hover {
               transform: scale(0.9);
             }
@@ -190,7 +199,7 @@ html {
       float: left;
       padding: 10px;
       margin-bottom: 15px;
-      z-index: 100;
+      z-index: 9999;
       @media screen and (max-width: 768px) {
         width: calc(100% / 2);
       }
