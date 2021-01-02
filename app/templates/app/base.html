@@ -69,77 +69,83 @@
   <header>
     <div class="header-wrapper">
 
-      <h1 class="header-title pt-3" contenteditable>DJAMAZON</h1>
+      <div class="row">
+        <h1 class="header-title pt-3 col-lg-12 col-6" contenteditable>DJAMAZON</h1>
 
-      <!-- PC size -->
-      <div class="header-menu row">
-        {% if request.user.is_authenticated %}
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:index' %}"><i class="fas fa-home pr-2"></i>{% trans "Home" %}</a></span>
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:fav_products' %}"><i class="fas fa-heart pr-2"></i>{% trans "Favorite" %}</a></span>
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:cart' %}"><i class="fas fa-shopping-cart pr-2"></i>{% trans "Cart" %}</a></span>
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}"><i
-              class="fas fa-check pr-2"></i>{% trans "Order-history" %}</a></span>
-        <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:logout' %}"><i class="fas fa-sign-out-alt pr-2"></i>{% trans "Logout" %}</a></span>
-        <span class="col-lg-2 col-sm-4 col-6"><i class="fas fa-coins pr-2"></i>{% trans "Point: " %}{{ user.point | intcomma }}</span>
-        {% else %}
-        <span class="col-6"><a href="{% url 'app:login' %}"><i class="fas fa-sign-in-alt pr-2"></i>{% trans "Login" %}</a></span>
-        <span class="col-6"><a href="{% url 'app:signup' %}"><i class="fas fa-user-plus pr-2"></i>{% trans "Signup" %}</a></span>
-        {% endif %}
-      </div>
-      <!-- end of PC size -->
-
-
-
-      <!-- Mobile size humbergar menu -->
-      <nav role="navigation">
-        <div id="menuToggle">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-          <ul id="menu">
+        <!-- PC size -->
+        <div class="header-menu row col-lg-12 col-6">
           {% if request.user.is_authenticated %}
-            <li class=""><a href="{% url 'app:index' %}"><i class="fas fa-home pr-2"></i>{% trans "Home" %}</a></li>
-            <li class=""><a href="{% url 'app:fav_products' %}"><i class="fas fa-heart pr-2"></i>{% trans "Favorite" %}</a></li>
-            <li class=""><a href="{% url 'app:cart' %}"><i class="fas fa-shopping-cart pr-2"></i>{% trans "Cart" %}</a></li>
-            <li class=""><a href="{% url 'app:order_history' %}"><i
-                  class="fas fa-check pr-2"></i>{% trans "Order-history" %}</a></span>
-            <li class=""><a href="{% url 'app:logout' %}"><i class="fas fa-sign-out-alt pr-2"></i>{% trans "Logout" %}</a></li>
-            <li class=""><i class="fas fa-coins pr-2"></i>{% trans "Point: " %}{{ user.point | intcomma }}</li>
+          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:index' %}"><i class="fas fa-home pr-2"></i>{% trans "Home" %}</a></span>
+          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:fav_products' %}"><i
+                class="fas fa-heart pr-2"></i>{% trans "Favorite" %}</a></span>
+          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:cart' %}"><i
+                class="fas fa-shopping-cart pr-2"></i>{% trans "Cart" %}</a></span>
+          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}"><i
+                class="fas fa-check pr-2"></i>{% trans "Order-history" %}</a></span>
+          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:logout' %}"><i
+                class="fas fa-sign-out-alt pr-2"></i>{% trans "Logout" %}</a></span>
+          <span class="col-lg-2 col-sm-4 col-6"><i class="fas fa-coins pr-2"></i>{% trans "Point: " %}{{ user.point | intcomma }}</span>
           {% else %}
-            <li class=""><a href="{% url 'app:login' %}"><i class="fas fa-sign-in-alt pr-2"></i>{% trans "Login" %}</a></li>
-            <li class=""><a href="{% url 'app:signup' %}"><i class="fas fa-user-plus pr-2"></i>{% trans "Signup" %}</a></li>
+          <span class="col-6"><a href="{% url 'app:login' %}"><i class="fas fa-sign-in-alt pr-2"></i>{% trans "Login" %}</a></span>
+          <span class="col-6"><a href="{% url 'app:signup' %}"><i class="fas fa-user-plus pr-2"></i>{% trans "Signup" %}</a></span>
           {% endif %}
         </div>
-      </nav>
-      <!-- end of Mobile size humbergar menu -->
+        <!-- end of PC size -->
 
-      <div class="btn-group  mt-lg-5 ml-lg-5 mt-sm-3 ml-sm-3 mt-1 ml-1 lang-change">
-        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-          <input name="next" type="hidden" value="{{ redirect_to }}">
-          <select name="language" class="choice">
-            {% get_current_language as LANGUAGE_CODE %}
-            {% get_available_languages as LANGUAGES %}
-            {% get_language_info_list for LANGUAGES as languages %}
-            {% for language in languages %}
-            <option value="{{ language.code }}" {% if language.code　==　LANGUAGE_CODE %} selected{% endif %}>
-              {{ language.name_local }} ({{ language.code }})
-            </option>
-            {% endfor %}
-          </select>
-          <button class="set-button"><i class="fas fa-check-circle"></i></button>
-        </form>
+        <!-- Mobile size humbergar menu -->
+        <nav role="navigation" class="col-lg-12 col-6">
+          <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+              {% if request.user.is_authenticated %}
+              <li class=""><a href="{% url 'app:index' %}"><i class="fas fa-home pr-2"></i>{% trans "Home" %}</a></li>
+              <li class=""><a href="{% url 'app:fav_products' %}"><i class="fas fa-heart pr-2"></i>{% trans "Favorite" %}</a></li>
+              <li class=""><a href="{% url 'app:cart' %}"><i class="fas fa-shopping-cart pr-2"></i>{% trans "Cart" %}</a></li>
+              <li class=""><a href="{% url 'app:order_history' %}"><i class="fas fa-check pr-2"></i>{% trans "Order-history" %}</a></span>
+              <li class=""><a href="{% url 'app:logout' %}"><i class="fas fa-sign-out-alt pr-2"></i>{% trans "Logout" %}</a></li>
+              <li class=""><i class="fas fa-coins pr-2"></i>{% trans "Point: " %}{{ user.point | intcomma }}</li>
+              {% else %}
+              <li class=""><a href="{% url 'app:login' %}"><i class="fas fa-sign-in-alt pr-2"></i>{% trans "Login" %}</a></li>
+              <li class=""><a href="{% url 'app:signup' %}"><i class="fas fa-user-plus pr-2"></i>{% trans "Signup" %}</a></li>
+              {% endif %}
+          </div>
+        </nav>
+        <!-- end of Mobile size humbergar menu -->
+
       </div>
 
 
+      <div class="row">
 
-      <div class="float-right mt-lg-5 mr-lg-5 mt-sm-3 mr-sm-3 mt-1 mr-1 search">
-        <form action="{% url 'app:result' %}" method="GET">
-          <div class="search-wrapper">
-            <input type="text" placeholder="Search" name="q" class="search-input">
-            <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
-          </div>
-        </form>
+        <div class="btn-group lang-change mt-lg-5 mb-lg-3 mx-lg-5 col-lg-12 col-4">
+          <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select name="language" class="choice">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              {% for language in languages %}
+              <option value="{{ language.code }}" {% if language.code　==　LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_local }} ({{ language.code }})
+              </option>
+              {% endfor %}
+            </select>
+            <button class="set-button"><i class="fas fa-check-circle"></i></button>
+          </form>
+        </div>
+
+        <div class="float-right search mx-lg-5 col-lg-12 col-8">
+          <form action="{% url 'app:result' %}" method="GET">
+            <div class="search-wrapper">
+              <input type="text" placeholder="Search" name="q" class="search-input">
+              <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+          </form>
+        </div>
+  　
       </div>
 
     </div>
@@ -202,7 +208,7 @@
   <footer>
     <div class="footer-wrapper row">
 
-      <div class="footer-left col-lg-7 col-12">
+      <div class="footer-left col-lg-6 col-12">
         <p>
           Copyright ©
           2020 Djamazon Corporation All Rights
@@ -210,7 +216,7 @@
         </p>
       </div>
 
-      <div class="col-lg-5 col-12 footer-right">
+      <div class="col-lg-6 col-12 footer-right">
         <ul class="row">
           <li class="col-sm-6 col-12"><a href="{% url 'app:policy' %}">{% trans "Privacy Policy" %}</a></li>
           <li class="col-sm-6 col-12"><a href="{% url 'app:terms' %}">{% trans "Terms of Service" %}</a></li>
@@ -222,7 +228,7 @@
 
 
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  <script src="https://code.jquery.co6/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"

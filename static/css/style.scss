@@ -11,8 +11,6 @@ html {
   body {
     text-rendering: optimizeSpeed;
     background-color: $light-grey;
-    font-family: "Piedra", cursive;
-    font-family: "Righteous", cursive;
     @media screen and (max-width: 414px) {
       body {
         font-size: 0.7rem;
@@ -29,10 +27,6 @@ html {
     }
     li {
       list-style: none;
-    }
-    > .container {
-      width: 65%;
-      padding-top: 60px;
     }
 
     header {
@@ -68,7 +62,7 @@ html {
           -20px 38px 20px rgba(#a0a0a0, 0.1), -21px 39px 21px rgba(#a0a0a0, 0.1);
         @media screen and (max-width: 768px) {
           .header-title {
-            display: inline-block;
+            display: flex;
             padding: 10px 10px 0 30px;
           }
         }
@@ -92,17 +86,11 @@ html {
       }
       @media screen and (max-width: 768px) {
         #menuToggle {
-          display: block;
+          display: flex;
           position: relative;
-          top: 50px;
-          left: 50px;
           input {
-            display: block;
-            width: 40px;
-            height: 32px;
+            display: flex;
             position: absolute;
-            top: -7px;
-            left: -5px;
             cursor: pointer;
             opacity: 0; /* hide this */
             z-index: 20000; /* and place it over the hamburger */
@@ -118,11 +106,11 @@ html {
               transform: rotate(-45deg) translate(0, -1px);
             }
             &:checked ~ #menu {
-              display: block;
+              display: flex;
             }
           }
           span {
-            display: block;
+            display: flex;
             width: 33px;
             height: 4px;
             margin-bottom: 5px;
@@ -147,7 +135,7 @@ html {
             left: 250px;
             width: 300px;
             padding: 50px;
-            border-radius: 0 10px 10px 0;
+            border-radius: 10px;
             background: $django-green;
             opacity: 0.85;
             transform: translate(-100%, 0);
@@ -167,7 +155,6 @@ html {
           border-radius: 5px;
         }
         .set-button {
-          border-radius: 10px;
           background-color: transparent;
           border: transparent;
           &:hover {
@@ -182,6 +169,7 @@ html {
             border-radius: 5px;
           }
           .search-button {
+            border-radius: 10px;
             &:hover {
               transform: scale(0.9);
             }

@@ -3,12 +3,12 @@
 
 {% block content %}
 
-<div class="product-detail">
-  <div class="product-detail-image">
+<div class="product-detail row">
+  <div class="product-detail-image col-sm-12">
     <img src="{{ product.image.url }}" class="product-img" alt="product-img">
   </div>
 
-  <div class="product-detail-info">
+  <div class="product-detail-info col-sm-12">
     <h2>{{ product.name }}</h2>
     <hr>
     <div class="point-fav-section">
@@ -40,11 +40,9 @@
       </a>
       {% endif %}
     </div>
-
-
-
-
   </div>
+
+
 </div>
 
 
