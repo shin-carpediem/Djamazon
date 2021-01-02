@@ -69,11 +69,40 @@
   <header>
     <div class="header-wrapper">
 
-      <div class="row">
-        <h1 class="header-title pt-3 col-lg-12 col-6" contenteditable>DJAMAZON</h1>
+      <div class="row pt-3">
+        <h1 class="header-title col-lg-8 col-4" contenteditable>DJAMAZON</h1>
+
+        <div class="col-lg-4 col-4 row header-right">
+          <div class="btn-group lang-change col-12">
+            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+              <input name="next" type="hidden" value="{{ redirect_to }}">
+              <select name="language" class="choice">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                <option value="{{ language.code }}" {% if language.code　==　LANGUAGE_CODE %} selected{% endif %}>
+                  {{ language.name_local }} ({{ language.code }})
+                </option>
+                {% endfor %}
+              </select>
+              <button class="set-button"><i class="fas fa-check-circle"></i></button>
+            </form>
+          </div>
+          <div class="float-right search col-12">
+            <form action="{% url 'app:result' %}" method="GET">
+              <div class="search-wrapper">
+                <input type="text" placeholder="Search" name="q" class="search-input">
+                <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
 
         <!-- PC size -->
-        <div class="header-menu row col-lg-12 col-6">
+        <div class="header-menu row">
           {% if request.user.is_authenticated %}
           <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:index' %}"><i class="fas fa-home pr-2"></i>{% trans "Home" %}</a></span>
           <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:fav_products' %}"><i
@@ -93,7 +122,7 @@
         <!-- end of PC size -->
 
         <!-- Mobile size humbergar menu -->
-        <nav role="navigation" class="col-lg-12 col-6 navigation">
+        <nav role="navigation" class="navigation">
           <div id="menuToggle">
             <input type="checkbox" />
             <span></span>
@@ -118,35 +147,7 @@
       </div>
 
 
-      <div class="row">
 
-        <div class="btn-group lang-change mt-lg-5 mb-lg-3 mx-lg-5 col-lg-12 col-4">
-          <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-            <input name="next" type="hidden" value="{{ redirect_to }}">
-            <select name="language" class="choice">
-              {% get_current_language as LANGUAGE_CODE %}
-              {% get_available_languages as LANGUAGES %}
-              {% get_language_info_list for LANGUAGES as languages %}
-              {% for language in languages %}
-              <option value="{{ language.code }}" {% if language.code　==　LANGUAGE_CODE %} selected{% endif %}>
-                {{ language.name_local }} ({{ language.code }})
-              </option>
-              {% endfor %}
-            </select>
-            <button class="set-button"><i class="fas fa-check-circle"></i></button>
-          </form>
-        </div>
-
-        <div class="float-right search mx-lg-5 col-lg-12 col-8">
-          <form action="{% url 'app:result' %}" method="GET">
-            <div class="search-wrapper">
-              <input type="text" placeholder="Search" name="q" class="search-input">
-              <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
-            </div>
-          </form>
-        </div>
-  　
-      </div>
 
     </div>
   </header>

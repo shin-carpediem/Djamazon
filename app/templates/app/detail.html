@@ -4,17 +4,19 @@
 {% block content %}
 
 <div class="product-detail row">
-  <div class="product-detail-image col-sm-12">
+
+  <div class="product-detail-image col-sm-6 col-12">
     <img src="{{ product.image.url }}" class="product-img" alt="product-img">
   </div>
 
-  <div class="product-detail-info col-sm-12">
+
+  <div class="product-detail-info col-sm-6 col-12">
     <h2>{{ product.name }}</h2>
     <hr>
-    <div class="point-fav-section">
-      <h4>{{ product.price | intcomma }} Point</h4>
+    <div class="point-fav-section row">
+      <h4 class="col-sm-6 col-12">{{ product.price | intcomma }} Point</h4>
       {% if request.user.is_authenticated %}
-      <form action="{% url 'app:toggle_fav_product_status' %}" method="post">{% csrf_token %}
+      <form action="{% url 'app:toggle_fav_product_status' %}" method="post" class="col-sm-6 col-12">{% csrf_token %}
         <input type="hidden" name="product_id" value="{{ product.id }}">
         {% if product in user.fav_products.all %}
         <input type="submit" name="submit" class="fav_button" value="remove from your favorite" />
@@ -24,7 +26,6 @@
       </form>
       {% endif %}
     </div>
-
 
     <p>{{ product.description }}</p>
 
@@ -41,7 +42,6 @@
       {% endif %}
     </div>
   </div>
-
 
 </div>
 

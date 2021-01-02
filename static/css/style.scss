@@ -41,9 +41,6 @@ html {
         height: 100%;
         line-height: 70px;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
         transform: translateZ(0);
         backface-visibility: hidden;
         text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.7),
@@ -60,12 +57,6 @@ html {
           -16px 30px 16px rgba(#a0a0a0, 0.1), -17px 32px 17px rgba(#a0a0a0, 0.1),
           -18px 34px 18px rgba(#a0a0a0, 0.1), -19px 36px 19px rgba(#a0a0a0, 0.1),
           -20px 38px 20px rgba(#a0a0a0, 0.1), -21px 39px 21px rgba(#a0a0a0, 0.1);
-        @media screen and (max-width: 768px) {
-          .header-title {
-            display: flex;
-            padding: 10px 10px 0 30px;
-          }
-        }
       }
       .header-menu {
         padding-top: 15px;
@@ -154,9 +145,6 @@ html {
         }
       }
       .lang-change {
-        align-items: center;
-        justify-content: center;
-        text-align: center;
         .choice {
           border-radius: 5px;
         }
@@ -171,9 +159,6 @@ html {
       .search {
         .search-wrapper {
           width: 100%;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
           .search-input {
             border-radius: 5px;
           }
@@ -225,9 +210,9 @@ html {
       .product-img {
         width: 100%;
         max-width: 500px;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 4px;
+        height: 500px;
+        object-fit: scale-down;
+        transform: scale(0.8);
         transition-duration: 0.5s;
         &:hover {
           transform: scale(1.2);
@@ -243,11 +228,7 @@ html {
       .product-detail-info {
         flex: 1;
       }
-      .product-img {
-        object-fit: contain;
-      }
       .product-detail-info {
-        margin-left: 10px;
         .point-fav-section {
           display: flex;
           justify-content: space-between;
