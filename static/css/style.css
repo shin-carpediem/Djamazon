@@ -11,12 +11,6 @@ html body {
   background-color: #ececec;
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
-  /* ========================================================
-矢印アイコン
-=========================================================*/
-  /* ========================================================
-ページトップに戻るボタン
-=========================================================*/
   /* footer */
   /* ここまでtop page */
   /* product detail */
@@ -62,18 +56,9 @@ html body header {
   z-index: 10000;
 }
 
-@media screen and (max-width: 768px) {
-  html body header .header-wrapper {
-    padding-top: 30px;
-  }
-}
-
-html body header h1 {
+html body header .header-title {
   height: 100%;
   line-height: 70px;
-}
-
-html body header .header-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -95,6 +80,8 @@ html body header .header-title {
   html body header .header-title .header-title {
     display: inline-block;
     padding: 10px 10px 0 30px;
+    -webkit-transform: scale(2);
+            transform: scale(2);
   }
 }
 
@@ -115,6 +102,103 @@ html body header .header-menu {
 html body header .header-menu a {
   padding: 10px;
   margin-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  html body header .header-menu {
+    display: none;
+  }
+}
+
+html body header #menuToggle {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  html body header #menuToggle {
+    display: block;
+    position: relative;
+    top: 5px;
+    left: 50px;
+    z-index: 20000;
+  }
+  html body header #menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    /* hide this */
+    z-index: 20001;
+    /* and place it over the hamburger */
+  }
+  html body header #menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background-color: #000;
+    border-radius: 3px;
+    z-index: 20000;
+    -webkit-transform-origin: 4px 0px;
+            transform-origin: 4px 0px;
+    -webkit-transition: background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+  html body header #menuToggle span:first-child {
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+  }
+  html body header #menuToggle span:nth-last-child(2) {
+    -webkit-transform-origin: 0% 100%;
+            transform-origin: 0% 100%;
+  }
+  html body header #menuToggle input:checked ~ span {
+    opacity: 1;
+    -webkit-transform: rotate(45deg) translate(-2px, -1px);
+            transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+  }
+  html body header #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+            transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  html body header #menuToggle input:checked ~ span:nth-last-child(2) {
+    -webkit-transform: rotate(-45deg) translate(0, -1px);
+            transform: rotate(-45deg) translate(0, -1px);
+  }
+  html body header #menuToggle #menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    background: #36a57b;
+    /* to stop flickering of text in safari */
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+    -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+  html body header #menuToggle #menu li {
+    padding: 10px 0;
+    font-size: 22px;
+  }
+  html body header #menuToggle input:checked ~ ul {
+    -webkit-transform: none;
+            transform: none;
+  }
 }
 
 html body header .lang-change .choice {
@@ -140,16 +224,12 @@ html body header .search .search-wrapper .search-input {
   border-radius: 5px;
 }
 
-html body header .search .search-wrapper .search-button {
-  border-radius: 10px;
-}
-
 html body header .search .search-wrapper .search-button:hover {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
 
-html body .arrow {
+html body header .arrow {
   position: relative;
   display: inline-block;
   padding: 0 0 0 16px;
@@ -158,7 +238,7 @@ html body .arrow {
   text-decoration: none;
 }
 
-html body .arrow::after, html body .arrow::before {
+html body header .arrow::after, html body header .arrow::before {
   position: absolute;
   content: "";
   top: 0;
@@ -168,8 +248,8 @@ html body .arrow::after, html body .arrow::before {
   vertical-align: middle;
 }
 
-html body .arrow_down::before,
-html body .arrow_up::before {
+html body header .arrow_down::before,
+html body header .arrow_up::before {
   top: auto;
   left: auto;
   bottom: 8px;
@@ -181,7 +261,7 @@ html body .arrow_up::before {
           transform: rotate(-45deg);
 }
 
-html body #btn-backtotop {
+html body header #btn-backtotop {
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -193,41 +273,41 @@ html body #btn-backtotop {
   opacity: 0;
 }
 
-@media screen and (max-width: 767px) {
-  html body #btn-backtotop {
+@media screen and (max-width: 768px) {
+  html body header #btn-backtotop {
     bottom: 10px;
     right: 5px;
   }
 }
 
-html body #btn-backtotop.fadein {
+html body header #btn-backtotop.fadein {
   opacity: 1;
 }
 
-html body #btn-backtotop:hover {
+html body header #btn-backtotop:hover {
   opacity: 0.8;
   bottom: 34px;
 }
 
-@media screen and (max-width: 767px) {
-  html body #btn-backtotop:hover {
+@media screen and (max-width: 768px) {
+  html body header #btn-backtotop:hover {
     bottom: 10px;
   }
 }
 
-html body #btn-backtotop:hover::after {
+html body header #btn-backtotop:hover::after {
   -webkit-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
           box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
 }
 
-@media screen and (max-width: 767px) {
-  html body #btn-backtotop:hover::after {
+@media screen and (max-width: 768px) {
+  html body header #btn-backtotop:hover::after {
     -webkit-box-shadow: none;
             box-shadow: none;
   }
 }
 
-html body #btn-backtotop::after {
+html body header #btn-backtotop::after {
   content: "";
   display: block;
   color: #fff;
@@ -245,33 +325,33 @@ html body #btn-backtotop::after {
   transition: background-color 0.5s ease-out;
 }
 
-@media screen and (max-width: 767px) {
-  html body #btn-backtotop::after {
+@media screen and (max-width: 768px) {
+  html body header #btn-backtotop::after {
     width: 40px;
     height: 40px;
   }
 }
 
-html body #btn-backtotop .arrow {
+html body header #btn-backtotop .arrow {
   top: 72px;
   left: 13px;
 }
 
-@media screen and (max-width: 767px) {
-  html body #btn-backtotop .arrow {
+@media screen and (max-width: 768px) {
+  html body header #btn-backtotop .arrow {
     top: 46px;
     left: -1px;
   }
 }
 
-html body #btn-backtotop .arrow::before {
+html body header #btn-backtotop .arrow::before {
   width: 20px;
   height: 20px;
   z-index: 1;
 }
 
-@media screen and (max-width: 767px) {
-  html body #btn-backtotop .arrow::before {
+@media screen and (max-width: 768px) {
+  html body header #btn-backtotop .arrow::before {
     width: 10px;
     height: 10px;
   }
@@ -394,10 +474,10 @@ html body footer .footer-wrapper {
 
 html body footer .footer-wrapper .footer-left {
   text-align: center;
+  font-size: smaller;
 }
 
 html body footer .footer-wrapper .footer-left p {
-  font-size: smaller;
   color: #ececec;
 }
 
