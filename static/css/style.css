@@ -4,6 +4,11 @@ html {
   scroll-behavior: smooth;
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
+  /* ここまでtop page */
+  /* product detail */
+  /* cart */
+  /* order history */
+  /* signup & login */
 }
 
 html body {
@@ -12,11 +17,6 @@ html body {
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
   /* footer */
-  /* ここまでtop page */
-  /* product detail */
-  /* cart */
-  /* order history */
-  /* signup & login */
 }
 
 @media screen and (max-width: 414px) {
@@ -80,8 +80,6 @@ html body header .header-title {
   html body header .header-title .header-title {
     display: inline-block;
     padding: 10px 10px 0 30px;
-    -webkit-transform: scale(2);
-            transform: scale(2);
   }
 }
 
@@ -118,9 +116,8 @@ html body header #menuToggle {
   html body header #menuToggle {
     display: block;
     position: relative;
-    top: 5px;
+    top: 50px;
     left: 50px;
-    z-index: 20000;
   }
   html body header #menuToggle input {
     display: block;
@@ -132,8 +129,25 @@ html body header #menuToggle {
     cursor: pointer;
     opacity: 0;
     /* hide this */
-    z-index: 20001;
+    z-index: 20000;
     /* and place it over the hamburger */
+  }
+  html body header #menuToggle input:checked ~ span {
+    opacity: 1;
+    -webkit-transform: rotate(45deg) translate(-2px, -1px);
+            transform: rotate(45deg) translate(-2px, -1px);
+  }
+  html body header #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+            transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  html body header #menuToggle input:checked ~ span:nth-last-child(2) {
+    -webkit-transform: rotate(-45deg) translate(0, -1px);
+            transform: rotate(-45deg) translate(0, -1px);
+  }
+  html body header #menuToggle input:checked ~ #menu {
+    display: block;
   }
   html body header #menuToggle span {
     display: block;
@@ -159,45 +173,25 @@ html body header #menuToggle {
     -webkit-transform-origin: 0% 100%;
             transform-origin: 0% 100%;
   }
-  html body header #menuToggle input:checked ~ span {
-    opacity: 1;
-    -webkit-transform: rotate(45deg) translate(-2px, -1px);
-            transform: rotate(45deg) translate(-2px, -1px);
-    background: #232323;
-  }
-  html body header #menuToggle input:checked ~ span:nth-last-child(3) {
-    opacity: 0;
-    -webkit-transform: rotate(0deg) scale(0.2, 0.2);
-            transform: rotate(0deg) scale(0.2, 0.2);
-  }
-  html body header #menuToggle input:checked ~ span:nth-last-child(2) {
-    -webkit-transform: rotate(-45deg) translate(0, -1px);
-            transform: rotate(-45deg) translate(0, -1px);
-  }
   html body header #menuToggle #menu {
+    display: none;
     position: absolute;
+    left: 250px;
     width: 300px;
-    margin: -100px 0 0 -50px;
     padding: 50px;
-    padding-top: 125px;
+    border-radius: 0 10px 10px 0;
     background: #36a57b;
-    /* to stop flickering of text in safari */
-    -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
+    opacity: 0.85;
     -webkit-transform: translate(-100%, 0);
             transform: translate(-100%, 0);
-    -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
   html body header #menuToggle #menu li {
     padding: 10px 0;
     font-size: 22px;
+    color: #ececec;
   }
-  html body header #menuToggle input:checked ~ ul {
-    -webkit-transform: none;
-            transform: none;
+  html body header #menuToggle #menu li a {
+    color: #ececec;
   }
 }
 
@@ -227,134 +221,6 @@ html body header .search .search-wrapper .search-input {
 html body header .search .search-wrapper .search-button:hover {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
-}
-
-html body header .arrow {
-  position: relative;
-  display: inline-block;
-  padding: 0 0 0 16px;
-  color: #0f4b34;
-  vertical-align: middle;
-  text-decoration: none;
-}
-
-html body header .arrow::after, html body header .arrow::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  vertical-align: middle;
-}
-
-html body header .arrow_down::before,
-html body header .arrow_up::before {
-  top: auto;
-  left: auto;
-  bottom: 8px;
-  width: 10px;
-  height: 10px;
-  border-top: 3px solid #ececec;
-  border-right: 3px solid #ececec;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-
-html body header #btn-backtotop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 1000;
-  -webkit-transition: all 1s ease-out;
-  transition: all 1s ease-out;
-  -webkit-transition: bottom 0.2s ease-out;
-  transition: bottom 0.2s ease-out;
-  opacity: 0;
-}
-
-@media screen and (max-width: 768px) {
-  html body header #btn-backtotop {
-    bottom: 10px;
-    right: 5px;
-  }
-}
-
-html body header #btn-backtotop.fadein {
-  opacity: 1;
-}
-
-html body header #btn-backtotop:hover {
-  opacity: 0.8;
-  bottom: 34px;
-}
-
-@media screen and (max-width: 768px) {
-  html body header #btn-backtotop:hover {
-    bottom: 10px;
-  }
-}
-
-html body header #btn-backtotop:hover::after {
-  -webkit-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
-          box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
-}
-
-@media screen and (max-width: 768px) {
-  html body header #btn-backtotop:hover::after {
-    -webkit-box-shadow: none;
-            box-shadow: none;
-  }
-}
-
-html body header #btn-backtotop::after {
-  content: "";
-  display: block;
-  color: #fff;
-  text-align: center;
-  width: 80px;
-  height: 80px;
-  padding: 4px;
-  border-radius: 8px;
-  background-color: #0f4b34;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  -webkit-transform: scale(0.8) rotate(45deg);
-          transform: scale(0.8) rotate(45deg);
-  -webkit-transition: background-color 0.5s ease-out;
-  transition: background-color 0.5s ease-out;
-}
-
-@media screen and (max-width: 768px) {
-  html body header #btn-backtotop::after {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-html body header #btn-backtotop .arrow {
-  top: 72px;
-  left: 13px;
-}
-
-@media screen and (max-width: 768px) {
-  html body header #btn-backtotop .arrow {
-    top: 46px;
-    left: -1px;
-  }
-}
-
-html body header #btn-backtotop .arrow::before {
-  width: 20px;
-  height: 20px;
-  z-index: 1;
-}
-
-@media screen and (max-width: 768px) {
-  html body header #btn-backtotop .arrow::before {
-    width: 10px;
-    height: 10px;
-  }
 }
 
 html body .container {
@@ -440,11 +306,145 @@ html body .bg-img .bg-1 {
           transform: scale(1.5);
 }
 
+html body .arrow {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 16px;
+  color: #0f4b34;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+html body .arrow::after, html body .arrow::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  vertical-align: middle;
+}
+
+html body .arrow_down::before,
+html body .arrow_up::before {
+  top: auto;
+  left: auto;
+  bottom: 8px;
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid #ececec;
+  border-right: 3px solid #ececec;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+html body #btn-backtotop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  -webkit-transition: bottom 0.2s ease-out;
+  transition: bottom 0.2s ease-out;
+  opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  html body #btn-backtotop {
+    bottom: 10px;
+    right: 5px;
+  }
+}
+
+html body #btn-backtotop.fadein {
+  opacity: 1;
+}
+
+html body #btn-backtotop:hover {
+  opacity: 0.8;
+  bottom: 34px;
+}
+
+@media screen and (max-width: 768px) {
+  html body #btn-backtotop:hover {
+    bottom: 10px;
+  }
+}
+
+html body #btn-backtotop:hover::after {
+  -webkit-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
+          box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 768px) {
+  html body #btn-backtotop:hover::after {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+
+html body #btn-backtotop::after {
+  content: "";
+  display: block;
+  color: #fff;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  padding: 4px;
+  border-radius: 8px;
+  background-color: #0f4b34;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transform: scale(0.8) rotate(45deg);
+          transform: scale(0.8) rotate(45deg);
+  -webkit-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+}
+
+@media screen and (max-width: 768px) {
+  html body #btn-backtotop::after {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+html body #btn-backtotop .arrow {
+  top: 72px;
+  left: 13px;
+}
+
+@media screen and (max-width: 768px) {
+  html body #btn-backtotop .arrow {
+    top: 46px;
+    left: -1px;
+  }
+}
+
+html body #btn-backtotop .arrow::before {
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  html body #btn-backtotop .arrow::before {
+    width: 10px;
+    height: 10px;
+  }
+}
+
 html body footer {
   width: 100%;
   border-top: 2px solid transparent;
   height: 150px;
   background-color: #36a57b;
+}
+
+@media screen and (max-width: 768px) {
+  html body footer {
+    height: 200px;
+  }
 }
 
 html body footer .footer-wrapper {
@@ -466,7 +466,7 @@ html body footer .footer-wrapper {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   html body footer .footer-wrapper {
     margin: 40px auto;
   }
@@ -488,17 +488,14 @@ html body footer .footer-wrapper .footer-right {
 
 html body footer .footer-wrapper .footer-right a {
   color: #ececec;
+  font-size: smaller;
 }
 
 html body footer .footer-wrapper .footer-right a:hover {
   color: #0f4b34;
 }
 
-html body footer .footer-wrapper .footer-right li:first-child {
-  float: left;
-}
-
-html body .product-detail {
+html .product-detail {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -509,28 +506,28 @@ html body .product-detail {
   margin-top: 170px;
 }
 
-html body .product-detail-image {
+html .product-detail-image {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-html body .product-detail-info {
+html .product-detail-info {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-html body .product-img {
+html .product-img {
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-html body .product-detail-info {
+html .product-detail-info {
   margin-left: 10px;
 }
 
-html body .product-detail-info .point-fav-section {
+html .product-detail-info .point-fav-section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -542,7 +539,7 @@ html body .product-detail-info .point-fav-section {
           align-items: center;
 }
 
-html body .product-detail-info .fav_button {
+html .product-detail-info .fav_button {
   text-align: center;
   display: inline-block;
   padding: 8px 16px;
@@ -553,18 +550,18 @@ html body .product-detail-info .fav_button {
   color: #0f4b34;
 }
 
-html body .product-detail-info .fav_button:hover {
+html .product-detail-info .fav_button:hover {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
 
-html body .product-detail-info .is_faved {
+html .product-detail-info .is_faved {
   background-color: #0f4b34;
   border-color: #0f4b34;
   color: #ececec;
 }
 
-html body .product-detail-info .purchase-button {
+html .product-detail-info .purchase-button {
   display: inline-block;
   text-align: center;
   background-color: #0f4b34;
@@ -576,17 +573,17 @@ html body .product-detail-info .purchase-button {
   border: transparent;
 }
 
-html body .product-detail-info .purchase-button:hover {
+html .product-detail-info .purchase-button:hover {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
 
-html body .cart .purchase-form {
+html .cart .purchase-form {
   width: 100%;
   margin: 10px auto;
 }
 
-html body .cart .purchase-form .purchase-button {
+html .cart .purchase-form .purchase-button {
   display: inline-block;
   text-align: center;
   background-color: #0f4b34;
@@ -598,12 +595,12 @@ html body .cart .purchase-form .purchase-button {
   border: transparent;
 }
 
-html body .cart .purchase-form .purchase-button:hover {
+html .cart .purchase-form .purchase-button:hover {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
 
-html body .cart .purchase-form-container {
+html .cart .purchase-form-container {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -613,7 +610,7 @@ html body .cart .purchase-form-container {
           justify-content: space-between;
 }
 
-html body .cart .purchase-form-pay {
+html .cart .purchase-form-pay {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -625,7 +622,7 @@ html body .cart .purchase-form-pay {
           align-items: center;
 }
 
-html body .cart .purchase-form-pay .amount {
+html .cart .purchase-form-pay .amount {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -634,47 +631,47 @@ html body .cart .purchase-form-pay .amount {
           align-items: center;
 }
 
-html body .order-item {
+html .order-item {
   padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-html body .order-item-image {
+html .order-item-image {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-html body .order-item-info {
+html .order-item-info {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   font-size: 16px;
 }
 
-html body .order-item-info .info-value {
+html .order-item-info .info-value {
   float: right;
 }
 
-html body .order-item-info .info-timestamp {
+html .order-item-info .info-timestamp {
   float: right;
   font-size: 12px;
   font-style: italic;
   margin-top: 8px;
 }
 
-html body .order-item-amount-form {
+html .order-item-amount-form {
   float: right;
   margin: 10px;
 }
 
-html body .order-item-amount-form input {
+html .order-item-amount-form input {
   font-size: 20px;
 }
 
-html body .message-success {
+html .message-success {
   background-color: #0f4b34;
   color: #ececec;
   padding: 10px;
@@ -682,7 +679,7 @@ html body .message-success {
   border-radius: 4px;
 }
 
-html body .message-warning {
+html .message-warning {
   background-color: #ffc107;
   color: #ececec;
   padding: 10px;
@@ -690,7 +687,7 @@ html body .message-warning {
   border-radius: 4px;
 }
 
-html body .welcome-message {
+html .welcome-message {
   color: #111;
   text-align: center;
   width: 100%;
@@ -698,14 +695,14 @@ html body .welcome-message {
   overflow: hidden;
 }
 
-html body .welcome-message .fly-in {
+html .welcome-message .fly-in {
   font-size: 3em;
   margin: 10vh auto;
   height: 30vh;
   text-transform: uppercase;
 }
 
-html body .welcome-message .fly-in div {
+html .welcome-message .fly-in div {
   position: fixed;
   opacity: 0;
   left: 10%;
@@ -714,37 +711,37 @@ html body .welcome-message .fly-in div {
           animation: switch 32s linear infinite;
 }
 
-html body .welcome-message .fly-in div:nth-child(2) {
+html .welcome-message .fly-in div:nth-child(2) {
   -webkit-animation-delay: 4s;
           animation-delay: 4s;
 }
 
-html body .welcome-message .fly-in div:nth-child(3) {
+html .welcome-message .fly-in div:nth-child(3) {
   -webkit-animation-delay: 8s;
           animation-delay: 8s;
 }
 
-html body .welcome-message .fly-in div:nth-child(4) {
+html .welcome-message .fly-in div:nth-child(4) {
   -webkit-animation-delay: 12s;
           animation-delay: 12s;
 }
 
-html body .welcome-message .fly-in div:nth-child(5) {
+html .welcome-message .fly-in div:nth-child(5) {
   -webkit-animation-delay: 16s;
           animation-delay: 16s;
 }
 
-html body .welcome-message .fly-in div:nth-child(6) {
+html .welcome-message .fly-in div:nth-child(6) {
   -webkit-animation-delay: 20s;
           animation-delay: 20s;
 }
 
-html body .welcome-message .fly-in div:nth-child(7) {
+html .welcome-message .fly-in div:nth-child(7) {
   -webkit-animation-delay: 24s;
           animation-delay: 24s;
 }
 
-html body .welcome-message .fly-in div:nth-child(8) {
+html .welcome-message .fly-in div:nth-child(8) {
   -webkit-animation-delay: 28s;
           animation-delay: 28s;
 }
