@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'users',
     'app',
     'social_django',
+    'rest_framework',
 ]
 
 SITE_ID = 1
@@ -165,13 +166,10 @@ SESSION_SAVE_EVERY_REQUEST = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
 STATIC_ROOT = 'assets'
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

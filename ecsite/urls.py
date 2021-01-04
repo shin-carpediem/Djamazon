@@ -22,6 +22,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from .sitemaps import StaticViewSitemap, ProductViewSitemap
 
+
 sitemaps = {
     'app': StaticViewSitemap,
     'product': ProductViewSitemap,
@@ -37,7 +38,7 @@ urlpatterns += i18n_patterns(
     path('', include('app.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
     prefix_default_language=False
- )
+)
 
 
 if settings.DEBUG:
