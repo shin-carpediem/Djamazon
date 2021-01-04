@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'app',
     'social_django',
     'rest_framework',
+    'api',
 ]
 
 SITE_ID = 1
