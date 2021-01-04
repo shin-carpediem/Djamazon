@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
+from rest_framework import routers, serializers, viewsets
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from .sitemaps import StaticViewSitemap, ProductViewSitemap
-
+from app.models import Product, Sale
 
 sitemaps = {
     'app': StaticViewSitemap,
@@ -44,3 +45,36 @@ urlpatterns += i18n_patterns(
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
+
+
+# rest_framework
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ('name', 'description', 'price', 'image')
+
+
+class SaleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ('product', 'user', 'amount',
+                 'price', 'total_price', 'created_at')
+
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class SaleViewSet(viewsets.ModelViewSet):
+    queryset = Sale.objects.all()
+    serializer_class = SaleSerializer
+
+
+router = routers.DefaultRouter()
+router.register(r'product', ProductViewSet)
+router.register(r'sale', SaleViewSet)
+
+urlpatterns = [
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+]
