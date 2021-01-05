@@ -16,7 +16,7 @@ import json
 import requests
 from users.models import UserManager
 from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
-from .models import Product, Sale
+from .models import Product, Sale, GoodManager, Good
 from ecsite.settings import DEBUG
 
 
@@ -289,6 +289,13 @@ class SearchResultView(ListView):
 
     def results(self):
         return render(request, 'app/result.html', {'results': results})
+
+
+def count_good(self):
+    # ctx = super().get_context_data()
+    # ctx['good_number'] = user.objects.annotate(User)
+    # return ctx
+    return Good.objects.annotate()
 
 
 def policy(request):

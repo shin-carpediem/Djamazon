@@ -554,7 +554,11 @@ html {
         .footer-left {
           text-align: center;
           font-size: smaller;
-          p {
+          i,
+          span {
+            background-color: $light-grey;
+          }
+          li {
             color: $light-grey;
           }
         }

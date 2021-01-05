@@ -22,3 +22,22 @@ class Sale(models.Model):
     price = models.PositiveIntegerField("Product unit price")
     total_price = models.PositiveIntegerField("subtotal")
     created_at = models.DateTimeField(auto_now=True)
+
+
+class GoodManager(models.Manager):
+    def create_good(self, ip_address):
+        good = self.model(ip_address=ip_address)
+        try:
+            good.save()
+        except:
+            return False
+        return True
+
+
+class Good(models.Model):
+    ip_address = models.CharField(
+        'IP Address',
+        max_length=50,
+    )
+
+    objects = GoodManager()

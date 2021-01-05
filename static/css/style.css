@@ -63,17 +63,38 @@ html body header .header-title {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   text-align: center;
   -webkit-transform: translateZ(0);
-          transform: translateZ(0);
+  transform: translateZ(0);
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.7), 1px -1px 0 rgba(255, 255, 255, 0.7), -1px 1px 0 rgba(255, 255, 255, 0.7), 1px 1px 0 rgba(255, 255, 255, 0.7), -1px 2px 1px #a0a0a0, -2px 4px 2px #a0a0a0, -3px 6px 3px rgba(160, 160, 160, 0.6), -4px 8px 4px rgba(160, 160, 160, 0.5), -5px 10px 5px rgba(160, 160, 160, 0.4), -6px 12px 6px rgba(160, 160, 160, 0.3), -7px 13px 7px rgba(160, 160, 160, 0.2), -8px 15px 8px rgba(160, 160, 160, 0.2), -9px 17px 9px rgba(160, 160, 160, 0.2), -10px 19px 10px rgba(160, 160, 160, 0.2), -11px 20px 11px rgba(160, 160, 160, 0.1), -12px 22px 12px rgba(160, 160, 160, 0.1), -13px 24px 13px rgba(160, 160, 160, 0.1), -14px 26px 14px rgba(160, 160, 160, 0.1), -15px 28px 15px rgba(160, 160, 160, 0.1), -16px 30px 16px rgba(160, 160, 160, 0.1), -17px 32px 17px rgba(160, 160, 160, 0.1), -18px 34px 18px rgba(160, 160, 160, 0.1), -19px 36px 19px rgba(160, 160, 160, 0.1), -20px 38px 20px rgba(160, 160, 160, 0.1), -21px 39px 21px rgba(160, 160, 160, 0.1);
+  backface-visibility: hidden;
+  text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.7),
+    1px -1px 0 rgba(255, 255, 255, 0.7), -1px 1px 0 rgba(255, 255, 255, 0.7),
+    1px 1px 0 rgba(255, 255, 255, 0.7), -1px 2px 1px #a0a0a0,
+    -2px 4px 2px #a0a0a0, -3px 6px 3px rgba(160, 160, 160, 0.6),
+    -4px 8px 4px rgba(160, 160, 160, 0.5),
+    -5px 10px 5px rgba(160, 160, 160, 0.4),
+    -6px 12px 6px rgba(160, 160, 160, 0.3),
+    -7px 13px 7px rgba(160, 160, 160, 0.2),
+    -8px 15px 8px rgba(160, 160, 160, 0.2),
+    -9px 17px 9px rgba(160, 160, 160, 0.2),
+    -10px 19px 10px rgba(160, 160, 160, 0.2),
+    -11px 20px 11px rgba(160, 160, 160, 0.1),
+    -12px 22px 12px rgba(160, 160, 160, 0.1),
+    -13px 24px 13px rgba(160, 160, 160, 0.1),
+    -14px 26px 14px rgba(160, 160, 160, 0.1),
+    -15px 28px 15px rgba(160, 160, 160, 0.1),
+    -16px 30px 16px rgba(160, 160, 160, 0.1),
+    -17px 32px 17px rgba(160, 160, 160, 0.1),
+    -18px 34px 18px rgba(160, 160, 160, 0.1),
+    -19px 36px 19px rgba(160, 160, 160, 0.1),
+    -20px 38px 20px rgba(160, 160, 160, 0.1),
+    -21px 39px 21px rgba(160, 160, 160, 0.1);
 }
 
 @media screen and (max-width: 768px) {
@@ -89,11 +110,11 @@ html body header .header-menu {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -135,16 +156,16 @@ html body header #menuToggle {
   html body header #menuToggle input:checked ~ span {
     opacity: 1;
     -webkit-transform: rotate(45deg) translate(-2px, -1px);
-            transform: rotate(45deg) translate(-2px, -1px);
+    transform: rotate(45deg) translate(-2px, -1px);
   }
   html body header #menuToggle input:checked ~ span:nth-last-child(3) {
     opacity: 0;
     -webkit-transform: rotate(0deg) scale(0.2, 0.2);
-            transform: rotate(0deg) scale(0.2, 0.2);
+    transform: rotate(0deg) scale(0.2, 0.2);
   }
   html body header #menuToggle input:checked ~ span:nth-last-child(2) {
     -webkit-transform: rotate(-45deg) translate(0, -1px);
-            transform: rotate(-45deg) translate(0, -1px);
+    transform: rotate(-45deg) translate(0, -1px);
   }
   html body header #menuToggle input:checked ~ #menu {
     display: block;
@@ -159,19 +180,26 @@ html body header #menuToggle {
     border-radius: 3px;
     z-index: 20000;
     -webkit-transform-origin: 4px 0px;
-            transform-origin: 4px 0px;
-    -webkit-transition: background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    transition: background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transform-origin: 4px 0px;
+    -webkit-transition: background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      opacity 0.55s ease,
+      -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      opacity 0.55s ease,
+      -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease,
+      -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
   html body header #menuToggle span:first-child {
     -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
   }
   html body header #menuToggle span:nth-last-child(2) {
     -webkit-transform-origin: 0% 100%;
-            transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
   }
   html body header #menuToggle #menu {
     display: none;
@@ -183,7 +211,7 @@ html body header #menuToggle {
     background: #36a57b;
     opacity: 0.85;
     -webkit-transform: translate(-100%, 0);
-            transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
   }
   html body header #menuToggle #menu li {
     padding: 10px 0;
@@ -207,7 +235,7 @@ html body header .lang-change .set-button {
 
 html body header .lang-change .set-button:hover {
   -webkit-transform: scale(0.9);
-          transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 html body header .search .search-wrapper {
@@ -220,7 +248,7 @@ html body header .search .search-wrapper .search-input {
 
 html body header .search .search-wrapper .search-button:hover {
   -webkit-transform: scale(0.9);
-          transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 html body .container {
@@ -275,15 +303,15 @@ html body .product-img {
   max-width: 500px;
   height: 300px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 4px;
   -webkit-transition-duration: 0.5s;
-          transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 
 html body .product-img:hover {
   -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 html body .bg-img {
@@ -303,7 +331,7 @@ html body .bg-img .bg-1 {
   opacity: 0.15;
   z-index: -1;
   -webkit-transform: scale(1.5);
-          transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 html body .arrow {
@@ -315,7 +343,8 @@ html body .arrow {
   text-decoration: none;
 }
 
-html body .arrow::after, html body .arrow::before {
+html body .arrow::after,
+html body .arrow::before {
   position: absolute;
   content: "";
   top: 0;
@@ -335,7 +364,7 @@ html body .arrow_up::before {
   border-top: 3px solid #ececec;
   border-right: 3px solid #ececec;
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 html body #btn-backtotop {
@@ -374,13 +403,13 @@ html body #btn-backtotop:hover {
 
 html body #btn-backtotop:hover::after {
   -webkit-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
-          box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
 }
 
 @media screen and (max-width: 768px) {
   html body #btn-backtotop:hover::after {
     -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }
 }
 
@@ -397,7 +426,7 @@ html body #btn-backtotop::after {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   -webkit-transform: scale(0.8) rotate(45deg);
-          transform: scale(0.8) rotate(45deg);
+  transform: scale(0.8) rotate(45deg);
   -webkit-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
 }
@@ -454,15 +483,15 @@ html body footer .footer-wrapper {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 @media screen and (max-width: 990px) {
   html body footer .footer-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
 }
 
@@ -500,27 +529,27 @@ html .product-detail {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   padding: 10px;
   margin-top: 170px;
 }
 
 html .product-detail-image {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 html .product-detail-info {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 html .product-img {
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 html .product-detail-info {
@@ -532,11 +561,11 @@ html .product-detail-info .point-fav-section {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 html .product-detail-info .fav_button {
@@ -552,7 +581,7 @@ html .product-detail-info .fav_button {
 
 html .product-detail-info .fav_button:hover {
   -webkit-transform: scale(0.9);
-          transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 html .product-detail-info .is_faved {
@@ -575,7 +604,7 @@ html .product-detail-info .purchase-button {
 
 html .product-detail-info .purchase-button:hover {
   -webkit-transform: scale(0.9);
-          transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 html .cart .purchase-form {
@@ -597,7 +626,7 @@ html .cart .purchase-form .purchase-button {
 
 html .cart .purchase-form .purchase-button:hover {
   -webkit-transform: scale(0.9);
-          transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 html .cart .purchase-form-container {
@@ -606,8 +635,8 @@ html .cart .purchase-form-container {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 html .cart .purchase-form-pay {
@@ -615,11 +644,11 @@ html .cart .purchase-form-pay {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 html .cart .purchase-form-pay .amount {
@@ -627,8 +656,8 @@ html .cart .purchase-form-pay .amount {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 html .order-item {
@@ -640,14 +669,14 @@ html .order-item {
 
 html .order-item-image {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 html .order-item-info {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   font-size: 16px;
 }
 
@@ -708,72 +737,72 @@ html .welcome-message .fly-in div {
   left: 10%;
   width: 80%;
   -webkit-animation: switch 32s linear infinite;
-          animation: switch 32s linear infinite;
+  animation: switch 32s linear infinite;
 }
 
 html .welcome-message .fly-in div:nth-child(2) {
   -webkit-animation-delay: 4s;
-          animation-delay: 4s;
+  animation-delay: 4s;
 }
 
 html .welcome-message .fly-in div:nth-child(3) {
   -webkit-animation-delay: 8s;
-          animation-delay: 8s;
+  animation-delay: 8s;
 }
 
 html .welcome-message .fly-in div:nth-child(4) {
   -webkit-animation-delay: 12s;
-          animation-delay: 12s;
+  animation-delay: 12s;
 }
 
 html .welcome-message .fly-in div:nth-child(5) {
   -webkit-animation-delay: 16s;
-          animation-delay: 16s;
+  animation-delay: 16s;
 }
 
 html .welcome-message .fly-in div:nth-child(6) {
   -webkit-animation-delay: 20s;
-          animation-delay: 20s;
+  animation-delay: 20s;
 }
 
 html .welcome-message .fly-in div:nth-child(7) {
   -webkit-animation-delay: 24s;
-          animation-delay: 24s;
+  animation-delay: 24s;
 }
 
 html .welcome-message .fly-in div:nth-child(8) {
   -webkit-animation-delay: 28s;
-          animation-delay: 28s;
+  animation-delay: 28s;
 }
 
 @-webkit-keyframes switch {
   0% {
     opacity: 0;
     -webkit-filter: blur(20px);
-            filter: blur(20px);
+    filter: blur(20px);
     -webkit-transform: scale(12);
-            transform: scale(12);
+    transform: scale(12);
   }
   3% {
     opacity: 1;
     -webkit-filter: blur(0);
-            filter: blur(0);
+    filter: blur(0);
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
   10% {
     opacity: 1;
     -webkit-filter: blur(0);
-            filter: blur(0);
+    filter: blur(0);
     -webkit-transform: scale(0.9);
-            transform: scale(0.9);
+    transform: scale(0.9);
   }
   13% {
     opacity: 0;
     -webkit-filter: blur(10px);
-            filter: blur(10px);
+    filter: blur(10px);
     -webkit-transform: scale(0.1);
-            transform: scale(0.1);
+    transform: scale(0.1);
   }
   80% {
     opacity: 0;
@@ -787,30 +816,30 @@ html .welcome-message .fly-in div:nth-child(8) {
   0% {
     opacity: 0;
     -webkit-filter: blur(20px);
-            filter: blur(20px);
+    filter: blur(20px);
     -webkit-transform: scale(12);
-            transform: scale(12);
+    transform: scale(12);
   }
   3% {
     opacity: 1;
     -webkit-filter: blur(0);
-            filter: blur(0);
+    filter: blur(0);
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
   10% {
     opacity: 1;
     -webkit-filter: blur(0);
-            filter: blur(0);
+    filter: blur(0);
     -webkit-transform: scale(0.9);
-            transform: scale(0.9);
+    transform: scale(0.9);
   }
   13% {
     opacity: 0;
     -webkit-filter: blur(10px);
-            filter: blur(10px);
+    filter: blur(10px);
     -webkit-transform: scale(0.1);
-            transform: scale(0.1);
+    transform: scale(0.1);
   }
   80% {
     opacity: 0;
@@ -831,7 +860,7 @@ html .welcome-message .fly-in div:nth-child(8) {
   color: white;
   font-variation-settings: "SSTR" 1000;
   -webkit-animation: loadin 4s infinite linear;
-          animation: loadin 4s infinite linear;
+  animation: loadin 4s infinite linear;
 }
 
 @-webkit-keyframes loadin {
