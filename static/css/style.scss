@@ -10,6 +10,8 @@ html {
   font-family: "Righteous", cursive;
   body {
     text-rendering: optimizeSpeed;
+    font-family: "Piedra", cursive;
+    font-family: "Righteous", cursive;
     background-color: $light-grey;
     @media screen and (max-width: 414px) {
       body {
@@ -41,6 +43,7 @@ html {
         height: 100%;
         line-height: 70px;
         display: flex;
+        justify-content: center;
         transform: translateZ(0);
         backface-visibility: hidden;
         text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.7),
@@ -177,7 +180,7 @@ html {
     .container {
       width: 80%;
       margin-top: 150px;
-      overflow: visible;
+      overflow: hidden;
       .product {
         width: calc(100% / 3);
         float: left;
@@ -423,7 +426,7 @@ html {
       }
       .bg-1 {
         position: absolute;
-        top: -1400px;
+        top: -2000px;
         left: 80px;
         opacity: 0.15;
         z-index: -1;
