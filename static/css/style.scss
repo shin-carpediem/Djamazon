@@ -558,10 +558,8 @@ html {
           text-align: center;
           font-size: smaller;
           i,
+          li,
           span {
-            background-color: $light-grey;
-          }
-          li {
             color: $light-grey;
           }
         }

@@ -771,11 +771,8 @@ html body footer .footer-wrapper .footer-left {
 }
 
 html body footer .footer-wrapper .footer-left i,
+html body footer .footer-wrapper .footer-left li,
 html body footer .footer-wrapper .footer-left span {
-  background-color: #ececec;
-}
-
-html body footer .footer-wrapper .footer-left li {
   color: #ececec;
 }
 
