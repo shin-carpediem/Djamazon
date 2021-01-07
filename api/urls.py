@@ -14,7 +14,7 @@ app_name = 'api'
 # router.register(r'sale', SaleListView)
 
 urlpatterns = [
-    path('good/', views.CreateGoodView.as_view(), name='create_good')
+    # path('good/', views.CreateGoodView.as_view(), name='create_good')
     # url(r'^api/', include(router.urls)),
     # url(r'^api/', include('rest_framework.urls', namespace='rest_framework'))
 ]
