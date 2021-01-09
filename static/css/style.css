@@ -45,6 +45,18 @@ html body header {
   z-index: 10000;
 }
 
+@media screen and (max-width: 990px) {
+  html body header {
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  html body header {
+    height: 200px;
+  }
+}
+
 html body header .header-title {
   height: 100%;
   line-height: 70px;
@@ -80,7 +92,7 @@ html body header .header-menu a {
   margin-left: 10px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   html body header .header-menu {
     display: none;
   }
@@ -90,24 +102,17 @@ html body header #menuToggle {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   html body header #menuToggle {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: block;
     position: relative;
-    -webkit-box-align: right;
-        -ms-flex-align: right;
-            align-items: right;
-    -webkit-box-pack: right;
-        -ms-flex-pack: right;
-            justify-content: right;
-    text-align: right;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: left;
   }
   html body header #menuToggle input {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: block;
     position: absolute;
     cursor: pointer;
     opacity: 0;
@@ -130,14 +135,10 @@ html body header #menuToggle {
             transform: rotate(-45deg) translate(0, -1px);
   }
   html body header #menuToggle input:checked ~ #menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: block;
   }
   html body header #menuToggle span {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: block;
     width: 33px;
     height: 4px;
     margin-bottom: 5px;
@@ -173,8 +174,8 @@ html body header #menuToggle {
             transform: translate(-100%, 0);
   }
   html body header #menuToggle #menu li {
-    padding: 10px 0;
-    font-size: 22px;
+    padding: 10px 0 10px 30px;
+    font-size: 20px;
     color: #ececec;
   }
   html body header #menuToggle #menu li a {
@@ -182,33 +183,46 @@ html body header #menuToggle {
   }
 }
 
-html body header .lang-change .choice {
+html body header .header-right {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html body header .header-right .lang-change .choice {
   border-radius: 5px;
 }
 
-html body header .lang-change .set-button {
+html body header .header-right .lang-change .set-button {
   background-color: transparent;
   border: transparent;
 }
 
-html body header .lang-change .set-button:hover {
+html body header .header-right .lang-change .set-button:hover {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
 
-html body header .search .search-wrapper {
+html body header .header-right .search .search-wrapper {
   width: 100%;
 }
 
-html body header .search .search-wrapper .search-input {
+html body header .header-right .search .search-wrapper .search-input {
   border-radius: 5px;
 }
 
-html body header .search .search-wrapper .search-button {
+html body header .header-right .search .search-wrapper .search-button {
   border-radius: transparent;
 }
 
-html body header .search .search-wrapper .search-button:hover {
+html body header .header-right .search .search-wrapper .search-button:hover {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
@@ -323,7 +337,7 @@ html body .container .product-detail-info .is_faved {
 html body .container .product-detail-info .purchase-button {
   display: inline-block;
   text-align: center;
-  background-color: #0f4b34;
+  background-color: #36a57b;
   font-size: 16px;
   color: #ececec;
   font-weight: bold;
@@ -345,7 +359,7 @@ html body .container .cart .purchase-form {
 html body .container .cart .purchase-form .purchase-button {
   display: inline-block;
   text-align: center;
-  background-color: #0f4b34;
+  background-color: #36a57b;
   font-size: 16px;
   color: #ececec;
   font-weight: bold;
@@ -737,6 +751,7 @@ html body footer {
 @media screen and (max-width: 768px) {
   html body footer {
     height: 200px;
+    font-size: smaller;
   }
 }
 
@@ -774,6 +789,24 @@ html body footer .footer-wrapper .footer-left i,
 html body footer .footer-wrapper .footer-left li,
 html body footer .footer-wrapper .footer-left span {
   color: #ececec;
+}
+
+@media screen and (max-width: 990px) {
+  html body footer .footer-wrapper .footer-left {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  html body footer .footer-wrapper .footer-left .column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
 }
 
 html body footer .footer-wrapper .footer-right {

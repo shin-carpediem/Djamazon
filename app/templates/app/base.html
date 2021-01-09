@@ -70,10 +70,10 @@
     <div class="header-wrapper">
 
       <div class="row pt-3">
-        <h1 class="header-title col-lg-8 col-4" id="title" contenteditable>DJAMAZON</h1>
+        <h1 class="header-title col-lg-6 col-sm-4 col-12" id="title" contenteditable>DJAMAZON</h1>
 
-        <div class="col-lg-4 col-4 row header-right">
-          <div class="btn-group lang-change col-12">
+        <div class="col-lg-6 col-sm-8 col-12 pt-sm-4 row header-right">
+          <div class="btn-group lang-change col-sm-6 col-4">
             <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
               <input name="next" type="hidden" value="{{ redirect_to }}">
               <select name="language" class="choice">
@@ -89,7 +89,7 @@
               <button class="set-button"><i class="fas fa-redo"></i></button>
             </form>
           </div>
-          <div class="float-right search col-12">
+          <div class="float-right search col-sm-6 col-8">
             <form action="{% url 'app:result' %}" method="GET">
               <div class="search-wrapper">
                 <input type="text" placeholder="Search" name="q" class="search-input">
@@ -105,14 +105,10 @@
         <div class="header-menu row">
           {% if request.user.is_authenticated %}
           <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:index' %}"><i class="fas fa-home pr-2"></i>{% trans "Home" %}</a></span>
-          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:fav_products' %}"><i
-                class="fas fa-heart pr-2"></i>{% trans "Favorite" %}</a></span>
-          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:cart' %}"><i
-                class="fas fa-shopping-cart pr-2"></i>{% trans "Cart" %}</a></span>
-          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}"><i
-                class="fas fa-check pr-2"></i>{% trans "Order-history" %}</a></span>
-          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:logout' %}"><i
-                class="fas fa-sign-out-alt pr-2"></i>{% trans "Logout" %}</a></span>
+          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:fav_products' %}"><i class="fas fa-heart pr-2"></i>{% trans "Favorite" %}</a></span>
+          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:cart' %}"><i class="fas fa-shopping-cart pr-2"></i>{% trans "Cart" %}</a></span>
+          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}"><i class="fas fa-check pr-2"></i>{% trans "Order-history" %}</a></span>
+          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:logout' %}"><i class="fas fa-sign-out-alt pr-2"></i>{% trans "Logout" %}</a></span>
           <span class="col-lg-2 col-sm-4 col-6"><i class="fas fa-coins pr-2"></i>{% trans "Point: " %}{{ user.point | intcomma }}</span>
           {% else %}
           <span class="col-6"><a href="{% url 'app:login' %}"><i class="fas fa-sign-in-alt pr-2"></i>{% trans "Login" %}</a></span>
@@ -124,7 +120,7 @@
         <!-- Mobile size humbergar menu -->
         <nav role="navigation" class="navigation">
           <div id="menuToggle">
-            <input type="checkbox" />
+            <input type="checkbox">
             <span></span>
             <span></span>
             <span></span>
@@ -209,22 +205,22 @@
   <footer>
     <div class="footer-wrapper row">
 
-      <div class="pt-1 col-lg-6 col-12 footer-left">
-        <ul class="row">
-          <li class="col-1">
+      <div class="pt-1 col-lg-8 col-12 footer-left">
+        <ul class="row column">
+          <li class="col-sm-1 col-12">
             <i class="fas fa-thumbs-up"></i>
             <span class="good_counter">
               {{ count_good }}
             </span>
           </li>
-          <li class="col-11">Copyright © 2020 Djamazon Corporation All Rights. All rights reserved.</li>
+          <li class="col-sm-11 col-12">Copyright © 2020 Djamazon Corporation All Rights. All rights reserved.</li>
         </ul>
       </div>
 
-      <div class="col-lg-6 col-12 footer-right">
+      <div class="col-lg-4 col-12 footer-right">
         <ul class="row">
-          <li class="col-sm-6 col-12"><a href="{% url 'app:policy' %}">{% trans "Privacy Policy" %}</a></li>
-          <li class="col-sm-6 col-12"><a href="{% url 'app:terms' %}">{% trans "Terms of Service" %}</a></li>
+          <li class="col-6"><a href="{% url 'app:policy' %}">{% trans "Privacy Policy" %}</a></li>
+          <li class="col-6"><a href="{% url 'app:terms' %}">{% trans "Terms of Service" %}</a></li>
         </ul>
       </div>
 

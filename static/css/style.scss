@@ -39,6 +39,12 @@ html {
       position: fixed;
       top: 0px;
       z-index: 10000;
+      @media screen and (max-width: 990px) {
+        height: 180px;
+      }
+      @media screen and (max-width: 767px) {
+        height: 200px;
+      }
       .header-title {
         height: 100%;
         line-height: 70px;
@@ -61,6 +67,7 @@ html {
           -18px 34px 18px rgba(#a0a0a0, 0.1), -19px 36px 19px rgba(#a0a0a0, 0.1),
           -20px 38px 20px rgba(#a0a0a0, 0.1), -21px 39px 21px rgba(#a0a0a0, 0.1);
       }
+      // PC size
       .header-menu {
         padding-top: 15px;
         display: flex;
@@ -71,22 +78,23 @@ html {
           padding: 10px;
           margin-left: 10px;
         }
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 767px) {
           display: none;
         }
       }
+      // end of PC size
+      // mobile size humbergar menu
       #menuToggle {
         display: none;
       }
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 767px) {
         #menuToggle {
-          display: flex;
+          display: block;
           position: relative;
-          align-items: right;
-          justify-content: right;
-          text-align: right;
+          align-items: center;
+          text-align: left;
           input {
-            display: flex;
+            display: block;
             position: absolute;
             cursor: pointer;
             opacity: 0; /* hide this */
@@ -103,11 +111,11 @@ html {
               transform: rotate(-45deg) translate(0, -1px);
             }
             &:checked ~ #menu {
-              display: flex;
+              display: block;
             }
           }
           span {
-            display: flex;
+            display: block;
             width: 33px;
             height: 4px;
             margin-bottom: 5px;
@@ -137,8 +145,8 @@ html {
             opacity: 0.85;
             transform: translate(-100%, 0);
             li {
-              padding: 10px 0;
-              font-size: 22px;
+              padding: 10px 0 10px 30px;
+              font-size: 20px;
               color: $light-grey;
               a {
                 color: $light-grey;
@@ -147,28 +155,35 @@ html {
           }
         }
       }
-      .lang-change {
-        .choice {
-          border-radius: 5px;
-        }
-        .set-button {
-          background-color: transparent;
-          border: transparent;
-          &:hover {
-            transform: scale(0.9);
-          }
-        }
-      }
-      .search {
-        .search-wrapper {
-          width: 100%;
-          .search-input {
+      // end of mobile size humbergar menu
+      .header-right {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .lang-change {
+          .choice {
             border-radius: 5px;
           }
-          .search-button {
-            border-radius: transparent;
+          .set-button {
+            background-color: transparent;
+            border: transparent;
             &:hover {
               transform: scale(0.9);
+            }
+          }
+        }
+        .search {
+          .search-wrapper {
+            width: 100%;
+            .search-input {
+              border-radius: 5px;
+            }
+            .search-button {
+              border-radius: transparent;
+              &:hover {
+                transform: scale(0.9);
+              }
             }
           }
         }
@@ -254,7 +269,7 @@ html {
         .purchase-button {
           display: inline-block;
           text-align: center;
-          background-color: $green;
+          background-color: $django-green;
           font-size: 16px;
           color: $light-grey;
           font-weight: bold;
@@ -275,7 +290,7 @@ html {
           .purchase-button {
             display: inline-block;
             text-align: center;
-            background-color: $green;
+            background-color: $django-green;
             font-size: 16px;
             color: $light-grey;
             font-weight: bold;
@@ -542,6 +557,7 @@ html {
       background-color: $django-green;
       @media screen and (max-width: 768px) {
         height: 200px;
+        font-size: smaller;
       }
       .footer-wrapper {
         width: 65%;
@@ -561,6 +577,15 @@ html {
           li,
           span {
             color: $light-grey;
+          }
+          @media screen and (max-width: 990px) {
+            font-size: 10px;
+          }
+          .column {
+            @media screen and (max-width: 414px) {
+              display: flex;
+              flex-direction: column-reverse;
+            }
           }
         }
         .footer-right {
