@@ -9,7 +9,7 @@ $(function(){
     }
   });
 
-var AddedGoodList = []; // 連打防止用のIPアドレス格納リスト
+var AddGoodList = []; // 連打防止用のIPアドレス格納リスト
 // いいねボタン押下時の処理
 onClickGoodButton();
 
@@ -29,19 +29,25 @@ function getCookie(name) {
     return cookieValue;
 }
 
+function csrfSafeMethod(method) {
+  // these HTTP methods do not require CSRF protection
+  return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
 function onClickGoodButton() {
     $('.good_button').on('click', function() {
+      var ipAddress = $(this).data('ip-address')
       var currentCount = $(this).data('count');
       var countViewer = $(this).find('.good_counter');
-      if (AddedGoodList.indexOf(commentId) < 0) {
-          good(currentCount, countViewer);
+      if (AddGoodList.indexOf(ipAddress) < 0) {
+          good(ipAddress, currentCount, countViewer);
       }
     });
 }
 
 // ajax通信して投票結果を反映する
-function good(currentCount, countViewer) {
-  let url = '/api/good/';
+function good(ipAddress, currentCount, countViewer) {
+  let url = '';
   $.ajax({
       type: 'POST',
       url: url,
@@ -52,7 +58,7 @@ function good(currentCount, countViewer) {
       data => {
         if (data.result) {
             countViewer.text(currentCount + 1);
-            AddedGoodList.push(ip_address);
+            AddGoodList.push(ip_address);
         }
       },
       error => {

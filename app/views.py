@@ -107,6 +107,7 @@ def signup(request):
                     to=[
                         'buru.aoshin@gmail.com',
                     ],
+                    # if you need, please release comment out.
                     # cc=[
                     # ],
                     # bcc=[
@@ -155,6 +156,15 @@ def toggle_fav_product_status(request):
         user.fav_products.add(product)
         messages.success(
             request, f"You added {product.name} to your Favorite!")
+    return redirect('app:detail', product_id=product.id)
+
+
+@login_required
+@require_POST
+def like(request):
+    product = get_object_or_404(Product, pk=request_POST["product_id"])
+    product.like += 1
+    product.save()
     return redirect('app:detail', product_id=product.id)
 
 
@@ -292,10 +302,9 @@ class SearchResultView(ListView):
 
 
 def count_good(self):
-    # ctx = super().get_context_data()
-    # ctx['good_number'] = user.objects.annotate(User)
-    # return ctx
-    return Good.objects.annotate()
+    ctx = super().get_context_data()
+    ctx['good_number'] = ip_address.annotate(good_count=Count('good'))
+    return ctx
 
 
 def policy(request):

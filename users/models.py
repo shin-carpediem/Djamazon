@@ -6,6 +6,8 @@ from django.utils import timezone
 from app.models import Product
 
 # Create your models here.
+
+
 class UserManager(BaseUserManager):
     # カスタムユーザーマネージャー
     use_in_migrations = True
@@ -21,12 +23,10 @@ class UserManager(BaseUserManager):
         user.save(using=self.db)
         return user
 
-
     def create_user(self, email, password=None, **extra_fields):
         extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
         return self._create_user(email, password, **extra_fields)
-
 
     def create_superuser(self, email, password, **extra_fields):
         extra_fields.setdefault('is_staff', True)

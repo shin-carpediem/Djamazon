@@ -9,6 +9,7 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
     image = models.ImageField(upload_to='product')
+    like = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
@@ -35,9 +36,9 @@ class GoodManager(models.Manager):
 
 
 class Good(models.Model):
-    ip_address = models.CharField(
-        'IP Address',
-        max_length=50,
-    )
+    ip_address = models.CharField('IP Address', max_length=50)
 
     objects = GoodManager()
+
+    def __str__(self):
+        return self.ip_address

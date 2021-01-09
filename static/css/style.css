@@ -351,6 +351,10 @@ html body .container .product-detail-info .purchase-button:hover {
           transform: scale(0.9);
 }
 
+html body .container .product-detail-info .like-button {
+  cursor: pointer;
+}
+
 html body .container .cart .purchase-form {
   width: 100%;
   margin: 10px auto;
