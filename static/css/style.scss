@@ -196,6 +196,22 @@ html {
       width: 80%;
       margin-top: 150px;
       overflow: hidden;
+      // welcome
+      .welcome-button {
+        display: inline-block;
+        text-align: center;
+        background-color: $django-green;
+        font-size: 16px;
+        color: $light-grey;
+        font-weight: bold;
+        padding: 10px 16px;
+        border-radius: 10px;
+        border: transparent;
+        &:hover {
+          transform: scale(0.9);
+        }
+      }
+      // index
       .product {
         width: calc(100% / 3);
         float: left;

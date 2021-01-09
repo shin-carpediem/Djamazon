@@ -2,30 +2,40 @@
 
 {% block content %}
 
-
-Hello {{ user_email }}.
-
-Welcome to Djamazon.
-
-You created your own account on Djamazon.
-Please keep this email and password secret.
-
-Email: {{ user_email }}
-Password: ********
-
-From now on, you will get awesome experience!
-
-https://shinac.pythonanywhere.com/
-
-
-If you have a question, feel free to contact with us.
-
-Sincerely,
---------------------------------
-Djamazon.Corporation
-
-Email: buru.aoshin@gmail.com
---------------------------------
-
+<div class="row justify-content-center">
+  <div class="col-6">
+    <br><br>
+    Hello {{ user_email }}.
+    <br><br>
+    Welcome to Djamazon.
+    <br>
+    You created your own account on Djamazon.
+    <br>
+    Please keep this email and password secret.
+    <br><br>
+    Email: {{ user_email }}
+    <br>
+    Password: ********
+    <br><br>
+    From now on, you will get awesome experience!
+    <br><br>
+    <form action="{% url 'app:index' %}">
+      <button class="ml-5 px-5 py-3 welcome-button" type="submit">START!</button>
+    </form>
+    <br><br>
+    <br>
+    If you have a question, feel free to contact with us.
+    <br><br>
+    Sincerely,
+    <br>
+    --------------------------------
+    <br>
+    Djamazon.Corporation
+    <br><br>
+    Email: buru.aoshin@gmail.com
+    <br>
+    --------------------------------
+  </div>
+</div>
 
 {% endblock %}

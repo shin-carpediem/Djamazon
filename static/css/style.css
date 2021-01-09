@@ -237,6 +237,23 @@ html body .container {
   /* signup & login */
 }
 
+html body .container .welcome-button {
+  display: inline-block;
+  text-align: center;
+  background-color: #36a57b;
+  font-size: 16px;
+  color: #ececec;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: transparent;
+}
+
+html body .container .welcome-button:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
 html body .container .product {
   width: calc(100% / 3);
   float: left;
