@@ -18,12 +18,6 @@ DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-# Google認証
-# クライアントID
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
-# クライアント シークレット
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get(
-    'SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -45,11 +39,12 @@ INSTALLED_APPS = [
     'users',
     'app',
     'social_django',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     # 'rest_framework',
     # 'api',
 ]
-
-SITE_ID = 1
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/databases
@@ -152,13 +147,6 @@ LANGUAGES = [
 ]
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
-
-AUTH_USER_MODEL = 'users.User'
-
-LOGIN_URL = 'app:login'
-LOGIN_REDIRECT_URL = 'app:index'
-LOGOUT_REDIRECT_URL = 'app:index'
-
 NUMBER_GROUPING = 3
 
 # セッションを毎回更新
@@ -176,11 +164,60 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 print("MEDIA_ROOT", MEDIA_ROOT)
 
+# メールを実際には送らずに、コンソールに表示してくれる設定
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# メールサーバーへの接続設定
+# mailtrapで擬似的にSMTPバックエンドでメールを受信
+# https://mailtrap.io/inboxes/1181697/messages
+if DEBUG:
+    EMAIL_HOST = 'smtp.mailtrap.io'
+    EMAIL_HOST_USER = '3c2d97d90350e6'
+    EMAIL_HOST_PASSWORD = 'b5bf5ccb608cac'
+    EMAIL_PORT = '2525'
+# Gmailサーバーを経由
+else:
+    EMAIL_HOST = "smtp.gmail.com"
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+    EMAIL_POST = 587
+    EMAIL_USE_TLS = True
+
+# --アカウント認証設定------------------------------------------
+# django-allauthで利用するdjango.contrib.sitesを使うためにサイト識別用IDを設定
+SITE_ID = 1
+# 認証バックエンド-ログイン時に何でログインするかを配列の先頭から順に認証する
 # https://nmomos.com/tips/2019/07/05/django-social-auth/
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
+    # メールアドレス認証
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # ユーザー名認証
     'django.contrib.auth.backends.ModelBackend',
 )
+# メールアドレス認証に変更する設定
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ユーザー名の入力を必要とする設定
+ACCOUNT_USERNAME_REQUIRED = False
+# サインアップにメールアドレス確認をはさむよう設定
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_REQUIRED = True
+DEFAULT_FROM_EMAIL = 'buru.aoshin@gmail.com'
+
+# Google認証
+# クライアントID
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+# クライアント シークレット
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get(
+    'SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+
+AUTH_USER_MODEL = 'users.User'
+
+# ログイン/ログアウト後の遷移先を設定
+LOGIN_URL = 'app:login'
+LOGIN_REDIRECT_URL = 'app:index'
+LOGOUT_REDIRECT_URL = 'app:login'
 
 # パフォーマンスの最適化
 # DEBUG = False をセットすることで、開発向けの複数の機能が無効化。
@@ -279,18 +316,3 @@ else:
             },
         }
     }
-
-# メールを実際には送らずに、コンソールに表示してくれる設定
-# if DEBUG:
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# メールを実際に送信。Djangoのデフォルト
-# else:
-#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#     # メールサーバーへの接続設定
-#     EMAIL_HOST = "smtp.gmail.com"
-#     EMAIL_HOST_USER =  os.environ.get('EMAIL_HOST_USER')
-#     EMAIL_HOST_PASSWORD =  os.environ.get('EMAIL_HOST_PASSWORD')
-#     EMAIL_POST = 587
-#     EMAIL_USE_TLS = True
-
-DEFAULT_FROM_EMAIL = 'buru.aoshin@gmail.com'

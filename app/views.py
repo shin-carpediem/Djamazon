@@ -66,6 +66,56 @@ def index(request):
     return render(request, 'app/index.html', context)
 
 
+# def signup(request):
+#     if request.method == 'POST':
+#         form = CustomUserCreationForm(request.POST)
+#         if form.is_valid():
+#             new_user = form.save()
+#             input_email = form.cleaned_data['email']
+#             input_password = form.cleaned_data['password1']
+#             new_user = authenticate(email=input_email, password=input_password)
+#             if new_user is not None:
+#                 login(request, new_user)
+#             # # メース送信処理
+#             # template = get_template('app/mail.html')
+#             # mail_ctx = {
+#             #     'user_email': form.cleaned_data['email'],
+#             # }
+#             # EmailMessage (
+#             #     subject='【Djamazon】Your account is created now',
+#             #     body=template.render(mail_ctx),
+#             #     from_email=settings.DEFAULT_FROM_EMAIL,
+#             #     to=[
+#             #         'buru.aoshin@gmail.com',
+#             #     ],
+#             #     # cc=[
+#             #     # ],
+#             #     # bcc=[
+#             #     # ]
+#             # ).send()
+#             # return redirect('app:index')
+#             if DEBUG:
+#                 return render(request, 'app/welcome,html')
+
+#                 # メース送信処理
+#                 template = get_template('app/mail.html')
+#                 mail_ctx = {
+#                     'user_email': form.cleaned_data['email'],
+#                 }
+#                 EmailMessage(
+#                     subject='【Djamazon】Your account is created now',
+#                     body=template.render(mail_ctx),
+#                     from_email=settings.DEFAULT_FROM_EMAIL,
+#                     to=[
+#                         'buru.aoshin@gmail.com',
+#                     ],
+#                 ).send()
+#                 return redirect('app:index')
+#     else:
+#         form = CustomUserCreationForm()
+#     return render(request, 'app/signup.html', {'form': form})
+
+
 def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -96,27 +146,49 @@ def signup(request):
             # return redirect('app:index')
             if DEBUG:
                 # メース送信処理
-                template = get_template('app/mail.html')
+                template = get_template('app/pleasecheckmail.html')
                 mail_ctx = {
                     'user_email': form.cleaned_data['email'],
                 }
                 EmailMessage(
-                    subject='【Djamazon】Your account is created now',
+                    subject='【Djamazon】Your account is',
                     body=template.render(mail_ctx),
                     from_email=settings.DEFAULT_FROM_EMAIL,
                     to=[
                         'buru.aoshin@gmail.com',
                     ],
-                    # if you need, please release comment out.
-                    # cc=[
-                    # ],
-                    # bcc=[
-                    # ]
                 ).send()
-                return redirect('app:index')
+                return render(request, 'app/go_to_your_mail.html')
     else:
         form = CustomUserCreationForm()
     return render(request, 'app/signup.html', {'form': form})
+
+
+def pleasecheckmail(request):
+    if DEBUG:
+        # メース送信処理
+        template = get_template('app/mail.html')
+        mail_ctx = {
+            'user_email': form.cleaned_data['email'],
+        }
+        EmailMessage(
+            subject='【Djamazon】Your account is created now',
+            body=template.render(mail_ctx),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[
+                'to@example.com',
+            ],
+        ).send()
+        return render(request, 'app/welcome,html')
+    return render(request, 'app/index.html')
+
+
+def go_to_your_mail(request):
+    return render(request, 'app/go_to_your_mail')
+
+
+def welcome(request):
+    return render(request, 'app/welcome.html')
 
 
 def detail(request, product_id):
