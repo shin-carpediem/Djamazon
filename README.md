@@ -20,6 +20,7 @@ Technique/Version:
 - VS code
 - Always SSL
 - CircleCI
+- GitGuardian
 - Mailtrap API
 - Google API
 
