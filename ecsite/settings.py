@@ -165,9 +165,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 print("MEDIA_ROOT", MEDIA_ROOT)
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# メールを実際には送らずに、コンソールに表示してくれる設定
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 # メールサーバーへの接続設定
 # Gmailサーバーを経由
 EMAIL_HOST = os.environ.get('GMAIL_HOST')
