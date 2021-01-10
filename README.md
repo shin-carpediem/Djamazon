@@ -65,7 +65,7 @@ pip3 install -r requirements.txt
 cd ecsite && sudo vi settings.py
 ```
 
-> > Please edit like DEBUG=False to DEBUG=True.
+> > Please edit DEBUG from False to True.
 
 - [ ] Migrate to your local database from our database
 
