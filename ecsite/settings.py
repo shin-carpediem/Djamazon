@@ -228,7 +228,7 @@ CONN_MAX_AGE = 0
 if DEBUG:
     # 誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセット。
     CSRF_COOKIE_SECURE = False
-# 誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセット。
+    # 誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセット。
     SESSION_COOKIE_SECURE = False
 else:
     CSRF_COOKIE_SECURE = True
@@ -241,77 +241,112 @@ CACHES = {
     }
 }
 
-if DEBUG:
-    LOGGING = {
-        'version': 1,
-        'disable_existing_loggers': False,
-        'formatters': {    # ログの書式を設定
-            'verbose': {
-                'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-                'style': '{',
-            },
-            'simple': {
-                'format': '{levelname} {message}',
-                'style': '{',
-            },
+# if DEBUG:
+#     LOGGING = {
+#         'version': 1,
+#         'disable_existing_loggers': False,
+#         'formatters': {    # ログの書式を設定
+#             'verbose': {
+#                 'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+#                 'style': '{',
+#             },
+#             'simple': {
+#                 'format': '{levelname} {message}',
+#                 'style': '{',
+#             },
+#         },
+#         'handlers': {
+#             'console': {
+#                 'level': 'DEBUG',
+#                 'class': 'logging.StreamHandler',
+#                 'formatter': 'simple'    # どの出力フォーマットで出すかを名前で指定
+#             },
+#         },
+#         'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
+#             'django': {
+#                 'handlers': ['console'],
+#                 'level': 'INFO',
+#                 'propagate': True,
+#             },
+#             # 自分で追加したアプリケーション全般のログを拾うロガー
+#             '': {
+#                 'handlers': ['console'],
+#                 'level': 'INFO',
+#                 'propagate': False,
+#             },
+#         }
+#     }
+# else:
+#     LOGGING = {
+#         'version': 1,
+#         'disable_existing_loggers': False,
+#         'formatters': {    # ログの書式を設定
+#             'verbose': {
+#                 'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+#                 'style': '{',
+#             },
+#             'simple': {
+#                 'format': '{levelname} {message}',
+#                 'style': '{',
+#             },
+#         },
+#         'handlers': {
+#             'mail_admins': {    # メールを送信する
+#                 'level': 'ERROR',    # ERROR以上の場合出力
+#                 'class': 'django.utils.log.AdminEmailHandler',    # ログを出力するクラス
+#             }
+#         },
+#         'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
+#             'django': {
+#                 'handlers': ['mail_admins'],
+#                 'level': 'INFO',
+#                 'propagate': True,
+#             },
+#             'django.request': {
+#                 'handlers': ['mail_admins'],
+#                 'level': 'ERROR',
+#                 'propagate': False,
+#             },
+#             # 自分で追加したアプリケーション全般のログを拾うロガー
+#             '': {
+#                 'handlers': ['mail_admins'],
+#                 'level': 'INFO',
+#                 'propagate': False,
+#             },
+#         }
+#     }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {    # ログの書式を設定
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
         },
-        'handlers': {
-            'console': {
-                'level': 'DEBUG',
-                'class': 'logging.StreamHandler',
-                'formatter': 'simple'    # どの出力フォーマットで出すかを名前で指定
-            },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
         },
-        'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
-            'django': {
-                'handlers': ['console'],
-                'level': 'INFO',
-                'propagate': True,
-            },
-            # 自分で追加したアプリケーション全般のログを拾うロガー
-            '': {
-                'handlers': ['console'],
-                'level': 'INFO',
-                'propagate': False,
-            },
-        }
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'    # どの出力フォーマットで出すかを名前で指定
+        },
+    },
+    'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        # 自分で追加したアプリケーション全般のログを拾うロガー
+        '': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
     }
-else:
-    LOGGING = {
-        'version': 1,
-        'disable_existing_loggers': False,
-        'formatters': {    # ログの書式を設定
-            'verbose': {
-                'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-                'style': '{',
-            },
-            'simple': {
-                'format': '{levelname} {message}',
-                'style': '{',
-            },
-        },
-        'handlers': {
-            'mail_admins': {    # メールを送信する
-                'level': 'ERROR',    # ERROR以上の場合出力
-                'class': 'django.utils.log.AdminEmailHandler',    # ログを出力するクラス
-            }
-        },
-        'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
-            'django': {
-                'handlers': ['mail_admins'],
-                'level': 'INFO',
-                'propagate': True,
-            },
-            'django.request': {
-                'handlers': ['mail_admins'],
-                'level': 'ERROR',
-                'propagate': False,
-            },
-            # 自分で追加したアプリケーション全般のログを拾うロガー
-            '': {
-                'handlers': ['mail_admins'],
-                'level': 'INFO',
-                'propagate': False,
-            },
-        }
-    }
+}
