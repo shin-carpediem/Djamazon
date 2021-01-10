@@ -171,18 +171,25 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # メールサーバーへの接続設定
 # mailtrapで擬似的にSMTPバックエンドでメールを受信
 # https://mailtrap.io/inboxes/1181697/messages
-if DEBUG:
-    EMAIL_HOST = os.environ.get('MAILTRAP_HOST')
-    EMAIL_HOST_USER = os.environ.get('MAILTRAP_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ.get('MAILTRAP_HOST_PASSWORD')
-    EMAIL_PORT = os.environ.get('MAILTRAP_POST')
+# if DEBUG:
+#     EMAIL_HOST = os.environ.get('MAILTRAP_HOST')
+#     EMAIL_HOST_USER = os.environ.get('MAILTRAP_HOST_USER')
+#     EMAIL_HOST_PASSWORD = os.environ.get('MAILTRAP_HOST_PASSWORD')
+#     EMAIL_PORT = os.environ.get('MAILTRAP_POST')
+# # Gmailサーバーを経由
+# else:
+#     EMAIL_HOST = os.environ.get('GMAIL_HOST')
+#     EMAIL_HOST_USER = os.environ.get('GMAIL_HOST_USER')
+#     EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_HOST_PASSWORD')
+#     EMAIL_POST = os.environ.get('GMAIL_POST')
+#     EMAIL_USE_TLS = True
+
 # Gmailサーバーを経由
-else:
-    EMAIL_HOST = os.environ.get('GMAIL_HOST')
-    EMAIL_HOST_USER = os.environ.get('GMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_HOST_PASSWORD')
-    EMAIL_POST = os.environ.get('GMAIL_POST')
-    EMAIL_USE_TLS = True
+EMAIL_HOST = os.environ.get('GMAIL_HOST')
+EMAIL_HOST_USER = os.environ.get('GMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_HOST_PASSWORD')
+EMAIL_POST = os.environ.get('GMAIL_POST')
+EMAIL_USE_TLS = True
 
 # --アカウント認証設定------------------------------------------
 # django-allauthで利用するdjango.contrib.sitesを使うためにサイト識別用IDを設定

@@ -1,16 +1,16 @@
 Hello {{ user_email }}.
 
 You are almost signed up.
-To confirm your email, please click this URL.
+To confirm your email address, please click this URL.
 
-https://shinac.pythonanywhere.com/welcome/
+https://shinac.pythonanywhere.com/authsignup/
 
 
 If you have a question, feel free to contact with us.
 
 Sincerely,
---------------------------------
+---------------------------------------------
 Djamazon.Corporation
 
 Email: buru.aoshin@gmail.com
---------------------------------
+---------------------------------------------

@@ -168,25 +168,33 @@ def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            new_user = form.save()
-            if DEBUG:
-                # メース送信処理
-                template = get_template('app/mail/pleasecheckmail.txt')
-                mail_ctx = {
-                    'user_email': form.cleaned_data['email'],
-                }
-                EmailMessage(
-                    subject='【Djamazon】Your account is',
-                    body=template.render(mail_ctx),
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    to=[
-                        'user_email',
-                    ],
-                    bcc=[
-                        'buru.aoshin@gmail.com',
-                    ]
-                ).send()
-                return render(request, 'app/go_to_your_mail.html')
+            new_user = form.save(commit=False)
+            # 仮登録と本登録の切り替えは、is_active属性を使うと簡単です。
+            # 退会処理も、is_activeをFalseにするだけにしておくと捗ります。
+            new_user.is_active = False
+            new_user.save()
+            input_email = form.cleaned_data['email']
+            input_password = form.cleaned_data['password1']
+            new_user = authenticate(email=input_email, password=input_password)
+            if new_user is not None:
+                login(request, new_user)
+            # メース送信処理
+            template = get_template('app/mail/pleasecheckmail.txt')
+            mail_ctx = {
+                'user_email': form.cleaned_data['email'],
+            }
+            EmailMessage(
+                subject='【Djamazon】Please confirm your mail address',
+                body=template.render(mail_ctx),
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[
+                    'fke129@icloud.com',
+                ],
+                bcc=[
+                    'buru.aoshin@gmail.com',
+                ]
+            ).send()
+            return render(request, 'app/go_to_your_mail.html')
     else:
         form = CustomUserCreationForm()
     return render(request, 'app/signup.html', {'form': form})
@@ -196,31 +204,27 @@ def go_to_your_mail(request):
     return render(request, 'app/go_to_your_mail')
 
 
-def authsignup(request):
-    if form.is_valid():
-        input_email = form.cleaned_data['email']
-        input_password = form.cleaned_data['password1']
-        new_user = authenticate(email=input_email, password=input_password)
-        if new_user is not None:
-            login(request, new_user)
-            # メース送信処理
-        template = get_template('app/mail/welcome.txt')
-        mail_ctx = {
-            'user_email': form.cleaned_data['email'],
-        }
-        EmailMessage(
-            subject='【Djamazon】Your account is created now',
-            body=template.render(mail_ctx),
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[
-                'user_email',
-            ],
-            bcc=[
-                'buru.aoshin@gmail.com',
-            ]
-        ).send()
-        return render(request, 'app/welcome.html')
-    return render(request, 'app/signup.html', {'form': form})
+def authsignup(self):
+    new_user = user.objects.all()
+    new_user.is_active = True
+    new_user.save()
+    # メース送信処理
+    template = get_template('app/mail/welcome.txt')
+    mail_ctx = {
+        'user_email': new_user.cleaned_data['email'],
+    }
+    EmailMessage(
+        subject='【Djamazon】Your account is created now',
+        body=template.render(mail_ctx),
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        to=[
+            'fke129@icloud.com',
+        ],
+        bcc=[
+            'buru.aoshin@gmail.com',
+        ]
+    ).send()
+    return render(request, 'app/welcome.html')
 
 
 def welcome(request):
