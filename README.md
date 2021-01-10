@@ -28,19 +28,27 @@ Technique/Version:
 
 - [ ] Install Homebrew
 - [ ] Install Python 3.8.6
-- [ ] \(Option) Set Python3 to global used
+- [ ] \(**Option and recommended**) Set Python3 to global used
 - [ ] Install pip 20.2.1
-- [ ] \(Important) Make and enter your own virtual environment
+- [ ] \(**Important!**) Make and enter your own virtual environment
 
 ```
-python3 -m venv env | source env/bin/activate
+python3 -m venv env
+```
+
+```
+source env/bin/activate
 ```
 
 - [ ] Input the environment variable to your terminal. (If you need, I will tell you when it is okay for me.)
 - [ ] Clone this Djamazon repo from GitHub
 
 ```
-git init | git clone urlhogehoge
+git init
+```
+
+```
+git clone https://github.com/shin-carpediem/Djamazon.git
 ```
 
 - [ ] Move to the Djamazon BASE_DIR
@@ -66,7 +74,11 @@ cd ecsite | sudo vi settings.py
 - [ ] Migrate to your local database from our database
 
 ```
-python3 manage.py makemigrations | python3 manage.py migrate
+python3 manage.py makemigrations
+```
+
+```
+ | python3 manage.py migrate
 ```
 
 - [ ] Go back to the BASE_DIR and run local server
@@ -94,5 +106,9 @@ instead of pip3. It is offical grammer for python.
 
 #### FYI
 
-- **'python manage.py showmigrations'** can show you the status of migrations to your local database.
+```
+python manage.py showmigrations
+```
+
+- can show you the status of migrations to your local database.
 - If you want to check the content of database(sqlite3) easily with GUI, try using "DB Browser for SQlite".
