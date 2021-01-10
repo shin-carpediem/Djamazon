@@ -38,14 +38,14 @@ Technique/Version:
 brew install pyenv
 ```
 
-- [ ] Set the environment variable into your terminal.
-      If you are using zsh shell,
+- [ ] Set the environment variable into your terminal.\
+       If you are using zsh shell,
 
 ```
 cd && sudo vi .zshrc
 ```
 
-If you are using bash shell,
+      If you are using bash shell,
 
 ```
 cd && sudo vi .bash_profile
@@ -85,7 +85,16 @@ brew install pip==20.2.1
 python -m venv env && source env/bin/activate
 ```
 
-- [ ] Input the environment variable into your terminal. (If you need, I will tell you when it is okay for me.)
+- [ ] Input the environment variable into your terminal.
+
+```
+export ...
+export ...
+.
+.
+(If you need, I will tell you when it is okay for me.)
+```
+
 - [ ] Clone this Djamazon repo from GitHub
 
 ```
@@ -125,10 +134,10 @@ python manage.py migrate
 - [ ] Go back to the BASE_DIR and run local server
 
 ```
-python run server
+python manage.py run server
 ```
 
-- [ ] Input 127 to your browser and you can see this site with developing mode!
+- [ ] Input "127.0.0.1" to your browser and you can see this site with developing mode!
 
 ### You cannot go well? Please check below!
 
