@@ -44,11 +44,7 @@ source env/bin/activate
 - [ ] Clone this Djamazon repo from GitHub
 
 ```
-git init
-```
-
-```
-git clone https://github.com/shin-carpediem/Djamazon.git
+git init && git clone https://github.com/shin-carpediem/Djamazon.git
 ```
 
 - [ ] Move to the Djamazon BASE_DIR
@@ -66,7 +62,7 @@ pip3 install -r requirements.txt
 - [ ] Open settings.py and switch DEBUG False to True
 
 ```
-cd ecsite | sudo vi settings.py
+cd ecsite && sudo vi settings.py
 ```
 
 > > Please edit like DEBUG=False to DEBUG=True.
@@ -74,7 +70,7 @@ cd ecsite | sudo vi settings.py
 - [ ] Migrate to your local database from our database
 
 ```
-cd .. | python3 manage.py makemigrations
+cd .. && python3 manage.py makemigrations
 ```
 
 ```
