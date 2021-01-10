@@ -172,16 +172,16 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # mailtrapで擬似的にSMTPバックエンドでメールを受信
 # https://mailtrap.io/inboxes/1181697/messages
 if DEBUG:
-    EMAIL_HOST = 'smtp.mailtrap.io'
-    EMAIL_HOST_USER = '3c2d97d90350e6'
-    EMAIL_HOST_PASSWORD = 'b5bf5ccb608cac'
-    EMAIL_PORT = '2525'
+    EMAIL_HOST = os.environ.get('MAILTRAP_HOST')
+    EMAIL_HOST_USER = os.environ.get('MAILTRAP_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('MAILTRAP_HOST_PASSWORD')
+    EMAIL_PORT = os.environ.get('MAILTRAP_POST')
 # Gmailサーバーを経由
 else:
-    EMAIL_HOST = "smtp.gmail.com"
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-    EMAIL_POST = 587
+    EMAIL_HOST = os.environ.get('GMAIL_HOST')
+    EMAIL_HOST_USER = os.environ.get('GMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_HOST_PASSWORD')
+    EMAIL_POST = os.environ.get('GMAIL_POST')
     EMAIL_USE_TLS = True
 
 # --アカウント認証設定------------------------------------------
