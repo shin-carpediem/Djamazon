@@ -27,16 +27,65 @@ Technique/Version:
 ## How to SetUp
 
 - [ ] Install Homebrew
-- [ ] Install Python 3.8.6
-- [ ] \(**Option and recommended**) Set Python3 to global used
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+- [ ] Install pyenv
+
+```
+brew install pyenv
+```
+
+- [ ] Set the environment variable into your terminal.
+      If you are using zsh shell,
+
+```
+cd && sudo vi .zshrc
+```
+
+If you are using bash shell,
+
+```
+cd && sudo vi .bash_profile
+```
+
+- [ ] Type "i" and input below and then, type esc button and "ZZ"
+
+```
+export PYENV_ROOT=${HOME}/.pyenv
+if [ -d "${PYENV_ROOT}" ]; then
+    export PATH=${PYENV_ROOT}/bin:$PATH
+    eval "$(pyenv init -)"
+fi
+```
+
+- [ ] Install Python 3.8.6 and check it
+
+```
+pyenv install 3.8.6 && pyenv versions
+```
+
+- [ ] \(**Option but recommended**) Set Python3 to default
+
+```
+pyenv global 3.8.6 && python -V
+```
+
 - [ ] Install pip 20.2.1
+
+```
+brew install pip==20.2.1
+```
+
 - [ ] \(**Important!**) Make and enter your own virtual environment
 
 ```
-python3 -m venv env && source env/bin/activate
+python -m venv env && source env/bin/activate
 ```
 
-- [ ] Input the environment variable to your terminal. (If you need, I will tell you when it is okay for me.)
+- [ ] Input the environment variable into your terminal. (If you need, I will tell you when it is okay for me.)
 - [ ] Clone this Djamazon repo from GitHub
 
 ```
@@ -52,7 +101,7 @@ cd Djamazon
 - [ ] Install every software
 
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 - [ ] Open settings.py and switch DEBUG False to True
@@ -66,17 +115,17 @@ cd ecsite && sudo vi settings.py
 - [ ] Migrate to your local database from our database
 
 ```
-cd .. && python3 manage.py makemigrations
+cd .. && python manage.py makemigrations
 ```
 
 ```
-python3 manage.py migrate
+python manage.py migrate
 ```
 
 - [ ] Go back to the BASE_DIR and run local server
 
 ```
-python3 run server
+python run server
 ```
 
 - [ ] Input 127 to your browser and you can see this site with developing mode!
