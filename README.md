@@ -1,3 +1,7 @@
+<img src="https://img.shields.io/badge/-Django-092E20.svg?logo=django&style=flat">
+<img src="https://img.shields.io/badge/-Bootstrap-563D7C.svg?logo=bootstrap&style=flat">
+<img src="https://img.shields.io/badge/-Linux-6C6694.svg?logo=linux&style=flat">
+
 # Djamazon
 
 ## Site URL:[Djamazon](https://shinac.pythonanywhere.com/)
@@ -7,13 +11,16 @@ Memo to me:\
 
 Technique/Version:
 
-- Python 3.8.6
+- Python(local) 3.8.6
+- Python(production) 3.6
 - pip 20.2.1
 - Django 3.0.10
 - Bootstrap 4.5.0
 - SCSS
 - Font Awesome
 - Pythonanywhere
+- VS code
+- Always SSL
 - CircleCI
 - Mailtrap API
 - Google API
