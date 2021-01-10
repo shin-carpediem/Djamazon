@@ -17,7 +17,7 @@ Technique/Version:
 - SCSS
 - Font Awesome
 - Pythonanywhere
-- VS code
+- Visual Studio code
 - Always SSL
 - CircleCI
 - GitGuardian
@@ -33,11 +33,7 @@ Technique/Version:
 - [ ] \(**Important!**) Make and enter your own virtual environment
 
 ```
-python3 -m venv env
-```
-
-```
-source env/bin/activate
+python3 -m venv env && source env/bin/activate
 ```
 
 - [ ] Input the environment variable to your terminal. (If you need, I will tell you when it is okay for me.)
