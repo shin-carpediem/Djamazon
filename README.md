@@ -88,11 +88,11 @@ python -m venv env && source env/bin/activate
 - [ ] Input the environment variable into your terminal.
 
 ```
-export ...
-export ...
-.
-.
 (If you need, I will tell you when it is okay for me.)
+export ...
+export ...
+.
+.
 ```
 
 - [ ] Clone this Djamazon repo from GitHub
@@ -144,15 +144,14 @@ python manage.py run server
 - [ ] Did you designated the version of pip when installing ?\
        The newest version of pip might not work well because of dependencies of each software.
 - [ ] Did you input the environment variable to your terminal ?
-- [ ] Did you switched DEBUG False to True ?\
-       If not, you will see the 400 Error.
+- [ ] Did you switched DEBUG False to True ? If not, you will see the 400 Error.
 - [ ] If pip3 cannot work as python3 and do as python2, please try
 
 ```
 python3 -m pip hogehoge
 ```
 
-instead of pip3. It is offical grammer for python.
+       instead of pip3. It is offical grammer for python.
 
 #### FYI
 
