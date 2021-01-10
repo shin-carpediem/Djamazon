@@ -74,17 +74,17 @@ cd ecsite | sudo vi settings.py
 - [ ] Migrate to your local database from our database
 
 ```
-python3 manage.py makemigrations
+cd .. | python3 manage.py makemigrations
 ```
 
 ```
- | python3 manage.py migrate
+python3 manage.py migrate
 ```
 
 - [ ] Go back to the BASE_DIR and run local server
 
 ```
-cd .. | python3 run server
+python3 run server
 ```
 
 - [ ] Input 127 to your browser and you can see this site with developing mode!
