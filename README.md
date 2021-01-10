@@ -45,7 +45,8 @@ brew install pyenv
 cd && sudo vi .zshrc
 ```
 
-      If you are using bash shell,
+\
+ If you are using bash shell,
 
 ```
 cd && sudo vi .bash_profile
@@ -137,7 +138,7 @@ python manage.py migrate
 python manage.py run server
 ```
 
-- [ ] Input "127.0.0.1" to your browser and you can see this site with developing mode!
+- [ ] Input "127.0.0.1" to your browser URL and you can see this site with developing mode!
 
 ### You cannot go well? Please check below!
 
@@ -145,13 +146,12 @@ python manage.py run server
        The newest version of pip might not work well because of dependencies of each software.
 - [ ] Did you input the environment variable to your terminal ?
 - [ ] Did you switched DEBUG False to True ? If not, you will see the 400 Error.
-- [ ] If pip3 cannot work as python3 and do as python2, please try
+- [ ] If pip3 cannot work as python3 and do as python2, please try below instead of pip3.\
+       It is offical grammer for python.
 
 ```
 python3 -m pip hogehoge
 ```
-
-       instead of pip3. It is offical grammer for python.
 
 #### FYI
 
