@@ -180,13 +180,10 @@ def signup(request):
                     body=template.render(mail_ctx),
                     from_email=settings.DEFAULT_FROM_EMAIL,
                     to=[
-                        'to@example.com',
-                    ],
-                    cc=[
-                        'to@example.com',
+                        'user_email',
                     ],
                     bcc=[
-                        'to@example.com',
+                        'buru.aoshin@gmail.com',
                     ]
                 ).send()
                 return render(request, 'app/go_to_your_mail.html')
@@ -216,7 +213,7 @@ def authsignup(request):
             body=template.render(mail_ctx),
             from_email=settings.DEFAULT_FROM_EMAIL,
             to=[
-                'to@example.com',
+                'user_email',
             ],
             bcc=[
                 'buru.aoshin@gmail.com',

@@ -237,6 +237,18 @@ html body .container {
   /* signup & login */
 }
 
+@media screen and (max-width: 768px) {
+  html body .container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  html body .container {
+    margin-top: 200px;
+  }
+}
+
 html body .container .welcome-button {
   display: inline-block;
   text-align: center;
@@ -270,7 +282,8 @@ html body .container .product {
 
 @media screen and (max-width: 414px) {
   html body .container .product {
-    width: 100%;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 }
 
