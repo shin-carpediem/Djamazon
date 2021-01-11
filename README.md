@@ -9,11 +9,12 @@ Memo to me:\
 
 Technique/Version:
 
-- Python(local) 3.8.6
-- Python(production) 3.6
-- pip 20.2.1
-- Django 3.0.10
-- Bootstrap 4.5.0
+- Python(local)==3.8.6
+- Python(production)==3.6
+- pip==20.2.1
+- Django==3.0.10
+- django-debug-toolbar==3.2
+- Bootstrap==4.5.0
 - SCSS
 - Pythonanywhere
 - Always SSL
