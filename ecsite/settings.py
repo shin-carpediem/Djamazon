@@ -99,7 +99,8 @@ else:
 # The Debug Toolbar is shown
 # only if your IP address is listed in the INTERNAL_IPS setting.
 # https://django-debug-toolbar.readthedocs.io/en/stable/installation.html
-INTERNAL_IPS = ['127.0.0.1']
+if DEBUG:
+    INTERNAL_IPS = ['127.0.0.1']
 
 ROOT_URLCONF = 'ecsite.urls'
 
