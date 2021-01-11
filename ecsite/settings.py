@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import logging
 from django.utils.translation import ugettext_lazy as _
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'api',
     'rest_framework',
+    'debug_toolbar',
 ]
 
 # Database
@@ -76,6 +78,7 @@ MIDDLEWARE = [
     # Django can also be configured to email errors about broken links
     #  (404 "page not found" errors).
     # Django sends emails about 404 errors
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -92,6 +95,11 @@ if DEBUG:
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
     ALLOWED_HOSTS = os.environ.get('DEBUG_FALSE_ALLOWED_HOSTS')
+
+# The Debug Toolbar is shown
+# only if your IP address is listed in the INTERNAL_IPS setting.
+# https://django-debug-toolbar.readthedocs.io/en/stable/installation.html
+INTERNAL_IPS = ['127.0.0.1']
 
 ROOT_URLCONF = 'ecsite.urls'
 
