@@ -11,9 +11,10 @@ class StaticViewSitemap(Sitemap):
             'app:cart',
             'app:login',
             'app:order_history',
-            'app:policy',
             'app:result',
             'app:signup',
+            'app:welcome',
+            'app:policy',
             'app:terms',
         ]
 
@@ -28,15 +29,19 @@ class StaticViewSitemap(Sitemap):
     def priority(self, obj):
         if obj == 'app:index':
             return 0.8
+        elif obj == 'app:policy':
+            return 0.1
+        elif obj == 'app:terms':
+            return 0.1
         return 0.5
 
 
 class ProductViewSitemap(Sitemap):
-    priority = 0.2
-    changefreq = 'always'
+    priority = 0.3
+    changefreq = 'never'
 
     def items(self):
         return Product.objects.all()
 
     def location(self, obj):
-        return resolve_url('app/product/<int:product_id>/')
+        return resolve_url('app:detail', product_id=obj.id)
