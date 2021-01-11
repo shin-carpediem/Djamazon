@@ -10,8 +10,11 @@
 # .idea
 
 ## virtual environment
+env
 eb-virt
-# env
+
+## environment variables
+.env
 
 ## test database
 db.sqlite3
