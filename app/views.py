@@ -1,5 +1,6 @@
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.core.mail import send_mail, EmailMessage
+# from django.core.mail import send_mail
 from django.conf import settings
 from django.template.loader import get_template
 from django.shortcuts import get_object_or_404, render, redirect
@@ -12,6 +13,9 @@ from django.views.generic import ListView
 from django.db.models import Q
 from functools import reduce
 from operator import and_
+from email.mime.text import MIMEText
+import os
+import smtplib
 import json
 import requests
 from users.models import UserManager, User
@@ -133,6 +137,84 @@ def index(request):
 
 # End [pending]
 
+# def signup(request):
+#     if request.method == 'POST':
+#         form = CustomUserCreationForm(request.POST)
+#         if form.is_valid():
+#             new_user = form.save()
+#             input_email = form.cleaned_data['email']
+#             input_password = form.cleaned_data['password1']
+#             new_user = authenticate(email=input_email, password=input_password)
+#             if new_user is not None:
+#                 login(request, new_user)
+#             # メース送信処理
+#             template = get_template('app/mail/welcome.txt')
+#             mail_ctx = {
+#                 'user_email': form.cleaned_data['email'],
+#             }
+#             EmailMessage(
+#                 subject='【Djamazon】Your account is created now',
+#                 body=template.render(mail_ctx),
+#                 from_email=settings.DEFAULT_FROM_EMAIL,
+#                 to=[
+#                     form.cleaned_data['email'],
+#                 ],
+#                 bcc=[
+#                     'buru.aoshin@gmail.com',
+#                 ]
+#             ).send()
+#             return render(request, 'app/welcome.html')
+#     else:
+#         form = CustomUserCreationForm()
+#     return render(request, 'app/signup.html', {'form': form})
+
+
+# def signup(request):
+#     if request.method == 'POST':
+#         form = CustomUserCreationForm(request.POST)
+#         if form.is_valid():
+#             new_user = form.save()
+#             input_email = form.cleaned_data['email']
+#             input_password = form.cleaned_data['password1']
+#             new_user = authenticate(email=input_email, password=input_password)
+#             if new_user is not None:
+#                 login(request, new_user)
+#             # メース送信処理
+#             EMAIL = settings.DEFAULT_FROM_EMAIL
+#             PASSWORD = os.environ.get('GMAIL_HOST_PASSWORD')
+#             # TO = form.cleaned_data['email']
+#             TO = 'fke129@icloud.com'
+#             BCC = 'buru.aoshin@gmail.com'
+
+#             msg = MIMEText(
+
+#             )
+
+#             msg['Subject'] = '【Djamazon】Your account is created now'
+#             msg['From'] = EMAIL
+#             msg['To'] = TO
+#             msg['Bcc'] = BCC
+
+#             s = smtplib.SMTP(host='smtp.gmail.com', port=587)
+#             s.starttls()
+#             s.login(EMAIL, PASSWORD)
+#             s.sendmail(EMAIL, TO, msg.as_string())
+#             s.quit()
+#             # template = get_template('app/mail/welcome.txt')
+#             # mail_ctx = {
+#             #     'user_email': form.cleaned_data['email'],
+#             # }
+#             # EmailMessage(
+#             #     body=template.render(mail_ctx),
+#             #     from_email=settings.DEFAULT_FROM_EMAIL,
+
+#             # ).send()
+#             return render(request, 'app/welcome.html')
+#     else:
+#         form = CustomUserCreationForm()
+#     return render(request, 'app/signup.html', {'form': form})
+
+
 def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -144,21 +226,21 @@ def signup(request):
             if new_user is not None:
                 login(request, new_user)
             # メース送信処理
-            template = get_template('app/mail/welcome.txt')
-            mail_ctx = {
-                'user_email': form.cleaned_data['email'],
-            }
-            EmailMessage(
-                subject='【Djamazon】Your account is created now',
-                body=template.render(mail_ctx),
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                to=[
-                    form.cleaned_data['email'],
-                ],
-                bcc=[
-                    'buru.aoshin@gmail.com',
-                ]
-            ).send()
+            EMAIL = settings.DEFAULT_FROM_EMAIL
+            PASSWORD = os.environ.get('GMAIL_HOST_PASSWORD')
+            TO = form.cleaned_data['email']
+
+            msg = MIMEText('Hello. Welcome to Djamazon. You created your own account on Djamazon. From now on, you will get awesome experience! https: // shinac.pythonanywhere.com / If you have a question, feel free to contact with us. Sincerely, --------------------------------------------- Djamazon.Corporation Email: buru.aoshin@gmail.com ---------------------------------------------')
+
+            msg['Subject'] = '【Djamazon】Your account is created now'
+            msg['From'] = EMAIL
+            msg['To'] = TO
+
+            s = smtplib.SMTP(host='smtp.gmail.com', port=587)
+            s.starttls()
+            s.login(EMAIL, PASSWORD)
+            s.sendmail(EMAIL, TO, msg.as_string())
+            s.quit()
             return render(request, 'app/welcome.html')
     else:
         form = CustomUserCreationForm()
