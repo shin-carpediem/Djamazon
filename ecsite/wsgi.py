@@ -7,15 +7,11 @@ For more information on this file, see
 https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
 """
 
-from django.core.wsgi import get_wsgi_application
 import os
-from dotenv import load_dotenv
 # import sys
 # import pymysql
 
-project_folder = os.path.expanduser('~/ecsite')
-load_dotenv(os.path.join(project_folder, '.env'))
-
+from django.core.wsgi import get_wsgi_application
 # from django.core.management import execute_from_command_line
 
 # pymysql.install_as_MySQLdb()

@@ -1,13 +1,13 @@
 ## python cache
-# *.pyc
-# __pycache__
+*.pyc
+__pycache__
 
 ## other project
 # *~
 
 ## visual studio code
-# /.vscode
-# .idea
+/.vscode
+.idea
 
 ## virtual environment
 env
@@ -22,7 +22,7 @@ db.sqlite3
 ## production
 /assets/
 
-## .DS_Store
+.DS_Store
 
 ## Elastic Beanstalk Files
 # .elasticbeanstalk/*

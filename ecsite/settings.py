@@ -15,10 +15,10 @@ import logging
 from django.utils.translation import ugettext_lazy as _
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') == 'True'
+DEBUG = os.environ['DEBUG'] == 'True'
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -94,7 +94,7 @@ MIDDLEWARE = [
 if DEBUG:
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
-    ALLOWED_HOSTS = os.environ.get('DEBUG_FALSE_ALLOWED_HOSTS')
+    ALLOWED_HOSTS = os.environ['DEBUG_FALSE_ALLOWED_HOSTS']
 
 # The Debug Toolbar is shown
 # only if your IP address is listed in the INTERNAL_IPS setting.
@@ -176,18 +176,18 @@ print("MEDIA_ROOT", MEDIA_ROOT)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # メールサーバーへの接続設定
 # Gmailサーバーを経由
-EMAIL_HOST = os.environ.get('GMAIL_HOST')
-EMAIL_HOST_USER = os.environ.get('GMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_HOST_PASSWORD')
-EMAIL_POST = os.environ.get('GMAIL_POST')
+EMAIL_HOST = os.environ['GMAIL_HOST']
+EMAIL_HOST_USER = os.environ['GMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['GMAIL_HOST_PASSWORD']
+EMAIL_POST = os.environ['GMAIL_POST']
 EMAIL_USE_TLS = True
 # mailtrapで擬似的にSMTPバックエンドでメールを受信
 # https://mailtrap.io/inboxes/1181697/messages
 # if DEBUG:
-#     EMAIL_HOST = os.environ.get('MAILTRAP_HOST')
-#     EMAIL_HOST_USER = os.environ.get('MAILTRAP_HOST_USER')
-#     EMAIL_HOST_PASSWORD = os.environ.get('MAILTRAP_HOST_PASSWORD')
-#     EMAIL_PORT = os.environ.get('MAILTRAP_POST')
+#     EMAIL_HOST = os.environ['MAILTRAP_HOST']
+#     EMAIL_HOST_USER = os.environ['MAILTRAP_HOST_USER']
+#     EMAIL_HOST_PASSWORD = os.environ['MAILTRAP_HOST_PASSWORD']
+#     EMAIL_PORT = os.environ['MAILTRAP_POST']
 
 # --アカウント認証設定------------------------------------------
 # django-allauthで利用するdjango.contrib.sitesを使うためにサイト識別用IDを設定
@@ -212,10 +212,10 @@ DEFAULT_FROM_EMAIL = 'buru.aoshin@gmail.com'
 
 # Google認証
 # クライアントID
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ['SOCIAL_AUTH_GOOGLE_OAUTH2_KEY']
 # クライアント シークレット
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get(
-    'SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ[
+    'SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET']
 
 AUTH_USER_MODEL = 'users.User'
 
