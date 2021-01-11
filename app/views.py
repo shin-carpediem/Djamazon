@@ -368,3 +368,7 @@ def policy(request):
 
 def terms(request):
     return render(request, 'app/terms.html')
+
+
+def logout(request):
+    return render(request, 'app/signup.html')
