@@ -474,6 +474,17 @@ html {
         transform: scale(1.5);
       }
     }
+    // pagenation
+    .page-item {
+      .page-link {
+        color: $green;
+      }
+      .active {
+        .page-link {
+          background-color: $green;
+        }
+      }
+    }
     // 矢印アイコン
     .arrow {
       position: relative;

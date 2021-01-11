@@ -22,6 +22,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 # from django.views.generic import TemplateView
 from .sitemaps import StaticViewSitemap, ProductViewSitemap
+from api.urls import router as api_router
 
 
 sitemaps = {
@@ -33,7 +34,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('oauth/', include('social_django.urls', namespace='social')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
-    path('api/', include('api.urls')),
+    url(r'^api/', include(api_router.urls)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += i18n_patterns(

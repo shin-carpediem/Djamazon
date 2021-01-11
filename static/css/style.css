@@ -647,6 +647,14 @@ html body .bg-img .bg-1 {
           transform: scale(1.5);
 }
 
+html body .page-item .page-link {
+  color: #0f4b34;
+}
+
+html body .page-item .active .page-link {
+  background-color: #0f4b34;
+}
+
 html body .arrow {
   position: relative;
   display: inline-block;

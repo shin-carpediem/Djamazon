@@ -150,7 +150,7 @@ python manage.py run server
        It is offical grammer for python.
 
 ```
-python3 -m pip hogehoge
+python3 -m pip install hogehoge
 ```
 
 #### FYI
