@@ -14,7 +14,7 @@ import os
 from django.utils.translation import ugettext_lazy as _
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG') == 'True'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
@@ -91,7 +91,7 @@ MIDDLEWARE = [
 if DEBUG:
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
-    ALLOWED_HOSTS = ['.elasticbeanstalk.com', 'shinac.pythonanywhere.com']
+    ALLOWED_HOSTS = os.environ.get('DEBUG_FALSE_ALLOWED_HOSTS')
 
 ROOT_URLCONF = 'ecsite.urls'
 
