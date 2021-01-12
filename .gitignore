@@ -10,7 +10,7 @@ __pycache__
 .idea
 
 ## virtual environment
-env
+env-pythonanywhere
 eb-virt
 
 ## environment variables
