@@ -13,9 +13,6 @@ __pycache__
 env-pythonanywhere
 eb-virt
 
-## environment variables
-.env
-
 ## test database
 db.sqlite3
 
