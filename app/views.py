@@ -150,7 +150,7 @@ def signup(request):
                 login(request, new_user)
             # メース送信処理
             # EMAIL = settings.DEFAULT_FROM_EMAIL
-            # PASSWORD = os.environ.get('GMAIL_HOST_PASSWORD')
+            # PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
             # TO = form.cleaned_data['email']
 
             # msg = MIMEText('Hello. Welcome to Djamazon. You created your own account on Djamazon. From now on, you will get awesome experience! https: // shinac.pythonanywhere.com / If you have a question, feel free to contact with us. Sincerely, --------------------------------------------- Djamazon.Corporation Email: buru.aoshin@gmail.com ---------------------------------------------')
