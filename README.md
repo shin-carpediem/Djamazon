@@ -21,7 +21,7 @@ Technique/Version:
 - CircleCI
 - GitGuardian
 
-## How to SetUp
+## How to SetUp with your local server
 
 - [ ] Install Homebrew
 
@@ -158,3 +158,11 @@ $ python manage.py showmigrations
 
 - can show you the status of migrations to your local database.
 - If you want to check the content of database(sqlite3) easily with GUI, try using "DB Browser for SQlite".
+
+## How to SetUp with your remote server
+
+https://tutorial.djangogirls.org/ja/deploy/
+
+### How to optimaize the environment varoables to pythonanywere
+
+https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/
