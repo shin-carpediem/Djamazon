@@ -149,21 +149,21 @@ def signup(request):
             if new_user is not None:
                 login(request, new_user)
             # メース送信処理
-            # EMAIL = settings.DEFAULT_FROM_EMAIL
-            # PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
-            # TO = form.cleaned_data['email']
+            EMAIL = settings.DEFAULT_FROM_EMAIL
+            PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
+            TO = form.cleaned_data['email']
 
-            # msg = MIMEText('Hello. Welcome to Djamazon. You created your own account on Djamazon. From now on, you will get awesome experience! https: // shinac.pythonanywhere.com / If you have a question, feel free to contact with us. Sincerely, --------------------------------------------- Djamazon.Corporation Email: buru.aoshin@gmail.com ---------------------------------------------')
+            msg = MIMEText('Hello. Welcome to Djamazon. You created your own account on Djamazon. From now on, you will get awesome experience! https: // shinac.pythonanywhere.com / If you have a question, feel free to contact with us. Sincerely, --------------------------------------------- Djamazon.Corporation Email: buru.aoshin@gmail.com ---------------------------------------------')
 
-            # msg['Subject'] = '【Djamazon】Your account is created now'
-            # msg['From'] = EMAIL
-            # msg['To'] = TO
+            msg['Subject'] = '【Djamazon】Your account is created now'
+            msg['From'] = EMAIL
+            msg['To'] = TO
 
-            # s = smtplib.SMTP(host='smtp.gmail.com', port=587)
-            # s.starttls()
-            # s.login(EMAIL, PASSWORD)
-            # s.sendmail(EMAIL, TO, msg.as_string())
-            # s.quit()
+            s = smtplib.SMTP(host='smtp.gmail.com', port=587)
+            s.starttls()
+            s.login(EMAIL, PASSWORD)
+            s.sendmail(EMAIL, TO, msg.as_string())
+            s.quit()
             return render(request, 'app/welcome.html')
     else:
         form = CustomUserCreationForm()
