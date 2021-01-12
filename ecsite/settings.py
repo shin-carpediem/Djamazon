@@ -16,8 +16,7 @@ from dotenv import load_dotenv
 from django.utils.translation import ugettext_lazy as _
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = os.getenv("DEBUG") == "True"
-DEBUG = False
+DEBUG = os.getenv("DEBUG") == "True"
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
@@ -96,7 +95,8 @@ MIDDLEWARE = [
 if DEBUG:
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
-    ALLOWED_HOSTS = os.getenv("DEBUG_FALSE_ALLOWED_HOSTS")
+    # ALLOWED_HOSTS = os.getenv("DEBUG_FALSE_ALLOWED_HOSTS")
+    ALLOWED_HOSTS = ['shinac.pythonanywhere.com']
 
 # The Debug Toolbar is shown
 # only if your IP address is listed in the INTERNAL_IPS setting.
