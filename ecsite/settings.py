@@ -92,9 +92,10 @@ MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
-if DEBUG:
+if DEBUG = True:
     ALLOWED_HOSTS = ['127.0.0.1']
-ALLOWED_HOSTS = os.getenv("DEBUG_FALSE_ALLOWED_HOSTS")
+if DEBUG = False:
+    ALLOWED_HOSTS = os.getenv("DEBUG_FALSE_ALLOWED_HOSTS")
 
 # The Debug Toolbar is shown
 # only if your IP address is listed in the INTERNAL_IPS setting.
