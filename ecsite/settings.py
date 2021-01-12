@@ -16,7 +16,8 @@ from dotenv import load_dotenv
 from django.utils.translation import ugettext_lazy as _
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG") == "True"
+# DEBUG = os.getenv("DEBUG") == "True"
+DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
@@ -92,9 +93,9 @@ MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
-if DEBUG = True:
+if DEBUG:
     ALLOWED_HOSTS = ['127.0.0.1']
-if DEBUG = False:
+else:
     ALLOWED_HOSTS = os.getenv("DEBUG_FALSE_ALLOWED_HOSTS")
 
 # The Debug Toolbar is shown
