@@ -132,7 +132,7 @@ $ python manage.py migrate
 - [ ] Go back to the BASE_DIR and run local server
 
 ```
-$ python manage.py run server
+$ python manage.py runserver
 ```
 
 - [ ] Input "127.0.0.1" to your browser URL and you can see this site with developing mode!
