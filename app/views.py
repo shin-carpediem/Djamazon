@@ -1,4 +1,3 @@
-
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.core.mail import send_mail
 from django.conf import settings
@@ -178,6 +177,7 @@ def detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     add_to_cart_form = AddToCartForm(request.POST or None)
     if add_to_cart_form.is_valid():
+        print(is_valid)
         num = add_to_cart_form.cleaned_data['num']
         # セッションに cart というキーがあるかどうかで処理を分ける
         if 'cart' in request.session:
