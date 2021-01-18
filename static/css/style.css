@@ -39,7 +39,6 @@ html body header {
   border-bottom: solid 2px #000;
   background-color: #ececec;
   height: 150px;
-  width: 100%;
   position: fixed;
   top: 0px;
   z-index: 10000;
@@ -785,7 +784,6 @@ html body #btn-backtotop .arrow::before {
 }
 
 html body footer {
-  width: 100%;
   border-top: 2px solid transparent;
   height: 150px;
   background-color: #36a57b;

@@ -35,7 +35,6 @@ html {
       border-bottom: solid 2px $black;
       background-color: $light-grey;
       height: 150px;
-      width: 100%;
       position: fixed;
       top: 0px;
       z-index: 10000;
@@ -589,7 +588,6 @@ html {
     }
     /* footer */
     footer {
-      width: 100%;
       border-top: 2px solid transparent;
       height: 150px;
       background-color: $django-green;

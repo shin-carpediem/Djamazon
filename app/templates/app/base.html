@@ -67,7 +67,7 @@
 
 
 
-  <header>
+  <header class="w-100">
     <div class="header-wrapper">
 
       <div class="row pt-3">
@@ -127,15 +127,15 @@
             <span></span>
             <ul id="menu">
               {% if request.user.is_authenticated %}
-              <li class=""><a href="{% url 'app:index' %}"><i class="fas fa-home pr-2"></i>{% trans "Home" %}</a></li>
-              <li class=""><a href="{% url 'app:fav_products' %}"><i class="fas fa-heart pr-2"></i>{% trans "Favorite" %}</a></li>
-              <li class=""><a href="{% url 'app:cart' %}"><i class="fas fa-shopping-cart pr-2"></i>{% trans "Cart" %}</a></li>
-              <li class=""><a href="{% url 'app:order_history' %}"><i class="fas fa-check pr-2"></i>{% trans "Order-history" %}</a></span>
-              <li class=""><a href="{% url 'app:logout' %}"><i class="fas fa-sign-out-alt pr-2"></i>{% trans "Logout" %}</a></li>
-              <li class=""><i class="fas fa-coins pr-2"></i>{% trans "Point: " %}{{ user.point | intcomma }}</li>
+              <li><a href="{% url 'app:index' %}"><i class="fas fa-home pr-2"></i>{% trans "Home" %}</a></li>
+              <li><a href="{% url 'app:fav_products' %}"><i class="fas fa-heart pr-2"></i>{% trans "Favorite" %}</a></li>
+              <li><a href="{% url 'app:cart' %}"><i class="fas fa-shopping-cart pr-2"></i>{% trans "Cart" %}</a></li>
+              <li><a href="{% url 'app:order_history' %}"><i class="fas fa-check pr-2"></i>{% trans "Order-history" %}</a></span>
+              <li><a href="{% url 'app:logout' %}"><i class="fas fa-sign-out-alt pr-2"></i>{% trans "Logout" %}</a></li>
+              <li><i class="fas fa-coins pr-2"></i>{% trans "Point: " %}{{ user.point | intcomma }}</li>
               {% else %}
-              <li class=""><a href="{% url 'app:login' %}"><i class="fas fa-sign-in-alt pr-2"></i>{% trans "Login" %}</a></li>
-              <li class=""><a href="{% url 'app:signup' %}"><i class="fas fa-user-plus pr-2"></i>{% trans "Signup" %}</a></li>
+              <li><a href="{% url 'app:login' %}"><i class="fas fa-sign-in-alt pr-2"></i>{% trans "Login" %}</a></li>
+              <li><a href="{% url 'app:signup' %}"><i class="fas fa-user-plus pr-2"></i>{% trans "Signup" %}</a></li>
               {% endif %}
           </div>
         </nav>
@@ -203,7 +203,7 @@
 
 
 
-  <footer>
+  <footer class="w-100">
     <div class="footer-wrapper row">
 
       <div class="pt-1 col-lg-8 col-12 footer-left">
