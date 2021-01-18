@@ -220,6 +220,7 @@ html body header .header-right .search .search-wrapper .search-input {
 
 html body header .header-right .search .search-wrapper .search-button {
   border-radius: transparent;
+  border-radius: 5px;
 }
 
 html body header .header-right .search .search-wrapper .search-button:hover {
