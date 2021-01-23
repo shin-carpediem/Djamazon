@@ -363,6 +363,10 @@ def count_good(self):
     return ctx
 
 
+def owner_profile(request):
+    return render(request, 'app/owner_profile.html')
+
+
 def policy(request):
     return render(request, 'app/policy.html')
 

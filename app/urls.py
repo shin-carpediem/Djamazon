@@ -22,6 +22,7 @@ urlpatterns = [
          name='change_item_amount'),
     path('order_history/', views.order_history, name='order_history'),
     path('search/', views.SearchResultView.as_view(), name='result'),
+    path('owner_profile/', views.owner_profile, name='owner_profile'),
     path('policy/', views.policy, name='policy'),
     path('terms/', views.terms, name='terms'),
 ]

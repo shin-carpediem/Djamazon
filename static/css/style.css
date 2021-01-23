@@ -24,9 +24,12 @@ select {
 
 /* Remove all animations and transitions for people that prefer not to see them */
 html {
-  scroll-behavior: smooth;
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
 }
 
 html body {
@@ -860,6 +863,10 @@ html body footer .footer-wrapper .footer-left span {
   html body footer .footer-wrapper .footer-left {
     font-size: 10px;
   }
+}
+
+html body footer .footer-wrapper .footer-left .column .copyright {
+  font-size: 10px;
 }
 
 @media screen and (max-width: 414px) {

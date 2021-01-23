@@ -45,7 +45,6 @@
 
   <link rel="apple-touch-icon-precomposed" href="{% static 'favicon.svg' %}">
 
-  <link rel="stylesheet" href="{% static 'css/roboot.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link rel="icon" type="image/svg" href="{% static 'img/favicon.svg' %}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -194,7 +193,7 @@
   <footer class="w-100">
     <div class="footer-wrapper row">
 
-      <div class="pt-1 col-lg-8 col-12 footer-left">
+      <div class="pt-1 col-lg-6 col-12 footer-left">
         <ul class="row column">
           <li class="col-sm-1 col-12 good_button" style="cursor: pointer;" data-count={{ip_address.good_count}}>
             <i class="fas fa-thumbs-up"></i>
@@ -202,14 +201,15 @@
               {{ ip_address.good_count }}
             </span>
           </li>
-          <li class="col-sm-11 col-12">Copyright © 2020 Djamazon Corporation All Rights. All rights reserved.</li>
+          <li class="col-sm-11 col-12 copyright my-auto">Copyright © 2020 Djamazon Corporation All Rights. All rights reserved.</li>
         </ul>
       </div>
 
-      <div class="col-lg-4 col-12 footer-right">
+      <div class="col-lg-6 col-12 footer-right">
         <ul class="row">
-          <li class="col-6"><a href="{% url 'app:policy' %}">{% trans "Privacy Policy" %}</a></li>
-          <li class="col-6"><a href="{% url 'app:terms' %}">{% trans "Terms of Service" %}</a></li>
+          <li class="col-4"><a href="{% url 'app:owner_profile' %}">{% trans "Who is Owner?" %}</a></li>
+          <li class="col-4"><a href="{% url 'app:policy' %}">{% trans "Privacy Policy" %}</a></li>
+          <li class="col-4"><a href="{% url 'app:terms' %}">{% trans "Terms of Service" %}</a></li>
         </ul>
       </div>
 
