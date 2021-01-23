@@ -5,21 +5,23 @@
 ## Site URL:[Djamazon](https://shinac.pythonanywhere.com/)
 
 Memo to me:\
-✅ Each image size should be less than 320px \* 320px.
+✅ Each "product" image size should be less than 320px \* 320px.
 
 Technique/Version:
 
+- Pythonanywhere
 - Python(local)==3.8.6
-- Python(production)==3.6
+- Python(production::pythonanywhere)==3.6.0
 - pip==20.2.1
 - Django==3.0.10
 - django-debug-toolbar==3.2
 - Bootstrap==4.5.0
+- jQuery==3.5.1
 - SCSS
-- Pythonanywhere
 - Always SSL
 - CircleCI
 - GitGuardian
+- Debug toolbar
 
 ## How to SetUp with your local server
 
@@ -172,7 +174,7 @@ https://qiita.com/nnsnodnb/items/9e99e7f0ca3f82bf2171
 To connect with mysql, use this command.
 
 ```
-mysql -u shinac -h shinac.mysql.pythonanywhere-services.com -p
+$ mysql -u shinac -h shinac.mysql.pythonanywhere-services.com -p
 ```
 
 ### How to optimaize the environment variables to pythonanywere
@@ -182,5 +184,5 @@ https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/
 When you added new environment variables to .env file, do not forget to type this command.
 
 ```
-set -a; source ~/shinac.pythonanywhere.com/.env; set +a
+$ set -a; source ~/shinac.pythonanywhere.com/.env; set +a
 ```
