@@ -167,8 +167,9 @@ https://tutorial.djangogirls.org/ja/deploy/
 
 https://qiita.com/nnsnodnb/items/9e99e7f0ca3f82bf2171
 
-＊Each word of Every method should be capital.
-and especially, use this command.
+＊Each word of Every method should be CAPITAL.\
+
+To connect with mysql, use this command.
 
 ```
 mysql -u shinac -h shinac.mysql.pythonanywhere-services.com -p
