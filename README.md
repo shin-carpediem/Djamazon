@@ -4,7 +4,7 @@
 
 ## Site URL:[Djamazon](https://shinac.pythonanywhere.com/)
 
-Memo to me:\
+Memo for me:\
 ✅ Each "product" image size should be less than 320px \* 320px.
 
 Technique/Version:
