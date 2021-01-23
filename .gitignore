@@ -134,9 +134,6 @@ logs/*.log
 # local sql query
 *.sql
 
-# migrate database
-sqlite3-to-mysql.py
-
 # excessive directory
 media/
 static/vid/

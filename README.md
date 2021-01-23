@@ -163,6 +163,23 @@ $ python manage.py showmigrations
 
 https://tutorial.djangogirls.org/ja/deploy/
 
-### How to optimaize the environment varoables to pythonanywere
+### How to migrate from sqlite3 to MySQL of pythonanywhere
+
+https://qiita.com/nnsnodnb/items/9e99e7f0ca3f82bf2171
+
+＊Each word of Every method should be capital.
+and especially, use this command.
+
+```
+mysql -u shinac -h shinac.mysql.pythonanywhere-services.com -p
+```
+
+### How to optimaize the environment variables to pythonanywere
 
 https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/
+
+When you added new environment variables to .env file, do not forget to type this command.
+
+```
+set -a; source ~/shinac.pythonanywhere.com/.env; set +a
+```
