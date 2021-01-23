@@ -38,7 +38,7 @@ class StaticViewSitemap(Sitemap):
 
 class ProductViewSitemap(Sitemap):
     priority = 0.3
-    changefreq = 'never'
+    changefreq = 'always'
 
     def items(self):
         return Product.objects.all()

@@ -37,9 +37,11 @@ select {
 // end of default
 
 html {
-  scroll-behavior: smooth;
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
+  &:focus-within {
+    scroll-behavior: smooth;
+  }
   body {
     text-rendering: optimizeSpeed;
     font-family: "Piedra", cursive;
