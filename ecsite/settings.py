@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import logging
-from dotenv import load_dotenv
+from dotenv import load_dotenv # unique to pythonanywhere
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -159,6 +159,7 @@ LANGUAGES = [
 ]
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
+# 数字3桁毎にカンマで区切る
 NUMBER_GROUPING = 3
 
 # セッションを毎回更新

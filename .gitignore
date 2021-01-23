@@ -155,3 +155,6 @@ eb-virt
 # .elasticbeanstalk/*
 # !.elasticbeanstalk/*.cfg.yml
 # !.elasticbeanstalk/*.global.yml
+
+# code runner
+tempCodeRunnerFile.py

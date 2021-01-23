@@ -16,14 +16,14 @@
     <div class="point-fav-section row">
       <h4 class="col-sm-6 col-12">{{ product.price | intcomma }} Point</h4>
       {% if request.user.is_authenticated %}
-      <form action="{% url 'app:toggle_fav_product_status' %}" method="post" class="col-sm-6 col-12">{% csrf_token %}
-        <input type="hidden" name="product_id" value="{{ product.id }}">
-        {% if product in user.fav_products.all %}
-        <input type="submit" name="submit" class="fav_button" value="remove from your favorite">
-        {% else %}
-        <input type="submit" name="submit" class="fav_button" value="add to your favorite">
-        {% endif %}
-      </form>
+        <form action="{% url 'app:toggle_fav_product_status' %}" method="post" class="col-sm-6 col-12">{% csrf_token %}
+          <input type="hidden" name="product_id" value="{{ product.id }}">
+          {% if product in user.fav_products.all %}
+            <input type="submit" name="submit" class="fav_button" value="remove from your favorite">
+          {% else %}
+            <input type="submit" name="submit" class="fav_button" value="add to your favorite">
+          {% endif %}
+        </form>
       {% endif %}
     </div>
 
@@ -32,14 +32,14 @@
     <div class="row">
       <div class="col-6">
         {% if request.user.is_authenticated %}
-        <form action="{% url 'app:detail' product.id %}" mothod="post">{% csrf_token %}
-          {{ add_to_cart_form.as_p }}
-          <button class="purchase-button" type="submit">Add to Cart</button>
-        </form>
+          <form action="{% url 'app:detail' product.id %}" mothod="post">{% csrf_token %}
+            {{ add_to_cart_form.as_p }}
+              <button class="purchase-button" type="submit">Add to Cart</button>
+          </form>
         {% else %}
-        <a href="{% url 'app:login' %}?next={{ request.path }}">
-          <button class="purchase-button">Login and purchase</button>
-        </a>
+          <a href="{% url 'app:login' %}?next={{ request.path }}">
+            <button class="purchase-button">Login and purchase</button>
+          </a>
         {% endif %}
       </div>
       <div class="col-6 like-button">

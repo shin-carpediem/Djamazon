@@ -147,7 +147,7 @@ def signup(request):
             new_user = authenticate(email=input_email, password=input_password)
             if new_user is not None:
                 login(request, new_user)
-            # メース送信処理
+            # send mail
             EMAIL = settings.DEFAULT_FROM_EMAIL
             PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
             TO = form.cleaned_data['email']
@@ -173,21 +173,21 @@ def welcome(request):
     return render(request, 'app/welcome.html')
 
 
+#---------------------from here--------------------------
 def detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     add_to_cart_form = AddToCartForm(request.POST or None)
     if add_to_cart_form.is_valid():
-        print()
         num = add_to_cart_form.cleaned_data['num']
-        # セッションに cart というキーがあるかどうかで処理を分ける
+        # whether the key named 'cart' exists in session or not
         if 'cart' in request.session:
-            # すでに特定の商品の個数があれば新しい個数を加算、なければ新しくキーを追加する
+            # if the number of product already exist, add the number, if not, add new key
             if str(product_id) in request.session['cart']:
                 request.session['cart'][str(product_id)] += num
             else:
                 request.session['cart'][str(product_id)] = num
         else:
-            # 新しく cart というセッションのキーを追加
+            # add new session key named 'cart'
             request.session['cart'] = {str(product_id): num}
         messages.success(request, f"You added {num} {product.name} !")
         return redirect('app:detail', product_id=product_id)
@@ -196,6 +196,7 @@ def detail(request, product_id):
         'add_to_cart_form': add_to_cart_form,
     }
     return render(request, 'app/detail.html', context)
+#-------------------------to here------------------------------
 
 
 @login_required
@@ -308,9 +309,8 @@ def change_item_amount(request):
             del cart_session[product_id]
     return redirect('app:cart')
 
+
 # 郵便番号検索の API を利用する関数
-
-
 def get_address(zip_code):
     REQUEST_URL = f'http://zipcloud.ibsnet.co.jp/api/search?zipcode={zip_code}'
     address = ''
