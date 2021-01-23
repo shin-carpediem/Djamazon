@@ -1,4 +1,5 @@
 {% extends 'app/base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="welcome-message">
@@ -29,8 +30,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 <form method="post" action="{% url 'app:signup' %}">{% csrf_token %}
@@ -65,24 +64,13 @@
 
     </div>
 
-
-
     <div class="col-sm-4 col-12">
       <ul class="d-flex align-items-center"></ul>
         <li class="social_account pb-2">..or signup with<br> your Google account</li>
-        <li class="pb-5"><a href="{% url 'social:begin' 'google-oauth2' %}"><img src="./../media/google.png"
-              style="width: 30px; height: auto;" alt=""></a></li>
+        <li class="pb-5"><a href="{% url 'social:begin' 'google-oauth2' %}"><img src="{% static 'img/google.png' %}" style="width: 30px; height: auto;" alt=""></a></li>
       </ul>
     </div>
   </div>
 
 </form>
-
-
-
-
-
-
-
-
 {% endblock %}

@@ -25,22 +25,22 @@ from ecsite.settings import DEBUG
 
 # Create your views here.
 class CacheRouter:
-    """A router to control all database cache operations"""
+    # A router to control all database cache operations
 
     def db_for_read(self, model, **hints):
-        "All cache read operations go to the replica"
+        # All cache read operations go to the replica
         if model._meta.app_label == 'django_cache':
             return 'cache_replica'
         return None
 
     def db_for_write(self, model, **hints):
-        "All cache write operations go to primary"
+        # All cache write operations go to primary
         if model._meta.app_label == 'django_cache':
             return 'cache_primary'
         return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
-        "Only install the cache model on primary"
+        # Only install the cache model on primary
         if app_label == 'django_cache':
             return db == 'cache_primary'
         return None
@@ -177,7 +177,7 @@ def detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     add_to_cart_form = AddToCartForm(request.POST or None)
     if add_to_cart_form.is_valid():
-        print(is_valid)
+        print()
         num = add_to_cart_form.cleaned_data['num']
         # セッションに cart というキーがあるかどうかで処理を分ける
         if 'cart' in request.session:
@@ -357,7 +357,8 @@ class SearchResultView(ListView):
 
 
 def count_good(self):
-    ctx = super().get_context_data()
+    # ctx = super().get_context_data()
+    ctx = User().get_context_data()
     ctx['good_number'] = ip_address.annotate(good_count=Count('good'))
     return ctx
 

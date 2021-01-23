@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-<head>
+ <head>
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
@@ -47,19 +47,19 @@
 
   <link rel="stylesheet" href="{% static 'css/roboot.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-  <link rel="icon" type="image/svg" href="../../../media/favicon.svg">
+  <link rel="icon" type="image/svg" href="{% static 'img/favicon.svg' %}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Piedra&family=Righteous&display=swap" rel="stylesheet">
 
   <title>Djamazon</title>
   <meta name="description" content="Djangoを学ぶ駆け出しエンジニアによる、ECサイトのデモサイトです。ちょっぴり面白い世界観を、味わってみてください。">
   <meta name="keywords" content="Django Amazon unique funny">
-</head>
+ </head>
 
 
 
 
-<body>
+ <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8S5PL7" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
@@ -143,13 +143,8 @@
 
       </div>
 
-
-
-
     </div>
   </header>
-
-
 
 
   <div class="container">
@@ -159,11 +154,9 @@
     {% block content %}{% endblock %}
   </div>
 
-
   <div class="bg-img">
-    <img src="../../media/bg-1.svg" alt="" class="bg-1" id="bg">
+    <img src="{% static 'img/bg-1.svg' %}" alt="bg-1" class="bg-1" id="bg">
   </div>
-
 
   <nav aria-label="Page navigation" class="my-5">
     <ul class="pagination justify-content-center">
@@ -174,7 +167,6 @@
         <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
       </li>
       {% endif %}
-
       <!-- 数字の部分 -->
       {% for num in page_obj.paginator.page_range %}
       {% if page_obj.number == num %}
@@ -187,7 +179,6 @@
       </li>
       {% endif %}
       {% endfor %}
-
       <!-- 次へ の部分 -->
       {% if page_obj.has_next %}
       <li class="page-item">
@@ -197,10 +188,7 @@
     </ul>
   </nav>
 
-
   <a href="#top" id="btn-backtotop"><span class="arrow arrow_up"></span></a>
-
-
 
 
   <footer class="w-100">
@@ -237,10 +225,9 @@
   <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
-  <script src="../../static/js/header_title.js"></script>
-  <script src="../../static/js/scroll_button.js"></script>
-  <script src="../../static/js/mousemove.js"></script>
-  <script src="../../static/js/good.js"></script>
-</body>
-
+  <script src="{% static 'js/header_title.js' %}"></script>
+  <script src="{% static 'js/scroll_button.js' %}"></script>
+  <script src="{% static 'js/mousemove.js' %}"></script>
+  <script src="{% static 'js/good.js' %}"></script>
+ </body>
 </html>

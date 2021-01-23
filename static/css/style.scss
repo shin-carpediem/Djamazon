@@ -1,8 +1,40 @@
-/* Set core root defaults */
+/* default */
 $light-grey: #ececec;
 $django-green: #36a57b;
 $green: #0f4b34;
 $black: #000;
+
+ul {
+  list-style: none;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* Remove all animations and transitions for people that prefer not to see them */
+// @media (prefers-reduced-motion: reduce) {
+//   *,
+//   *::before,
+//   *::after {
+//     animation-duration: 0.01ms !important;
+//     animation-iteration-count: 1 !important;
+//     transition-duration: 0.01ms !important;
+//     scroll-behavior: auto !important;
+//   }
+// }
+// end of default
 
 html {
   scroll-behavior: smooth;
