@@ -9,19 +9,23 @@ Memo for me:\
 
 Technique/Version:
 
-- Pythonanywhere
-- Python(local)==3.8.6
-- Python(production::pythonanywhere)==3.6.0
+local
+- Python==3.8.6
 - pip==20.2.1
 - Django==3.0.10
-- django-debug-toolbar==3.2
+- django-debug-toolbar==3.2.0
 - Bootstrap==4.5.0
 - jQuery==3.5.1
 - SCSS
-- Always SSL
+- SQlite3
 - CircleCI
 - GitGuardian
-- Debug toolbar
+
+production
+- Pythonanywhere
+- Python==3.6.0
+- MySQL
+- Always SSL
 
 ## How to SetUp with your local server
 
