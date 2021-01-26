@@ -17,14 +17,14 @@ local
 - Bootstrap==4.5.0
 - jQuery==3.5.1
 - SCSS
-- SQlite3
+- SQlite3==3.32.3
 - CircleCI
 - GitGuardian
 
 production
 - Pythonanywhere
 - Python==3.6.0
-- MySQL
+- MySQL==5.6.48
 - Always SSL
 
 ## How to SetUp with your local server
