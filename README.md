@@ -14,8 +14,8 @@ local
 - pip==20.2.1
 - Django==3.0.10
 - django-debug-toolbar==3.2.0
-- Bootstrap==4.5.0
-- jQuery==3.5.1
+- Bootstrap(CDN)==4.5.0
+- jQuery(CDN)==3.5.1
 - SCSS
 - SQlite3==3.32.3
 - CircleCI
