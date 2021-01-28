@@ -152,7 +152,23 @@ def signup(request):
             PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
             TO = form.cleaned_data['email']
 
-            msg = MIMEText('Hello. Welcome to Djamazon. You created your own account on Djamazon. From now on, you will get awesome experience! https: // shinac.pythonanywhere.com / If you have a question, feel free to contact with us. Sincerely, --------------------------------------------- Djamazon.Corporation Email: buru.aoshin@gmail.com ---------------------------------------------')
+            msg = MIMEText(
+                'Hello. Welcome to Djamazon.\n'
+                'You created your own account on Djamazon.\n'
+                '\n'
+                'From now on, you will get awesome experience!\n'
+                'https: // shinac.pythonanywhere.com /\n'
+                '\n'
+                'If you have a question, feel free to contact with us.\n'
+                '\n'
+                '\n'
+                'Sincerely,\n'
+                '\n'
+                '---------------------------------------------\n'
+                'Djamazon.Corporation\n'
+                'Email: buru.aoshin@gmail.com\n'
+                '---------------------------------------------\n'
+            )
 
             msg['Subject'] = '【Djamazon】Your account is created now'
             msg['From'] = EMAIL
@@ -173,7 +189,7 @@ def welcome(request):
     return render(request, 'app/welcome.html')
 
 
-#---------------------from here--------------------------
+# ---------------------from here--------------------------
 def detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     add_to_cart_form = AddToCartForm(request.POST or None)
@@ -196,7 +212,7 @@ def detail(request, product_id):
         'add_to_cart_form': add_to_cart_form,
     }
     return render(request, 'app/detail.html', context)
-#-------------------------to here------------------------------
+# -------------------------to here------------------------------
 
 
 @login_required
