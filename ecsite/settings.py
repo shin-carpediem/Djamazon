@@ -91,12 +91,6 @@ MIDDLEWARE = [
 
 ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS")]
 
-# if DEBUG:
-#     ALLOWED_HOSTS = ['127.0.0.1']
-# else:
-#     # ALLOWED_HOSTS = os.getenv("DEBUG_FALSE_ALLOWED_HOSTS")
-#     ALLOWED_HOSTS = ['shinac.pythonanywhere.com']
-
 # The Debug Toolbar is shown
 # only if your IP address is listed in the INTERNAL_IPS setting.
 # https://django-debug-toolbar.readthedocs.io/en/stable/installation.html
