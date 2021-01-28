@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/badge/-Django-092E20.svg?logo=django&style=flat"> <img src="https://img.shields.io/badge/-Bootstrap-563D7C.svg?logo=bootstrap&style=flat"> <img src="https://img.shields.io/badge/-Linux-6C6694.svg?logo=linux&style=flat">
+<img src="https://img.shields.io/badge/-Django-092E20.svg?logo=django&style=flat"> <img src="https://img.shields.io/badge/-Bootstrap-563D7C.svg?logo=bootstrap&style=flat">  <img src="https://img.shields.io/badge/-MySQL-4479A1.svg?logo=mysql&style=flat"> <img src="https://img.shields.io/badge/-Linux-6C6694.svg?logo=linux&style=flat"> <img src="https://img.shields.io/badge/-Sass-CC6699.svg?logo=sass&style=flat"> <img src="https://img.shields.io/badge/-Webpack-8DD6F9.svg?logo=webpack&style=flat"> <img src="https://img.shields.io/badge/-CircleCI-343434.svg?logo=circleci&style=flat">
 
 # Djamazon
 
@@ -17,9 +17,14 @@ local
 - Bootstrap(CDN)==4.5.0
 - jQuery(CDN)==3.5.1
 - SCSS
+- npm==6.14.8
+- webpack=5.18.0
+- webpack-cli=4.4.0
+- webpack-bundle-tracker@0.4.3
+- django-webpack-loader==0.7.0
 - SQlite3==3.32.3
-- CircleCI
 - GitGuardian
+- CircleCI
 
 production
 - Pythonanywhere

@@ -1,0 +1,26 @@
+{
+  "name": "Djamazon",
+  "version": "1.0.0",
+  "description": "<img src=\"https://img.shields.io/badge/-Django-092E20.svg?logo=django&style=flat\"> <img src=\"https://img.shields.io/badge/-Bootstrap-563D7C.svg?logo=bootstrap&style=flat\">  <img src=\"https://img.shields.io/badge/-MySQL-4479A1.svg?logo=mysql&style=flat\"> <img src=\"https://img.shields.io/badge/-Linux-6C6694.svg?logo=linux&style=flat\"> <img src=\"https://img.shields.io/badge/-Sass-CC6699.svg?logo=sass&style=flat\"> <img src=\"https://img.shields.io/badge/-Webpack-8DD6F9.svg?logo=webpack&style=flat\"> <img src=\"https://img.shields.io/badge/-CircleCI-343434.svg?logo=circleci&style=flat\">",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "webpack-cli": "^4.4.0",
+    "webpack": "^5.18.0",
+    "webpack-bundle-tracker": "^0.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shin-carpediem/Djamazon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shin-carpediem/Djamazon/issues"
+  },
+  "homepage": "https://github.com/shin-carpediem/Djamazon#readme"
+}

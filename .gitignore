@@ -158,3 +158,6 @@ eb-virt
 
 # code runner
 tempCodeRunnerFile.py
+
+# use for bundling JS files with webpack
+node_modules

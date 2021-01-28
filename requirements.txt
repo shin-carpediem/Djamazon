@@ -11,6 +11,7 @@ Django==3.0.10
 django-allauth==0.44.0
 django-debug-toolbar==3.2
 django-filter==2.4.0
+django-webpack-loader==0.7.0
 djangorestframework==3.12.2
 executing==0.5.4
 icecream==2.0.0

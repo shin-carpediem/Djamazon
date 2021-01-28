@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import logging
-from dotenv import load_dotenv # unique to pythonanywhere
+from dotenv import load_dotenv  # unique to pythonanywhere
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'debug_toolbar',
+    'webpack_loader',
 ]
 
 # Database
@@ -61,14 +62,14 @@ if DEBUG:
     }
 else:
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv("DB_NAME"),
-        'USER': os.getenv("DB_USER"),
-        'PASSWORD': os.getenv("DB_PASSWORD"),
-        'HOST': os.getenv("DB_HOST"),
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.getenv("DB_NAME"),
+            'USER': os.getenv("DB_USER"),
+            'PASSWORD': os.getenv("DB_PASSWORD"),
+            'HOST': os.getenv("DB_HOST"),
+        }
     }
-}
 
 MIDDLEWARE = [
     # Django can also be configured to email errors about broken links
@@ -165,6 +166,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+# when DEBUG==False, Django automatically load collected static file.
+# this is for Django to use 'collectstatic'.
 STATIC_ROOT = 'assets'
 
 MEDIA_URL = '/media/'
@@ -242,6 +245,19 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.chache.backends.db.DatabaseCache',
         'LOCATION': 'cache',
+    }
+}
+
+# to bundle JS file easier
+# https://qiita.com/gsk3beta/items/c2b902c3659610701071
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': 'webpack_bundles/',  # must end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, './webpack-stats.json'),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': [r'.+\.hot-update.js', r'.+\.map']
     }
 }
 

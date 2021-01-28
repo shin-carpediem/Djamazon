@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load static %}
+{% load render_bundle from webpack_loader %}
 {% load humanize %}
 
 <!DOCTYPE html>
@@ -45,7 +46,7 @@
 
   <link rel="apple-touch-icon-precomposed" href="{% static 'favicon.svg' %}">
 
-  <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link rel="icon" type="image/svg" href="{% static 'img/favicon.svg' %}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Piedra&family=Righteous&display=swap" rel="stylesheet">
@@ -225,6 +226,11 @@
   <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
-  <script src="{% static 'js/app.js' %}"></script>
+  <!-- need to understand webpack -->
+  {% render_bundle 'main' 'js' %}
+  <script src="{% static 'js/headerTitle.js' %}"></script>
+  <script src="{% static 'js/scrollButton.js' %}"></script>
+  <script src="{% static 'js/mouseMove.js' %}"></script>
+  <script src="{% static 'js/good.js' %}"></script>
  </body>
 </html>
