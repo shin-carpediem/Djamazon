@@ -153,10 +153,12 @@ def signup(request):
             TO = form.cleaned_data['email']
 
             msg = MIMEText(
-                'Hello. Welcome to Djamazon.\n'
-                'You created your own account on Djamazon.\n'
+                'Hello.\n'
+                'Welcome to Djamazon.\n'
                 '\n'
+                'You created your own account on Djamazon.\n'
                 'From now on, you will get awesome experience!\n'
+                '\n'
                 'https: // shinac.pythonanywhere.com /\n'
                 '\n'
                 'If you have a question, feel free to contact with us.\n'
@@ -166,6 +168,7 @@ def signup(request):
                 '\n'
                 '---------------------------------------------\n'
                 'Djamazon.Corporation\n'
+                '\n'
                 'Email: buru.aoshin@gmail.com\n'
                 '---------------------------------------------\n'
             )
