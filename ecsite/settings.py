@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import logging
-from dotenv import load_dotenv  # unique to pythonanywhere
+from dotenv import load_dotenv  # unique: use for loading environment variables at pythonanywhere
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -88,17 +88,19 @@ MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
-if DEBUG:
-    ALLOWED_HOSTS = ['127.0.0.1']
-else:
-    # ALLOWED_HOSTS = os.getenv("DEBUG_FALSE_ALLOWED_HOSTS")
-    ALLOWED_HOSTS = ['shinac.pythonanywhere.com']
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split()
+
+# if DEBUG:
+#     ALLOWED_HOSTS = ['127.0.0.1']
+# else:
+#     # ALLOWED_HOSTS = os.getenv("DEBUG_FALSE_ALLOWED_HOSTS")
+#     ALLOWED_HOSTS = ['shinac.pythonanywhere.com']
 
 # The Debug Toolbar is shown
 # only if your IP address is listed in the INTERNAL_IPS setting.
 # https://django-debug-toolbar.readthedocs.io/en/stable/installation.html
 if DEBUG:
-    INTERNAL_IPS = ['127.0.0.1']
+    INTERNAL_IPS = os.getenv("ALLOWED_HOSTS").split()
 
 ROOT_URLCONF = 'ecsite.urls'
 
