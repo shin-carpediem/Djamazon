@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import logging
-# unique: use for loading environment variables at pythonanywhere
-from dotenv import load_dotenv
 from django.utils.translation import ugettext_lazy as _
 
 
