@@ -16,13 +16,14 @@ class StaticViewSitemap(Sitemap):
             'app:welcome',
             'app:policy',
             'app:terms',
+            'study:index',
         ]
 
     def location(self, obj):
         return resolve_url(obj)
 
     def changefreq(self, obj):
-        if obj == 'app:index':
+        if obj == 'app:index' or 'study:index':
             return 'always'
         return 'never'
 
