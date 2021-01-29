@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'users',
     'app',
+    'study',
     'social_django',
     'allauth',
     'allauth.account',

@@ -1,0 +1,77 @@
+/* default */
+ul {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  font-family: "Piedra", cursive;
+  font-family: "Righteous", cursive;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html body {
+  text-rendering: optimizeSpeed;
+  font-family: "Piedra", cursive;
+  font-family: "Righteous", cursive;
+  background-color: #ececec;
+}
+
+@media screen and (max-width: 414px) {
+  html body body {
+    font-size: 0.7rem;
+  }
+}
+
+html body a {
+  color: #000;
+}
+
+html body a:hover {
+  color: #0f4b34;
+}
+
+html body span {
+  color: #000;
+}
+
+html body li {
+  list-style: none;
+}
+/*# sourceMappingURL=style.css.map */

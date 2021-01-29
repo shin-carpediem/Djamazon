@@ -8,7 +8,7 @@ module.exports = {
   mode: "development",
   // context: __dirname,
   // エントリーポイントの設定
-  entry: "./static/js/main.js",
+  entry: "./static/js/ec/main.js",
   // 出力の設定
   output: {
     // 出力先のパス（絶対パスを指定する必要がある）

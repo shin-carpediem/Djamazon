@@ -34,6 +34,7 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('oauth/', include('social_django.urls', namespace='social')),
+    path('', include('study.urls')),    # different app: Djamazon Study
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
     path('__debug__/', include(debug_toolbar.urls)),
     url(r'^api/', include(api_router.urls)),

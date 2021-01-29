@@ -46,8 +46,8 @@
 
   <link rel="apple-touch-icon-precomposed" href="{% static 'favicon.svg' %}">
 
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}">
-  <link rel="icon" type="image/svg" href="{% static 'img/favicon.svg' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/ec/style.min.css' %}">
+  <link rel="icon" type="image/svg" href="{% static 'img/ec/favicon.svg' %}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Piedra&family=Righteous&display=swap" rel="stylesheet">
 
@@ -57,15 +57,11 @@
  </head>
 
 
-
-
  <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8S5PL7" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-
-
 
   <header class="w-100">
     <div class="header-wrapper">
@@ -155,7 +151,7 @@
   </div>
 
   <div class="bg-img">
-    <img src="{% static 'img/bg-1.svg' %}" alt="bg-1" class="bg-1" id="bg">
+    <img src="{% static 'img/ec/bg-1.svg' %}" alt="bg-1" class="bg-1" id="bg">
   </div>
 
   <nav aria-label="Page navigation" class="my-5">
@@ -228,9 +224,9 @@
     crossorigin="anonymous"></script>
   <!-- need to understand webpack -->
   {% render_bundle 'main' 'js' %}
-  <script src="{% static 'js/headerTitle.min.js' %}"></script>
-  <script src="{% static 'js/scrollButton.min.js' %}"></script>
-  <script src="{% static 'js/mouseMove.min.js' %}"></script>
-  <script src="{% static 'js/good.min.js' %}"></script>
+  <script src="{% static 'js/ec/headerTitle.min.js' %}"></script>
+  <script src="{% static 'js/ec/scrollButton.min.js' %}"></script>
+  <script src="{% static 'js/ec/mouseMove.min.js' %}"></script>
+  <script src="{% static 'js/ec/good.min.js' %}"></script>
  </body>
 </html>
