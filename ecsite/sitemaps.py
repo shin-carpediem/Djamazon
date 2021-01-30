@@ -7,6 +7,7 @@ class StaticViewSitemap(Sitemap):
 
     def items(self):
         return [
+            'users:owner_profile',
             'app:index',
             'app:cart',
             'app:login',
@@ -23,13 +24,19 @@ class StaticViewSitemap(Sitemap):
         return resolve_url(obj)
 
     def changefreq(self, obj):
-        if obj == 'app:index' or 'study:index':
+        if obj == 'users:owner_profile':
+            return 'always'
+        elif obj == 'app:index':
+            return 'always'
+        elif obj == 'study:index':
             return 'always'
         return 'never'
 
     def priority(self, obj):
         if obj == 'app:index':
             return 0.8
+        elif obj == 'study:index':
+            return 0.6
         elif obj == 'app:policy':
             return 0.1
         elif obj == 'app:terms':
