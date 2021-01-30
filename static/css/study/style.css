@@ -50,7 +50,7 @@ html body {
   text-rendering: optimizeSpeed;
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
-  background-color: #ececec;
+  background-color: #07a9f0;
 }
 
 @media screen and (max-width: 414px) {
@@ -59,19 +59,46 @@ html body {
   }
 }
 
-html body a {
+html body footer {
+  background-color: #07a9f0;
+}
+
+html body footer li {
+  color: #ffb52d;
+}
+
+html body footer li a {
+  color: #ffb52d;
+}
+
+html body footer li a:hover {
+  color: #5f55af;
+}
+
+html body section.index-wrapper {
+  border: solid 1px transparent;
+  background-color: #ececec;
+}
+
+html body section.index-wrapper DL {
+  padding-left: 40px;
+}
+
+html body section.index-wrapper DL A {
   color: #000;
 }
 
-html body a:hover {
-  color: #0f4b34;
+html body section.index-wrapper DL A:hover {
+  color: #ffb52d;
 }
 
-html body span {
-  color: #000;
+html body section.index-wrapper DL DL DT H3 {
+  color: #5f55af;
+  padding-top: 40px;
 }
 
-html body li {
-  list-style: none;
+html body section.index-wrapper DL DL DT DL DT H3 {
+  color: #ff9100;
+  padding-top: 10px;
 }
 /*# sourceMappingURL=style.css.map */

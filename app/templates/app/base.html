@@ -101,15 +101,54 @@
         <!-- PC size -->
         <div class="header-menu row">
           {% if request.user.is_authenticated %}
-          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:index' %}"><i class="fas fa-home pr-2"></i>{% trans "Home" %}</a></span>
-          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:fav_products' %}"><i class="fas fa-heart pr-2"></i>{% trans "Favorite" %}</a></span>
-          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:cart' %}"><i class="fas fa-shopping-cart pr-2"></i>{% trans "Cart" %}</a></span>
-          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:order_history' %}"><i class="fas fa-check pr-2"></i>{% trans "Order-history" %}</a></span>
-          <span class="col-lg-2 col-sm-4 col-6"><a href="{% url 'app:logout' %}"><i class="fas fa-sign-out-alt pr-2"></i>{% trans "Logout" %}</a></span>
-          <span class="col-lg-2 col-sm-4 col-6"><i class="fas fa-coins pr-2"></i>{% trans "Point: " %}{{ user.point | intcomma }}</span>
+          <span class="col-lg-2 col-sm-4 col-6">
+            <a href="{% url 'app:index' %}">
+              <i class="fas fa-home pr-2"></i>
+              {% trans "Home" %}
+            </a>
+          </span>
+          <span class="col-lg-2 col-sm-4 col-6">
+            <a href="{% url 'app:fav_products' %}">
+              <i class="fas fa-heart pr-2"></i>
+              {% trans "Favorite" %}
+            </a>
+          </span>
+          <span class="col-lg-2 col-sm-4 col-6">
+            <a href="{% url 'app:cart' %}">
+              <i class="fas fa-shopping-cart pr-2"></i>
+              {% trans "Cart" %}
+            </a>
+          </span>
+          <span class="col-lg-2 col-sm-4 col-6">
+            <a href="{% url 'app:order_history' %}">
+              <i class="fas fa-check pr-2"></i>
+              {% trans "Order-history" %}
+            </a>
+          </span>
+          <span class="col-lg-2 col-sm-4 col-6">
+            <a href="{% url 'app:logout' %}">
+              <i class="fas fa-sign-out-alt pr-2"></i>
+              {% trans "Logout" %}
+            </a>
+          </span>
+          <span class="col-lg-2 col-sm-4 col-6">
+            <i class="fas fa-coins pr-2"></i>
+            {% trans "Point: " %}
+            {{ user.point | intcomma }}
+          </span>
           {% else %}
-          <span class="col-6"><a href="{% url 'app:login' %}"><i class="fas fa-sign-in-alt pr-2"></i>{% trans "Login" %}</a></span>
-          <span class="col-6"><a href="{% url 'app:signup' %}"><i class="fas fa-user-plus pr-2"></i>{% trans "Signup" %}</a></span>
+          <span class="col-6">
+            <a href="{% url 'app:login' %}">
+              <i class="fas fa-sign-in-alt pr-2"></i>
+              {% trans "Login" %}
+            </a>
+          </span>
+          <span class="col-6">
+            <a href="{% url 'app:signup' %}">
+              <i class="fas fa-user-plus pr-2"></i>
+              {% trans "Signup" %}
+            </a>
+          </span>
           {% endif %}
         </div>
         <!-- end of PC size -->
@@ -123,15 +162,54 @@
             <span></span>
             <ul id="menu">
               {% if request.user.is_authenticated %}
-              <li><a href="{% url 'app:index' %}"><i class="fas fa-home pr-2"></i>{% trans "Home" %}</a></li>
-              <li><a href="{% url 'app:fav_products' %}"><i class="fas fa-heart pr-2"></i>{% trans "Favorite" %}</a></li>
-              <li><a href="{% url 'app:cart' %}"><i class="fas fa-shopping-cart pr-2"></i>{% trans "Cart" %}</a></li>
-              <li><a href="{% url 'app:order_history' %}"><i class="fas fa-check pr-2"></i>{% trans "Order-history" %}</a></span>
-              <li><a href="{% url 'app:logout' %}"><i class="fas fa-sign-out-alt pr-2"></i>{% trans "Logout" %}</a></li>
-              <li><i class="fas fa-coins pr-2"></i>{% trans "Point: " %}{{ user.point | intcomma }}</li>
+              <li>
+                <a href="{% url 'app:index' %}">
+                  <i class="fas fa-home pr-2"></i>
+                  {% trans "Home" %}
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'app:fav_products' %}">
+                  <i class="fas fa-heart pr-2"></i>
+                  {% trans "Favorite" %}
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'app:cart' %}">
+                  <i class="fas fa-shopping-cart pr-2"></i>
+                  {% trans "Cart" %}
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'app:order_history' %}">
+                  <i class="fas fa-check pr-2"></i>
+                  {% trans "Order-history" %}
+                </a>
+              </span>
+              <li>
+                <a href="{% url 'app:logout' %}">
+                  <i class="fas fa-sign-out-alt pr-2"></i>
+                  {% trans "Logout" %}
+                </a>
+              </li>
+              <li>
+                <i class="fas fa-coins pr-2"></i>
+                {% trans "Point: " %}
+                {{ user.point | intcomma }}
+              </li>
               {% else %}
-              <li><a href="{% url 'app:login' %}"><i class="fas fa-sign-in-alt pr-2"></i>{% trans "Login" %}</a></li>
-              <li><a href="{% url 'app:signup' %}"><i class="fas fa-user-plus pr-2"></i>{% trans "Signup" %}</a></li>
+              <li>
+                <a href="{% url 'app:login' %}">
+                  <i class="fas fa-sign-in-alt pr-2"></i>
+                  {% trans "Login" %}
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'app:signup' %}">
+                  <i class="fas fa-user-plus pr-2"></i>
+                  {% trans "Signup" %}
+                </a>
+              </li>
               {% endif %}
           </div>
         </nav>
@@ -188,9 +266,32 @@
 
 
   <footer class="w-100">
-    <div class="footer-wrapper row">
+    <div class="footer-wrapper pt-md-5 pt-3 mx-auto row">
 
-      <div class="pt-1 col-lg-6 col-12 footer-left">
+      <div class="footer-right col-12">
+        <ul class="row">
+          <li class="col-md-3 col-12">
+            <a href="{% url 'app:owner_profile' %}">
+              {% trans "Who is Owner?" %}
+            </a>
+          </li>
+          <li class="col-md-3 col-12"><a href="{% url 'study:index' %}">Djamazon Study</a></li>
+          <li class="col-md-3 col-12">
+            <a href="{% url 'app:policy' %}">
+              {% trans "Privacy Policy" %}
+            </a>
+          </li>
+          <li class="col-md-3 col-12">
+            <a href="{% url 'app:terms' %}">
+              {% trans "Terms of Service" %}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <hr class="col-md-10 col-12">
+
+      <div class="p-2 footer-left col-12">
         <ul class="row column">
           <li class="col-sm-1 col-12 good_button" style="cursor: pointer;" data-count={{ip_address.good_count}}>
             <i class="fas fa-thumbs-up"></i>
@@ -199,14 +300,6 @@
             </span>
           </li>
           <li class="col-sm-11 col-12 copyright my-auto">Copyright © 2020 Djamazon Corporation All Rights. All rights reserved.</li>
-        </ul>
-      </div>
-
-      <div class="col-lg-6 col-12 footer-right">
-        <ul class="row">
-          <li class="col-4"><a href="{% url 'app:owner_profile' %}">{% trans "Who is Owner?" %}</a></li>
-          <li class="col-4"><a href="{% url 'app:policy' %}">{% trans "Privacy Policy" %}</a></li>
-          <li class="col-4"><a href="{% url 'app:terms' %}">{% trans "Terms of Service" %}</a></li>
         </ul>
       </div>
 

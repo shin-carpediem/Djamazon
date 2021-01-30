@@ -43,14 +43,14 @@
 
   <link rel="apple-touch-icon-precomposed" href="{% static 'favicon.svg' %}">
 
-  <link rel="stylesheet" type="text/css" href="{% static 'css/study/style.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/study/style.css' %}">
   <link rel="icon" type="image/svg" href="{% static 'img/study/favicon.svg' %}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Piedra&family=Righteous&display=swap" rel="stylesheet">
 
   <title>Djamazon Study</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Djangoを学習したいけど、何から始めたらいいかわからない。。を解決します！ Djamzon Studyが提供する教材を順にこなすだけで、効率的に力が身に付きます。">
+  <meta name="keywords" content="Django プログラミング 独学 教材 参考">
  </head>
 
 
@@ -72,18 +72,18 @@
   </div>
 
 
-  <footer class="w-100">
-    <div class="footer-wrapper row">
+  <footer class="w-100 row justify-content-center align-items-center text-center">
+    <div class="col-md-10 col-12 row justify-content-center align-items-center text-center">
 
-      <div class="pt-1 col-lg-6 col-12 footer-left">
-        <ul class="row column">
-          <li class="col-sm-11 col-12 copyright my-auto">Copyright © 2020 Djamazon Corporation All Rights. All rights reserved.</li>
+      <div class="col-lg-8 col-12">
+        <ul>
+          <li class="m-auto">Copyright © 2020 Djamazon Corporation All Rights. All rights reserved.</li>
         </ul>
       </div>
 
-      <div class="col-lg-6 col-12 footer-right">
-        <ul class="row">
-          <li class="col-4"><a href="{% url 'app:owner_profile' %}">"Who is Owner?"</a></li>
+      <div class="col-lg-4 col-12">
+        <ul class="align-items-center">
+          <li class="m-auto"><a href="{% url 'app:owner_profile' %}">"Who is Owner?"</a></li>
         </ul>
       </div>
 

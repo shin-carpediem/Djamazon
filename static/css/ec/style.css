@@ -825,74 +825,22 @@ html body #btn-backtotop .arrow::before {
 }
 
 html body footer {
-  border-top: 2px solid transparent;
-  height: 150px;
   background-color: #36a57b;
 }
 
 @media screen and (max-width: 768px) {
   html body footer {
-    height: 200px;
     font-size: smaller;
   }
 }
 
 html body footer .footer-wrapper {
-  width: 65%;
-  margin: 70px auto;
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-}
-
-@media screen and (max-width: 990px) {
-  html body footer .footer-wrapper {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-  }
-}
-
-@media screen and (max-width: 414px) {
-  html body footer .footer-wrapper {
-    margin: 40px auto;
-  }
-}
-
-html body footer .footer-wrapper .footer-left {
-  text-align: center;
-  font-size: smaller;
-}
-
-html body footer .footer-wrapper .footer-left i,
-html body footer .footer-wrapper .footer-left li,
-html body footer .footer-wrapper .footer-left span {
-  color: #ececec;
-}
-
-@media screen and (max-width: 990px) {
-  html body footer .footer-wrapper .footer-left {
-    font-size: 10px;
-  }
-}
-
-html body footer .footer-wrapper .footer-left .column .copyright {
-  font-size: 10px;
-}
-
-@media screen and (max-width: 414px) {
-  html body footer .footer-wrapper .footer-left .column {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-  }
 }
 
 html body footer .footer-wrapper .footer-right {
@@ -902,11 +850,24 @@ html body footer .footer-wrapper .footer-right {
 
 html body footer .footer-wrapper .footer-right a {
   color: #ececec;
-  font-size: smaller;
 }
 
 html body footer .footer-wrapper .footer-right a:hover {
   color: #0f4b34;
+}
+
+html body footer .footer-wrapper hr {
+  background-color: #ececec;
+}
+
+html body footer .footer-wrapper .footer-left {
+  text-align: center;
+}
+
+html body footer .footer-wrapper .footer-left i,
+html body footer .footer-wrapper .footer-left li,
+html body footer .footer-wrapper .footer-left span {
+  color: #ececec;
 }
 
 @font-face {

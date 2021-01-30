@@ -223,8 +223,6 @@ html {
         }
       }
     }
-    // end of header
-
     // main
     .container {
       width: 80%;
@@ -341,7 +339,6 @@ html {
           cursor: pointer;
         }
       }
-
       /* cart */
       .cart {
         .purchase-form {
@@ -377,7 +374,6 @@ html {
           }
         }
       }
-
       /* order history */
       .order-item {
         padding: 20px;
@@ -420,7 +416,6 @@ html {
         padding-left: 30px;
         border-radius: 4px;
       }
-
       /* signup & login */
       .welcome-message {
         color: #111;
@@ -492,7 +487,6 @@ html {
         }
       }
     }
-
     // below container
     .bg-img {
       position: relative;
@@ -621,58 +615,38 @@ html {
     }
     /* footer */
     footer {
-      border-top: 2px solid transparent;
-      height: 150px;
       background-color: $django-green;
       @media screen and (max-width: 768px) {
-        height: 200px;
         font-size: smaller;
       }
       .footer-wrapper {
-        width: 65%;
-        margin: 70px auto;
+        width: 80%;
         display: flex;
         justify-content: space-around;
-        @media screen and (max-width: 990px) {
-          flex-direction: column-reverse;
-        }
-        @media screen and (max-width: 414px) {
-          margin: 40px auto;
-        }
-        .footer-left {
-          text-align: center;
-          font-size: smaller;
-          i,
-          li,
-          span {
-            color: $light-grey;
-          }
-          @media screen and (max-width: 990px) {
-            font-size: 10px;
-          }
-          .column {
-            .copyright {
-              font-size: 10px;
-            }
-            @media screen and (max-width: 414px) {
-              display: flex;
-              flex-direction: column-reverse;
-            }
-          }
-        }
         .footer-right {
           text-align: center;
           margin: 0 auto;
           a {
             color: $light-grey;
-            font-size: smaller;
             &:hover {
               color: $green;
             }
           }
         }
+        hr {
+          background-color: $light-grey;
+        }
+        .footer-left {
+          text-align: center;
+          i,
+          li,
+          span {
+            color: $light-grey;
+          }
+        }
       }
     }
+    // end of footer
   }
 }
 

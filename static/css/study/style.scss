@@ -1,8 +1,11 @@
 /* default */
-$light-grey: #ececec;
-$django-green: #36a57b;
-$green: #0f4b34;
+$purple: #5f55af;
+$blue: #07a9f0;
+$deep-orange: #ff9100;
+$orange: #ffb52d;
 $black: #000;
+$light-grey: #ececec;
+$white: #fff;
 
 ul {
   list-style: none;
@@ -46,23 +49,55 @@ html {
     text-rendering: optimizeSpeed;
     font-family: "Piedra", cursive;
     font-family: "Righteous", cursive;
-    background-color: $light-grey;
+    background-color: $blue;
     @media screen and (max-width: 414px) {
       body {
         font-size: 0.7rem;
       }
     }
-    a {
-      color: $black;
-      &:hover {
-        color: $green;
+    // footer
+    footer {
+      background-color: $blue;
+      li {
+        color: $orange;
+        a {
+          color: $orange;
+          &:hover {
+            color: $purple;
+          }
+        }
       }
     }
-    span {
-      color: $black;
+    // index
+    section.index-wrapper {
+      border: solid 1px transparent;
+      background-color: $light-grey;
+      DL {
+        padding-left: 40px;
+        A {
+          color: $black;
+          &:hover {
+            color: $orange;
+          }
+        }
+        DL {
+          DT {
+            H3 {
+              color: $purple;
+              padding-top: 40px;
+            }
+            DL {
+              DT {
+                H3 {
+                  color: $deep-orange;
+                  padding-top: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
-    li {
-      list-style: none;
-    }
+    // end of index
   }
 }
