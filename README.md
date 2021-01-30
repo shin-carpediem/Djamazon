@@ -2,7 +2,8 @@
 
 # Djamazon
 
-## Site URL:[Djamazon](https://shinac.pythonanywhere.com/)
+## Djamazon (https://shinac.pythonanywhere.com/)
+## Djamazon Study(https://shinac.pythonanywhere.com/study)
 
 Memo for me:\
 ✅ Each "product" image size should be less than 320px \* 320px.
