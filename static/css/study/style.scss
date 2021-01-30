@@ -61,8 +61,14 @@ html {
         font-size: 0.7rem;
       }
     }
+    // header
     header {
-      .header-wrapper {
+      position: fixed;
+      .arrow {
+        .fas {
+          transform: scale(3);
+          color: $purple;
+        }
       }
     }
     // footer
@@ -79,28 +85,45 @@ html {
       }
     }
     // index
-    section.index-wrapper {
-      border: solid 1px transparent;
-      background-color: $light-grey;
-      DL {
-        padding: 0 40px;
-        A {
-          color: $black;
-          &:hover {
-            color: $orange;
+    .container {
+      video {
+        border-radius: 1000px;
+        transform: scale(0.8);
+      }
+      section.index-wrapper {
+        border: solid 1px transparent;
+        border-radius: 100px;
+        background-color: $light-grey;
+        h4 {
+          a {
+            color: $black;
+            transition: 0.5s;
+            &:hover {
+              color: $deep-orange;
+            }
           }
+
         }
         DL {
-          DT {
-            H3 {
-              color: $purple;
-              padding-top: 40px;
+          padding: 0 40px;
+          A {
+            color: $black;
+            &:hover {
+              color: $orange;
             }
-            DL {
-              DT {
-                H3 {
-                  color: $deep-orange;
-                  padding-top: 10px;
+          }
+          DL {
+            DT {
+              H3 {
+                color: $purple;
+                padding-top: 40px;
+              }
+              DL {
+                DT {
+                  H3 {
+                    color: $deep-orange;
+                    padding-top: 10px;
+                  }
                 }
               }
             }
@@ -114,9 +137,6 @@ html {
 
 // title logo
 .stage {
-  height: 300px;
-  width: 500px;
-  margin: auto;
   position: absolute;
   top: 0;
   right: 0;
@@ -135,15 +155,15 @@ html {
   transform: rotateY(40deg) rotateX(33deg) translateZ(0);
 }
 .layer:after {
-  font: 100px/0.65 "Pacifico", "Kaushan Script", Futura, "Roboto",
-    "Trebuchet MS", Helvetica, sans-serif;
+  font: 50px/0.65 "Pacifico", "Kaushan Script", Futura, "Roboto", "Trebuchet MS",
+    Helvetica, sans-serif;
   content: "Djamazon\A\A     Study";
   white-space: pre;
-  text-align: center;
+  text-align: left;
   height: 100%;
   width: 100%;
   position: absolute;
-  top: 50px;
+  top: 0px;
   color: darken($white, 4%);
   letter-spacing: -2px;
   text-shadow: 4px 0 10px hsla(0, 0%, 0%, 0.13);

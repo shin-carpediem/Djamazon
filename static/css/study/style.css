@@ -49,6 +49,16 @@ html body {
   }
 }
 
+html body header {
+  position: fixed;
+}
+
+html body header .arrow .fas {
+  -webkit-transform: scale(3);
+          transform: scale(3);
+  color: #5f55af;
+}
+
 html body footer {
   background-color: #07a9f0;
 }
@@ -65,37 +75,51 @@ html body footer li a:hover {
   color: #5f55af;
 }
 
-html body section.index-wrapper {
+html body .container video {
+  border-radius: 1000px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+html body .container section.index-wrapper {
   border: solid 1px transparent;
+  border-radius: 100px;
   background-color: #ececec;
 }
 
-html body section.index-wrapper DL {
+html body .container section.index-wrapper h4 a {
+  color: #000;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+html body .container section.index-wrapper h4 a:hover {
+  color: #ff9100;
+}
+
+html body .container section.index-wrapper DL {
   padding: 0 40px;
 }
 
-html body section.index-wrapper DL A {
+html body .container section.index-wrapper DL A {
   color: #000;
 }
 
-html body section.index-wrapper DL A:hover {
+html body .container section.index-wrapper DL A:hover {
   color: #ffb52d;
 }
 
-html body section.index-wrapper DL DL DT H3 {
+html body .container section.index-wrapper DL DL DT H3 {
   color: #5f55af;
   padding-top: 40px;
 }
 
-html body section.index-wrapper DL DL DT DL DT H3 {
+html body .container section.index-wrapper DL DL DT DL DT H3 {
   color: #ff9100;
   padding-top: 10px;
 }
 
 .stage {
-  height: 300px;
-  width: 500px;
-  margin: auto;
   position: absolute;
   top: 0;
   right: 0;
@@ -122,14 +146,14 @@ html body section.index-wrapper DL DL DT DL DT H3 {
 }
 
 .layer:after {
-  font: 100px/0.65 "Pacifico", "Kaushan Script", Futura, "Roboto", "Trebuchet MS", Helvetica, sans-serif;
+  font: 50px/0.65 "Pacifico", "Kaushan Script", Futura, "Roboto", "Trebuchet MS", Helvetica, sans-serif;
   content: "Djamazon\A\A     Study";
   white-space: pre;
-  text-align: center;
+  text-align: left;
   height: 100%;
   width: 100%;
   position: absolute;
-  top: 50px;
+  top: 0px;
   color: whitesmoke;
   letter-spacing: -2px;
   text-shadow: 4px 0 10px rgba(0, 0, 0, 0.13);
