@@ -1,3 +1,7 @@
+@charset "UTF-8";
+@import url("//fonts.googleapis.com/css?family=Pacifico&text=Pure");
+@import url("//fonts.googleapis.com/css?family=Roboto:700&text=css");
+@import url("//fonts.googleapis.com/css?family=Kaushan+Script&text=!");
 /* default */
 ul {
   list-style: none;
@@ -23,20 +27,6 @@ select {
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    -webkit-animation-duration: 0.01ms !important;
-            animation-duration: 0.01ms !important;
-    -webkit-animation-iteration-count: 1 !important;
-            animation-iteration-count: 1 !important;
-    -webkit-transition-duration: 0.01ms !important;
-            transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
 html {
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
@@ -81,7 +71,7 @@ html body section.index-wrapper {
 }
 
 html body section.index-wrapper DL {
-  padding-left: 40px;
+  padding: 0 40px;
 }
 
 html body section.index-wrapper DL A {
@@ -100,5 +90,184 @@ html body section.index-wrapper DL DL DT H3 {
 html body section.index-wrapper DL DL DT DL DT H3 {
   color: #ff9100;
   padding-top: 10px;
+}
+
+.stage {
+  height: 300px;
+  width: 500px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-perspective: 9999px;
+          perspective: 9999px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.layer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-animation: ಠ_ಠ 5s infinite alternate ease-in-out -7.5s;
+          animation: ಠ_ಠ 5s infinite alternate ease-in-out -7.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-transform: rotateY(40deg) rotateX(33deg) translateZ(0);
+          transform: rotateY(40deg) rotateX(33deg) translateZ(0);
+}
+
+.layer:after {
+  font: 100px/0.65 "Pacifico", "Kaushan Script", Futura, "Roboto", "Trebuchet MS", Helvetica, sans-serif;
+  content: "Djamazon\A\A     Study";
+  white-space: pre;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50px;
+  color: whitesmoke;
+  letter-spacing: -2px;
+  text-shadow: 4px 0 10px rgba(0, 0, 0, 0.13);
+}
+
+.layer:nth-child(1):after {
+  -webkit-transform: translateZ(0px);
+          transform: translateZ(0px);
+}
+
+.layer:nth-child(2):after {
+  -webkit-transform: translateZ(-1.5px);
+          transform: translateZ(-1.5px);
+}
+
+.layer:nth-child(3):after {
+  -webkit-transform: translateZ(-3px);
+          transform: translateZ(-3px);
+}
+
+.layer:nth-child(4):after {
+  -webkit-transform: translateZ(-4.5px);
+          transform: translateZ(-4.5px);
+}
+
+.layer:nth-child(5):after {
+  -webkit-transform: translateZ(-6px);
+          transform: translateZ(-6px);
+}
+
+.layer:nth-child(6):after {
+  -webkit-transform: translateZ(-7.5px);
+          transform: translateZ(-7.5px);
+}
+
+.layer:nth-child(7):after {
+  -webkit-transform: translateZ(-9px);
+          transform: translateZ(-9px);
+}
+
+.layer:nth-child(8):after {
+  -webkit-transform: translateZ(-10.5px);
+          transform: translateZ(-10.5px);
+}
+
+.layer:nth-child(9):after {
+  -webkit-transform: translateZ(-12px);
+          transform: translateZ(-12px);
+}
+
+.layer:nth-child(10):after {
+  -webkit-transform: translateZ(-13.5px);
+          transform: translateZ(-13.5px);
+}
+
+.layer:nth-child(11):after {
+  -webkit-transform: translateZ(-15px);
+          transform: translateZ(-15px);
+}
+
+.layer:nth-child(12):after {
+  -webkit-transform: translateZ(-16.5px);
+          transform: translateZ(-16.5px);
+}
+
+.layer:nth-child(13):after {
+  -webkit-transform: translateZ(-18px);
+          transform: translateZ(-18px);
+}
+
+.layer:nth-child(14):after {
+  -webkit-transform: translateZ(-19.5px);
+          transform: translateZ(-19.5px);
+}
+
+.layer:nth-child(15):after {
+  -webkit-transform: translateZ(-21px);
+          transform: translateZ(-21px);
+}
+
+.layer:nth-child(16):after {
+  -webkit-transform: translateZ(-22.5px);
+          transform: translateZ(-22.5px);
+}
+
+.layer:nth-child(17):after {
+  -webkit-transform: translateZ(-24px);
+          transform: translateZ(-24px);
+}
+
+.layer:nth-child(18):after {
+  -webkit-transform: translateZ(-25.5px);
+          transform: translateZ(-25.5px);
+}
+
+.layer:nth-child(19):after {
+  -webkit-transform: translateZ(-27px);
+          transform: translateZ(-27px);
+}
+
+.layer:nth-child(20):after {
+  -webkit-transform: translateZ(-28.5px);
+          transform: translateZ(-28.5px);
+}
+
+.layer:nth-child(n + 10):after {
+  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.25);
+}
+
+.layer:nth-child(n + 11):after {
+  -webkit-text-stroke: 15px #ff9100;
+  text-shadow: 6px 0 6px #4d2c00, 5px 5px 5px #331d00, 0 6px 6px #4d2c00;
+}
+
+.layer:nth-child(n + 12):after {
+  -webkit-text-stroke: 15px #cc7400;
+}
+
+.layer:last-child:after {
+  -webkit-text-stroke: 17px rgba(0, 0, 0, 0.1);
+}
+
+.layer:first-child:after {
+  color: #fff;
+  text-shadow: none;
+}
+
+@-webkit-keyframes ಠ_ಠ {
+  100% {
+    -webkit-transform: rotateY(-40deg) rotateX(-43deg);
+            transform: rotateY(-40deg) rotateX(-43deg);
+  }
+}
+
+@keyframes ಠ_ಠ {
+  100% {
+    -webkit-transform: rotateY(-40deg) rotateX(-43deg);
+            transform: rotateY(-40deg) rotateX(-43deg);
+  }
 }
 /*# sourceMappingURL=style.css.map */
