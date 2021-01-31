@@ -1,1 +1,43 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+/* default */
+ul {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+html {
+  font-family: "Piedra", cursive;
+  font-family: "Righteous", cursive;
+}
+
+html body .back {
+  position: relative;
+  z-index: -1;
+}
+
+html body .front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+/*# sourceMappingURL=style.css.map */

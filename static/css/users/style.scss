@@ -1,0 +1,58 @@
+/* default */
+$purple: #5f55af;
+$blue: #07a9f0;
+$deep-orange: #ff9100;
+$orange: #ffb52d;
+$black: #000;
+$light-grey: #ececec;
+$white: #fff;
+
+ul {
+  list-style: none;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+/* Make images easier to work with */
+img,
+picture,
+video {
+  max-width: 100%;
+  display: block;
+}
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* Remove all animations and transitions for people that prefer not to see them */
+// @media (prefers-reduced-motion: reduce) {
+//   *,
+//   *::before,
+//   *::after {
+//     animation-duration: 0.01ms !important;
+//     animation-iteration-count: 1 !important;
+//     transition-duration: 0.01ms !important;
+//     scroll-behavior: auto !important;
+//   }
+// }
+// end of default
+
+html {
+  font-family: "Piedra", cursive;
+  font-family: "Righteous", cursive;
+  body {
+    .back {
+      position: relative;
+      z-index: -1;
+    }
+    .front {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  }
+}
