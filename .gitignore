@@ -135,7 +135,7 @@ logs/*.log
 *.sql
 
 # excessive directory
-media/
+# media/
 static/vid/
 
 # Desktop Services Store auto files
