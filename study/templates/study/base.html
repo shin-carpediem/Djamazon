@@ -101,17 +101,19 @@
   <footer class="w-100 row justify-content-center align-items-center text-center p-sm-5 p-3">
     <div class="col-sm-10 col-12 row justify-content-center align-items-center text-center">
 
-      <div class="col-sm-8 col-12" id="bottom">
+      <div class="col-sm-6 col-12" id="bottom">
         <ul>
-          <li class="m-auto">Copyright © 2020 Djamazon Corporation All Rights. All rights reserved.</li>
+          <li class="m-auto copyright">Copyright © 2020 Djamazon Corporation All Rights. All rights reserved.</li>
         </ul>
       </div>
 
-      <div class="col-sm-4 col-12">
+      <div class="col-sm-6 col-12">
         <ul class="align-items-center row">
-          <li class="m-auto col-sm-6 col-12"><a href="{% url 'users:owner_profile' %}" target="_blank"
+          <li class="m-auto col-sm-4 col-12"><a href="{% url 'users:owner_profile' %}" target="_blank"
               rel="noopener noreferrer">Who is Owner?</a></li>
-          <li class="m-auto col-sm-6 col-12"><a href="{% url 'app:index' %}" target="_blank"
+          <li class="m-auto col-sm-4 col-12"><a href="{% url 'app:account' %}" target="_blank"
+                rel="noopener noreferrer">Account</a></li>
+          <li class="m-auto col-sm-4 col-12"><a href="{% url 'app:index' %}" target="_blank"
               rel="noopener noreferrer">Djamzon</a></li>
         </ul>
       </div>
@@ -120,9 +122,11 @@
   </footer>
 
 
+  <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- bootstrap -->
   <script src="//code.jquery.co6/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
@@ -132,6 +136,7 @@
   <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
+  <!-- device related -->
   <script src="{% static 'js/study/addBlank.js' %}"></script>
   <script src="{% static 'js/study/fadeIn.min.js' %}"></script>
 </body>

@@ -193,8 +193,27 @@ def welcome(request):
     return render(request, 'app/welcome.html')
 
 
+@login_required
 def password_reset(request):
-    return render(request, 'app/password_reset.html')
+            form = CustomUserCreationForm(request.POST)
+            # send mail
+            EMAIL = settings.DEFAULT_FROM_EMAIL
+            PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
+            TO = form.cleaned_data['email']
+
+            msg = MIMEText(
+            )
+
+            msg['Subject'] = '【Djamazon】Your account is created now'
+            msg['From'] = EMAIL
+            msg['To'] = TO
+
+            s = smtplib.SMTP(host='smtp.gmail.com', port=587)
+            s.starttls()
+            s.login(EMAIL, PASSWORD)
+            s.sendmail(EMAIL, TO, msg.as_string())
+            s.quit()
+            return render(request, 'app/account.html')
 
 
 # ---------------------from here--------------------------

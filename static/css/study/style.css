@@ -75,6 +75,10 @@ html body footer li a:hover {
   color: #5f55af;
 }
 
+html body footer .copyright {
+  font-size: smaller;
+}
+
 html body .container video {
   border-radius: 1000px;
   -webkit-transform: scale(0.8);

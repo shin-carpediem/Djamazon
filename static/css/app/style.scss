@@ -223,7 +223,7 @@ html {
         }
       }
     }
-    // main
+    // block content
     .container {
       width: 80%;
       margin-top: 150px;
@@ -416,6 +416,15 @@ html {
         padding-left: 30px;
         border-radius: 4px;
       }
+      // account
+      .account {
+        #onClickIn {
+          display: none;
+        }
+        #onClickInForPwSend {
+          display: none;
+        }
+      }
       /* signup & login */
       .welcome-message {
         color: #111;
@@ -487,6 +496,7 @@ html {
         }
       }
     }
+    // endblock
     // below container
     .bg-img {
       position: relative;
@@ -642,6 +652,9 @@ html {
           li,
           span {
             color: $light-grey;
+          }
+          .copyright {
+            font-size: smaller;
           }
         }
       }

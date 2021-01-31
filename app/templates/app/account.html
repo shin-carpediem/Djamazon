@@ -1,8 +1,10 @@
 {% extends 'app/base.html' %}
+{% load static %}
 {% load humanize %}
 
 {% block content %}
-<div class="m-auto">
+<div class="m-auto account">
+
   <h2 class="d-flex justify-content-center p-5">Account</h2>
   <ul>
     <li>Email: {{ user.email }}</li>
@@ -11,8 +13,18 @@
     <li>Started from: {{ user.date_joined }}</li>
   </ul>
   <ul>
-    <li><a href="{% url 'app:password_reset' %}">Reset Password</a></li>
+    <button id="onClick">Reset Password</button>
   </ul>
+
+  <div id="onClickIn">
+    <p>I will get an mail for resetting new password.</p>
+    <form action="post" action="{% url 'app:password_reset' %}">
+      {% csrf_token %}{{ form.as_p }}
+      <button type="submit" id="onClickForPwSend">Send</button>
+    </form>
+  </div>
+  <p id="onClickInForPwSend">The mail for resetting new password was sent.</p>
+
 
 </div>
 {% endblock %}

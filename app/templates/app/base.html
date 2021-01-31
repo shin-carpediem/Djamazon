@@ -311,6 +311,12 @@
     </div>
   </footer>
 
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- bootstrap -->
   <script src="//code.jquery.co6/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
@@ -320,11 +326,14 @@
   <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
+  <!-- device related -->
   <!-- need to understand webpack -->
   {% render_bundle 'main' 'js' %}
   <script src="{% static 'js/app/headerTitle.min.js' %}"></script>
   <script src="{% static 'js/app/scrollButton.min.js' %}"></script>
   <script src="{% static 'js/app/mouseMove.min.js' %}"></script>
   <script src="{% static 'js/app/good.min.js' %}"></script>
+  <script src="{% static 'js/app/onClick.min.js' %}"></script>
+  <script src="{% static 'js/app/onClickForPwSend.min.js' %}"></script>
  </body>
 </html>

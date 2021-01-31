@@ -521,6 +521,14 @@ html body .container .message-warning {
   border-radius: 4px;
 }
 
+html body .container .account #onClickIn {
+  display: none;
+}
+
+html body .container .account #onClickInForPwSend {
+  display: none;
+}
+
 html body .container .welcome-message {
   color: #111;
   text-align: center;
@@ -854,6 +862,10 @@ html body footer .footer-wrapper .footer-left i,
 html body footer .footer-wrapper .footer-left li,
 html body footer .footer-wrapper .footer-left span {
   color: #ececec;
+}
+
+html body footer .footer-wrapper .footer-left .copyright {
+  font-size: smaller;
 }
 
 @font-face {
