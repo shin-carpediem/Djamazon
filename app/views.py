@@ -222,7 +222,7 @@ def password_reset(request):
         'Email: buru.aoshin@gmail.com\n'
         '---------------------------------------------\n'
     )
-    msg['Subject'] = 'hoge'
+    msg['Subject'] = '【Djamazon】You are just to change your password'
     msg['From'] = EMAIL
     msg['To'] = TO
 
