@@ -27,12 +27,19 @@
   <p id="onClickInForPwSend">Check your email for a link to reset your password. If it doesn't appear within a few minutes, check your spam folder.</p>
 
 
-  <h2 class="d-flex justify-content-center p-5">Djamazon Soft</h2>
+  <h2 class="d-flex justify-content-center p-5">Djamazon Software</h2>
 
   <div class="row">
     <div class="col-sm-2 col-6">
       <a href="{% url 'study:index' %}">
         <img src="{% static 'img/app/icon_study.png' %}" alt="icon_study">
+        <p class="text-center">Study</p>
+      </a>
+    </div>
+    <div class="col-sm-2 col-6">
+      <a href="{% url 'games:index' %}">
+        <img src="{% static 'img/app/icon_games.png' %}" alt="icon_games">
+        <p class="text-center">games</p>
       </a>
     </div>
   </div>

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'users',
     'app',
     'study',
+    'games',
     'social_django',
     'allauth',
     'allauth.account',

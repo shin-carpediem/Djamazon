@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django import urls
 import debug_toolbar
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
@@ -41,6 +42,7 @@ urlpatterns = [
     path('oauth/', include('social_django.urls', namespace='social')),
     path('', include('users.urls')),  # different app: user
     path('', include('study.urls')),    # different app: Djamazon Study
+    path('', include('games.urls')), # different app: Djamazon games
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
     path('__debug__/', include(debug_toolbar.urls)),
     url(r'^api/', include(api_router.urls)),

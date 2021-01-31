@@ -44,7 +44,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="apple-touch-icon-precomposed" href="{% static 'favicon.svg' %}">
+  <link rel="apple-touch-icon-precomposed" type="image/svg" href="{% static 'img/app/favicon.svg' %}">
 
   <link rel="stylesheet" type="text/css" href="{% static 'css/app/style.min.css' %}">
   <link rel="icon" type="image/svg" href="{% static 'img/app/favicon.svg' %}">
@@ -271,22 +271,17 @@
 
       <div class="footer-right col-12">
         <ul class="row">
-          <li class="col-md-3 col-12">
+          <li class="col-md-4 col-12">
             <a href="{% url 'users:owner_profile' %}" target="_blank" rel="noopener noreferrer">
               {% trans "Who is Owner?" %}
             </a>
           </li>
-          <li class="col-md-3 col-12">
-            <a href="{% url 'study:index' %}" target="_blank" rel="noopener noreferrer">
-              Djamazon Study
-            </a>
-          </li>
-          <li class="col-md-3 col-12">
+          <li class="col-md-4 col-12">
             <a href="{% url 'app:policy' %}">
               {% trans "Privacy Policy" %}
             </a>
           </li>
-          <li class="col-md-3 col-12">
+          <li class="col-md-4 col-12">
             <a href="{% url 'app:terms' %}">
               {% trans "Terms of Service" %}
             </a>
