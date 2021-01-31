@@ -172,11 +172,11 @@ def signup(request):
                 'Email: buru.aoshin@gmail.com\n'
                 '---------------------------------------------\n'
             )
-
             msg['Subject'] = '【Djamazon】Your account is created now'
             msg['From'] = EMAIL
             msg['To'] = TO
 
+            # access to the socket
             s = smtplib.SMTP(host='smtp.gmail.com', port=587)
             s.starttls()
             s.login(EMAIL, PASSWORD)
@@ -195,25 +195,43 @@ def welcome(request):
 
 @login_required
 def password_reset(request):
-            form = CustomUserCreationForm(request.POST)
-            # send mail
-            EMAIL = settings.DEFAULT_FROM_EMAIL
-            PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
-            TO = form.cleaned_data['email']
+    user_mail = request.user.email
+    # send mail
+    EMAIL = settings.DEFAULT_FROM_EMAIL
+    PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
+    TO = user_mail
 
-            msg = MIMEText(
-            )
+    msg = MIMEText(
+        'Hello.\n'
+        '\n'
+        'You offered to change your password.\n'
+        'Follow the link below:\n'
+        'From now on, you will get awesome experience!\n'
+        '\n'
+        'https://shinac.pythonanywhere.com/admin/password_reset/\n'
+        '\n'
+        'If clicking the link above doesn’t work, please copy and paste the UR in a new browser window instead.\n'
+        '\n'
+        'If you’ve received this mail in error, it’s likely that another user entered your email address by mistake while trying to reset a password. If you didn’t initiate the request, you don’t need to take any further action and can safely disregard this email.\n'
+        '\n'
+        'Sincerely,\n'
+        '\n'
+        '---------------------------------------------\n'
+        'Djamazon.Corporation\n'
+        '\n'
+        'Email: buru.aoshin@gmail.com\n'
+        '---------------------------------------------\n'
+    )
+    msg['Subject'] = 'hoge'
+    msg['From'] = EMAIL
+    msg['To'] = TO
 
-            msg['Subject'] = '【Djamazon】Your account is created now'
-            msg['From'] = EMAIL
-            msg['To'] = TO
-
-            s = smtplib.SMTP(host='smtp.gmail.com', port=587)
-            s.starttls()
-            s.login(EMAIL, PASSWORD)
-            s.sendmail(EMAIL, TO, msg.as_string())
-            s.quit()
-            return render(request, 'app/account.html')
+    s = smtplib.SMTP(host='smtp.gmail.com', port=587)
+    s.starttls()
+    s.login(EMAIL, PASSWORD)
+    s.sendmail(EMAIL, TO, msg.as_string())
+    s.quit()
+    return render(request, 'app/account.html')
 
 
 # ---------------------from here--------------------------

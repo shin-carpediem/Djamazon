@@ -18,12 +18,13 @@
 
   <div id="onClickIn">
     <p>I will get an mail for resetting new password.</p>
-    <form action="post" action="{% url 'app:password_reset' %}">
+    <form method="post" action="{% url 'app:password_reset' %}">
       {% csrf_token %}{{ form.as_p }}
       <button type="submit" id="onClickForPwSend">Send</button>
     </form>
   </div>
-  <p id="onClickInForPwSend">The mail for resetting new password was sent.</p>
+
+  <p id="onClickInForPwSend">Check your email for a link to reset your password. If it doesn't appear within a few minutes, check your spam folder.</p>
 
 
 </div>
