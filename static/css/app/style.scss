@@ -12,7 +12,8 @@ a:not([class]) {
 }
 /* Make images easier to work with */
 img,
-picture {
+picture,
+video {
   max-width: 100%;
   display: block;
 }
@@ -423,6 +424,10 @@ html {
         }
         #onClickInForPwSend {
           display: none;
+        }
+        .video {
+          width: 100px;
+          height: 100px;
         }
       }
       /* signup & login */

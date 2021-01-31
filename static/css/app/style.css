@@ -9,7 +9,8 @@ a:not([class]) {
 
 /* Make images easier to work with */
 img,
-picture {
+picture,
+video {
   max-width: 100%;
   display: block;
 }
@@ -527,6 +528,11 @@ html body .container .account #onClickIn {
 
 html body .container .account #onClickInForPwSend {
   display: none;
+}
+
+html body .container .account .video {
+  width: 100px;
+  height: 100px;
 }
 
 html body .container .welcome-message {
