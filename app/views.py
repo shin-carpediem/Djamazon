@@ -188,8 +188,13 @@ def signup(request):
     return render(request, 'app/signup.html', {'form': form})
 
 
+@login_required
 def welcome(request):
     return render(request, 'app/welcome.html')
+
+
+def password_reset(request):
+    return render(request, 'app/password_reset.html')
 
 
 # ---------------------from here--------------------------
@@ -373,6 +378,11 @@ class SearchResultView(ListView):
 
     def results(self):
         return render(request, 'app/result.html', {'results': results})
+
+
+@login_required
+def account(request):
+    return render(request, 'app/account.html')
 
 
 def count_good(self):

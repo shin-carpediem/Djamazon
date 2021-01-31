@@ -132,9 +132,10 @@
             </a>
           </span>
           <span class="col-lg-2 col-sm-4 col-6">
-            <i class="fas fa-coins pr-2"></i>
-            {% trans "Point: " %}
-            {{ user.point | intcomma }}
+            <a href="{% url 'app:account' %}">
+              <i class="fas fa-user"></i>
+              {% trans "Account" %}
+            </a>
           </span>
           {% else %}
           <span class="col-6">
