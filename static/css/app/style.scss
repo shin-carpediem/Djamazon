@@ -1,7 +1,9 @@
 /* default */
-$light-grey: #ececec;
 $django-green: #36a57b;
 $green: #0f4b34;
+$white: #fff;
+$light-grey: #ececec;
+$grey: #ececec4d;
 $black: #000;
 
 ul {
@@ -418,16 +420,26 @@ html {
         border-radius: 4px;
       }
       // account
-      .account {
+      .account-wrapper {
         #onClickIn {
           display: none;
         }
         #onClickInForPwSend {
           display: none;
         }
-        .video {
-          width: 100px;
-          height: 100px;
+        .software-wrapper {
+          .each-wrapper {
+            .text_soft {
+              border: solid 5px $grey;
+              border-radius: 5px;
+              background-color: $white;
+              display: none;
+              font-size: smaller;
+            }
+            .text-active {
+              display: block;
+            }
+          }
         }
       }
       /* signup & login */

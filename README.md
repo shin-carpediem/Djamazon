@@ -31,7 +31,6 @@ production
 - Pythonanywhere
 - Python==3.6.0
 - MySQL==5.6.48
-- Always SSL
 
 ## How to SetUp with your local server
 

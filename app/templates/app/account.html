@@ -3,7 +3,7 @@
 {% load humanize %}
 
 {% block content %}
-<div class="m-auto account">
+<div class="m-auto account-wrapper">
 
   <h2 class="d-flex justify-content-center p-5">Account</h2>
   <ul>
@@ -29,18 +29,24 @@
 
   <h2 class="d-flex justify-content-center p-5">Djamazon Software</h2>
 
-  <div class="row">
-    <div class="col-sm-2 col-6">
+  <div class="row software-wrapper">
+    <div class="col-sm-2 col-6 each-wrapper">
       <a href="{% url 'study:index' %}">
         <img src="{% static 'img/app/icon_study.png' %}" alt="icon_study">
         <p class="text-center">Study</p>
       </a>
+      <div class="pt-3 px-1 text_soft">
+        <p>You can access the source code of this whole application and learn how a beginner develops this one by one.</p>
+      </div>
     </div>
-    <div class="col-sm-2 col-6">
+    <div class="col-sm-2 col-6 each-wrapper">
       <a href="{% url 'games:index' %}">
         <img src="{% static 'img/app/icon_games.png' %}" alt="icon_games">
         <p class="text-center">games</p>
       </a>
+      <div class="pt-3 px-1 text_soft">
+        <p>If you win the games, you can get points and use for shopping.</p>
+      </div>
     </div>
   </div>
 
