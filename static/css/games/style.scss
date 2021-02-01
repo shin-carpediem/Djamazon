@@ -4,6 +4,7 @@ $blue: #07a9f0;
 $deep-orange: #ff9100;
 $orange: #ffb52d;
 $black: #000;
+$dark-grey: rgb(80, 77, 77);
 $light-grey: #ececec;
 $white: #fff;
 
@@ -50,8 +51,7 @@ html {
     text-rendering: optimizeSpeed;
     font-family: "Piedra", cursive;
     font-family: "Righteous", cursive;
-    position: relative;
-    @media screen and (max-width: 414px) {
+    @media screen and (max-width: 600px) {
       font-size: 0.7rem;
     }
     a {
@@ -66,13 +66,6 @@ html {
     li {
       list-style: none;
     }
-    // header
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-    }
     // index
     .back {
       position: relative;
@@ -83,6 +76,17 @@ html {
       top: 0;
       left: 0;
       z-index: 0;
+      .each-game-container {
+        position: relative;
+        .game-counter {
+          position: absolute;
+          top: 100px;
+          left: 200px;
+          background-color: $light-grey;
+          border: solid 2px $dark-grey;
+          border-radius: 30px;
+        }
+      }
     }
   }
 }
