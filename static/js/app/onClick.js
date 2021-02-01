@@ -4,3 +4,10 @@ const onClick = () => {
   });
 };
 onClick();
+
+const onClickForPwSend = () => {
+  $("#onClickForPwSend").click(() => {
+    $("#onClickInForPwSend").fadeIn();
+  });
+};
+onClickForPwSend();
