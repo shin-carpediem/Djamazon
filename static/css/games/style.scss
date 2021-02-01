@@ -88,5 +88,24 @@ html {
         }
       }
     }
+    // counter
+    .box {  //counter.js
+      width: 100px;
+      height: 100px;
+      background: skyblue;
+      transition: 0.8s;
+      margin: 0 8px 8px 0;
+      text-align: center;
+      line-height: 100px;
+      cursor: pointer;
+    }
+    .win {  //counter.js
+      background: pink;
+      border-radius: 50%;
+      transform: rotate(360deg);
+    }
+    .lose {  //counter.js
+      transform: scale(0.9);
+    }
   }
 }
