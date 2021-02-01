@@ -51,9 +51,7 @@ html {
     font-family: "Righteous", cursive;
     background-color: $light-grey;
     @media screen and (max-width: 414px) {
-      body {
-        font-size: 0.7rem;
-      }
+      font-size: 0.7rem;
     }
     a {
       color: $black;
@@ -67,7 +65,7 @@ html {
     li {
       list-style: none;
     }
-
+    // header
     header {
       border-bottom: solid 2px $black;
       background-color: $light-grey;

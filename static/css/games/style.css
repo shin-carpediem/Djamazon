@@ -29,6 +29,42 @@ html {
   font-family: "Righteous", cursive;
 }
 
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html body {
+  text-rendering: optimizeSpeed;
+  font-family: "Piedra", cursive;
+  font-family: "Righteous", cursive;
+  position: relative;
+}
+
+@media screen and (max-width: 414px) {
+  html body {
+    font-size: 0.7rem;
+  }
+}
+
+html body a {
+  color: #000;
+}
+
+html body span {
+  color: #000;
+}
+
+html body li {
+  list-style: none;
+}
+
+html body header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
 html body .back {
   position: relative;
   z-index: -1;

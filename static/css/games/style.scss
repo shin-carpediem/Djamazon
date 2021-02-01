@@ -43,7 +43,37 @@ select {
 html {
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
+  &:focus-within {
+    scroll-behavior: smooth;
+  }
   body {
+    text-rendering: optimizeSpeed;
+    font-family: "Piedra", cursive;
+    font-family: "Righteous", cursive;
+    position: relative;
+    @media screen and (max-width: 414px) {
+      font-size: 0.7rem;
+    }
+    a {
+      color: $black;
+      // &:hover {
+      //   color: $green;
+      // }
+    }
+    span {
+      color: $black;
+    }
+    li {
+      list-style: none;
+    }
+    // header
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    // index
     .back {
       position: relative;
       z-index: -1;
