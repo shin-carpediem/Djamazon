@@ -69,16 +69,9 @@ html {
     header {
       border-bottom: solid 2px $black;
       background-color: $light-grey;
-      height: 150px;
       position: fixed;
       top: 0px;
       z-index: 10000;
-      @media screen and (max-width: 990px) {
-        height: 180px;
-      }
-      @media screen and (max-width: 767px) {
-        height: 200px;
-      }
       .header-title {
         height: 100%;
         line-height: 70px;
@@ -103,27 +96,18 @@ html {
       }
       // PC size
       .header-menu {
-        padding-top: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
         a {
           padding: 10px;
           margin-left: 10px;
         }
-        @media screen and (max-width: 767px) {
-          display: none;
+        .logout {
+          cursor: pointer;
         }
       }
       // end of PC size
       // mobile size humbergar menu
-      #menuToggle {
-        display: none;
-      }
       @media screen and (max-width: 767px) {
         #menuToggle {
-          display: block;
           position: relative;
           align-items: center;
           text-align: left;
@@ -191,10 +175,6 @@ html {
       }
       // end of mobile size humbergar menu
       .header-right {
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         .lang-change {
           .choice {
             border-radius: 5px;
@@ -209,7 +189,6 @@ html {
         }
         .search {
           .search-wrapper {
-            width: 100%;
             .search-input {
               border-radius: 5px;
             }
