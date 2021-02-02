@@ -72,7 +72,7 @@
         <div class="col-lg-6 col-sm-8 col-12 pt-sm-4 row header-right d-flex justify-content-center align-items-center text-center">
           <div class="btn-group lang-change col-sm-6 col-4">
             <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-              <input name="next" type="hidden" value="{{ redirect_to }}">
+              <input name="next" type="hidden" value="{{ redirect_to }}" id="changeLang">
               <select name="language" class="choice">
                 {% get_current_language as LANGUAGE_CODE %}
                 {% get_available_languages as LANGUAGES %}
@@ -321,6 +321,7 @@
   <!-- need to understand webpack -->
   {% render_bundle 'main' 'js' %}
   <script src="{% static 'js/app/headerTitle.min.js' %}"></script>
+  <script src="{% static 'js/app/changeLang.min.js' %}"></script>
   <script src="{% static 'js/app/scrollButton.min.js' %}"></script>
   <script src="{% static 'js/app/mouseMove.min.js' %}"></script>
   <script src="{% static 'js/app/good.min.js' %}"></script>

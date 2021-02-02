@@ -61,7 +61,7 @@ def paginate_queryset(request, queryset, count):
 
 def index(request):
     products = Product.objects.all().order_by('-id')
-    page_obj = paginate_queryset(request, products, 12)
+    page_obj = paginate_queryset(request, products, 16)
     context = {
         'products': page_obj.object_list,
         'page_obj': page_obj,

@@ -2,15 +2,15 @@
 
 const mouseMove = () => {
   //#titleを取得
-  let title = document.getElementById("title");
+  const title = document.getElementById("title");
   //#bgを取得
-  let bg = document.getElementById("bg");
+  const bg = document.getElementById("bg");
 
-  document.addEventListener("mousemove", (event) => {
+  document.addEventListener("mousemove", e => {
     //X座標(値は適宜調整)
-    var x = Math.round(event.pageX / 100);
+    let x = Math.round(e.pageX / 100);
     //Y座標(値は適宜調整)
-    var y = Math.round(event.pageY / 100);
+    let y = Math.round(e.pageY / 100);
 
     console.log(x, y);
 
