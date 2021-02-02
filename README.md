@@ -1,9 +1,6 @@
 <img src="https://img.shields.io/badge/-Django-092E20.svg?logo=django&style=flat"> <img src="https://img.shields.io/badge/-Bootstrap-563D7C.svg?logo=bootstrap&style=flat"> <img src="https://img.shields.io/badge/-jQuery-0769AD.svg?logo=jquery&style=flat"> <img src="https://img.shields.io/badge/-MySQL-4479A1.svg?logo=mysql&style=flat"> <img src="https://img.shields.io/badge/-Linux-6C6694.svg?logo=linux&style=flat"> <img src="https://img.shields.io/badge/-Sass-CC6699.svg?logo=sass&style=flat"> <img src="https://img.shields.io/badge/-Webpack-8DD6F9.svg?logo=webpack&style=flat"> <img src="https://img.shields.io/badge/-CircleCI-343434.svg?logo=circleci&style=flat">
 
-# Djamazon
-
-### [EC Site "Djamazon"](https://shinac.pythonanywhere.com/)
-### [Textbook "Djamazon Study"](https://shinac.pythonanywhere.com/study)
+# [Djamazon](https://shinac.pythonanywhere.com/)
 
 Memo for me:\
 ✅ Each "product" image size should be less than 320px \* 320px.
@@ -11,6 +8,7 @@ Memo for me:\
 Technique/Version:
 
 local
+
 - Python==3.8.6
 - pip==20.2.1
 - Django==3.0.10
@@ -28,6 +26,7 @@ local
 - CircleCI
 
 production
+
 - Pythonanywhere
 - Python==3.6.0
 - MySQL==5.6.48
