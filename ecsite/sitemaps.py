@@ -18,6 +18,8 @@ class StaticViewSitemap(Sitemap):
             'app:policy',
             'app:terms',
             'study:index',
+            'games:index',
+            'games:counter',
         ]
 
     def location(self, obj):
@@ -29,6 +31,8 @@ class StaticViewSitemap(Sitemap):
         elif obj == 'app:index':
             return 'always'
         elif obj == 'study:index':
+            return 'always'
+        elif obj == 'games:index':
             return 'always'
         return 'never'
 

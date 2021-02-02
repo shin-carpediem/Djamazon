@@ -88,8 +88,8 @@ html {
     // counter
     .counter-wrapper {
       .counter-area {
+        //counter.js
         .box {
-          //counter.js
           width: 100px;
           height: 100px;
           background: skyblue;
@@ -100,15 +100,14 @@ html {
           cursor: pointer;
         }
         .win {
-          //counter.js
           background: pink;
           border-radius: 50%;
           transform: rotate(360deg);
         }
         .lose {
-          //counter.js
           transform: scale(0.9);
         }
+        // end of counter.js
       }
 
     }
