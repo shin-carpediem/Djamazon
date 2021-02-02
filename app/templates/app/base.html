@@ -70,26 +70,26 @@
         <h1 class="header-title col-lg-6 col-sm-4 col-12" id="title" contenteditable>DJAMAZON</h1>
 
         <div class="col-lg-6 col-sm-8 col-12 pt-sm-4 row header-right d-flex justify-content-center align-items-center text-center">
-          <div class="btn-group lang-change col-sm-6 col-4">
+          <div class="btn-group lang-change col-sm-4 col-4 text-right">
             <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-              <input name="next" type="hidden" value="{{ redirect_to }}" id="changeLang">
-              <select name="language" class="choice">
+              <input name="next" type="hidden" value="{{ redirect_to }}">
+              <select name="language" class="choice" id="changeLang">
                 {% get_current_language as LANGUAGE_CODE %}
                 {% get_available_languages as LANGUAGES %}
                 {% get_language_info_list for LANGUAGES as languages %}
                 {% for language in languages %}
                 <option value="{{ language.code }}" {% if language.code　==　LANGUAGE_CODE %} selected{% endif %}>
-                  {{ language.name_local }} ({{ language.code }})
+                  {{ language.name_local }}
                 </option>
                 {% endfor %}
               </select>
               <button class="set-button"><i class="fas fa-redo"></i></button>
             </form>
           </div>
-          <div class="float-right search col-sm-6 col-8">
+          <div class="text-left search col-sm-8 col-8">
             <form action="{% url 'app:result' %}" method="GET">
               <div class="search-wrapper w-100">
-                <input type="text" placeholder="Search" name="q" class="search-input">
+                <input type="text" placeholder="{% trans 'Search' %}" name="q" class="search-input">
                 <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
               </div>
             </form>
@@ -285,7 +285,7 @@
         </ul>
       </div>
 
-      <hr class="col-md-10 col-12" noshade="">
+      <hr class="col-md-10 col-8" noshade="">
 
       <div class="p-2 footer-left col-12">
         <ul class="row column">
@@ -295,7 +295,9 @@
               {{ ip_address.good_count }}
             </span>
           </li>
-          <li class="col-sm-11 col-12 copyright my-auto">Copyright © 2020 Djamazon Corporation All Rights. All rights reserved.</li>
+          <li class="col-sm-11 col-12 copyright my-auto">
+            Copyright © 2020 Djamazon Corporation All Rights. All rights reserved.
+          </li>
         </ul>
       </div>
 

@@ -74,7 +74,14 @@ html body header {
 html body header .header-wrapper {
   max-width: 1440px;
   min-width: 375px;
+  width: 80%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  html body header .header-wrapper {
+    width: 100%;
+  }
 }
 
 html body header .header-wrapper .header-title {
@@ -222,7 +229,7 @@ html body .container {
   /* signup & login */
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   html body .container {
     width: 100%;
   }
@@ -806,6 +813,12 @@ html body footer .footer-wrapper {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) {
+  html body footer .footer-wrapper {
+    width: 100%;
+  }
 }
 
 html body footer .footer-wrapper .footer-right {

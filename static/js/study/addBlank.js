@@ -1,10 +1,11 @@
-"use strict";
+// "use strict";
 
-const addBlank = () => {
-  // タグの取得
-  const tag = document.getElementsByTagName("A");
-  // 属性を設定
-  tag.setAttribute("target", "_blank");
-  tag.setAttribute("rel", "noopener noreferre");
+let addBlank = () => {
+  let atag = document.querySelectorAll("A");
+  atag.addEventListner("click", (e) => {
+    // 属性を設定
+    e.setAttribute("target", "_blank");
+    e.setAttribute("rel", "noopener noreferre");
+  });
 };
 addBlank();

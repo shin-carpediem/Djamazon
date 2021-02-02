@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-31 11:12+0900\n"
+"POT-Creation-Date: 2021-02-02 21:27+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,59 +18,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: app/templates/app/base.html:107 app/templates/app/base.html:169
+#: app/templates/app/base.html:92
+msgid "Search"
+msgstr "検索"
+
+#: app/templates/app/base.html:107 app/templates/app/base.html:167
 msgid "Home"
 msgstr "ホーム"
 
-#: app/templates/app/base.html:113 app/templates/app/base.html:175
+#: app/templates/app/base.html:113 app/templates/app/base.html:173
 msgid "Favorite"
 msgstr "お気に入り"
 
-#: app/templates/app/base.html:119 app/templates/app/base.html:181
+#: app/templates/app/base.html:119 app/templates/app/base.html:179
 msgid "Cart"
 msgstr "カート"
 
-#: app/templates/app/base.html:125 app/templates/app/base.html:187
+#: app/templates/app/base.html:125 app/templates/app/base.html:185
 msgid "Order-history"
 msgstr "注文履歴"
 
-#: app/templates/app/base.html:131 app/templates/app/base.html:193
+#: app/templates/app/base.html:130 app/templates/app/base.html:190
 msgid "Logout"
 msgstr "ログアウト"
 
-#: app/templates/app/base.html:137
+#: app/templates/app/base.html:135
 msgid "Account"
 msgstr "アカウント"
 
-#: app/templates/app/base.html:144 app/templates/app/base.html:205
+#: app/templates/app/base.html:142 app/templates/app/base.html:201
 msgid "Login"
 msgstr "ログイン"
 
-#: app/templates/app/base.html:150 app/templates/app/base.html:211
+#: app/templates/app/base.html:148 app/templates/app/base.html:207
 msgid "Signup"
 msgstr "サインアップ"
 
-#: app/templates/app/base.html:198
+#: app/templates/app/base.html:194
 msgid "Point: "
 msgstr "ポイント: "
 
-#: app/templates/app/base.html:276
+#: app/templates/app/base.html:272
 msgid "Who is Owner?"
 msgstr "開発者"
 
-#: app/templates/app/base.html:286
+#: app/templates/app/base.html:277
 msgid "Privacy Policy"
 msgstr "プライバシーポリシー"
 
-#: app/templates/app/base.html:291
+#: app/templates/app/base.html:282
 msgid "Terms of Service"
 msgstr "利用規約"
 
-#: ecsite/settings.py:148
+#: ecsite/settings.py:156
 msgid "English"
 msgstr "英語"
 
-#: ecsite/settings.py:149
+#: ecsite/settings.py:157
 msgid "Japanese"
 msgstr "日本語"
 
@@ -81,9 +85,6 @@ msgstr "許可"
 #: users/admin.py:24
 msgid "Important dates"
 msgstr "重要な日付"
-
-#~ msgid "Set"
-#~ msgstr "セット"
 
 #~ msgid "You could not get the adrress."
 #~ msgstr "住所を取得できません。"

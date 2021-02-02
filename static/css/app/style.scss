@@ -75,7 +75,11 @@ html {
       .header-wrapper {
         max-width: 1440px;
         min-width: 375px;
-        margin:0 auto;
+        width: 80%;
+        @media screen and (max-width: 600px) {
+          width: 100%;
+        }
+        margin: 0 auto;
         .header-title {
           height: 100%;
           line-height: 70px;
@@ -221,7 +225,7 @@ html {
       width: 80%;
       margin-top: 150px;
       overflow: hidden;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 600px) {
         width: 100%;
       }
       @media screen and (max-width: 414px) {
@@ -641,6 +645,9 @@ html {
         width: 80%;
         display: flex;
         justify-content: space-around;
+        @media screen and (max-width: 600px) {
+          width: 100%;
+        }
         .footer-right {
           text-align: center;
           margin: 0 auto;
