@@ -37,6 +37,12 @@ html body {
   text-rendering: optimizeSpeed;
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
+  position: relative;
+}
+
+html body .back {
+  position: absolute;
+  z-index: -1;
 }
 
 @media screen and (max-width: 600px) {
@@ -55,18 +61,6 @@ html body span {
 
 html body li {
   list-style: none;
-}
-
-html body .back {
-  position: relative;
-  z-index: -1;
-}
-
-html body .front {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
 }
 
 html body .front .each-game-container {

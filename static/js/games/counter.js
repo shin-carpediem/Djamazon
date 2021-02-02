@@ -18,7 +18,7 @@ const counter = () => {
       }
     });
 
-    document.body.appendChild(div);
+    document.getElementById("counterContent").appendChild(div);
   }
 };
 counter();

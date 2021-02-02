@@ -51,6 +51,11 @@ html {
     text-rendering: optimizeSpeed;
     font-family: "Piedra", cursive;
     font-family: "Righteous", cursive;
+    position: relative;
+    .back {
+      position: absolute;
+      z-index: -1;
+    }
     @media screen and (max-width: 600px) {
       font-size: 0.7rem;
     }
@@ -67,15 +72,7 @@ html {
       list-style: none;
     }
     // index
-    .back {
-      position: relative;
-      z-index: -1;
-    }
     .front {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
       .each-game-container {
         position: relative;
         .game-counter {
