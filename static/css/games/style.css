@@ -76,7 +76,7 @@ html body .front .each-game-container .game-counter {
   border-radius: 30px;
 }
 
-html body .box {
+html body .counter-wrapper .counter-area .box {
   width: 100px;
   height: 100px;
   background: skyblue;
@@ -88,14 +88,14 @@ html body .box {
   cursor: pointer;
 }
 
-html body .win {
+html body .counter-wrapper .counter-area .win {
   background: pink;
   border-radius: 50%;
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg);
 }
 
-html body .lose {
+html body .counter-wrapper .counter-area .lose {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }

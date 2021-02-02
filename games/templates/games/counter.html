@@ -1,10 +1,13 @@
 {% extends 'games/base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
-<div id="counterContent" style="display: flex; flex-wrap: wrap;">
-
-  <!-- device related -->
-  <script src="{% static 'js/games/counter.min.js' %}"></script>
+<div class="counter-wrapper">
+  <div id="counterContent" class="counter-area d-flex">
+    <!-- device related -->
+    <script src="{% static 'js/games/counter.min.js' %}"></script>
+  </div>
+  <div>Point: {{ user.point | intcomma }}</div>
 </div>
 {% endblock %}
