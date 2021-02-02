@@ -23,14 +23,18 @@
     </div>
     <!-- end of header part -->
 
-    <div class="each-game-container d-flex row">
-      <div class="game-counter p-3 col-2">
+    <div class="each-game-container row">
+      <div class="game-counter m-5 p-3 col-2">
         <div class="text-center">
           <h5>COUNTER</h5>
           <a href="{% url 'games:counter' %}"><img src="{% static 'img/games/img-counter.png' %}" alt="img-counter"></a>
         </div>
       </div>
-      <div class="game-2">
+      <div class="game-omikuji m-5 p-3 col-2">
+        <div class="text-center">
+          <h5>OMIKUJI</h5>
+          <a href="{% url 'games:omikuji' %}"><img src="{% static 'img/games/img-omikuji.png' %}" alt="img-omikuji"></a>
+        </div>
       </div>
       <div class="game-3">
       </div>

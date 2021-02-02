@@ -1,0 +1,13 @@
+{% extends 'games/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+<div class="counter-wrapper text-center">
+  <div id="counterContent" class="counter-area d-flex justify-content-center align-items-center p-5 m-5">
+    <!-- device related -->
+
+  </div>
+  <div>Point: {{ user.point | intcomma }}</div>
+</div>
+{% endblock %}

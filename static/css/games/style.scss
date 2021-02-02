@@ -71,21 +71,30 @@ html {
     li {
       list-style: none;
     }
-    // index
+    // index.html
     .front {
       .each-game-container {
         position: relative;
         .game-counter {
           position: absolute;
-          top: 100px;
-          left: 200px;
+          top: 60px;
+          left: 150px;
+          background-color: $light-grey;
+          border: solid 2px $dark-grey;
+          border-radius: 30px;
+        }
+        .game-omikuji {
+          position: absolute;
+          top: 200px;
+          left: 360px;
           background-color: $light-grey;
           border: solid 2px $dark-grey;
           border-radius: 30px;
         }
       }
     }
-    // counter
+    // end of index.html
+    // counter.html
     .counter-wrapper {
       .counter-area {
         //counter.js
@@ -111,5 +120,6 @@ html {
       }
 
     }
+    // end of counter.html
   }
 }

@@ -11,3 +11,8 @@ def index(request):
 @login_required
 def counter(request):
     return render(request, 'games/counter.html')
+
+
+@login_required
+def omikuji(request):
+    return render(request, 'games/omikuji.html')
