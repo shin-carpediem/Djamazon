@@ -1,3 +1,5 @@
+"use strict";
+
 const scrollButton = () => {
   // anime.js利用
 

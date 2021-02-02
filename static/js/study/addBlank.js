@@ -1,3 +1,5 @@
+"use strict";
+
 const addBlank = () => {
   // タグの取得
   const tag = document.getElementsByTagName("A");

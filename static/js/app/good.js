@@ -1,3 +1,5 @@
+"use strict";
+
 const good = () => {
   // setup for ajax
   var csrftoken = getCookie("csrftoken");

@@ -1,3 +1,5 @@
+"use strict";
+
 const headerTitle = () => {
   const h1 = document.querySelector("h1");
 

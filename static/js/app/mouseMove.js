@@ -1,3 +1,5 @@
+"use strict";
+
 const mouseMove = () => {
   //#titleを取得
   let title = document.getElementById("title");

@@ -1,3 +1,5 @@
+"use strict";
+
 const hoverFadeIn = () => {
   $(".each-wrapper").hover(
     function () {

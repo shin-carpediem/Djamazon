@@ -1,3 +1,5 @@
+"use strict";
+
 const fadeIn = () => {
   $(window).scroll(function () {
     $(".fadeIn").each(function () {

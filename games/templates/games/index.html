@@ -9,6 +9,7 @@
 <div class="w-100 front">
   <div class="w-100 games-container">
 
+    <!-- header part -->
     <div class="header-wrapper d-flex justify-content-around">
       <h1 class="">Djamazon Games</h1>
       <div class="d-flex justify-content-center">
@@ -20,22 +21,20 @@
         </div>
       </div>
     </div>
+    <!-- end of header part -->
 
-    <div class="each-game-container d-flex">
-      <div class="game-counter p-3">
-        <div>
+    <div class="each-game-container d-flex row">
+      <div class="game-counter p-3 col-2">
+        <div class="text-center">
           <h5>COUNTER</h5>
-          <a href="{% url 'games:counter' %}"><img src="" alt="">hoge</a>
+          <a href="{% url 'games:counter' %}"><img src="{% static 'img/games/img-counter.png' %}" alt="img-counter"></a>
         </div>
       </div>
       <div class="game-2">
-
       </div>
       <div class="game-3">
-
       </div>
       <div class="game-4">
-
       </div>
     </div>
   </div>
