@@ -484,27 +484,27 @@ html {
             left: 10%;
             width: 80%;
             animation: switch 32s linear infinite;
-          }
-          div:nth-child(2) {
-            animation-delay: 4s;
-          }
-          div:nth-child(3) {
-            animation-delay: 8s;
-          }
-          div:nth-child(4) {
-            animation-delay: 12s;
-          }
-          div:nth-child(5) {
-            animation-delay: 16s;
-          }
-          div:nth-child(6) {
-            animation-delay: 20s;
-          }
-          div:nth-child(7) {
-            animation-delay: 24s;
-          }
-          div:nth-child(8) {
-            animation-delay: 28s;
+            &:nth-child(2) {
+              animation-delay: 4s;
+            }
+            &:nth-child(3) {
+              animation-delay: 8s;
+            }
+            &:nth-child(4) {
+              animation-delay: 12s;
+            }
+            &:nth-child(5) {
+              animation-delay: 16s;
+            }
+            &:nth-child(6) {
+              animation-delay: 20s;
+            }
+            &:nth-child(7) {
+              animation-delay: 24s;
+            }
+            &:nth-child(8) {
+              animation-delay: 28s;
+            }
           }
         }
         @keyframes switch {
