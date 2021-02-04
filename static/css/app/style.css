@@ -25,7 +25,6 @@ select {
 
 /* Remove all animations and transitions for people that prefer not to see them */
 html {
-  font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
 }
 
@@ -35,7 +34,6 @@ html:focus-within {
 
 html body {
   text-rendering: optimizeSpeed;
-  font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
   background-color: #ececec;
   /* footer */
@@ -223,10 +221,10 @@ html body .container {
   width: 80%;
   margin-top: 150px;
   overflow: hidden;
-  /* product detail */
-  /* cart */
-  /* order history */
-  /* signup & login */
+  /* detail.html */
+  /* cart.html */
+  /* order_history.html */
+  /* signup.html & login.html */
 }
 
 @media screen and (max-width: 600px) {
@@ -493,7 +491,47 @@ html body .container .account-wrapper #onClickInForPwSend {
   display: none;
 }
 
-html body .container .account-wrapper .software-wrapper .each-wrapper .text_soft {
+html body .container .account-wrapper .calendar {
+  font-size: smaller;
+}
+
+html body .container .account-wrapper .calendar table {
+  border: 2px solid #fff;
+}
+
+html body .container .account-wrapper .calendar thead,
+html body .container .account-wrapper .calendar tfoot {
+  background: #fff;
+}
+
+html body .container .account-wrapper .calendar th,
+html body .container .account-wrapper .calendar td {
+  padding: 8px;
+}
+
+html body .container .account-wrapper .calendar tbody td:first-child {
+  color: red;
+}
+
+html body .container .account-wrapper .calendar tbody td:last-child {
+  color: blue;
+}
+
+html body .container .account-wrapper .calendar tbody tfoot {
+  font-weight: bolder;
+}
+
+html body .container .account-wrapper .calendar #prev,
+html body .container .account-wrapper .calendar #next,
+html body .container .account-wrapper .calendar #today {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html body .container .account-wrapper .calendar .software-wrapper .each-wrapper .text_soft {
   border: solid 5px #ececec4d;
   border-radius: 5px;
   background-color: #fff;
@@ -501,7 +539,7 @@ html body .container .account-wrapper .software-wrapper .each-wrapper .text_soft
   font-size: smaller;
 }
 
-html body .container .account-wrapper .software-wrapper .each-wrapper .text-active {
+html body .container .account-wrapper .calendar .software-wrapper .each-wrapper .text-active {
   display: block;
 }
 
@@ -882,5 +920,13 @@ html body footer .footer-wrapper .footer-left .copyright {
   50% {
     font-variation-settings: "SSTR" 0;
   }
+}
+
+.disabled {
+  opacity: 0.3;
+}
+
+.today {
+  font-size: 20px;
 }
 /*# sourceMappingURL=style.css.map */

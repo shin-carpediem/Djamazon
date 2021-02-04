@@ -40,14 +40,12 @@ select {
 // end of default
 
 html {
-  font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
   &:focus-within {
     scroll-behavior: smooth;
   }
   body {
     text-rendering: optimizeSpeed;
-    font-family: "Piedra", cursive;
     font-family: "Righteous", cursive;
     background-color: $light-grey;
     @media screen and (max-width: 414px) {
@@ -231,7 +229,7 @@ html {
       @media screen and (max-width: 414px) {
         margin-top: 200px;
       }
-      // welcome
+      // welcome.html
       .welcome-button {
         display: inline-block;
         text-align: center;
@@ -246,7 +244,7 @@ html {
           transform: scale(0.9);
         }
       }
-      // index
+      // index.html
       .product {
         width: calc(100% / 4);
         float: left;
@@ -286,7 +284,7 @@ html {
           transform: scale(1.2);
         }
       }
-      /* product detail */
+      /* detail.html */
       .product-detail {
         display: flex;
         justify-content: flex-start;
@@ -335,7 +333,7 @@ html {
           cursor: pointer;
         }
       }
-      /* cart */
+      /* cart.html */
       .cart {
         .purchase-form {
           width: 100%;
@@ -370,7 +368,7 @@ html {
           }
         }
       }
-      /* order history */
+      /* order_history.html */
       .order-item {
         padding: 20px;
         display: flex;
@@ -412,7 +410,7 @@ html {
         padding-left: 30px;
         border-radius: 4px;
       }
-      // account
+      // account.html
       .account-wrapper {
         #onClickIn {
           display: none;
@@ -420,22 +418,55 @@ html {
         #onClickInForPwSend {
           display: none;
         }
-        .software-wrapper {
-          .each-wrapper {
-            .text_soft {
-              border: solid 5px $grey;
-              border-radius: 5px;
-              background-color: $white;
-              display: none;
-              font-size: smaller;
+        .calendar {
+          font-size: smaller;
+          table {
+            border: 2px solid $white;
+          }
+          thead,
+          tfoot {
+            background: $white;
+          }
+          th,
+          td {
+            padding: 8px;
+          }
+          tbody {
+            td {
+              &:first-child {
+                color: red;
+              }
+              &:last-child {
+                color: blue;
+              }
             }
-            .text-active {
-              display: block;
+            tfoot {
+              font-weight: bolder;
+            }
+          }
+          #prev,
+          #next,
+          #today {
+            cursor: pointer;
+            user-select: none;
+          }
+          .software-wrapper {
+            .each-wrapper {
+              .text_soft {
+                border: solid 5px $grey;
+                border-radius: 5px;
+                background-color: $white;
+                display: none;
+                font-size: smaller;
+              }
+              .text-active {
+                display: block;
+              }
             }
           }
         }
       }
-      /* signup & login */
+      /* signup.html & login.html */
       .welcome-message {
         color: #111;
         text-align: center;
@@ -698,4 +729,12 @@ html {
   50% {
     font-variation-settings: "SSTR" 0;
   }
+}
+
+// calendar.js
+.disabled {
+  opacity: 0.3;
+}
+.today {
+  font-size: 20px;
 }

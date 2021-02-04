@@ -6,15 +6,42 @@
 <div class="m-auto account-wrapper">
 
   <h2 class="d-flex justify-content-center p-5">Account</h2>
-  <ul>
-    <li>Email: {{ user.email }}</li>
-    <li>Password: ********</li>
-    <li>Point: {{ user.point | intcomma }}</li>
-    <li>Started from: {{ user.date_joined }}</li>
-  </ul>
-  <ul>
-    <button id="onClick">Reset Password</button>
-  </ul>
+  <div class="row">
+    <div class="col-6">
+      <ul>
+        <li>Email: {{ user.email }}</li>
+        <li>Password: ********</li>
+        <li>Point: {{ user.point | intcomma }}</li>
+        <li>Started from: {{ user.date_joined }}</li>
+      </ul>
+      <ul>
+        <button id="onClick">Reset Password</button>
+      </ul>
+    </div>
+    <div class="col-6 calendar">
+      <table class="text-center">
+        <thead>
+          <tr>
+            <th id="prev"><i class="fas fa-chevron-left"></i></th>
+            <th id="calendar_title" colspan="5"></th>
+            <th id="next"><i class="fas fa-chevron-right"></i></th>
+          </tr>
+          <tr>
+            <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- calender.js event here-->
+        <!-- calender.js event here-->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td id="today" colspan="7">Today</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
 
   <div id="onClickIn">
     <p>I will get an mail for resetting new password.</p>
@@ -24,7 +51,8 @@
     </form>
   </div>
 
-  <p id="onClickInForPwSend">Check your email for a link to reset your password. If it doesn't appear within a few minutes, check your spam folder.</p>
+  <p id="onClickInForPwSend">Check your email for a link to reset your password. If it doesn't appear within a few
+    minutes, check your spam folder.</p>
 
 
   <h2 class="d-flex justify-content-center p-5">Djamazon Software</h2>
@@ -36,7 +64,8 @@
         <p class="text-center">Study</p>
       </a>
       <div class="pt-3 px-1 text_soft">
-        <p>You can access the source code of this whole application and learn how a beginner develops this one by one.</p>
+        <p>You can access the source code of this whole application and learn how a beginner develops this one by one.
+        </p>
       </div>
     </div>
     <div class="col-sm-2 col-6 each-wrapper">
