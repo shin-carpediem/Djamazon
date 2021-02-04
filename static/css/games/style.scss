@@ -51,11 +51,6 @@ html {
     text-rendering: optimizeSpeed;
     font-family: "Piedra", cursive;
     font-family: "Righteous", cursive;
-    position: relative;
-    .back {
-      position: absolute;
-      z-index: -1;
-    }
     @media screen and (max-width: 600px) {
       font-size: 0.7rem;
     }
@@ -73,6 +68,13 @@ html {
     }
     // index.html
     .front {
+      position: relative;
+    }
+    .back {
+      position: absolute;
+      z-index: -1;
+    }
+    .front {
       .each-game-container {
         position: relative;
         .game-counter {
@@ -82,7 +84,14 @@ html {
           background-color: $light-grey;
           border: solid 2px $dark-grey;
           border-radius: 30px;
+          transition: 0.5s;
+          &:hover {
+            transform: scale(1.1);
+          }
         }
+      }
+      .each-game-container {
+        position: relative;
         .game-omikuji {
           position: absolute;
           top: 200px;
@@ -90,6 +99,25 @@ html {
           background-color: $light-grey;
           border: solid 2px $dark-grey;
           border-radius: 30px;
+          transition: 0.5s;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+      .each-game-container {
+        position: relative;
+        .game-bingo {
+          position: absolute;
+          top: 300px;
+          left: 30px;
+          background-color: $light-grey;
+          border: solid 2px $dark-grey;
+          border-radius: 30px;
+          transition: 0.5s;
+          &:hover {
+            transform: scale(1.1);
+          }
         }
       }
     }
@@ -118,8 +146,45 @@ html {
         }
         // end of counter.js
       }
-
     }
     // end of counter.html
+    // omikuji.html
+    .omikuji-wrapper {
+      background-color: $light-grey;
+      .omikuji-area {
+        #btn {
+          width: 200px;
+          height: 200px;
+          background-color: red;
+          border-radius: 50%;
+          color: $white;
+          font-weight: bolder;
+          font-size: 52px;
+          cursor: pointer;
+          box-shadow: 0 10px 0 #d1483e;
+          user-select: none;
+          &:hover {
+            opacity: 0.9;
+          }
+          &:active {
+            box-shadow: 0 5px 0 #d1483e;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    // end of omikuji.html
+    // bingo.html
+    .bingo-wrapper {
+      .bingo-area {
+        th,
+        td {
+          background: pink;
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+    // end of bingo.html
   }
 }

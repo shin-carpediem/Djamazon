@@ -3,10 +3,11 @@
 {% load humanize %}
 
 {% block content %}
-<div class="counter-wrapper text-center">
-  <div id="counterContent" class="counter-area d-flex justify-content-center align-items-center p-5 m-5">
-    <!-- device related -->
-
+<div class="omikuji-wrapper text-center">
+  <div class="omikuji-area d-flex justify-content-center align-items-center p-5 m-5">
+    <div id="btn" class="d-flex justify-content-center align-items-center">
+      ?
+    </div>
   </div>
   <div>Point: {{ user.point | intcomma }}</div>
 </div>

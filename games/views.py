@@ -16,3 +16,8 @@ def counter(request):
 @login_required
 def omikuji(request):
     return render(request, 'games/omikuji.html')
+
+
+@login_required
+def bingo(request):
+    return render(request, 'games/bingo.html')

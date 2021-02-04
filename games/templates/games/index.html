@@ -24,22 +24,31 @@
     <!-- end of header part -->
 
     <div class="each-game-container row">
-      <div class="game-counter m-5 p-3 col-2">
-        <div class="text-center">
-          <h5>COUNTER</h5>
-          <a href="{% url 'games:counter' %}"><img src="{% static 'img/games/img-counter.png' %}" alt="img-counter"></a>
+      <a href="{% url 'games:counter' %}">
+        <div class="game-counter m-5 p-3 col-2">
+          <div class="text-center">
+            <h5>Counter</h5>
+            <img src="{% static 'img/games/img-counter.png' %}" alt="img-counter">
+          </div>
         </div>
-      </div>
-      <div class="game-omikuji m-5 p-3 col-2">
-        <div class="text-center">
-          <h5>OMIKUJI</h5>
-          <a href="{% url 'games:omikuji' %}"><img src="{% static 'img/games/img-omikuji.png' %}" alt="img-omikuji"></a>
+      </a>
+      <a href="{% url 'games:omikuji' %}">
+        <div class="game-omikuji m-5 p-3 col-2">
+          <div class="text-center">
+            <h5>Omikuji</h5>
+            <img src="{% static 'img/games/img-omikuji.png' %}" alt="img-omikuji">
+          </div>
         </div>
-      </div>
-      <div class="game-3">
-      </div>
-      <div class="game-4">
-      </div>
+      </a>
+      <a href="{% url 'games:bingo' %}">
+        <div class="game-bingo m-5 p-3 col-2">
+          <div class="text-center">
+            <h5>Bingo</h5>
+            <img src="{% static 'img/games/img-bingo.png' %}" alt="img-bingo">
+          </div>
+        </div>
+      </a>
+
     </div>
   </div>
 </div>
