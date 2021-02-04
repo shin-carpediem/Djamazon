@@ -531,18 +531,6 @@ html body .container .account-wrapper .calendar #today {
           user-select: none;
 }
 
-html body .container .account-wrapper .calendar .software-wrapper .each-wrapper .text_soft {
-  border: solid 5px #ececec4d;
-  border-radius: 5px;
-  background-color: #fff;
-  display: none;
-  font-size: smaller;
-}
-
-html body .container .account-wrapper .calendar .software-wrapper .each-wrapper .text-active {
-  display: block;
-}
-
 html body .container .welcome-message {
   color: #111;
   text-align: center;
@@ -920,6 +908,18 @@ html body footer .footer-wrapper .footer-left .copyright {
   50% {
     font-variation-settings: "SSTR" 0;
   }
+}
+
+.software-wrapper .each-wrapper .text_soft {
+  border: solid 5px #ececec4d;
+  border-radius: 5px;
+  background-color: #fff;
+  display: none;
+  font-size: smaller;
+}
+
+.software-wrapper .each-wrapper .text-active {
+  display: block;
 }
 
 .disabled {

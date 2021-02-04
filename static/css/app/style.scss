@@ -450,20 +450,6 @@ html {
             cursor: pointer;
             user-select: none;
           }
-          .software-wrapper {
-            .each-wrapper {
-              .text_soft {
-                border: solid 5px $grey;
-                border-radius: 5px;
-                background-color: $white;
-                display: none;
-                font-size: smaller;
-              }
-              .text-active {
-                display: block;
-              }
-            }
-          }
         }
       }
       /* signup.html & login.html */
@@ -728,6 +714,22 @@ html {
   }
   50% {
     font-variation-settings: "SSTR" 0;
+  }
+}
+
+// hoverFadeIn.js
+.software-wrapper {
+  .each-wrapper {
+    .text_soft {
+      border: solid 5px $grey;
+      border-radius: 5px;
+      background-color: $white;
+      display: none;
+      font-size: smaller;
+    }
+    .text-active {
+      display: block;
+    }
   }
 }
 
