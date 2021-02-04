@@ -120,6 +120,21 @@ html {
           }
         }
       }
+      .each-game-container {
+        position: relative;
+        .game-typing {
+          position: absolute;
+          top: 300px;
+          right: 30px;
+          background-color: $light-grey;
+          border: solid 2px $dark-grey;
+          border-radius: 30px;
+          transition: 0.5s;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
     }
     // end of index.html
     // counter.html
@@ -182,6 +197,17 @@ html {
           background: pink;
           width: 40px;
           height: 40px;
+        }
+      }
+    }
+    // end of bingo.html
+    // typing.html
+    .typing-wrapper {
+      .typing-area {
+        #typing-question {
+          font-size: 48px;
+          letter-spacing: .1em;
+          cursor: pointer;
         }
       }
     }

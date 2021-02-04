@@ -21,3 +21,8 @@ def omikuji(request):
 @login_required
 def bingo(request):
     return render(request, 'games/bingo.html')
+
+
+@login_required
+def typing(request):
+    return render(request, 'games/typing.html')

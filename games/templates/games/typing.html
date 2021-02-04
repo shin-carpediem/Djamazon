@@ -1,0 +1,15 @@
+{% extends 'games/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+<div class="typing-wrapper text-center">
+  <div class="typing-area d-flex justify-content-center align-items-center p-5 m-5">
+    <div>
+      <p id="typing-question" class="typing-question">Click to Start</p>
+      <p id="typing-result"></p>
+    </div>
+  </div>
+  <div>Point: {{ user.point | intcomma }}</div>
+</div>
+{% endblock %}
