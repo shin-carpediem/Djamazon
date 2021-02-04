@@ -135,6 +135,21 @@ html {
           }
         }
       }
+      .each-game-container {
+        position: relative;
+        .game-quiz {
+          position: absolute;
+          top: 200px;
+          right: 55px;
+          background-color: $light-grey;
+          border: solid 2px $dark-grey;
+          border-radius: 30px;
+          transition: 0.5s;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
     }
     // end of index.html
     // counter.html

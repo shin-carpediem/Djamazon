@@ -1,0 +1,13 @@
+{% extends 'games/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+<div class="quiz-wrapper text-center">
+  <div class="quiz-area d-flex justify-content-center align-items-center p-5 m-5">
+    <div>
+    </div>
+  </div>
+  <div>Point: {{ user.point | intcomma }}</div>
+</div>
+{% endblock %}

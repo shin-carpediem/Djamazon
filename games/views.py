@@ -26,3 +26,8 @@ def bingo(request):
 @login_required
 def typing(request):
     return render(request, 'games/typing.html')
+
+
+@login_required
+def quiz(request):
+    return render(request, 'games/quiz.html')

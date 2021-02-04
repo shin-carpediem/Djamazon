@@ -161,3 +161,6 @@ tempCodeRunnerFile.py
 
 # use for bundling JS files with webpack
 node_modules
+
+# scss cache
+.sass-cache/

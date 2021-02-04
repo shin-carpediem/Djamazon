@@ -146,6 +146,26 @@ html body .front .each-game-container .game-typing:hover {
           transform: scale(1.1);
 }
 
+html body .front .each-game-container {
+  position: relative;
+}
+
+html body .front .each-game-container .game-quiz {
+  position: absolute;
+  top: 200px;
+  right: 55px;
+  background-color: #ececec;
+  border: solid 2px #504d4d;
+  border-radius: 30px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+html body .front .each-game-container .game-quiz:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 html body .counter-wrapper .counter-area .box {
   width: 100px;
   height: 100px;
