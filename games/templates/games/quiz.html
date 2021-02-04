@@ -4,8 +4,15 @@
 
 {% block content %}
 <div class="quiz-wrapper text-center">
-  <div class="quiz-area d-flex justify-content-center align-items-center p-5 m-5">
-    <div>
+  <div class="quiz-area d-flex justify-content-center align-items-center p-5 m-5 row">
+    <div class="col-6 container pt-5 pb-4">
+      <p id="quiz-question" class="mb-3">What is A?</p>
+      <ul id="quiz-choices" class="mr-5 text-left">
+        <li>A0</li>
+        <li>A1</li>
+        <li>A2</li>
+      </ul>
+      <div id="quiz-btn" class="py-2 px-5 disabled">Next</div>
     </div>
   </div>
   <div>Point: {{ user.point | intcomma }}</div>

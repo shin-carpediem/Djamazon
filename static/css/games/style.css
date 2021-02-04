@@ -230,7 +230,51 @@ html body .bingo-wrapper .bingo-area td {
 
 html body .typing-wrapper .typing-area #typing-question {
   font-size: 48px;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   cursor: pointer;
+}
+
+html body .quiz-wrapper {
+  background-color: #efdec1;
+}
+
+html body .quiz-wrapper .quiz-area .container {
+  background: #fff;
+  border-radius: 4px;
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-question {
+  font-weight: bolder;
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-choices li {
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-choices li:hover {
+  background: #ececec;
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-btn {
+  display: inline-block;
+  background-color: #07a9f0;
+  color: #fff;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 10px;
+  border: transparent;
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-btn:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-btn.disabled {
+  background-color: #ececec;
 }
 /*# sourceMappingURL=style.css.map */

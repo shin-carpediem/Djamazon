@@ -221,11 +221,52 @@ html {
       .typing-area {
         #typing-question {
           font-size: 48px;
-          letter-spacing: .1em;
+          letter-spacing: 0.1em;
           cursor: pointer;
         }
       }
     }
-    // end of bingo.html
+    // end of typing.html
+    // quiz.html
+    .quiz-wrapper {
+      background-color: #efdec1;
+      .quiz-area {
+        .container {
+          background: #fff;
+          border-radius: 4px;
+          #quiz-question {
+            font-weight: bolder;
+          }
+          #quiz-choices {
+            li {
+              border: 1px solid #cccccc;
+              border-radius: 4px;
+              padding: 10px;
+              margin-bottom: 10px;
+              cursor: pointer;
+              &:hover {
+                background: $light-grey;
+              }
+            }
+          }
+          #quiz-btn {
+            display: inline-block;
+            background-color: $blue;
+            color: $white;
+            font-weight: bolder;
+            cursor: pointer;
+            border-radius: 10px;
+            border: transparent;
+            &:hover {
+              transform: scale(0.9);
+            }
+            &.disabled {
+              background-color: $light-grey;
+            }
+          }
+        }
+      }
+    }
+    // end of quiz.html
   }
 }
