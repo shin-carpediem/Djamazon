@@ -150,6 +150,21 @@ html {
           }
         }
       }
+      .each-game-container {
+        position: relative;
+        .game-slot {
+          position: absolute;
+          top: 40px;
+          right: 200px;
+          background-color: $light-grey;
+          border: solid 2px $dark-grey;
+          border-radius: 30px;
+          transition: 0.5s;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
     }
     // end of index.html
     // counter.html
@@ -322,5 +337,11 @@ html {
       }
     }
     // end of quiz.html
+    // slot.html
+    .slot-wrapper {
+      .slot-area {
+      }
+    }
+    // end of slot.html
   }
 }

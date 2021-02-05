@@ -20,6 +20,11 @@ class StaticViewSitemap(Sitemap):
             'study:index',
             'games:index',
             'games:counter',
+            'games:omikuji',
+            'games:bingo',
+            'games:typing',
+            'games:quiz',
+            'games:slot',
         ]
 
     def location(self, obj):

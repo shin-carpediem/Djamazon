@@ -31,3 +31,8 @@ def typing(request):
 @login_required
 def quiz(request):
     return render(request, 'games/quiz.html')
+
+
+@login_required
+def slot(request):
+    return render(request, 'games/slot.html')

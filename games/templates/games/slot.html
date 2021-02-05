@@ -1,0 +1,13 @@
+{% extends 'games/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+<div class="slot-wrapper text-center">
+  <div class="slot-area d-flex justify-content-center align-items-center p-5 m-5 row">
+    <div class="col-6 container pt-5 pb-4">
+    </div>
+  </div>
+  <div>Point: {{ user.point | intcomma }}</div>
+</div>
+{% endblock %}
