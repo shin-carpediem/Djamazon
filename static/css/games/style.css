@@ -210,30 +210,6 @@ html body .front .each-game-container .game-touch:hover {
           transform: scale(1.1);
 }
 
-html body .counter-wrapper .counter-area .box {
-  width: 100px;
-  height: 100px;
-  background: skyblue;
-  -webkit-transition: 0.8s;
-  transition: 0.8s;
-  margin: 0 8px 8px 0;
-  text-align: center;
-  line-height: 100px;
-  cursor: pointer;
-}
-
-html body .counter-wrapper .counter-area .win {
-  background: pink;
-  border-radius: 50%;
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-}
-
-html body .counter-wrapper .counter-area .lose {
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
-}
-
 html body .omikuji-wrapper {
   background-color: #ececec;
 }
@@ -436,6 +412,30 @@ html body .slot-wrapper #spin {
       -ms-user-select: none;
           user-select: none;
   font-size: larger;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: skyblue;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  margin: 0 8px 8px 0;
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+}
+
+.win {
+  background: pink;
+  border-radius: 50%;
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.lose {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 .unmatched {
