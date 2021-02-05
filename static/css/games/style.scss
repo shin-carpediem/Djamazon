@@ -139,7 +139,7 @@ html {
         position: relative;
         .game-quiz {
           position: absolute;
-          top: 200px;
+          top: 100px;
           right: 55px;
           background-color: $light-grey;
           border: solid 2px $dark-grey;
@@ -234,6 +234,40 @@ html {
         .container {
           background: #fff;
           border-radius: 4px;
+          position: relative;
+          #quiz-result {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 60%;
+            background: $white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            transition: 0.4s;
+            &.hidden {
+              transform: translateY(-500px);
+            }
+            p {
+              font-size: larger;
+            }
+            div {
+              display: inline-block;
+              background-color: $blue;
+              cursor: pointer;
+              border-radius: 4px;
+              border: transparent;
+              &:hover {
+                transform: scale(0.9);
+              }
+              a {
+                color: $white;
+                font-weight: bolder;
+                text-decoration: none;
+              }
+            }
+          }
           #quiz-question {
             font-weight: bolder;
           }
@@ -246,6 +280,26 @@ html {
               cursor: pointer;
               &:hover {
                 background: $light-grey;
+              }
+              // quiz.js
+              &.correct {
+                background: #d4edda;
+                border-color: #c3e6cb;
+                color: #155724;
+                font-weight: bolder;
+                &::after {
+                  content: "... correct!";
+                }
+              }
+              // quiz.js
+              &.wrong {
+                background: #f8d8da;
+                border-color: #f5c6cb;
+                color: #721c24;
+                font-weight: bolder;
+                &::after {
+                  content: "... wrong!";
+                }
               }
             }
           }

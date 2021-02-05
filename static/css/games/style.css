@@ -152,7 +152,7 @@ html body .front .each-game-container {
 
 html body .front .each-game-container .game-quiz {
   position: absolute;
-  top: 200px;
+  top: 100px;
   right: 55px;
   background-color: #ececec;
   border: solid 2px #504d4d;
@@ -241,6 +241,50 @@ html body .quiz-wrapper {
 html body .quiz-wrapper .quiz-area .container {
   background: #fff;
   border-radius: 4px;
+  position: relative;
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-result {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 60%;
+  background: #fff;
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-result.hidden {
+  -webkit-transform: translateY(-500px);
+          transform: translateY(-500px);
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-result p {
+  font-size: larger;
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-result div {
+  display: inline-block;
+  background-color: #07a9f0;
+  cursor: pointer;
+  border-radius: 4px;
+  border: transparent;
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-result div:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-result div a {
+  color: #fff;
+  font-weight: bolder;
+  text-decoration: none;
 }
 
 html body .quiz-wrapper .quiz-area .container #quiz-question {
@@ -257,6 +301,28 @@ html body .quiz-wrapper .quiz-area .container #quiz-choices li {
 
 html body .quiz-wrapper .quiz-area .container #quiz-choices li:hover {
   background: #ececec;
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-choices li.correct {
+  background: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+  font-weight: bolder;
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-choices li.correct::after {
+  content: "... correct!";
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-choices li.wrong {
+  background: #f8d8da;
+  border-color: #f5c6cb;
+  color: #721c24;
+  font-weight: bolder;
+}
+
+html body .quiz-wrapper .quiz-area .container #quiz-choices li.wrong::after {
+  content: "... wrong!";
 }
 
 html body .quiz-wrapper .quiz-area .container #quiz-btn {

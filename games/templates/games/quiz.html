@@ -6,13 +6,22 @@
 <div class="quiz-wrapper text-center">
   <div class="quiz-area d-flex justify-content-center align-items-center p-5 m-5 row">
     <div class="col-6 container pt-5 pb-4">
-      <p id="quiz-question" class="mb-3">What is A?</p>
+      <p id="quiz-question" class="mb-3">
+        <!-- quiz.js -->
+      </p>
       <ul id="quiz-choices" class="mr-5 text-left">
-        <li>A0</li>
-        <li>A1</li>
-        <li>A2</li>
+        <!-- quiz.js -->
       </ul>
       <div id="quiz-btn" class="py-2 px-5 disabled">Next</div>
+
+      <div id="quiz-result" class="p-5 hidden">
+        <p>
+          <!-- quiz.js -->
+        </p>
+        <div class="py-1 px-5">
+          <a href="{% url 'games:quiz' %}">Replay?</a>
+        </div>
+      </div>
     </div>
   </div>
   <div>Point: {{ user.point | intcomma }}</div>
