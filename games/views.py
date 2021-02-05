@@ -41,3 +41,8 @@ def slot(request):
 @login_required
 def touch(request):
     return render(request, 'games/touch.html')
+
+
+@login_required
+def dungeon(request):
+    return render(request, 'games/dungeon.html')

@@ -210,6 +210,26 @@ html body .front .each-game-container .game-touch:hover {
           transform: scale(1.1);
 }
 
+html body .front .each-game-container {
+  position: relative;
+}
+
+html body .front .each-game-container .game-dungeon {
+  position: absolute;
+  top: 500px;
+  left: 400px;
+  background-color: #ececec;
+  border: solid 2px #504d4d;
+  border-radius: 30px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+html body .front .each-game-container .game-dungeon:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 html body .omikuji-wrapper {
   background-color: #ececec;
 }

@@ -10,7 +10,7 @@
   <div class="w-100 games-container">
 
     <!-- header part -->
-    <div class="header-wrapper d-flex justify-content-around">
+    <div class="header-wrapper d-flex justify-content-around pt-3">
       <h1 class="">Djamazon Games</h1>
       <div class="d-flex justify-content-center">
         <div class="d-flex align-items-center px-2">
@@ -77,6 +77,14 @@
           <div class="text-center">
             <h5>Touch</h5>
             <img src="{% static 'img/games/img-touch.png' %}" alt="img-touch">
+          </div>
+        </div>
+      </a>
+      <a href="{% url 'games:dungeon' %}">
+        <div class="game-dungeon m-5 p-3 col-2">
+          <div class="text-center">
+            <h5>Dungeon</h5>
+            <img src="{% static 'img/games/img-dungeon.png' %}" alt="img-dungeon">
           </div>
         </div>
       </a>

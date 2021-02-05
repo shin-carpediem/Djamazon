@@ -180,6 +180,21 @@ html {
           }
         }
       }
+      .each-game-container {
+        position: relative;
+        .game-dungeon {
+          position: absolute;
+          top: 500px;
+          left: 400px;
+          background-color: $light-grey;
+          border: solid 2px $dark-grey;
+          border-radius: 30px;
+          transition: 0.5s;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
     }
     // end of index.html
     // omikuji.html
@@ -373,6 +388,12 @@ html {
       }
     }
     // end of touch.html
+    // dungeon.html
+    .dungeon-wrapper {
+      .dungeon-area {
+      }
+    }
+    // end of dungeon.html
   }
 }
 
@@ -403,3 +424,5 @@ html {
 .inactive {
   opacity: 0.5;
 }
+
+//dungeon.js
