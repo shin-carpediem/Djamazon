@@ -36,3 +36,8 @@ def quiz(request):
 @login_required
 def slot(request):
     return render(request, 'games/slot.html')
+
+
+@login_required
+def touch(request):
+    return render(request, 'games/touch.html')

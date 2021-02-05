@@ -10,4 +10,5 @@ urlpatterns = [
     path('games/typing/', views.typing, name='typing'),
     path('games/quiz/', views.quiz, name='quiz'),
     path('games/slot/', views.slot, name='slot'),
+    path('games/touch/', views.touch, name='touch'),
 ]

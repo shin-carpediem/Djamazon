@@ -3,11 +3,13 @@
 {% load humanize %}
 
 {% block content %}
-<div class="slot-wrapper text-center">
-  <div class="slot-area d-flex justify-content-center align-items-center p-5 m-5 row">
-    <div class="col-6 container pt-5 pb-4">
-    </div>
+<div class="slot-wrapper d-flex justify-content-center text-center row">
+  <div class="col-sm-4 col-12">
+    <main class="slot-area p-3 mt-5 mb-3 d-flex justify-content-around">
+      <!-- slot.js -->
+    </main>
+    <div id="spin" class="mb-5">SPIN</div>
   </div>
-  <div>Point: {{ user.point | intcomma }}</div>
+  <div class="w-100">Point: {{ user.point | intcomma }}</div>
 </div>
 {% endblock %}
