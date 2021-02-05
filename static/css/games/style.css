@@ -434,6 +434,14 @@ html body .slot-wrapper #spin {
   font-size: larger;
 }
 
+html body .dungeon-wrapper {
+  background-color: #000;
+}
+
+html body .dungeon-wrapper .dungeon-area {
+  background-color: #fff;
+}
+
 .box {
   width: 100px;
   height: 100px;
