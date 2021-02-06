@@ -47,7 +47,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField("is_staff", default=False)
     is_active = models.BooleanField("is_active", default=True)
     date_joined = models.DateTimeField("date_joined", default=timezone.now)
-    is_img = models.ImageField("is_img", upload_to="is_img", max_length=100, blank=True, null=True)
+    is_img = models.ImageField(
+        "is_img", upload_to="is_img", max_length=50, blank=True, null=True)
 
     objects = UserManager()
 
@@ -58,3 +59,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = "user"
         verbose_name_plural = "users"
+
+
+# adminページ以外でユーザーが自分でis_imgをアップロードして保存するために使用
+class UserIsImg(User):
+    is_img = User.is_img
+
+    class Meta:
+        verbose_name = "is_img"

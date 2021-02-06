@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.core.mail import send_mail
+from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 from django.template.loader import get_template
 from django.shortcuts import get_object_or_404, render, redirect
@@ -422,14 +423,35 @@ def account(request):
     return render(request, 'app/account.html')
 
 
+# @login_required
+# def is_img(request):
+#     if request.method == 'POST':
+#         form = AddUserImgForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('app/account.html')
+#     return render(request, 'app/account.html', {'form': form})
+
+# @login_required
+# def is_img(request):
+#     if request.method == 'POST' and request.FILES['htmlfile']:
+#         htmlfile = request.FILES['htmlfile']
+#         fileobject = FileSystemStorage()
+#         filedata = fileobject.save(htmlfile.name, htmlfile)
+#         return render(request, 'app/account.html')
+#     return render(request, 'app/account.html')
+
+
 @login_required
-@require_POST
 def is_img(request):
-    form = AddUserImgForm(request.POST, request.FILES)
-    if form.is_valid():
-        form.save()
-        return redirect('app/account.html')
-    return render(request, 'app/account.html')
+    if request.method == 'POST':
+        is_img = AddUserImgForm(request.POST, request.FILES)
+        if is_img.is_valid():
+            is_img.save()
+            return render('app/account.html')
+        else:
+            is_img = AddUserImgForm()
+    return render(request, 'app/account.html', {'is_img': is_img})
 
 
 def count_good(self):

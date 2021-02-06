@@ -16,9 +16,10 @@
             <img src="{% static 'img/app/user_default.png' %}" alt="user_default">
           {% endif %}
         </div>
-        <form method="post" enctype="multipart/form-data">{% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit">Upload</button>
+        <form method="POST" enctype="multipart/form-data" action="{% url 'app:is_img' %}">{% csrf_token %}
+          {{ form.is_img }}
+          <input type="file" name="is_img">
+          <input type="submit" name="is_img" value="upload">
         </form>
       </div>
       <ul class="col-8">
