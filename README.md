@@ -10,8 +10,8 @@ Technique/Version:
 local
 
 - Python==3.8.6
-- pip==20.2.1
-- Django==3.0.10
+- pip==21.0.1
+- Django==3.1.6
 - django-debug-toolbar==3.2.0
 - Bootstrap(CDN)==4.5.0
 - jQuery(CDN)==3.5.1
