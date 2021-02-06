@@ -169,7 +169,7 @@ html {
         position: relative;
         .game-touch {
           position: absolute;
-          top: 440px;
+          top: 300px;
           left: 200px;
           background-color: $light-grey;
           border: solid 2px $dark-grey;
@@ -384,7 +384,54 @@ html {
     // end of slot.html
     // touch.html
     .touch-wrapper {
+      background: #ccc;
+      color: $white;
+      font-size: 16px;
+      font-weight: bold;
       .touch-area {
+        /* 50px * 2 + 10px * 2 */
+        width: 120px;
+        margin: 16px auto;
+        #touch-timer {
+          margin-bottom: 8px;
+          font-size: 20px;
+        }
+        #touch-board {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 0 8px;
+          padding: 10px;
+          background: $white;
+          border-radius: 4px;
+          li {
+            background: #00aaff;
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            line-height: 40px;
+            box-shadow: 0 4px 0 #0088cc;
+          }
+          .pressed {
+            background-color: #ccc;
+            box-shadow: none;
+            margin-top: 9px;
+            margin-bottom: 1px;
+          }
+        }
+        #touch-btn {
+          cursor: pointer;
+          user-select: none;
+          background: #f44336;
+          padding: 8px;
+          border-radius: 4px;
+          box-shadow: 0 4px 0 #d1483e;
+          &:active {
+            margin-top: 12px;
+            box-shadow: none;
+          }
+        }
       }
     }
     // end of touch.html
@@ -426,5 +473,3 @@ html {
 .inactive {
   opacity: 0.5;
 }
-
-//dungeon.js

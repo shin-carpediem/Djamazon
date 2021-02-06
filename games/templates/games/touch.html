@@ -3,11 +3,13 @@
 {% load humanize %}
 
 {% block content %}
-<div class="touch-wrapper d-flex justify-content-center text-center row">
-  <div class="col-sm-4 col-12">
-    <div class="touch-area p-3 mt-5 mb-3 d-flex justify-content-around">
-    </div>
+<div class="touch-wrapper text-center">
+  <div class="touch-area">
+    <div id="touch-timer" class="text-right">0.0</div>
+      <ul id="touch-board" class="text-center">
+      </ul>
+    <div id="touch-btn">START</div>
   </div>
-  <div class="w-100">Point: {{ user.point | intcomma }}</div>
+  <div>Point: {{ user.point | intcomma }}</div>
 </div>
 {% endblock %}

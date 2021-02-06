@@ -196,7 +196,7 @@ html body .front .each-game-container {
 
 html body .front .each-game-container .game-touch {
   position: absolute;
-  top: 440px;
+  top: 300px;
   left: 200px;
   background-color: #ececec;
   border: solid 2px #504d4d;
@@ -432,6 +432,75 @@ html body .slot-wrapper #spin {
       -ms-user-select: none;
           user-select: none;
   font-size: larger;
+}
+
+html body .touch-wrapper {
+  background: #ccc;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+html body .touch-wrapper .touch-area {
+  /* 50px * 2 + 10px * 2 */
+  width: 120px;
+  margin: 16px auto;
+}
+
+html body .touch-wrapper .touch-area #touch-timer {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+html body .touch-wrapper .touch-area #touch-board {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 0 8px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+html body .touch-wrapper .touch-area #touch-board li {
+  background: #00aaff;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  line-height: 40px;
+  -webkit-box-shadow: 0 4px 0 #0088cc;
+          box-shadow: 0 4px 0 #0088cc;
+}
+
+html body .touch-wrapper .touch-area #touch-board .pressed {
+  background-color: #ccc;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-top: 9px;
+  margin-bottom: 1px;
+}
+
+html body .touch-wrapper .touch-area #touch-btn {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: #f44336;
+  padding: 8px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 4px 0 #d1483e;
+          box-shadow: 0 4px 0 #d1483e;
+}
+
+html body .touch-wrapper .touch-area #touch-btn:active {
+  margin-top: 12px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 html body .dungeon-wrapper {
