@@ -24,6 +24,7 @@ urlpatterns = [
     path('order_history/', views.order_history, name='order_history'),
     path('search/', views.SearchResultView.as_view(), name='result'),
     path('account/', views.account, name='account'),
+    path('is_img/', views.is_img, name='is_img'),
     path('owner_profile/', views.owner_profile, name='owner_profile'),
     path('policy/', views.policy, name='policy'),
     path('terms/', views.terms, name='terms'),

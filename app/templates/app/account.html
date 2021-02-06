@@ -7,18 +7,32 @@
 
   <h2 class="d-flex justify-content-center p-5">Account</h2>
   <div class="row">
-    <div class="col-6">
-      <ul>
+    <div class="col-sm-6 col-12 row">
+      <div class="col-4">
+        <div class="is_img">
+          {% if user.is_img %}
+            <img src="{{ user.is_img.url }}" alt="is_img">
+          {% else %}
+            <img src="{% static 'img/app/user_default.png' %}" alt="user_default">
+          {% endif %}
+        </div>
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Upload</button>
+        </form>
+      </div>
+      <ul class="col-8">
         <li>Email: {{ user.email }}</li>
         <li>Password: ********</li>
         <li>Point: {{ user.point | intcomma }}</li>
+        <li>Last Login: {{ user.last_login }}</li>
         <li>Started from: {{ user.date_joined }}</li>
       </ul>
       <ul>
         <button id="onClick">Reset Password</button>
       </ul>
     </div>
-    <div class="col-6 calendar">
+    <div class="col-sm-6 col-12 calendar">
       <table class="text-center">
         <thead>
           <tr>
@@ -55,7 +69,7 @@
     minutes, check your spam folder.</p>
 
 
-  <h2 class="d-flex justify-content-center p-5">Djamazon Software</h2>
+  <h2 class="d-flex justify-content-center p-5 text-center">Djamazon Software</h2>
 
   <div class="row software-wrapper">
     <div class="col-sm-2 col-6 each-wrapper">

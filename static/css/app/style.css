@@ -107,6 +107,13 @@ html body header .header-wrapper .header-menu .logout {
   cursor: pointer;
 }
 
+html body header .header-wrapper .header-menu .is_img {
+  border-radius: 50%;
+  border: 1px solid #000;
+  width: 25px;
+  height: auto;
+}
+
 @media screen and (max-width: 767px) {
   html body header .header-wrapper #menuToggle {
     position: relative;
@@ -481,6 +488,13 @@ html body .container .message-warning {
   padding: 10px;
   padding-left: 30px;
   border-radius: 4px;
+}
+
+html body .container .account-wrapper .is_img {
+  border-radius: 50%;
+  border: 1px solid #000;
+  width: 100px;
+  height: auto;
 }
 
 html body .container .account-wrapper #onClickIn {

@@ -115,6 +115,12 @@ html {
           .logout {
             cursor: pointer;
           }
+          .is_img {
+            border-radius: 50%;
+            border: 1px solid $black;
+            width: 25px;
+            height: auto;
+          }
         }
         // end of PC size
         // mobile size humbergar menu
@@ -412,6 +418,12 @@ html {
       }
       // account.html
       .account-wrapper {
+        .is_img {
+          border-radius: 50%;
+          border: 1px solid $black;
+          width: 100px;
+          height: auto;
+        }
         #onClickIn {
           display: none;
         }

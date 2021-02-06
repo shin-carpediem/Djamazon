@@ -18,7 +18,7 @@ import smtplib
 import json
 import requests
 from users.models import UserManager, User
-from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
+from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm, AddUserImgForm
 from .models import Product, Sale, GoodManager, Good
 from ecsite.settings import DEBUG
 
@@ -419,6 +419,16 @@ class SearchResultView(ListView):
 
 @login_required
 def account(request):
+    return render(request, 'app/account.html')
+
+
+@login_required
+@require_POST
+def is_img(request):
+    form = AddUserImgForm(request.POST, request.FILES)
+    if form.is_valid():
+        form.save()
+        return redirect('app/account.html')
     return render(request, 'app/account.html')
 
 

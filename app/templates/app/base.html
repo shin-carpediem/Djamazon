@@ -131,7 +131,11 @@
           </span>
           <span class="col-lg-2 col-sm-4 col-6">
             <a href="{% url 'app:account' %}">
-              <i class="fas fa-user"></i>
+              {% if user.is_img %}
+                <img src="{{ user.is_img.url }}" class="is_img" alt="is_img">
+              {% else %}
+                <img src="{% static 'img/app/user_default.png' %}" class="is_img" alt="user_default">
+              {% endif %}
               {% trans "Account" %}
             </a>
           </span>
@@ -190,9 +194,10 @@
                 {% trans "Logout" %}
               </li>
               <li>
-                <i class="fas fa-coins pr-2"></i>
-                {% trans "Point: " %}
-                {{ user.point | intcomma }}
+                <a href="{% url 'app:account' %}">
+                  <i class="fas fa-user pr-2"></i>
+                  {% trans "Account" %}
+                </a>
               </li>
               {% else %}
               <li>
