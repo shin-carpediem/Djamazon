@@ -2,14 +2,14 @@
 from django.test import TestCase
 # from users.models import UserManager, User
 # from .forms import CustomUserCreationForm
-# from .views import index, signup
+# from .views import top, signup
 
 
 # https://codelab.website/django-testcode/
 # https://selfs-ryo.com/detail/django_test_1
 # https://wonderwall.hatenablog.com/entry/2018/03/21/190000
 # # Create your tests here.
-# class TestIndex(TestCase):
+# class TestTop(TestCase):
 #     def setUp(self):
 #         # テスト実行前の処理
 #         # ログイン可能なユーザを1名追加しておきます
@@ -17,8 +17,8 @@ from django.test import TestCase
 #                                  email='test@test.com',
 #                                  password='test')
 
-#     def TestIndex(self):
-#         # indexの画面へアクセスできるかどうかをテストする
+#     def TestTop(self):
+#         # topの画面へアクセスできるかどうかをテストする
 #         # この画面はログインしているユーザ出ないとアクセスできません
 #         client = self.client
 

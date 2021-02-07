@@ -60,14 +60,18 @@ def paginate_queryset(request, queryset, count):
     return page_obj
 
 
-def index(request):
+def login(request):
+    return render(request, 'app/login.html')
+
+
+def top(request):
     products = Product.objects.all().order_by('-id')
     page_obj = paginate_queryset(request, products, 16)
     context = {
         'products': page_obj.object_list,
         'page_obj': page_obj,
     }
-    return render(request, 'app/index.html', context)
+    return render(request, 'app/top.html', context)
 
 
 # [pending] tried to separate authentication, but i did not know how to get the exact user's info,
@@ -290,7 +294,7 @@ def like(request):
 def fav_products(request):
     user = request.user
     products = user.fav_products.all().order_by('-id')
-    return render(request, 'app/index.html', {'products': products})
+    return render(request, 'app/top.html', {'products': products})
 
 
 @login_required
@@ -347,7 +351,7 @@ def cart(request):
         # for checking bug is happening here.
         else:
             print('add_to_cart_form is not valid.')
-            return redirect('app:index')
+            return redirect('app:top')
         # end/for checking bug is happening here.
     context = {
         'purchase_form': purchase_form,

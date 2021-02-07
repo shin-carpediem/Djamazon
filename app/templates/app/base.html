@@ -102,7 +102,7 @@
         <div class="header-menu pt-3 row d-sm-flex d-none justify-content-center align-items-center text-center">
           {% if request.user.is_authenticated %}
           <span class="col-lg-2 col-sm-4 col-6">
-            <a href="{% url 'app:index' %}">
+            <a href="{% url 'app:top' %}">
               <i class="fas fa-home pr-2"></i>
               {% trans "Home" %}
             </a>
@@ -166,7 +166,7 @@
             <ul id="menu">
               {% if request.user.is_authenticated %}
               <li>
-                <a href="{% url 'app:index' %}">
+                <a href="{% url 'app:top' %}">
                   <i class="fas fa-home pr-2"></i>
                   {% trans "Home" %}
                 </a>

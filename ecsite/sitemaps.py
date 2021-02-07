@@ -8,7 +8,7 @@ class StaticViewSitemap(Sitemap):
     def items(self):
         return [
             'users:owner_profile',
-            'app:index',
+            'app:top',
             'app:cart',
             'app:login',
             'app:order_history',
@@ -34,7 +34,7 @@ class StaticViewSitemap(Sitemap):
     def changefreq(self, obj):
         if obj == 'users:owner_profile':
             return 'always'
-        elif obj == 'app:index':
+        elif obj == 'app:top':
             return 'always'
         elif obj == 'study:index':
             return 'always'
@@ -43,7 +43,7 @@ class StaticViewSitemap(Sitemap):
         return 'never'
 
     def priority(self, obj):
-        if obj == 'app:index':
+        if obj == 'app:top':
             return 0.8
         elif obj == 'study:index':
             return 0.6
