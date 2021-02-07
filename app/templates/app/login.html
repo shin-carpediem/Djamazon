@@ -7,10 +7,10 @@
   <p>Username or password is wrong.</p>
   {% endif %}
 
-  <h2 class="d-flex justify-content-center p-5">Login</h2>
+  <h2 class="d-flex justify-content-center pt-sm-5 pt-0 pb-5">Login</h2>
 
   <div class="row">
-    <div class="col-sm-4 col-12 pl-sm-5 pl-0">
+    <div class="col-4 pl-sm-5 pl-4">
       <div>
         <label>Email</label><br>
         <!--emailではない-->
@@ -24,14 +24,14 @@
         <input type="submit" value="Login">
       </div>
       <p class="social_account pb-2">
-          ..or login with your Google account
+          login with your Google account
       </p>
       <a href="{% url 'social:begin' 'google-oauth2' %}">
-          <img src="{% static 'img/app/google.png' %}" style="width: 30px; height: auto;" alt="">
+          <img src="{% static 'img/app/google.png' %}" style="width: 30px; height: auto;" alt="google.png">
       </a>
     </div>
 
-    <div class="col-sm-8 d-sm-block d-none">
+    <div class="col-8">
       <img src="{% static 'img/app/signup_login.png' %}" alt="signup_login">
     </div>
   </div>
