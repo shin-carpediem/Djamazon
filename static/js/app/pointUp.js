@@ -1,16 +1,6 @@
+// https://qiita.com/nishinoshake/items/b91236c77b1987036656
 "use strict";
 
-{
-  async function callUserPointApi() {
-    const res = await fetch("http://127.0.0.1:8000/api/user/");
-    const users = await res.json();
-    console.log(users);
-  }
-
-  callUserPointApi();
-}
-
-// https://qiita.com/nishinoshake/items/b91236c77b1987036656
 {
   const duration = 1000;
   const window = document.body;
