@@ -14,21 +14,20 @@
       this.stop = document.createElement("div");
       this.stop.textContent = "STOP";
       this.stop.classList.add("stop", "inactive");
-      // ストップボタンを押すとforEachループによるグルグル回転が止まるようにする
       this.stop.addEventListener("click", () => {
         if (this.stop.classList.contains("inactive")) {
           return;
         }
         this.stop.classList.add("inactive");
+
         clearTimeout(this.timeoutId);
 
-        panelsleft--;
+        panelsLeft--;
 
-        if (panelsleft === 0) {
-          // 結果判定後も遊べるようにする
-          spin.classList.remove("inactive");
-          panelsleft = 3;
+        if (panelsLeft === 0) {
           checkResult();
+          spin.classList.remove("inactive");
+          panelsLeft = 3;
         }
       });
 
@@ -45,12 +44,11 @@
         "./../../../static/img/games/slot/bell.png",
         "./../../../static/img/games/slot/cherry.png",
       ];
-      return images[Math.floor(Math.random() * images * length)];
+      return images[Math.floor(Math.random() * images.length)];
     }
 
     spin() {
       this.img.src = this.getRandomImage();
-      // 50ms毎に次のspinを繰り返す
       this.timeoutId = setTimeout(() => {
         this.spin();
       }, 50);
@@ -70,7 +68,6 @@
     }
   }
 
-  // 個々のパネルではなく、パネル同士の比較をするために、上の外で記述する
   function checkResult() {
     if (panels[0].isUnmatched(panels[1], panels[2])) {
       panels[0].unmatch();
@@ -85,9 +82,7 @@
 
   const panels = [new Panel(), new Panel(), new Panel()];
 
-  // 一致しなかったパネルの色を薄くするために、ゲームの終了を管理する
-  // そのために、ゲーム中残っているパネルの枚数を関数で管理する
-  let panelsleft = 3;
+  let panelsLeft = 3;
 
   const spin = document.getElementById("spin");
   spin.addEventListener("click", () => {
@@ -95,6 +90,7 @@
       return;
     }
     spin.classList.add("inactive");
+
     panels.forEach((panel) => {
       panel.activate();
       panel.spin();
