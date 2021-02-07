@@ -4,7 +4,7 @@ const logOutConfirm = () => {
   logout.addEventListener("click", () => {
     const answer = confirm("Are you sure logout?");
     if (answer) {
-      window.location.href = "https://shinac.pythonanywhere.com/signup/";
+      window.location.href = "https://shinac.pythonanywhere.com/logout/";
       console.log("Logout succeeded.");
     } else {
       console.log("Logout cancelled.");
