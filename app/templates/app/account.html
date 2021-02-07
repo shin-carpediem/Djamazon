@@ -6,8 +6,8 @@
 <div class="m-auto account-wrapper">
 
   <h2 class="d-flex justify-content-center p-5">Account</h2>
-  <div class="row">
-    <div class="col-sm-6 col-12 row">
+  <div class="row profile-wrapper">
+    <div class="col-sm-6 col-12 row profile p-4">
       <div class="col-4">
         <div class="is_img">
           {% if user.is_img %}
@@ -25,15 +25,20 @@
       <ul class="col-8">
         <li>Email: {{ user.email }}</li>
         <li>Password: ********</li>
-        <li>Point: {{ user.point | intcomma }}</li>
         <li>Last Login: {{ user.last_login }}</li>
         <li>Started from: {{ user.date_joined }}</li>
+        <li class="pt-5 point">
+          Point:
+          <span id="pointUp" data-from="0" data-to="{{ user.point }}">0</span>
+        </li>
       </ul>
       <ul>
         <button id="onClick">Reset Password</button>
       </ul>
     </div>
-    <div class="col-sm-6 col-12 calendar">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-3 col-12 calendar">
       <table class="text-center">
         <thead>
           <tr>

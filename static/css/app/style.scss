@@ -418,11 +418,22 @@ html {
       }
       // account.html
       .account-wrapper {
-        .is_img {
-          border-radius: 50%;
-          border: 1px solid $black;
-          width: 100px;
-          height: auto;
+        .profile-wrapper {
+          margin: 0 auto;
+          .profile {
+            border: 1px solid transparent;
+            background-color: $white;
+            border-radius: 10px;
+            .is_img {
+              border-radius: 50%;
+              border: 1px solid $black;
+              width: 100px;
+              height: auto;
+            }
+            .point {
+              font-size: 26px;
+            }
+          }
         }
         #onClickIn {
           display: none;
