@@ -4,30 +4,14 @@
 {% block content %}
 <div class="welcome-message">
   <div class="fly-in">
-    <div>
-      Welcome to DJAMAZON!!
-    </div>
-    <div>
-      YOU will FIND
-    </div>
-    <div>
-      AWESOME
-    </div>
-    <div>
-      UNIQUE
-    </div>
-    <div>
-      TECHNICAL ITEMS
-    </div>
-    <div>
-      FROM NOW
-    </div>
-    <div>
-      YOU are OUR FAMILY
-    </div>
-    <div>
-      ENJOY Shopping
-    </div>
+    <div>Welcome to DJAMAZON!!</div>
+    <div>YOU will FIND</div>
+    <div>AWESOME</div>
+    <div>UNIQUE</div>
+    <div>TECHNICAL ITEMS</div>
+    <div>FROM NOW</div>
+    <div>YOU are OUR FAMILY</div>
+    <div>ENJOY Shopping</div>
   </div>
 </div>
 
@@ -40,34 +24,30 @@
   <h2 class="d-flex justify-content-center pb-5">Login</h2>
 
   <div class="row">
-    <div class="col-sm-8 col-12">
-
+    <div class="col-sm-4 col-12 pl-sm-5 pl-0">
       <div>
         <label>Email</label><br>
         <!--emailではない-->
-        <input name="username">
-        <br>
+        <input name="username"><br>
       </div>
-
       <div>
         <label>Password</label><br>
-        <input type="password" name="password">
-        <br>
+        <input type="password" name="password"><br>
       </div>
-
       <div class="pt-3 pb-5">
         <input type="submit" value="Login">
       </div>
-
+      <p class="social_account pb-2">
+          ..or login with your Google account
+      </p>
+      <a href="{% url 'social:begin' 'google-oauth2' %}">
+          <img src="{% static 'img/app/google.png' %}" style="width: 30px; height: auto;" alt="">
+      </a>
     </div>
 
-    <div class="col-sm-4 col-12">
-      <ul class="d-flex align-items-center"></ul>
-        <li class="social_account pb-2">..or signup with<br> your Google account</li>
-        <li class="pb-5"><a href="{% url 'social:begin' 'google-oauth2' %}"><img src="{% static 'img/app/google.png' %}" style="width: 30px; height: auto;" alt=""></a></li>
-      </ul>
+    <div class="col-sm-8 d-sm-block d-none">
+      <img src="{% static 'img/app/signup_login.png' %}" alt="signup_login">
     </div>
-
   </div>
 </form>
 {% endblock %}
