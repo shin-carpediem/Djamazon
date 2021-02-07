@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('initial_point', 'email', 'point',
-                  'fav_products', 'is_staff', 'is_active', 'date_joined')
+                  'fav_products', 'is_staff', 'is_active', 'date_joined', 'is_img')
 
 
 # app
