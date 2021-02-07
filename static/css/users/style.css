@@ -29,6 +29,10 @@ html {
   font-family: "Righteous", cursive;
 }
 
+html body {
+  background-color: #F8F0E9;
+}
+
 html body .back {
   position: relative;
   z-index: -1;
