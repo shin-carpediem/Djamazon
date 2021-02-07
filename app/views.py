@@ -448,7 +448,7 @@ def is_img(request):
         is_img = AddUserImgForm(request.POST, request.FILES)
         if is_img.is_valid():
             is_img.save()
-            # return render('app/account.html')
+            return render('app/account.html')
         else:
             is_img = AddUserImgForm()
     return render(request, 'app/account.html', {'is_img': is_img})
