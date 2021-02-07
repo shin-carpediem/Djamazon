@@ -494,6 +494,18 @@ html body .container .account-wrapper .profile-wrapper {
   margin: 0 auto;
 }
 
+html body .container .account-wrapper .profile-wrapper button {
+  color: #fff;
+  border-radius: 4px;
+  background: #0f4b34;
+  background-color: #0f4b34;
+}
+
+html body .container .account-wrapper .profile-wrapper button:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
 html body .container .account-wrapper .profile-wrapper .profile {
   border: 1px solid transparent;
   background-color: #fff;
@@ -507,12 +519,36 @@ html body .container .account-wrapper .profile-wrapper .profile .is_img {
   height: auto;
 }
 
+html body .container .account-wrapper .profile-wrapper .profile .submit {
+  color: #fff;
+  border-radius: 4px;
+  background: #36a57b;
+  border-color: #36a57b;
+}
+
+html body .container .account-wrapper .profile-wrapper .profile .submit:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
 html body .container .account-wrapper .profile-wrapper .profile .point {
   font-size: 26px;
 }
 
 html body .container .account-wrapper #onClickIn {
   display: none;
+}
+
+html body .container .account-wrapper button {
+  color: #fff;
+  border-radius: 4px;
+  background: #0f4b34;
+  background-color: #0f4b34;
+}
+
+html body .container .account-wrapper button:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 html body .container .account-wrapper #onClickInForPwSend {

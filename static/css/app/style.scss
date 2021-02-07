@@ -420,6 +420,15 @@ html {
       .account-wrapper {
         .profile-wrapper {
           margin: 0 auto;
+          button {
+            color: $white;
+            border-radius: 4px;
+            background: $green;
+            background-color: $green;
+            &:hover {
+              transform: scale(0.9);
+            }
+          }
           .profile {
             border: 1px solid transparent;
             background-color: $white;
@@ -430,6 +439,15 @@ html {
               width: 100px;
               height: auto;
             }
+            .submit {
+              color: $white;
+              border-radius: 4px;
+              background: $django-green;
+              border-color: $django-green;
+              &:hover {
+                transform: scale(0.9);
+              }
+            }
             .point {
               font-size: 26px;
             }
@@ -437,6 +455,15 @@ html {
         }
         #onClickIn {
           display: none;
+        }
+        button {
+          color: $white;
+          border-radius: 4px;
+          background: $green;
+          background-color: $green;
+          &:hover {
+            transform: scale(0.9);
+          }
         }
         #onClickInForPwSend {
           display: none;
