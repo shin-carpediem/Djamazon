@@ -172,7 +172,7 @@ STATICFILES_DIRS = [
 ]
 # when DEBUG==False, Django automatically load collected static file.
 # this is for Django to use 'collectstatic'.
-STATIC_ROOT = 'assets'
+STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

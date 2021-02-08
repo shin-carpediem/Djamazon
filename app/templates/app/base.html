@@ -72,7 +72,7 @@
         </h1>
 
         <div class="col-lg-6 col-8 pt-sm-4 row header-right d-flex justify-content-center align-items-center text-center">
-          <div class="btn-group lang-change col-sm-4 col-4 text-right">
+          <div class="btn-group lang-change col-2 text-right">
             <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
               <input name="next" type="hidden" value="{{ redirect_to }}">
               <select name="language" class="choice" id="changeLang">
@@ -85,10 +85,10 @@
                 </option>
                 {% endfor %}
               </select>
-              <button class="set-button" id="langBtn" style="visibility: hidden;"></button>
+              <button class="set-button" id="langBtn" style="display: none;"></button>
             </form>
           </div>
-          <div class="text-left search col-8">
+          <div class="text-left search col-10">
             <form action="{% url 'app:result' %}" method="GET">
               <div class="search-wrapper w-100">
                 <input type="text" placeholder="{% trans 'Search' %}" name="q" class="search-input">
