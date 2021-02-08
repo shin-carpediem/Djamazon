@@ -2,11 +2,10 @@
 "use strict";
 
 {
-  const duration = 1000;
-  const window = document.body;
+  const duration = 1500;
   const pointup = document.getElementById("pointUp");
 
-  window.addEventListener("mouseover", (e) => {
+  window.addEventListener("load", (e) => {
     const from = parseInt(pointup.dataset.from, 10);
     const to = parseInt(pointup.dataset.to, 10);
     const startTime = Date.now();
