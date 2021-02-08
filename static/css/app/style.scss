@@ -215,11 +215,9 @@ html {
                 border-radius: 4px;
               }
               .search-button {
+                @include button();
                 border-radius: transparent;
                 border-radius: 4px;
-                &:hover {
-                  transform: scale(0.9);
-                }
               }
             }
           }

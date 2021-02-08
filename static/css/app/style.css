@@ -209,6 +209,8 @@ html body header .header-wrapper .header-right .search .search-wrapper .search-i
 }
 
 html body header .header-wrapper .header-right .search .search-wrapper .search-button {
+  text-align: center;
+  display: inline-block;
   border-radius: transparent;
   border-radius: 4px;
 }

@@ -5,6 +5,8 @@ from django.utils.translation import ugettext_lazy as _
 from .models import User
 
 # Register your models here.
+
+
 class MyUserChangeForm(UserChangeForm):
     class Meta:
         model = User
@@ -20,11 +22,13 @@ class MyUserCreationForm(UserCreationForm):
 class MyUserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('email', 'password', 'fav_products', 'is_img')}),
-        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
+        (_('Permissions'), {'fields': ('is_active', 'is_staff',
+                                       'is_superuser', 'groups', 'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
     add_fieldsets = (
-        (None, {'classes': ('wide', ), 'fields': ('email', 'password1', 'password2'),}),
+        (None, {'classes': ('wide', ), 'fields': (
+            'email', 'password1', 'password2'), }),
     )
     form = MyUserChangeForm
     add_form = MyUserCreationForm
@@ -32,5 +36,6 @@ class MyUserAdmin(UserAdmin):
     list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups')
     search_fields = ('email', )
     ordering = ('email', )
+
 
 admin.site.register(User, MyUserAdmin)
