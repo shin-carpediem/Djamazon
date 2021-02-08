@@ -85,12 +85,6 @@ html body header .header-wrapper {
 html body header .header-wrapper .header-title {
   height: 100%;
   line-height: 70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
   -webkit-backface-visibility: hidden;
@@ -195,10 +189,12 @@ html body header .header-wrapper .header-menu .is_img {
 }
 
 html body header .header-wrapper .header-right .lang-change .choice {
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 html body header .header-wrapper .header-right .lang-change .set-button {
+  text-align: center;
+  display: inline-block;
   background-color: transparent;
   border: transparent;
 }
@@ -209,12 +205,12 @@ html body header .header-wrapper .header-right .lang-change .set-button:hover {
 }
 
 html body header .header-wrapper .header-right .search .search-wrapper .search-input {
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 html body header .header-wrapper .header-right .search .search-wrapper .search-button {
   border-radius: transparent;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 html body header .header-wrapper .header-right .search .search-wrapper .search-button:hover {
@@ -247,8 +243,8 @@ html body .container {
 }
 
 html body .container .welcome-button {
-  display: inline-block;
   text-align: center;
+  display: inline-block;
   background-color: #36a57b;
   font-size: 16px;
   color: #ececec;
@@ -361,8 +357,8 @@ html body .container .product-detail-info .is_faved {
 }
 
 html body .container .product-detail-info .purchase-button {
-  display: inline-block;
   text-align: center;
+  display: inline-block;
   background-color: #36a57b;
   font-size: 16px;
   color: #ececec;
@@ -387,8 +383,8 @@ html body .container .cart .purchase-form {
 }
 
 html body .container .cart .purchase-form .purchase-button {
-  display: inline-block;
   text-align: center;
+  display: inline-block;
   background-color: #36a57b;
   font-size: 16px;
   color: #ececec;
@@ -495,6 +491,8 @@ html body .container .account-wrapper .profile-wrapper {
 }
 
 html body .container .account-wrapper .profile-wrapper button {
+  text-align: center;
+  display: inline-block;
   color: #fff;
   border-radius: 4px;
   background: #0f4b34;
@@ -520,6 +518,8 @@ html body .container .account-wrapper .profile-wrapper .profile .is_img {
 }
 
 html body .container .account-wrapper .profile-wrapper .profile .submit {
+  text-align: center;
+  display: inline-block;
   color: #fff;
   border-radius: 4px;
   background: #36a57b;
@@ -540,6 +540,8 @@ html body .container .account-wrapper #onClickIn {
 }
 
 html body .container .account-wrapper button {
+  text-align: center;
+  display: inline-block;
   color: #fff;
   border-radius: 4px;
   background: #0f4b34;

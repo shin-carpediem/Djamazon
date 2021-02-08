@@ -6,6 +6,14 @@ $light-grey: #ececec;
 $grey: #ececec4d;
 $black: #000;
 
+@mixin button {
+  text-align: center;
+  display: inline-block;
+  &:hover {
+    transform: scale(0.9);
+  }
+}
+
 ul {
   list-style: none;
 }
@@ -193,24 +201,22 @@ html {
         .header-right {
           .lang-change {
             .choice {
-              border-radius: 5px;
+              border-radius: 4px;
             }
             .set-button {
+              @include button;
               background-color: transparent;
               border: transparent;
-              &:hover {
-                transform: scale(0.9);
-              }
             }
           }
           .search {
             .search-wrapper {
               .search-input {
-                border-radius: 5px;
+                border-radius: 4px;
               }
               .search-button {
                 border-radius: transparent;
-                border-radius: 5px;
+                border-radius: 4px;
                 &:hover {
                   transform: scale(0.9);
                 }
@@ -235,8 +241,7 @@ html {
       }
       // welcome.html
       .welcome-button {
-        display: inline-block;
-        text-align: center;
+        @include button;
         background-color: $django-green;
         font-size: 16px;
         color: $light-grey;
@@ -244,9 +249,6 @@ html {
         padding: 10px 16px;
         border-radius: 10px;
         border: transparent;
-        &:hover {
-          transform: scale(0.9);
-        }
       }
       // index.html
       .product {
@@ -302,17 +304,13 @@ html {
           align-items: center;
         }
         .fav_button {
-          text-align: center;
-          display: inline-block;
+          @include button;
           padding: 8px 16px;
           border: 2px solid $green;
           border-radius: 10px;
           font-size: 16px;
           font-weight: bold;
           color: $green;
-          &:hover {
-            transform: scale(0.9);
-          }
         }
         .is_faved {
           background-color: $green;
@@ -320,8 +318,7 @@ html {
           color: $light-grey;
         }
         .purchase-button {
-          display: inline-block;
-          text-align: center;
+          @include button;
           background-color: $django-green;
           font-size: 16px;
           color: $light-grey;
@@ -329,9 +326,6 @@ html {
           padding: 10px 16px;
           border-radius: 10px;
           border: transparent;
-          &:hover {
-            transform: scale(0.9);
-          }
         }
         .like-button {
           cursor: pointer;
@@ -343,8 +337,7 @@ html {
           width: 100%;
           margin: 10px auto;
           .purchase-button {
-            display: inline-block;
-            text-align: center;
+            @include button;
             background-color: $django-green;
             font-size: 16px;
             color: $light-grey;
@@ -352,9 +345,6 @@ html {
             padding: 10px 16px;
             border-radius: 10px;
             border: transparent;
-            &:hover {
-              transform: scale(0.9);
-            }
           }
         }
         .purchase-form-container {
@@ -419,13 +409,11 @@ html {
         .profile-wrapper {
           margin: 0 auto;
           button {
+            @include button;
             color: $white;
             border-radius: 4px;
             background: $green;
             background-color: $green;
-            &:hover {
-              transform: scale(0.9);
-            }
           }
           .profile {
             border: 1px solid transparent;
@@ -438,13 +426,11 @@ html {
               height: auto;
             }
             .submit {
+              @include button;
               color: $white;
               border-radius: 4px;
               background: $django-green;
               border-color: $django-green;
-              &:hover {
-                transform: scale(0.9);
-              }
             }
             .point {
               font-size: 26px;
@@ -455,13 +441,11 @@ html {
           display: none;
         }
         button {
+          @include button;
           color: $white;
           border-radius: 4px;
           background: $green;
           background-color: $green;
-          &:hover {
-            transform: scale(0.9);
-          }
         }
         #onClickInForPwSend {
           display: none;
