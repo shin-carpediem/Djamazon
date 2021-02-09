@@ -16,20 +16,20 @@ local
 - Bootstrap(CDN)==4.5.0
 - jQuery(CDN)==3.5.1
 - SCSS
+- Darkmode.Js(CDN)==1.5.7
 - npm==6.14.8
 - webpack=5.18.0
 - webpack-cli=4.4.0
-- webpack-bundle-tracker@0.4.3
+- webpack-bundle-tracker=0.4.3
 - django-webpack-loader==0.7.0
-- SQlite3==3.32.3
-- GitGuardian
-- CircleCI
+- SQlite==3.32.3
+- CircleCI==0.2.1
 
 production
 
-- Pythonanywhere
+- Pythonanywhere(Free plan)
 - Python==3.6.0
-- MySQL==5.6.48
+- MySQL==5.6.48(switching to sqlite now)
 
 ## How to SetUp with your local server
 

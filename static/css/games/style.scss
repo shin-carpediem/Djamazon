@@ -8,6 +8,17 @@ $dark-grey: rgb(80, 77, 77);
 $light-grey: #ececec;
 $white: #fff;
 
+@mixin game-x {
+  position: absolute;
+  background-color: $light-grey;
+  border: solid 2px $dark-grey;
+  border-radius: 30px;
+  transition: 0.5s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
 ul {
   list-style: none;
 }
@@ -63,6 +74,9 @@ html {
     span {
       color: $black;
     }
+    #pointUp {
+      color: $white;
+    }
     li {
       list-style: none;
     }
@@ -78,121 +92,65 @@ html {
       .each-game-container {
         position: relative;
         .game-counter {
-          position: absolute;
+          @include game-x();
           top: 60px;
           left: 150px;
-          background-color: $light-grey;
-          border: solid 2px $dark-grey;
-          border-radius: 30px;
-          transition: 0.5s;
-          &:hover {
-            transform: scale(1.1);
-          }
         }
       }
       .each-game-container {
         position: relative;
         .game-omikuji {
-          position: absolute;
+          @include game-x();
           top: 200px;
           left: 360px;
-          background-color: $light-grey;
-          border: solid 2px $dark-grey;
-          border-radius: 30px;
-          transition: 0.5s;
-          &:hover {
-            transform: scale(1.1);
-          }
         }
       }
       .each-game-container {
         position: relative;
         .game-bingo {
-          position: absolute;
+          @include game-x();
           top: 300px;
           left: 30px;
-          background-color: $light-grey;
-          border: solid 2px $dark-grey;
-          border-radius: 30px;
-          transition: 0.5s;
-          &:hover {
-            transform: scale(1.1);
-          }
         }
       }
       .each-game-container {
         position: relative;
         .game-typing {
-          position: absolute;
+          @include game-x();
           top: 300px;
           right: 30px;
-          background-color: $light-grey;
-          border: solid 2px $dark-grey;
-          border-radius: 30px;
-          transition: 0.5s;
-          &:hover {
-            transform: scale(1.1);
-          }
         }
       }
       .each-game-container {
         position: relative;
         .game-quiz {
-          position: absolute;
+          @include game-x();
           top: 100px;
           right: 55px;
-          background-color: $light-grey;
-          border: solid 2px $dark-grey;
-          border-radius: 30px;
-          transition: 0.5s;
-          &:hover {
-            transform: scale(1.1);
-          }
         }
       }
       .each-game-container {
         position: relative;
         .game-slot {
-          position: absolute;
+          @include game-x();
           top: 40px;
           right: 200px;
-          background-color: $light-grey;
-          border: solid 2px $dark-grey;
-          border-radius: 30px;
-          transition: 0.5s;
-          &:hover {
-            transform: scale(1.1);
-          }
         }
       }
       .each-game-container {
         position: relative;
         .game-touch {
-          position: absolute;
+          @include game-x();
           top: 300px;
           left: 200px;
-          background-color: $light-grey;
-          border: solid 2px $dark-grey;
-          border-radius: 30px;
-          transition: 0.5s;
-          &:hover {
-            transform: scale(1.1);
-          }
         }
       }
       .each-game-container {
         position: relative;
         .game-dungeon {
-          position: absolute;
+          @include game-x();
           top: 500px;
           left: 400px;
-          background-color: $light-grey;
-          border: solid 2px $dark-grey;
-          border-radius: 30px;
-          transition: 0.5s;
-          &:hover {
-            transform: scale(1.1);
-          }
         }
       }
     }

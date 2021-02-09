@@ -3,13 +3,24 @@
 {% load humanize %}
 
 {% block content %}
-<div class="touch-wrapper text-center">
+<div class="touch-wrapper text-center py-5">
   <div id="touch-area" class="touch-area">
     <div id="touch-timer" class="text-right">0.0</div>
       <ul id="touch-board" class="text-center">
       </ul>
     <div id="touch-btn">START</div>
   </div>
-  <div>Point: {{ user.point | intcomma }}</div>
+  <h4 class=py-5>
+    Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}"> 0</span>
+  </h4>
+  <div>
+    <div class="d-flex justify-content-center">
+      <img src="{% static 'img/games/level.png' %}" alt="level">
+    </div>
+    <form action="" method="post">{% csrf_token %}
+      <input type="range" min="1" max="99" value="85">
+      <button type="submit" id="" style="display: none;"></button>
+    </form>
+  </div>
 </div>
 {% endblock %}

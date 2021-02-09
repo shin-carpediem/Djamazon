@@ -131,5 +131,5 @@
     }
   }
 
-  new Game(3);
+  new Game(2);
 }
