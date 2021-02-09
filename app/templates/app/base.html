@@ -66,12 +66,12 @@
   <header class="w-100">
     <div class="header-wrapper pb-sm-3">
 
-      <div class="row pt-3">
-        <h1 class="header-title col-lg-6 col-4 d-flex justify-content-center" id="title" contenteditable>
+      <div class="row pt-3 justify-content-between">
+        <h1 class="header-title col-lg-4 col-4 d-flex justify-content-center" id="title" contenteditable>
           DJAMAZON
         </h1>
 
-        <div class="col-lg-6 col-8 pt-sm-4 row header-right d-flex justify-content-center align-items-center text-center">
+        <div class="col-lg-8 col-8 pt-sm-4 row header-right d-flex justify-content-center align-items-center">
           <div class="btn-group lang-change col-sm-2 col-6 text-right">
             <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
               <input name="text" type="hidden" value="{{ redirect_to }}">
@@ -88,20 +88,20 @@
               <button id="langBtn" style="display: none;"></button>
             </form>
           </div>
-          <div class="col-sm-2 col-6">
+          <div class="col-sm-4 col-6 text-right">
             <form action="{% url 'app:top_filtered' %}" method="post">{% csrf_token %}
-              <select id="filter-product">
-                <option value="filter">Filter</option>
-                <option value="2000">2,000~</option>
-                <option value="1999">~1,999</option>
-                <option value="999">~999</option>
-                <option value="499">~499</option>
+              <select id="filter-product" name="filter">
+                <option name="filter" value="filter">Filter</option>
+                <option name="filter" value="2000">2,000~</option>
+                <option name="filter" value="1999">1,000~1,999</option>
+                <option name="filter" value="999">500~999</option>
+                <option name="filter" value="499">~499</option>
               </select>
               <button type="submit" id="filterBtn" style="display: none;"></button>
             </form>
           </div>
-          <div class="text-left search col-sm-8 col-12">
-            <form action="{% url 'app:result' %}" method="GET">
+          <div class="text-left search col-sm-4 col-12 text-right">
+            <form action="{% url 'app:result' %}" method="get">
               <div class="search-wrapper w-100">
                 <input type="text" placeholder="{% trans 'Search' %}" name="q" class="search-input">
                 <button type="submit" class="search-button"><i class="fas fa-search"></i></button>

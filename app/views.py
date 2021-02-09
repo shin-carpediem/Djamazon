@@ -1,3 +1,4 @@
+from typing import overload
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.core.mail import send_mail
 from django.core.files.storage import FileSystemStorage
@@ -75,7 +76,22 @@ def top(request):
 
 
 def top_filtered(request):
-    products_filtered = Product.objects.filter(price__gte=2000).order_by('price')
+    filter = request.POST.getlist('filter')
+    print(filter)
+    if filter == [u'2000']:
+        products_filtered = Product.objects.filter(
+            price__gte=2000).order_by('price')
+    elif filter == [u'1999']:
+        products_filtered = Product.objects.filter(
+            price__range=(1000,1999)).order_by('price')
+    elif filter == [u'999']:
+        products_filtered = Product.objects.filter(
+            price__range=(500,999)).order_by('price')
+    elif filter == [u'499']:
+        products_filtered = Product.objects.filter(
+            price__lte=499).order_by('price')
+    else:
+        return render(request, 'app/top.html')
     return render(request, 'app/top_filtered.html', {'products_filtered': products_filtered})
 
 
