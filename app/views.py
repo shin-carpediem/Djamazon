@@ -65,6 +65,7 @@ def login(request):
     return render(request, 'app/login.html')
 
 
+@login_required
 def top(request):
     products = Product.objects.all().order_by('-id')
     page_obj = paginate_queryset(request, products, 16)
@@ -75,6 +76,7 @@ def top(request):
     return render(request, 'app/top.html', context)
 
 
+@login_required
 def top_filtered(request):
     filter = request.POST.getlist('filter')
     print(filter)
