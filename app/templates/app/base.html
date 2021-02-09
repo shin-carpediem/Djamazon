@@ -74,8 +74,8 @@
         <div class="col-lg-6 col-8 pt-sm-4 row header-right d-flex justify-content-center align-items-center text-center">
           <div class="btn-group lang-change col-sm-2 col-6 text-right">
             <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-              <input name="next" type="hidden" value="{{ redirect_to }}">
-              <select name="language" class="choice" id="changeLang">
+              <input name="text" type="hidden" value="{{ redirect_to }}">
+              <select name="language" id="changeLang">
                 {% get_current_language as LANGUAGE_CODE %}
                 {% get_available_languages as LANGUAGES %}
                 {% get_language_info_list for LANGUAGES as languages %}
@@ -85,16 +85,20 @@
                 </option>
                 {% endfor %}
               </select>
-              <button class="set-button" id="langBtn" style="display: none;"></button>
+              <button id="langBtn" style="display: none;"></button>
             </form>
           </div>
           <div class="col-sm-2 col-6">
-            <select class="product-filter">
-              <option value="2000">2,000~</option>
-              <option value="1999">~1,999</option>
-              <option value="999">~999</option>
-              <option value="499">~499</option>
-            </select>
+            <form action="{% url 'app:top_filtered' %}" method="post">{% csrf_token %}
+              <select id="filter-product">
+                <option value="filter">Filter</option>
+                <option value="2000">2,000~</option>
+                <option value="1999">~1,999</option>
+                <option value="999">~999</option>
+                <option value="499">~499</option>
+              </select>
+              <button type="submit" id="filterBtn" style="display: none;"></button>
+            </form>
           </div>
           <div class="text-left search col-sm-8 col-12">
             <form action="{% url 'app:result' %}" method="GET">
@@ -342,6 +346,7 @@
   <!-- {% render_bundle 'main' 'js' %} -->
   <script src="{% static 'js/app/headerTitle.min.js' %}"></script>
   <script src="{% static 'js/app/changeLang.min.js' %}"></script>
+  <script src="{% static 'js/app/pointFilter.min.js' %}"></script>
   <script src="{% static 'js/app/scrollButton.min.js' %}"></script>
   <script src="{% static 'js/app/mouseMove.min.js' %}"></script>
   <script src="{% static 'js/app/good.min.js' %}"></script>

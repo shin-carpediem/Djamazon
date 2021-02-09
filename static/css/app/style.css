@@ -188,20 +188,8 @@ html body header .header-wrapper .header-menu .is_img {
   }
 }
 
-html body header .header-wrapper .header-right .lang-change .choice {
+html body header .header-wrapper .header-right select {
   border-radius: 4px;
-}
-
-html body header .header-wrapper .header-right .lang-change .set-button {
-  text-align: center;
-  display: inline-block;
-  background-color: transparent;
-  border: transparent;
-}
-
-html body header .header-wrapper .header-right .lang-change .set-button:hover {
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
 }
 
 html body header .header-wrapper .header-right .search .search-wrapper .search-input {

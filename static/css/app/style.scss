@@ -199,15 +199,8 @@ html {
         }
         // end of mobile size humbergar menu
         .header-right {
-          .lang-change {
-            .choice {
-              border-radius: 4px;
-            }
-            .set-button {
-              @include button;
-              background-color: transparent;
-              border: transparent;
-            }
+          select {
+            border-radius: 4px;
           }
           .search {
             .search-wrapper {

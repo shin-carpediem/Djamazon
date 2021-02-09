@@ -74,6 +74,11 @@ def top(request):
     return render(request, 'app/top.html', context)
 
 
+def top_filtered(request):
+    products_filtered = Product.objects.filter(price__gte=2000).order_by('price')
+    return render(request, 'app/top_filtered.html', {'products_filtered': products_filtered})
+
+
 # [pending] tried to separate authentication, but i did not know how to get the exact user's info,
 # so, i swicthed to use the latter signup view.
 
@@ -477,5 +482,6 @@ def terms(request):
     return render(request, 'app/terms.html')
 
 
+@login_required
 def logout(request):
     return render(request, 'app/signup.html')

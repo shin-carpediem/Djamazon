@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+<div class="product-container">
+  {% for products_filtered in products_filtered %}
+  <div class="product">
+    <a href="{% url 'app:detail' products_filtered.id %}">
+      <img src="{{ products_filtered.image.url }}" class="product-img" alt="product-img">
+    </a>
+    <div class="product-info">
+      <div class="product-name">{{ products_filtered.name }}</div>
+      <div class="product-price">Point: {{ products_filtered.price | intcomma }}</div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
