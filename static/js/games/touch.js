@@ -2,7 +2,8 @@
 
 {
   class Panel {
-    constructor() {
+    constructor(game) {
+      this.game = game;
       this.el = document.createElement("li");
       this.el.classList.add("pressed");
       this.el.addEventListener("click", () => {
@@ -21,21 +22,22 @@
 
     check() {
       // parseIntで（10進数の）数値にする
-      if (currentNum === parseInt(this.el.textContent, 10)) {
+      if (this.game.getCurrentNum() === parseInt(this.el.textContent, 10)) {
         this.el.classList.add("pressed");
-        currentNum++;
+        this.game.addCurrentNum();
 
-        if (currentNum === 4) {
-          clearTimeout(timeoutId);
+        if (this.game.addCurrentNum() === 4) {
+          clearTimeout(this.game.getTimeoutId());
         }
       }
     }
   }
   class Board {
-    constructor() {
+    constructor(game) {
+      this.game = game;
       this.panels = [];
       for (let i = 0; i < 4; i++) {
-        this.panels.push(new Panel());
+        this.panels.push(new Panel(this.game));
       }
       this.setup();
     }
@@ -59,32 +61,57 @@
     }
   }
 
-  function runTimer() {
-    const timer = document.getElementById("touch-timer");
-    timer.textContent = ((Date.now() - startTime) / 1000).toFixed(2);
+  class Game {
+    constructor() {
+      // Gameクラスのプロパティにするために、consやletとして定義ではなく、thisとして継承する。
+      this.board = new Board(this);
 
-    // 10ms後に呼び出す
-    timeoutId = setTimeout(() => {
-      runTimer();
-    }, 10);
-  }
+      this.currentNum = undefined;
+      this.startTime = undefined;
+      this.timeoutId = undefined;
 
-  const board = new Board();
-
-  let currentNum;
-  let startTime;
-  let timeoutId;
-
-  const btn = document.getElementById("touch-btn");
-  btn.addEventListener("click", () => {
-    if (typeof timeoutId !== "undefined") {
-      clearTimeout(timeoutId);
+      // このボタンは他のメソッドでは使わないので、constのままで良い。
+      const btn = document.getElementById("touch-btn");
+      btn.addEventListener("click", () => {
+        this.start();
+      });
     }
 
-    currentNum = 0;
-    board.activate();
+    // クラスを継承したプロパティやメソッドにはthisをつける必要がある。
+    start() {
+      if (typeof this.timeoutId !== "undefined") {
+        clearTimeout(timeoutId);
+      }
 
-    startTime = Date.now();
-    runTimer();
-  });
+      this.currentNum = 0;
+      this.board.activate();
+
+      this.startTime = Date.now();
+      this.runTimer();
+    }
+
+    runTimer() {
+      const timer = document.getElementById("touch-timer");
+      timer.textContent = ((Date.now() - this.startTime) / 1000).toFixed(2);
+
+      // 10ms後に呼び出す
+      this.timeoutId = setTimeout(() => {
+        this.runTimer();
+      }, 10);
+    }
+
+    addCurrentNum() {
+      this.currentNum++;
+    }
+
+    getCurrentNum() {
+      return this.currentNum;
+    }
+
+    getTimeoutId() {
+      return this.timeoutId;
+    }
+  }
+
+  new Game();
 }
