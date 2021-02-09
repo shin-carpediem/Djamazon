@@ -1,21 +1,22 @@
 /* default */
-$purple: #5f55af;
+$purple: #3a556a;
 $blue: #07a9f0;
-$deep-orange: #ff9100;
-$orange: #ffb52d;
+$red: #e05849;
 $black: #000;
-$dark-grey: rgb(80, 77, 77);
 $light-grey: #ececec;
 $white: #fff;
 
 @mixin game-x {
   position: absolute;
-  background-color: $light-grey;
-  border: solid 2px $dark-grey;
-  border-radius: 30px;
+  background-color: $white;
+  border: solid 2px transparent;
+  border-radius: 30% 40% 0 0;
   transition: 0.5s;
   &:hover {
     transform: scale(1.1);
+  }
+  img {
+    border-radius: 10px;
   }
 }
 
@@ -89,6 +90,14 @@ html {
       z-index: -1;
     }
     .front {
+      .title {
+        span {
+          color: $red;
+        }
+        .title-span {
+          color: $purple;
+        }
+      }
       .each-game-container {
         position: relative;
         .game-counter {
