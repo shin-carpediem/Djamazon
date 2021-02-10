@@ -132,4 +132,43 @@
   }
 
   new Game(2);
+
+  // https://code-kitchen.dev/html/input-range/
+  // input要素を取得
+  const changelevelElem = document.getElementById("changeLevel");
+  const changelevelValueElem = changelevelElem.value;
+  const currentValueElem = document.getElementById("current-value");
+  const currentLevelNum = undefined;
+
+  // 現在の値をspanに埋め込む関数
+  const setCurrentValue = (val) => {
+    currentValueElem.innerText = val;
+  }; // inputイベント時に値をセットする関数
+
+  const rangeOnChange = (e) => {
+    setCurrentValue(e.target.value);
+  };
+
+  window.onload = () => {
+    // スライダー変化時にイベントを発火
+    changelevelElem.addEventListener("input", rangeOnChange);
+    setCurrentValue(changelevelValueElem);
+    console.log(currentLevelNum);
+
+    // gameクラスの引数の変更をする関数
+    switch (currentLevelNum) {
+      case 5:
+      case 4:
+        break;
+      case 3:
+        new Game(3);
+        break;
+      case 2:
+        new Game(4);
+        break;
+      case 1:
+        new Game(5);
+        break;
+    }
+  };
 }
