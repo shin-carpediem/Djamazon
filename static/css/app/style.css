@@ -420,47 +420,27 @@ html body .container .cart .purchase-form-pay .amount {
           align-items: center;
 }
 
-html body .container .order-item {
-  padding: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-html body .container .order-item-image {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-html body .container .order-item-info {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  font-size: 16px;
-}
-
-html body .container .order-item-info .info-value {
+html body .container .order-history .order-item-info .info-value {
   float: right;
 }
 
-html body .container .order-item-info .info-timestamp {
+html body .container .order-history .order-item-info .info-timestamp {
   float: right;
   font-size: 12px;
   font-style: italic;
   margin-top: 8px;
 }
 
-html body .container .order-item-amount-form {
+html body .container .order-history .order-item-amount-form {
   float: right;
   margin: 10px;
 }
 
-html body .container .order-item-amount-form input {
+html body .container .order-history .order-item-amount-form input {
   font-size: 20px;
 }
 
-html body .container .message-success {
+html body .container .order-history .message-success {
   background-color: #0f4b34;
   color: #ececec;
   padding: 10px;
@@ -468,7 +448,7 @@ html body .container .message-success {
   border-radius: 4px;
 }
 
-html body .container .message-warning {
+html body .container .order-history .message-warning {
   background-color: #ffc107;
   color: #ececec;
   padding: 10px;

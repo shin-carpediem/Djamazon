@@ -16,7 +16,8 @@ local
 - Bootstrap(CDN)==4.5.0
 - jQuery(CDN)==3.5.1
 - SCSS
-- Darkmode.Js(CDN)==1.5.7
+- Darkmode.js(CDN)==1.5.7
+- Chart.js(CDN)==2.9.4
 - npm==6.14.8
 - webpack=5.18.0
 - webpack-cli=4.4.0

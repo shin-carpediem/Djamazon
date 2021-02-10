@@ -354,46 +354,39 @@ html {
         }
       }
       /* order_history.html */
-      .order-item {
-        padding: 20px;
-        display: flex;
-      }
-      .order-item-image {
-        flex: 1;
-      }
-      .order-item-info {
-        flex: 1;
-        font-size: 16px;
-        .info-value {
+      .order-history {
+        .order-item-info {
+          .info-value {
+            float: right;
+          }
+          .info-timestamp {
+            float: right;
+            font-size: 12px;
+            font-style: italic;
+            margin-top: 8px;
+          }
+        }
+        .order-item-amount-form {
           float: right;
+          margin: 10px;
+          input {
+            font-size: 20px;
+          }
         }
-        .info-timestamp {
-          float: right;
-          font-size: 12px;
-          font-style: italic;
-          margin-top: 8px;
+        .message-success {
+          background-color: $green;
+          color: $light-grey;
+          padding: 10px;
+          padding-left: 30px;
+          border-radius: 4px;
         }
-      }
-      .order-item-amount-form {
-        float: right;
-        margin: 10px;
-        input {
-          font-size: 20px;
+        .message-warning {
+          background-color: #ffc107;
+          color: $light-grey;
+          padding: 10px;
+          padding-left: 30px;
+          border-radius: 4px;
         }
-      }
-      .message-success {
-        background-color: $green;
-        color: $light-grey;
-        padding: 10px;
-        padding-left: 30px;
-        border-radius: 4px;
-      }
-      .message-warning {
-        background-color: #ffc107;
-        color: $light-grey;
-        padding: 10px;
-        padding-left: 30px;
-        border-radius: 4px;
       }
       // account.html
       .account-wrapper {
