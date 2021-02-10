@@ -274,6 +274,10 @@ html body .front .each-game-container .game-dungeon img {
   border-radius: 10px;
 }
 
+html body .counter-wrapper {
+  background-color: #ccc;
+}
+
 html body .omikuji-wrapper {
   background-color: #ececec;
 }

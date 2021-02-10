@@ -138,7 +138,6 @@
   const changelevelElem = document.getElementById("changeLevel");
   const changelevelValueElem = changelevelElem.value;
   const currentValueElem = document.getElementById("current-value");
-  const currentLevelNum = undefined;
 
   // 現在の値をspanに埋め込む関数
   const setCurrentValue = (val) => {
@@ -153,10 +152,10 @@
     // スライダー変化時にイベントを発火
     changelevelElem.addEventListener("input", rangeOnChange);
     setCurrentValue(changelevelValueElem);
-    console.log(currentLevelNum);
+    console.log(changelevelValueElem);
 
     // gameクラスの引数の変更をする関数
-    switch (currentLevelNum) {
+    switch (changelevelValueElem) {
       case 5:
       case 4:
         break;

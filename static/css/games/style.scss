@@ -4,6 +4,7 @@ $blue: #07a9f0;
 $red: #e05849;
 $black: #000;
 $light-grey: #ececec;
+$game-background: #ccc;
 $white: #fff;
 
 @mixin game-x {
@@ -164,6 +165,11 @@ html {
       }
     }
     // end of index.html
+    // counter.html
+    .counter-wrapper {
+      background-color: $game-background;
+    }
+    // end of counter.html
     // omikuji.html
     .omikuji-wrapper {
       background-color: $light-grey;
