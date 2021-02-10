@@ -162,7 +162,7 @@ html body .front .each-game-container .game-typing {
   position: absolute;
   background-color: #fff;
   border: solid 2px transparent;
-  border-radius: 30% 40% 0 0;
+  border-radius: 40% 30% 0 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   top: 300px;
@@ -186,7 +186,7 @@ html body .front .each-game-container .game-quiz {
   position: absolute;
   background-color: #fff;
   border: solid 2px transparent;
-  border-radius: 30% 40% 0 0;
+  border-radius: 40% 30% 0 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   top: 100px;
@@ -210,7 +210,7 @@ html body .front .each-game-container .game-slot {
   position: absolute;
   background-color: #fff;
   border: solid 2px transparent;
-  border-radius: 30% 40% 0 0;
+  border-radius: 40% 30% 0 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   top: 40px;
@@ -258,7 +258,7 @@ html body .front .each-game-container .game-pingpong {
   position: absolute;
   background-color: #fff;
   border: solid 2px transparent;
-  border-radius: 30% 40% 0 0;
+  border-radius: 40% 30% 0 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   top: 400px;

@@ -85,10 +85,10 @@ def top_filtered(request):
             price__gte=2000).order_by('price')
     elif filter == [u'1999']:
         products_filtered = Product.objects.filter(
-            price__range=(1000,1999)).order_by('price')
+            price__range=(1000, 1999)).order_by('price')
     elif filter == [u'999']:
         products_filtered = Product.objects.filter(
-            price__range=(500,999)).order_by('price')
+            price__range=(500, 999)).order_by('price')
     elif filter == [u'499']:
         products_filtered = Product.objects.filter(
             price__lte=499).order_by('price')
@@ -262,7 +262,6 @@ def password_reset(request):
     return render(request, 'app/account.html')
 
 
-# ---------------------from here--------------------------
 def detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     add_to_cart_form = AddToCartForm(request.POST or None)
@@ -285,7 +284,6 @@ def detail(request, product_id):
         'add_to_cart_form': add_to_cart_form,
     }
     return render(request, 'app/detail.html', context)
-# -------------------------to here------------------------------
 
 
 @login_required
@@ -330,6 +328,7 @@ def cart(request):
         product = Product.objects.get(id=product_id)
         cart_products[product] = num
         total_price += product.price * num
+
     purchase_form = PurchaseForm(request.POST or None)
     if purchase_form.is_valid():
         # 住所検索ボタンが押された場合
@@ -338,16 +337,17 @@ def cart(request):
             address = get_address(zip_code)
             # 住所が取得できなかった場合はメッセージを出してリダイレクト
             if not address:
-                messages.warning(request, "You could not get the adrress.")
+                messages.warning(request, "You cannot get the adrress.")
                 return redirect('app:cart')
             # 住所が取得できたらフォームに入力してあげる
             purchase_form = PurchaseForm(
                 initial={'zip_code': zip_code, 'address': address})
+
         # 購入ボタンが押された場合
         if 'buy_product' in request.POST:
             # 住所が入力済みか確認する
             if not purchase_form.cleaned_data['address']:
-                messages.warning(request, "You need to input address.")
+                messages.warning(request, "Address needs.")
                 return redirect('app:cart')
             # カートが空じゃないか確認
             if not bool(cart):
@@ -355,7 +355,7 @@ def cart(request):
                 return redirect('app:cart')
             # 所持ポイントが十分にあるか確認
             if total_price > user.point:
-                messages.warning(request, "You do not have enough points.")
+                messages.warning(request, "You do not have enough points...")
                 return redirect('app:cart')
             # 各プロダクトの Sale 情報を保存
             for product_id, num in cart.items():
@@ -371,11 +371,10 @@ def cart(request):
             del request.session['cart']
             messages.success(request, "You purchased items!")
             return redirect('app:cart')
-        # for checking bug is happening here.
+
         else:
-            print('add_to_cart_form is not valid.')
-            return redirect('app:top')
-        # end/for checking bug is happening here.
+            return redirect('app:cart')
+
     context = {
         'purchase_form': purchase_form,
         'cart_products': cart_products,

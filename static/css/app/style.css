@@ -440,7 +440,7 @@ html body .container .order-history .order-item-amount-form input {
   font-size: 20px;
 }
 
-html body .container .order-history .message-success {
+html body .container .message-success {
   background-color: #0f4b34;
   color: #ececec;
   padding: 10px;
@@ -448,7 +448,7 @@ html body .container .order-history .message-success {
   border-radius: 4px;
 }
 
-html body .container .order-history .message-warning {
+html body .container .message-warning {
   background-color: #ffc107;
   color: #ececec;
   padding: 10px;

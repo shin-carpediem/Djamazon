@@ -259,8 +259,10 @@ html {
         }
       }
       .product-info {
-        a:hover {
-          text-decoration: underline;
+        a {
+          &:hover {
+            text-decoration: underline;
+          }
         }
         .category {
           display: inline-block;
@@ -373,20 +375,20 @@ html {
             font-size: 20px;
           }
         }
-        .message-success {
-          background-color: $green;
-          color: $light-grey;
-          padding: 10px;
-          padding-left: 30px;
-          border-radius: 4px;
-        }
-        .message-warning {
-          background-color: #ffc107;
-          color: $light-grey;
-          padding: 10px;
-          padding-left: 30px;
-          border-radius: 4px;
-        }
+      }
+      .message-success {
+        background-color: $green;
+        color: $light-grey;
+        padding: 10px;
+        padding-left: 30px;
+        border-radius: 4px;
+      }
+      .message-warning {
+        background-color: #ffc107;
+        color: $light-grey;
+        padding: 10px;
+        padding-left: 30px;
+        border-radius: 4px;
       }
       // account.html
       .account-wrapper {

@@ -32,7 +32,7 @@
     <div class="row">
       <div class="col-6">
         {% if request.user.is_authenticated %}
-          <form action="{% url 'app:detail' product.id %}" mothod="post">{% csrf_token %}
+          <form action="{% url 'app:detail' product.id %}" method="post">{% csrf_token %}
             {{ add_to_cart_form.as_p }}
               <button class="purchase-button" type="submit">Add to Cart</button>
           </form>
