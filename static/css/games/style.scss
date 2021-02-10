@@ -394,7 +394,7 @@ html {
             box-shadow: 0 4px 0 #0088cc;
           }
           .pressed {
-            background-color: #ccc;
+            background-color: $game-background;
             box-shadow: none;
             margin-top: 9px;
             margin-bottom: 1px;
@@ -415,6 +415,14 @@ html {
       }
     }
     // end of touch.html
+    // pingpong.html
+    .pingpong-wrapper {
+      background-color: $game-background;
+      canvas {
+        background-color: $black;
+      }
+    }
+    // end of dungeon.html
     // dungeon.html
     .dungeon-wrapper {
       background-color: $black;

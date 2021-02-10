@@ -574,6 +574,14 @@ html body .touch-wrapper .touch-area #touch-btn:active {
           box-shadow: none;
 }
 
+html body .pingpong-wrapper {
+  background-color: #ccc;
+}
+
+html body .pingpong-wrapper canvas {
+  background-color: #000;
+}
+
 html body .dungeon-wrapper {
   background-color: #000;
 }
