@@ -254,6 +254,30 @@ html body .front .each-game-container {
   position: relative;
 }
 
+html body .front .each-game-container .game-pingpong {
+  position: absolute;
+  background-color: #fff;
+  border: solid 2px transparent;
+  border-radius: 30% 40% 0 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  top: 400px;
+  right: 230px;
+}
+
+html body .front .each-game-container .game-pingpong:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+html body .front .each-game-container .game-pingpong img {
+  border-radius: 10px;
+}
+
+html body .front .each-game-container {
+  position: relative;
+}
+
 html body .front .each-game-container .game-dungeon {
   position: absolute;
   background-color: #fff;

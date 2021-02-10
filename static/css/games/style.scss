@@ -157,6 +157,14 @@ html {
       }
       .each-game-container {
         position: relative;
+        .game-pingpong {
+          @include game-x();
+          top: 400px;
+          right: 230px;
+        }
+      }
+      .each-game-container {
+        position: relative;
         .game-dungeon {
           @include game-x();
           top: 500px;

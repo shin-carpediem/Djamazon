@@ -44,5 +44,10 @@ def touch(request):
 
 
 @login_required
+def pingpong(request):
+    return render(request, 'games/pingpong.html')
+
+
+@login_required
 def dungeon(request):
     return render(request, 'games/dungeon.html')
