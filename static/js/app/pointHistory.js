@@ -10,8 +10,8 @@
       {
         label: "",
         data: [50000, 49000, 48000, 51000],
-        borderColor: "#0f4b34",
-        backgroundColor: "rgb(54, 165, 123, 0.3)",
+        borderColor: "rgb(54, 165, 123)",
+        backgroundColor: "rgb(54, 165, 123, 0.1)",
         lineTension: 0,
       },
     ],
