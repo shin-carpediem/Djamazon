@@ -164,3 +164,6 @@ node_modules
 
 # scss cache
 .sass-cache/
+
+# project whole cache
+cache/

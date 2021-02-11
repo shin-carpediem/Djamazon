@@ -3,6 +3,9 @@ from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 # from django.core.mail import send_mail
 from django.utils import timezone
+# https://qiita.com/dai-takahashi/items/57421ea191ab89175e9e
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 from app.models import Product
 
 # Create your models here.
@@ -49,6 +52,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField("date_joined", default=timezone.now)
     is_img = models.ImageField(
         "is_img", upload_to="is_img", max_length=50, blank=True, null=True)
+    resized_img = ImageSpecField(source="is_img",
+                                 processors=[ResizeToFill(100, 100)],
+                                 format="JPEG",
+                                 options={"quality": 60}
+                                 )
 
     objects = UserManager()
 
