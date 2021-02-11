@@ -23,6 +23,10 @@ select {
   font: inherit;
 }
 
+.btn.btn-block.btn-social {
+  color: #fff;
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 html {
   font-family: "Righteous", cursive;
@@ -368,8 +372,9 @@ html body .container .product-detail-info .like-button {
 }
 
 html body .container .cart .purchase-form {
-  width: 100%;
   margin: 10px auto;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 html body .container .cart .purchase-form .purchase-button {

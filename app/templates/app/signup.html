@@ -42,11 +42,8 @@
       <div class="pt-3 pb-5">
         <input type="submit" value="Signup">
       </div>
-      <p class="social_account pb-2">
-          signup with social account
-      </p>
-      <a href="{% url 'social:begin' 'google-oauth2' %}">
-          <img src="{% static 'img/app/google.png' %}" style="width: 30px; height: auto;" alt="google.png">
+      <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-block btn-social btn-google">
+        <span class="fa fa-google"></span> sign up with Google
       </a>
     </div>
 

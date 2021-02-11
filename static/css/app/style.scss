@@ -34,6 +34,12 @@ textarea,
 select {
   font: inherit;
 }
+
+// Compensate some browser cannot read Social_Buttons_for_Bootstrap properly
+.btn.btn-block.btn-social {
+  color: #fff;
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 // @media (prefers-reduced-motion: reduce) {
 //   *,
@@ -327,8 +333,9 @@ html {
       /* cart.html */
       .cart {
         .purchase-form {
-          width: 100%;
           margin: 10px auto;
+          background-color: $white;
+          border-radius: 10px;
           .purchase-button {
             @include button;
             background-color: $django-green;
