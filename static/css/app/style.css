@@ -865,21 +865,10 @@ html body footer {
   background-color: #36a57b;
 }
 
-@media screen and (max-width: 768px) {
-  html body footer {
-    font-size: smaller;
-  }
-}
-
 html body footer .footer-wrapper {
   max-width: 1440px;
   min-width: 375px;
   width: 80%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
 }
 
 @media screen and (max-width: 600px) {
@@ -888,34 +877,27 @@ html body footer .footer-wrapper {
   }
 }
 
-html body footer .footer-wrapper .footer-right {
-  text-align: center;
-  margin: 0 auto;
-}
-
-html body footer .footer-wrapper .footer-right a {
+html body footer .footer-wrapper .footer-left a {
   color: #ececec;
 }
 
-html body footer .footer-wrapper .footer-right a:hover {
+html body footer .footer-wrapper .footer-left a:hover {
   color: #0f4b34;
 }
 
 html body footer .footer-wrapper hr {
   background-color: #ececec;
+  width: 80%;
 }
 
-html body footer .footer-wrapper .footer-left {
-  text-align: center;
-}
-
-html body footer .footer-wrapper .footer-left i,
-html body footer .footer-wrapper .footer-left li,
-html body footer .footer-wrapper .footer-left span {
+html body footer .footer-wrapper .footer-right p,
+html body footer .footer-wrapper .footer-right i,
+html body footer .footer-wrapper .footer-right li,
+html body footer .footer-wrapper .footer-right span {
   color: #ececec;
 }
 
-html body footer .footer-wrapper .footer-left .copyright {
+html body footer .footer-wrapper .footer-right .copyright {
   font-size: smaller;
 }
 

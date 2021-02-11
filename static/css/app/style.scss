@@ -678,21 +678,14 @@ html {
     /* footer */
     footer {
       background-color: $django-green;
-      @media screen and (max-width: 768px) {
-        font-size: smaller;
-      }
       .footer-wrapper {
         max-width: 1440px;
         min-width: 375px;
         width: 80%;
-        display: flex;
-        justify-content: space-around;
         @media screen and (max-width: 600px) {
           width: 100%;
         }
-        .footer-right {
-          text-align: center;
-          margin: 0 auto;
+        .footer-left {
           a {
             color: $light-grey;
             &:hover {
@@ -702,9 +695,10 @@ html {
         }
         hr {
           background-color: $light-grey;
+          width: 80%;
         }
-        .footer-left {
-          text-align: center;
+        .footer-right {
+          p,
           i,
           li,
           span {

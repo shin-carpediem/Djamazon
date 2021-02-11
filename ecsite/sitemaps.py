@@ -26,6 +26,8 @@ class StaticViewSitemap(Sitemap):
             'games:quiz',
             'games:slot',
             'games:touch',
+            'games:pingpong',
+            'games:dungeon',
         ]
 
     def location(self, obj):
@@ -46,6 +48,8 @@ class StaticViewSitemap(Sitemap):
         if obj == 'app:top':
             return 0.8
         elif obj == 'study:index':
+            return 0.6
+        elif obj == 'games:index':
             return 0.6
         elif obj == 'app:policy':
             return 0.1
