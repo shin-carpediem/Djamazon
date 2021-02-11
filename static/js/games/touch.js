@@ -140,24 +140,26 @@
   const changelevelElem = document.getElementById("changeLevel");
   const changelevelValueElem = changelevelElem.value;
   const currentValueElem = document.getElementById("current-value");
-  // インスタンスを作成する関数
+
+  // ①インスタンスを作成する関数
   const changeLevel = (level) => {
     new Game(level);
   };
 
-  // 現在の値をspanに埋め込む関数
+  // ②現在の値をspanに埋め込む関数
   const setCurrentValue = (val) => {
     currentValueElem.innerText = val;
   }; // inputイベント時に値をセットする関数
 
+  // ①②をターゲットのvalueに応じて実行する関数
   const rangeOnChange = (e) => {
     const newlevel = e.target.value;
     changeLevel(newlevel);
     setCurrentValue(newlevel);
   };
 
+  // スライダー変化時に②を発火
   window.onload = () => {
-    // スライダー変化時にイベントを発火
     changelevelElem.addEventListener("input", rangeOnChange);
     setCurrentValue(changelevelValueElem);
   };

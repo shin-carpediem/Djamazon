@@ -10,45 +10,51 @@
   const changelevelValueElem = changelevelElem.value;
   const currentValueElem = document.getElementById("counter-current-value");
 
-  // numの値を決める分岐
-  const changeNum = (changelevelValueElem) => {
-    switch (changelevelValueElem) {
-      case 1:
-        num = 3;
-        break;
-      case 2:
-        num = 5;
-        break;
-      case 3:
-        num = 10;
-        break;
-      case 4:
-      case 5:
-        num = 15;
-        break;
+  // ①numの値を決める関数
+  const changeLevel = (lev) => {
+    console.log(lev);
+    if (lev == 1) {
+      num = 3;
+      console.log(num);
+      return num;
+    } else if (lev == 2) {
+      num = 5;
+      console.log(num);
+      return num;
+    } else if (lev == 3) {
+      num = 10;
+      console.log(num);
+      return num;
+    } else if (lev == 4) {
+      num = 15;
+      console.log(num);
+      return num;
+    } else {
+      num = 15;
+      console.log(num);
+      return num;
     }
   };
 
-  // 現在の値をspanに埋め込む関数
-  const setCurrentValue = (val) => {
+  // ②現在の値をspanに埋め込む関数
+  function setCurrentValue(val) {
     currentValueElem.innerText = val;
-  }; // inputイベント時に値をセットする関数
+  }
 
-  // スライダーのvalueの値、すなわちnewlevelに応じて2つの関数を実行
-  // 一つは、ゲームのレベルを変える関数
-  // もう一つは、現在のレベルを表示させる関数
+  // ①②をターゲットのvalueに応じて実行する関数
   const rangeOnChange = (e) => {
     const newlevel = e.target.value;
     changeLevel(newlevel);
     setCurrentValue(newlevel);
   };
 
+  // スライダー変化時に②を発火
   window.onload = () => {
-    // スライダー変化時にイベントを発火
     changelevelElem.addEventListener("input", rangeOnChange);
     setCurrentValue(changelevelValueElem);
   };
 
+  // 以下はゲームロジック
   let winner = Math.floor(Math.random() * num); // num = 3 の時は、0 - 2
 
   for (let i = 0; i < num; i++) {
