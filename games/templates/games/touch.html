@@ -5,10 +5,15 @@
 {% block content %}
 <div class="touch-wrapper text-center py-5">
   <div id="touch-area" class="touch-area">
-    <div id="touch-timer" class="text-right">0.0</div>
-      <ul id="touch-board" class="text-center">
-      </ul>
-    <div id="touch-btn">START</div>
+    <div id="touch-timer" class="text-right">
+      0.0
+    </div>
+    <ul id="touch-board" class="text-center">
+      <!-- touch.js -->
+    </ul>
+    <div id="touch-btn">
+      START
+    </div>
   </div>
   <h4 class=py-5>
     Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}"> 0</span>
@@ -17,7 +22,7 @@
     <div class="d-flex justify-content-center">
       <img src="{% static 'img/games/level.png' %}" alt="level">
     </div>
-      <input type="range" min="1" max="5" value="4" id="changeLevel">
+      <input type="range" min="1" max="5" value="1" id="changeLevel">
       <p>Current level is <span id="current-value">
         <!-- touch.js -->
       </span></p>

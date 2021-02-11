@@ -2,110 +2,88 @@
 {% load static %}
 
 {% block content %}
-<div class="w-100 back">
-  <video src="{% static 'movie/games/bg-movie.mp4' %}" autoplay muted></video>
-</div>
-
-<div class="w-100 front">
-  <div class="w-100 games-container">
-
-    <!-- header part -->
-    <div class="header-wrapper d-flex justify-content-around pt-3">
-      <h1 class="title">Dj<span>a</span>m<span>a</span>z<span class="title-span">o</span>n G<span>a</span>mes</h1>
-      <div class="d-flex justify-content-center">
-        <div class="d-flex align-items-center px-2">
-          <a href="{% url 'app:top' %}" target="_brank" rel="noopener noreferrer">Djamazon</a>
-        </div>
-        <div class="d-flex align-items-center px-2">
-          <a href="{% url 'app:account' %}" target="_brank" rel="noopener noreferrer">Account</a>
-        </div>
+<div class="each-game-container row">
+  <a href="{% url 'games:counter' %}">
+    <div class="game-counter m-5 p-3 col-2">
+      <div class="text-center">
+        <h5>Counter</h5>
+        <p><small>🌶multi-level</small></p>
+        <img src="{% static 'img/games/img-counter.png' %}" alt="img-counter">
       </div>
     </div>
-    <!-- end of header part -->
-
-    <div class="each-game-container row">
-      <a href="{% url 'games:counter' %}">
-        <div class="game-counter m-5 p-3 col-2">
-          <div class="text-center">
-            <h5>Counter</h5>
-            <p><small>🌶multi-level</small></p>
-            <img src="{% static 'img/games/img-counter.png' %}" alt="img-counter">
-          </div>
-        </div>
-      </a>
-      <a href="{% url 'games:omikuji' %}">
-        <div class="game-omikuji m-5 p-3 col-2">
-          <div class="text-center">
-            <h5>Omikuji</h5>
-            <!-- <p><small>🌶multi-level</small></p> -->
-            <img src="{% static 'img/games/img-omikuji.png' %}" alt="img-omikuji">
-          </div>
-        </div>
-      </a>
-      <a href="{% url 'games:bingo' %}">
-        <div class="game-bingo m-5 p-3 col-2">
-          <div class="text-center">
-            <h5>Bingo</h5>
-            <!-- <p><small>🌶multi-level</small></p> -->
-            <img src="{% static 'img/games/img-bingo.png' %}" alt="img-bingo">
-          </div>
-        </div>
-      </a>
-      <a href="{% url 'games:typing' %}">
-        <div class="game-typing m-5 p-3 col-2">
-          <div class="text-center">
-            <h5>Typing</h5>
-            <!-- <p><small>🌶multi-level</small></p> -->
-            <img src="{% static 'img/games/img-typing.png' %}" alt="img-typing">
-          </div>
-        </div>
-      </a>
-      <a href="{% url 'games:quiz' %}">
-        <div class="game-quiz m-5 p-3 col-2">
-          <div class="text-center">
-            <h5>Quiz</h5>
-            <!-- <p><small>🌶multi-level</small></p> -->
-            <img src="{% static 'img/games/img-quiz.png' %}" alt="img-typing">
-          </div>
-        </div>
-      </a>
-      <a href="{% url 'games:slot' %}">
-        <div class="game-slot m-5 p-3 col-2">
-          <div class="text-center">
-            <h5>Slot</h5>
-            <!-- <p><small>🌶multi-level</small></p> -->
-            <img src="{% static 'img/games/img-slot.png' %}" alt="img-slot">
-          </div>
-        </div>
-      </a>
-      <a href="{% url 'games:touch' %}">
-        <div class="game-touch m-5 p-3 col-2">
-          <div class="text-center">
-            <h5>Touch</h5>
-            <p><small>🌶multi-level</small></p>
-            <img src="{% static 'img/games/img-touch.png' %}" alt="img-touch">
-          </div>
-        </div>
-      </a>
-      <a href="{% url 'games:pingpong' %}">
-        <div class="game-pingpong m-5 p-3 col-2">
-          <div class="text-center">
-            <h5>Ping Pong</h5>
-            <!-- <p><small>🌶multi-level</small></p> -->
-            <img src="{% static 'img/games/img-pingpong.png' %}" alt="img-pingpong">
-          </div>
-        </div>
-      </a>
-      <a href="{% url 'games:dungeon' %}">
-        <div class="game-dungeon m-5 p-3 col-2">
-          <div class="text-center">
-            <h5>Dungeon</h5>
-            <p>COMMING SOON</p>
-            <!-- <img src="{% static 'img/games/img-dungeon.png' %}" alt="img-dungeon"> -->
-          </div>
-        </div>
-      </a>
+  </a>
+  <a href="{% url 'games:omikuji' %}">
+    <div class="game-omikuji m-5 p-3 col-2">
+      <div class="text-center">
+        <h5>Omikuji</h5>
+        <p><small>🌶multi-level</small></p>
+        <img src="{% static 'img/games/img-omikuji.png' %}" alt="img-omikuji">
+      </div>
     </div>
-  </div>
+  </a>
+  <a href="{% url 'games:bingo' %}">
+    <div class="game-bingo m-5 p-3 col-2">
+      <div class="text-center">
+        <h5>Bingo</h5>
+        <!-- <p><small>🌶multi-level</small></p> -->
+        <img src="{% static 'img/games/img-bingo.png' %}" alt="img-bingo">
+      </div>
+    </div>
+  </a>
+  <a href="{% url 'games:typing' %}">
+    <div class="game-typing m-5 p-3 col-2">
+      <div class="text-center">
+        <h5>Typing</h5>
+        <p><small>🌶multi-level</small></p>
+        <img src="{% static 'img/games/img-typing.png' %}" alt="img-typing">
+      </div>
+    </div>
+  </a>
+  <a href="{% url 'games:quiz' %}">
+    <div class="game-quiz m-5 p-3 col-2">
+      <div class="text-center">
+        <h5>Quiz</h5>
+        <!-- <p><small>🌶multi-level</small></p> -->
+        <img src="{% static 'img/games/img-quiz.png' %}" alt="img-typing">
+      </div>
+    </div>
+  </a>
+  <a href="{% url 'games:slot' %}">
+    <div class="game-slot m-5 p-3 col-2">
+      <div class="text-center">
+        <h5>Slot</h5>
+        <p><small>🌶multi-level</small></p>
+        <img src="{% static 'img/games/img-slot.png' %}" alt="img-slot">
+      </div>
+    </div>
+  </a>
+  <a href="{% url 'games:touch' %}">
+    <div class="game-touch m-5 p-3 col-2">
+      <div class="text-center">
+        <h5>Touch</h5>
+        <p><small>🌶multi-level</small></p>
+        <img src="{% static 'img/games/img-touch.png' %}" alt="img-touch">
+      </div>
+    </div>
+  </a>
+  <a href="{% url 'games:pingpong' %}">
+    <div class="game-pingpong m-5 p-3 col-2">
+      <div class="text-center">
+        <h5>Ping Pong</h5>
+        <p><small>🌶multi-level</small></p>
+        <img src="{% static 'img/games/img-pingpong.png' %}" alt="img-pingpong">
+      </div>
+    </div>
+  </a>
+  <a href="{% url 'games:dungeon' %}">
+    <div class="game-dungeon m-5 p-3 col-2">
+      <div class="text-center">
+        <h5>Dungeon</h5>
+        <p>COMMING SOON</p>
+        <!-- <p><small>🌶multi-level</small></p> -->
+        <!-- <img src="{% static 'img/games/img-dungeon.png' %}" alt="img-dungeon"> -->
+      </div>
+    </div>
+  </a>
 </div>
 {% endblock %}

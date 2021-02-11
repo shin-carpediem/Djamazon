@@ -2,9 +2,9 @@
 $purple: #3a556a;
 $blue: #07a9f0;
 $red: #e05849;
+$yellow: #E7A713;
 $black: #000;
 $light-grey: #ececec;
-$game-background: #ccc;
 $white: #fff;
 
 @mixin game-x {
@@ -173,7 +173,7 @@ html {
         position: relative;
         .game-pingpong {
           @include game-y();
-          top: 400px;
+          top: 340px;
           right: 230px;
         }
       }
@@ -188,13 +188,9 @@ html {
     }
     // end of index.html
     // counter.html
-    .counter-wrapper {
-      background-color: $game-background;
-    }
     // end of counter.html
     // omikuji.html
     .omikuji-wrapper {
-      background-color: $light-grey;
       .omikuji-area {
         #btn {
           width: 200px;
@@ -243,7 +239,7 @@ html {
     // end of typing.html
     // quiz.html
     .quiz-wrapper {
-      background-color: #efdec1;
+      height: 1000px;
       .quiz-area {
         .container {
           background: #fff;
@@ -338,7 +334,6 @@ html {
     // end of quiz.html
     // slot.html
     .slot-wrapper {
-      background: #bdc3c7;
       .slot-area {
         background: #ecf0f1;
         border-radius: 12px;
@@ -379,7 +374,6 @@ html {
     // end of slot.html
     // touch.html
     .touch-wrapper {
-      background: #ccc;
       color: $white;
       font-size: 16px;
       font-weight: bold;
@@ -408,7 +402,7 @@ html {
             box-shadow: 0 4px 0 #0088cc;
           }
           .pressed {
-            background-color: $game-background;
+            background-color: $light-grey;
             box-shadow: none;
             margin-top: 9px;
             margin-bottom: 1px;
@@ -431,7 +425,6 @@ html {
     // end of touch.html
     // pingpong.html
     .pingpong-wrapper {
-      background-color: $game-background;
       canvas {
         background-color: $black;
       }
@@ -452,7 +445,7 @@ html {
 .box {
   width: 100px;
   height: 100px;
-  background: skyblue;
+  background: $white;
   transition: 0.8s;
   margin: 0 8px 8px 0;
   text-align: center;
@@ -460,7 +453,7 @@ html {
   cursor: pointer;
 }
 .win {
-  background: pink;
+  background: $yellow;
   border-radius: 50%;
   transform: rotate(360deg);
 }

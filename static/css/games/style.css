@@ -261,7 +261,7 @@ html body .front .each-game-container .game-pingpong {
   border-radius: 40% 30% 0 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  top: 400px;
+  top: 340px;
   right: 230px;
 }
 
@@ -296,14 +296,6 @@ html body .front .each-game-container .game-dungeon:hover {
 
 html body .front .each-game-container .game-dungeon img {
   border-radius: 10px;
-}
-
-html body .counter-wrapper {
-  background-color: #ccc;
-}
-
-html body .omikuji-wrapper {
-  background-color: #ececec;
 }
 
 html body .omikuji-wrapper .omikuji-area #btn {
@@ -347,7 +339,7 @@ html body .typing-wrapper .typing-area #typing-question {
 }
 
 html body .quiz-wrapper {
-  background-color: #efdec1;
+  height: 1000px;
 }
 
 html body .quiz-wrapper .quiz-area .container {
@@ -456,10 +448,6 @@ html body .quiz-wrapper .quiz-area .container #quiz-btn.disabled {
   background-color: #ececec;
 }
 
-html body .slot-wrapper {
-  background: #bdc3c7;
-}
-
 html body .slot-wrapper .slot-area {
   background: #ecf0f1;
   border-radius: 12px;
@@ -507,7 +495,6 @@ html body .slot-wrapper #spin {
 }
 
 html body .touch-wrapper {
-  background: #ccc;
   color: #fff;
   font-size: 16px;
   font-weight: bold;
@@ -548,7 +535,7 @@ html body .touch-wrapper .touch-area #touch-board li {
 }
 
 html body .touch-wrapper .touch-area #touch-board .pressed {
-  background-color: #ccc;
+  background-color: #ececec;
   -webkit-box-shadow: none;
           box-shadow: none;
   margin-top: 9px;
@@ -574,10 +561,6 @@ html body .touch-wrapper .touch-area #touch-btn:active {
           box-shadow: none;
 }
 
-html body .pingpong-wrapper {
-  background-color: #ccc;
-}
-
 html body .pingpong-wrapper canvas {
   background-color: #000;
 }
@@ -593,7 +576,7 @@ html body .dungeon-wrapper .dungeon-area {
 .box {
   width: 100px;
   height: 100px;
-  background: skyblue;
+  background: #fff;
   -webkit-transition: 0.8s;
   transition: 0.8s;
   margin: 0 8px 8px 0;
@@ -603,7 +586,7 @@ html body .dungeon-wrapper .dungeon-area {
 }
 
 .win {
-  background: pink;
+  background: #E7A713;
   border-radius: 50%;
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg);

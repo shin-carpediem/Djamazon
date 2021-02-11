@@ -44,6 +44,7 @@
 
     setup() {
       const board = document.getElementById("touch-board");
+      board.innerHTML = ""  //レベル変更前のPanelを削除
       this.panels.forEach((panel) => {
         // クラスのプロパティに外部から直接指定するのは避けた方が良いとされているので、
         // メソッド経由で呼び出す。（=オブジェクト思考のカプセル化）
@@ -66,7 +67,7 @@
 
   class Game {
     constructor(level) {
-      // Gameクラスのプロパティにするために、consやletとして定義ではなく、thisとして継承する。
+      // Gameクラスのプロパティにするために、constやletとして定義ではなく、thisとして継承する。
       this.level = level;
       this.board = new Board(this);
 
@@ -131,6 +132,7 @@
     }
   }
 
+  // デフォルトの難易度（引数はlevel：上方を参照）
   new Game(2);
 
   // https://code-kitchen.dev/html/input-range/
@@ -138,6 +140,10 @@
   const changelevelElem = document.getElementById("changeLevel");
   const changelevelValueElem = changelevelElem.value;
   const currentValueElem = document.getElementById("current-value");
+  // インスタンスを作成する関数
+  const changeLevel = (level) => {
+    new Game(level);
+  };
 
   // 現在の値をspanに埋め込む関数
   const setCurrentValue = (val) => {
@@ -145,29 +151,14 @@
   }; // inputイベント時に値をセットする関数
 
   const rangeOnChange = (e) => {
-    setCurrentValue(e.target.value);
+    const newlevel = e.target.value;
+    changeLevel(newlevel);
+    setCurrentValue(newlevel);
   };
 
   window.onload = () => {
     // スライダー変化時にイベントを発火
     changelevelElem.addEventListener("input", rangeOnChange);
     setCurrentValue(changelevelValueElem);
-    console.log(changelevelValueElem);
-
-    // gameクラスの引数の変更をする関数
-    switch (changelevelValueElem) {
-      case 5:
-      case 4:
-        break;
-      case 3:
-        new Game(3);
-        break;
-      case 2:
-        new Game(4);
-        break;
-      case 1:
-        new Game(5);
-        break;
-    }
   };
 }
