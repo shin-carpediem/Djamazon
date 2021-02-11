@@ -4,6 +4,10 @@
 
 {% block content %}
 <div class="touch-wrapper text-center py-5">
+  <div class="explation-text mx-auto">
+    <p>Click these panels from smaller numbers within limited time.</p>
+    <p>制限時間内に数字の小さい方からクリックしてね！</p>
+  </div>
   <div id="touch-area" class="touch-area">
     <div id="touch-timer" class="text-right">
       0.0
@@ -26,7 +30,12 @@
       <p>Current level is 
         <span id="current-value">
           <!-- touch.js -->
-        </span></p>
+        </span>
+      </p>
+      <div class="d-flex justify-content-center align-items-center pt-1">
+        <p class="px-5"><a href="{% url 'games:touch' %}"><i class="fas fa-undo-alt pr-2"></i>Retry</a></p>
+        <p class="px-5"><a href="{% url 'games:index' %}"><i class="fas fa-cube pr-2"></i>Home</a></p>
+      </div>
   </div>
 </div>
 {% endblock %}

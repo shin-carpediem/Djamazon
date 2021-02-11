@@ -3,13 +3,34 @@
 {% load humanize %}
 
 {% block content %}
-<div class="typing-wrapper text-center">
-  <div class="typing-area d-flex justify-content-center align-items-center p-5 m-5">
+<div class="typing-wrapper text-center py-5">
+  <div class="explation-text mx-auto">
+    <p>Click these panels from smaller numbers within limited time.</p>
+    <p>制限時間内に数字の小さい方からクリックしてね！</p>
+  </div>
+  <div class="typing-area d-flex justify-content-center align-items-center py-5 my-5">
     <div>
       <p id="typing-question" class="typing-question">Click to Start</p>
       <p id="typing-result"></p>
     </div>
   </div>
-  <div>Point: {{ user.point | intcomma }}</div>
+  <h4 class=py-5>
+    Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}"> 0</span>
+  </h4>
+  <div>
+    <div class="d-flex justify-content-center">
+      <img src="{% static 'img/games/level.png' %}" alt="level">
+    </div>
+      <input type="range" min="1" max="5" value="1" id="changeLevel">
+      <p>Current level is 
+        <span id="current-value">
+          <!-- touch.js -->
+        </span>
+      </p>
+      <div class="d-flex justify-content-center align-items-center pt-1">
+        <p class="px-5"><a href="{% url 'games:quiz' %}"><i class="fas fa-undo-alt pr-2"></i>Retry</a></p>
+        <p class="px-5"><a href="{% url 'games:index' %}"><i class="fas fa-cube pr-2"></i>Home</a></p>
+      </div>
+  </div>
 </div>
 {% endblock %}
