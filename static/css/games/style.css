@@ -46,19 +46,23 @@ html body {
 }
 
 html body a {
-  color: #000;
+  color: #fff;
 }
 
 html body a:hover {
-  color: #000;
+  color: #fff;
 }
 
-html body span {
-  color: #000;
-}
-
+html body h1,
+html body h4,
+html body p,
+html body span,
 html body #pointUp {
   color: #fff;
+}
+
+html body p small {
+  color: #000;
 }
 
 html body li {
@@ -296,6 +300,12 @@ html body .front .each-game-container .game-dungeon:hover {
 
 html body .front .each-game-container .game-dungeon img {
   border-radius: 10px;
+}
+
+html body .explation-text {
+  width: 60%;
+  background-color: #5593AB;
+  border-radius: 100px;
 }
 
 html body .omikuji-wrapper .omikuji-area #btn {
@@ -583,10 +593,14 @@ html body .dungeon-wrapper .dungeon-area {
   text-align: center;
   line-height: 100px;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .win {
-  background: #E7A713;
+  background: #e7a713;
   border-radius: 50%;
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg);

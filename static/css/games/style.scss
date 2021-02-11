@@ -2,7 +2,7 @@
 $purple: #3a556a;
 $blue: #07a9f0;
 $red: #e05849;
-$yellow: #E7A713;
+$yellow: #e7a713;
 $black: #000;
 $light-grey: #ececec;
 $white: #fff;
@@ -82,16 +82,22 @@ html {
       font-size: 0.7rem;
     }
     a {
-      color: $black;
+      color: $white;
       &:hover {
-        color: $black;
+        color: $white;
       }
     }
-    span {
-      color: $black;
-    }
+    h1,
+    h4,
+    p,
+    span,
     #pointUp {
       color: $white;
+    }
+    p {
+      small {
+        color: $black;
+      }
     }
     li {
       list-style: none;
@@ -187,6 +193,11 @@ html {
       }
     }
     // end of index.html
+    .explation-text {
+      width: 40%;
+      background-color: #5593AB;
+      border-radius: 100px;
+    }
     // counter.html
     // end of counter.html
     // omikuji.html
@@ -451,6 +462,7 @@ html {
   text-align: center;
   line-height: 100px;
   cursor: pointer;
+  user-select: none;
 }
 .win {
   background: $yellow;
