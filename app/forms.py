@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
-from users.models import UserIsImg
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -27,13 +26,3 @@ class PurchaseForm(forms.Form):
         label='Address',
         max_length=100,
         required=False)
-
-
-class AddUserImgForm(forms.ModelForm):
-    class Meta:
-        model = UserIsImg
-        fields = ('is_img', )
-
-
-# class AddUserImgForm(forms.Form):
-#     is_img = forms.ImageField()

@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.core.mail import send_mail
+# from django.core.mail import send_mail
 from django.utils import timezone
 from app.models import Product
 
@@ -59,11 +59,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = "user"
         verbose_name_plural = "users"
-
-
-# adminページ以外でユーザーが自分でis_imgをアップロードして保存するために使用
-class UserIsImg(User):
-    is_img = User.is_img
-
-    class Meta:
-        verbose_name = "is_img"
