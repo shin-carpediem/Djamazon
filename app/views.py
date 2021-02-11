@@ -453,7 +453,12 @@ def account(request):
 def is_img(request):
     if request.method == 'POST':
         user = User.objects.get(id=request.user.id)
+        # 既に登録されているis_imgを削除する（連続投稿によるデータ量圧迫を防ぐ）
+        user.is_img.delete(False)
         user.is_img = request.FILES.get("is_img")
+        print(user.is_img)
+        if user.is_img == None:
+            return redirect('app:account')
         user.save()
         return redirect('app:account')
     return render(request, 'app/account.html', {'is_img': is_img})
