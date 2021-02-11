@@ -34,35 +34,39 @@
     </form>
   </div>
 
-  {% for product, num in cart_products.items %}
-  <div class="order-item">
-    <div class="order-item-image">
-      <a href="{% url 'app:detail' product.id %}">
-        <img src="{{ product.image.url }}" class="product-img">
-      </a>
+  <div class="row">
+    {% for product, num in cart_products.items %}
+    <div class="order-item px-sm-5 col-6 row">
+      <div class="order-item-image col-6 px-5">
+        <a href="{% url 'app:detail' product.id %}">
+          <img src="{{ product.image.url }}" class="product-img">
+        </a>
+      </div>
+      <div class="order-item-info col-6 my-auto row">
+        <div class="col-sm-8 col-12">
+          <h4 class="pb-3">{{ product.name }}</h4>
+          <div>
+            Price:<span class="info-value">{{ product.price | intcomma }}</span>
+          </div>
+          <div>
+            Number:<span class="info-value">{{ num | intcomma }}</span>
+          </div>
+          <hr>
+          <div>
+            Subtotal:<span class="info-value">{% multiply product.price num %}</span>
+          </div>
+          <div class="order-item-amount-form">
+            <form action="{% url 'app:change_item_amount' %}" method="post">{% csrf_token %}
+              <input type="hidden" name="product_id" value="{{ product.id }}">
+              <input type="submit" name="action_remove" value="-1">
+              <input type="submit" name="action_add" value="+1">
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="order-item-info">
-      <h2>{{ product.name }}</h2>
-      <div>
-        Price:<span class="info-value">{{ product.price | intcomma }}</span>
-      </div>
-      <div>
-        Number:<span class="info-value">{{ num | intcomma }}</span>
-      </div>
-      <hr>
-      <div>
-        Subtotal:<span class="info-value">{% multiply product.price num %}</span>
-      </div>
-      <div class="order-item-amount-form">
-        <form action="{% url 'app:change_item_amount' %}" method="post">{% csrf_token %}
-          <input type="hidden" name="product_id" value="{{ product.id }}">
-          <input type="submit" name="action_remove" value="-1">
-          <input type="submit" name="action_add" value="+1">
-        </form>
-      </div>
-    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 
 </div>
 {% endblock %}
