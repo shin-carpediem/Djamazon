@@ -255,6 +255,10 @@ CACHES = {
     }
 }
 
+# IMAGEKIT_CACHEFILE_DIR = [
+#     os.path.join(BASE_DIR, 'imagekit_cache')
+# ]
+
 # to bundle JS file easier
 # https://qiita.com/gsk3beta/items/c2b902c3659610701071
 WEBPACK_LOADER = {
