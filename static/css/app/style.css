@@ -109,7 +109,7 @@ html body header .header-wrapper .header-menu .is_img {
   border-radius: 50%;
   border: 1px solid #000;
   width: 25px;
-  height: auto;
+  height: 25px;
 }
 
 @media screen and (max-width: 767px) {
@@ -489,7 +489,7 @@ html body .container .account-wrapper .profile-wrapper .profile .is_img {
   border-radius: 50%;
   border: 1px solid #000;
   width: 100px;
-  height: auto;
+  height: 100px;
 }
 
 html body .container .account-wrapper .profile-wrapper .profile .submit {

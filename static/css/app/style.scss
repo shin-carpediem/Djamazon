@@ -131,7 +131,7 @@ html {
             border-radius: 50%;
             border: 1px solid $black;
             width: 25px;
-            height: auto;
+            height: 25px;
           }
         }
         // end of PC size
@@ -416,7 +416,7 @@ html {
               border-radius: 50%;
               border: 1px solid $black;
               width: 100px;
-              height: auto;
+              height: 100px;
             }
             .submit {
               @include button;

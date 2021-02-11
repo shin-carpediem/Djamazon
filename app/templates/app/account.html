@@ -9,9 +9,9 @@
   <div class="row profile-wrapper">
     <div class="col-sm-6 col-12 row profile p-4">
       <div class="col-4">
-        <div class="is_img">
+        <div>
           {% if user.is_img %}
-            <img src="{{ user.is_img.url }}" alt="is_img">
+            <img src="{{ user.is_img.url }}" alt="is_img" class="is_img">
           {% else %}
             <img src="{% static 'img/app/user_default.png' %}" alt="user_default">
           {% endif %}
