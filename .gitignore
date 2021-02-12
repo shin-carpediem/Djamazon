@@ -166,4 +166,7 @@ node_modules
 .sass-cache/
 
 # project whole cache
-cache/
+.cache/
+
+# imagekit_cache
+.imagekit_cache/

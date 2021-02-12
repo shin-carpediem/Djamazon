@@ -4,7 +4,6 @@
 
 {% block content %}
 <div class="m-auto account-wrapper">
-
   <h2 class="d-flex justify-content-center p-5">Account</h2>
   <div class="row profile-wrapper">
     <div class="col-sm-6 col-12 row profile p-4">
@@ -27,10 +26,7 @@
         <li>Password: ********</li>
         <li>Last Login: {{ user.last_login }}</li>
         <li>Started from: {{ user.date_joined }}</li>
-        <li class="pt-5 point text-center">
-          Point:
-          <span id="pointUp" data-from="0" data-to="{{ user.point }}">0</span>
-        </li>
+        <li class="pt-5 point text-center">Point:<span id="pointUp" data-from="0" data-to="{{ user.point }}"></span></li>
       </ul>
       <div class="pl-3">
         <button id="onClick">Reset Password</button>
@@ -70,15 +66,9 @@
       <button type="submit" id="onClickForPwSend">Send</button>
     </form>
   </div>
-
-  <p id="onClickInForPwSend">
-    Check your email for a link to reset your password. If it doesn't appear within a few
-    minutes, check your spam folder.
-  </p>
-
+  <p id="onClickInForPwSend">Check your email for a link to reset your password. If it doesn't appear within a few minutes, check your spam folder.</p>
 
   <h2 class="d-flex justify-content-center p-5 text-center">Djamazon Software</h2>
-
   <div class="row software-wrapper">
     <div class="col-sm-2 col-6 each-wrapper">
       <a href="{% url 'study:index' %}" target="_blank" rel="noopener noreferrer">
@@ -86,8 +76,7 @@
         <p class="text-center">Study</p>
       </a>
       <div class="pt-3 px-1 text_soft">
-        <p>You can access the source code of this whole application and learn how a beginner develops this one by one.
-        </p>
+        <p>You can access the source code of this whole application and learn how a beginner develops this one by one.</p>
       </div>
     </div>
     <div class="col-sm-2 col-6 each-wrapper">
@@ -100,6 +89,5 @@
       </div>
     </div>
   </div>
-
 </div>
 {% endblock %}
