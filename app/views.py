@@ -1,6 +1,6 @@
 from typing import overload
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-# from django.core.mail import send_mail
+from django.core.mail import send_mail
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 from django.template.loader import get_template
@@ -79,7 +79,6 @@ def top(request):
 @login_required
 def top_filtered(request):
     filter = request.POST.getlist('filter')
-    print(filter)
     if filter == [u'2000']:
         products_filtered = Product.objects.filter(
             price__gte=2000).order_by('price')
