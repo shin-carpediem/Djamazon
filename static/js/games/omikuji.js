@@ -4,7 +4,7 @@ const omikuji = () => {
   const btn = document.getElementById("btn");
 
   btn.addEventListener("click", () => {
-    // // 当確率の場合
+    // // 当確率の場合は、
     // const results = ["大吉", "吉", "中吉", "小吉", "末吉", "凶"];
     // btn.textContent = results[Math.floor(Math.random() * results.length)];
     const n = Math.random();

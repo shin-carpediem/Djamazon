@@ -31,33 +31,24 @@
     }
   }
 
-  // ゲームレベルの初期値をボックス3個として設置しておく
-  setGame(3);
-
   // ②：現在のレベルをレベル表示箇所に埋め込む関数
   function setCurrentValue(val) {
     currentValueElem.innerText = val;
   }
 
   // ③：①のゲームレベルを変える関数
-  function changeLevel(lev) {　// ここで引数としてターゲットvalueを受け取れていない
-    switch (lev) {
-      case 1:
-        print(lev)
-        setGame(3);
-        break;
-      case 2:
-        setGame(4);
-        break;
-      case 3:
-        setGame(5);
-        break;
-      case 4:
-        setGame(7);
-        break;
-      case 5:
-        setGame(10);
-        break;
+  function changeLevel(lev) {
+    // ここで引数としてターゲットvalueを受け取れていない
+    if (lev == 1) {
+      setGame(3);
+    } else if (lev == 2) {
+      setGame(4);
+    } else if (lev == 3) {
+      setGame(5);
+    } else if (lev == 4) {
+      setGame(7);
+    } else {
+      setGame(10);
     }
   }
 
