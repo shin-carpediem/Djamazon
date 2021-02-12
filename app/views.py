@@ -19,7 +19,7 @@ import os
 import smtplib
 import json
 import requests
-from users.models import UserManager, User
+from users.models import User
 from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
 from .models import Product, Sale, GoodManager, Good
 from ecsite.settings import DEBUG
@@ -341,7 +341,7 @@ def cart(request):
                 return redirect('app:cart')
             # 住所が取得できたらフォームに入力してあげる
             purchase_form = PurchaseForm(
-                initial={'zip_code': zip_code, 'address': address})
+                initial={'zip_code': zip_code, 'address': address})  # ここのみ、うまくいっていない（フォームに自動入力がされない）
 
         # 購入ボタンが押された場合
         if 'buy_product' in request.POST:
@@ -351,7 +351,7 @@ def cart(request):
                 return redirect('app:cart')
             # カートが空じゃないか確認
             if not bool(cart):
-                messages.warning(request, "Your cart is empty.")
+                messages.warning(request, "Cart is empty.")
                 return redirect('app:cart')
             # 所持ポイントが十分にあるか確認
             if total_price > user.point:
@@ -398,6 +398,7 @@ def change_item_amount(request):
     return redirect('app:cart')
 
 
+# http://zipcloud.ibsnet.co.jp/doc/api
 # 郵便番号検索の API を利用する関数
 def get_address(zip_code):
     REQUEST_URL = f'http://zipcloud.ibsnet.co.jp/api/search?zipcode={zip_code}'

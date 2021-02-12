@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-# from django.core.mail import send_mail
+from django.core.mail import send_mail
 from django.utils import timezone
 # https://qiita.com/dai-takahashi/items/57421ea191ab89175e9e
 from imagekit.models import ImageSpecField

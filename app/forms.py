@@ -20,7 +20,7 @@ class PurchaseForm(forms.Form):
     zip_code = forms.CharField(
         label='Postal code',
         max_length=7,
-        required=True,
+        required=False,
         widget=forms.TextInput(attrs={'placeholder': '7 digits(no hyphen)'}))
     address = forms.CharField(
         label='Address',
