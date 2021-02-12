@@ -294,11 +294,11 @@ def toggle_fav_product_status(request):
     if product in user.fav_products.all():
         user.fav_products.remove(product)
         messages.warning(
-            request, f"You removed {product.name} from your Favorite!")
+            request, f"You removed {product.name} from Favorite.")
     else:
         user.fav_products.add(product)
         messages.success(
-            request, f"You added {product.name} to your Favorite!")
+            request, f"You added {product.name} to Favorite.")
     return redirect('app:detail', product_id=product.id)
 
 

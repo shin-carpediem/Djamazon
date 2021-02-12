@@ -347,20 +347,6 @@ html {
             border: transparent;
           }
         }
-        .purchase-form-container {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-        }
-        .purchase-form-pay {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          .amount {
-            display: flex;
-            align-items: center;
-          }
-        }
       }
       /* order_history.html */
       .order-history {
@@ -384,18 +370,22 @@ html {
         }
       }
       .message-success {
-        background-color: $green;
-        color: $light-grey;
+        display: flex;
+        width: 30%;
+        background-color: $django-green;
+        color: $white;
+        margin: 20px auto 0 auto;
         padding: 10px;
-        padding-left: 30px;
-        border-radius: 4px;
+        border-radius: 0 50px 0 50px;
       }
       .message-warning {
-        background-color: #ffc107;
-        color: $light-grey;
+        display: flex;
+        width: 30%;
+        background-color: rgb(235, 88, 88);
+        color: $white;
+        margin: 20px auto 0 auto;
         padding: 10px;
-        padding-left: 30px;
-        border-radius: 4px;
+        border-radius: 50px 0 50px 0;
       }
       // account.html
       .account-wrapper {

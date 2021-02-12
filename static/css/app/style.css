@@ -394,37 +394,6 @@ html body .container .cart .purchase-form .purchase-button:hover {
           transform: scale(0.9);
 }
 
-html body .container .cart .purchase-form-container {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-html body .container .cart .purchase-form-pay {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-html body .container .cart .purchase-form-pay .amount {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 html body .container .order-history .order-item-info .info-value {
   float: right;
 }
@@ -446,19 +415,27 @@ html body .container .order-history .order-item-amount-form input {
 }
 
 html body .container .message-success {
-  background-color: #0f4b34;
-  color: #ececec;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30%;
+  background-color: #36a57b;
+  color: #fff;
+  margin: 20px auto 0 auto;
   padding: 10px;
-  padding-left: 30px;
-  border-radius: 4px;
+  border-radius: 0 50px 0 50px;
 }
 
 html body .container .message-warning {
-  background-color: #ffc107;
-  color: #ececec;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30%;
+  background-color: #eb5858;
+  color: #fff;
+  margin: 20px auto 0 auto;
   padding: 10px;
-  padding-left: 30px;
-  border-radius: 4px;
+  border-radius: 50px 0 50px 0;
 }
 
 html body .container .account-wrapper .profile-wrapper {
