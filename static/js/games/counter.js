@@ -39,7 +39,6 @@
 
   // ③：①のゲームレベルを変える関数
   function changeLevel(lev) {
-    // ここで引数としてターゲットvalueを受け取れていない
     if (lev == 1) {
       setGame(3);
     } else if (lev == 2) {
@@ -55,8 +54,8 @@
 
   // ④：②③をターゲットのvalueの値に応じて実行
   function rangeOnChange(e) {
-    setCurrentValue(e.target.value); //②
-    changeLevel(e.target.value); //③
+    setCurrentValue(e.target.value); // ②
+    changeLevel(e.target.value); // ③
   }
 
   // ⑤：②③をウィンドウロード時に発火

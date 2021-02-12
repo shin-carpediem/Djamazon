@@ -5,28 +5,24 @@
 {% block content %}
 <div class="slot-wrapper text-center py-5">
   <div class="explation-text mx-auto">
-    <p>Click these panels from smaller numbers within limited time.</p>
-    <p>制限時間内に数字の小さい方からクリックしてね！</p>
+    <p>You will win if all the card get same.</p>
+    <p>カードが全てそろったら勝ちだよ！</p>
   </div>
   <div class="col-sm-4 col-12 mx-auto">
     <main class="slot-area p-3 mt-5 mb-3 d-flex justify-content-around">
       <!-- slot.js -->
     </main>
-    <div id="spin" class="mb-2">SPIN</div>
+    <div id="spin" class="mb-2">
+      SPIN
+    </div>
   </div>
-  <h4 class=py-5>
-    Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}"> 0</span>
-  </h4>
+  <h4 class=py-5>Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}"></span></h4>
   <div>
     <div class="d-flex justify-content-center">
       <img src="{% static 'img/games/level.png' %}" alt="level">
     </div>
-      <input type="range" min="1" max="5" value="1" id="changeLevel">
-      <p>Current level is 
-        <span id="current-value">
-          <!-- touch.js -->
-        </span>
-      </p>
+      <input type="range" min="1" max="5" value="1" id="slotChangeLevel">
+      <p>Current level is <span id="slot-current-value"><!-- touch.js --></span></p>
       <div class="d-flex justify-content-center align-items-center pt-1">
         <p class="px-5"><a href="{% url 'games:slot' %}"><i class="fas fa-undo-alt pr-2"></i>Retry</a></p>
         <p class="px-5"><a href="{% url 'games:index' %}"><i class="fas fa-cube pr-2"></i>Home</a></p>

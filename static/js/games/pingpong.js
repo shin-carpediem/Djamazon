@@ -7,6 +7,27 @@
     return Math.random() * (max - min) + min;
   }
 
+  // ⓪：要素を取得
+  const changelevelElem = document.getElementById("pingpongChangeLevel");
+  const currentValueElem = document.getElementById("pingpong-current-value");
+
+  // ①：現在のレベルをレベル表示箇所に埋め込む関数
+  function setCurrentValue(val) {
+    currentValueElem.innerText = val;
+  }
+
+  // ③：①②をターゲットのvalueの値に応じて実行
+  function rangeOnChange(e) {
+    setCurrentValue(e.target.value); //②
+    changeLevel(e.target.value); //③
+  }
+
+  // ④：①②をウィンドウロード時に発火
+  window.onload = () => {
+    changelevelElem.addEventListener("input", rangeOnChange);
+    setCurrentValue(changelevelElem.value);
+    changeLevel(changelevelElem.value);
+  };
   class Ball {
     constructor(canvas) {
       this.canvas = canvas;
@@ -17,6 +38,26 @@
       this.vx = rand(3, 5) * (Math.random() < 0.5 ? 1 : -1); //0.5より小さかったら1、そうではなかったら-1の50%にする
       this.vy = rand(3, 5);
       this.isMissed = false;
+    }
+
+    // ②：ゲームレベルを変える関数
+    changeLevel(lev) {
+      if (lev == 1) {
+        this.vx = this.vx;
+        this.vy = this.vy;
+      } else if (lev == 2) {
+        this.vx *= 1.2;
+        this.vy *= 1.2;
+      } else if (lev == 3) {
+        this.vx *= 1.4;
+        this.vy *= 1.4;
+      } else if (lev == 4) {
+        this.vx *= 1.6;
+        this.vy *= 1.6;
+      } else {
+        this.vx *= 2;
+        this.vy *= 2;
+      }
     }
 
     getMissedStatus() {
@@ -110,7 +151,7 @@
         ballCenter < paddleRight
       ) {
         ball.bounce();
-        // ボールが浅く入ってくるとパドルの中で跳ね返ってしまい、それを防ぐ
+        // ボールが浅く入ってくるとパドルの中で跳ね返ってしまうので、それを防ぐ
         ball.reposition(paddleTop);
         this.game.addScore();
       }

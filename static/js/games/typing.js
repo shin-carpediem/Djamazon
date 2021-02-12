@@ -7,7 +7,51 @@
     loc = 0;
   }
 
-  const words = ["red", "blue", "pink"];
+  // ⓪：要素を取得/設定
+  const changelevelElem = document.getElementById("typingChangeLevel");
+  const currentValueElem = document.getElementById("typing-current-value");
+  let words = ["red", "blue", "pink"];
+
+  // ①：現在のレベルをレベル表示箇所に埋め込む関数
+  function setCurrentValue(val) {
+    currentValueElem.innerText = val;
+  }
+
+  // ②：ゲームのレベルを変えるかつ、セッティングする関数
+  function changeLevel(lev) {
+    if (lev == 1) {
+      words = this.words;
+    } else if (lev == 2) {
+      words.push("green", "yellow");
+    } else if (lev == 3) {
+      words.push("green", "yellow", "black", "white");
+    } else if (lev == 4) {
+      words = ["interesting", "wonderful", "amazing", "imaginative"];
+    } else {
+      words = [
+        "interesting",
+        "wonderful",
+        "amazing",
+        "imaginative",
+        "sophisticated",
+        "emotional",
+      ];
+    }
+  }
+
+  // ③：①②をターゲットのvalueの値に応じて実行
+  function rangeOnChange(e) {
+    setCurrentValue(e.target.value); //①
+    changeLevel(e.target.value); //②
+  }
+
+  // ④：①②をウィンドウロード時に発火
+  window.onload = () => {
+    changelevelElem.addEventListener("input", rangeOnChange);
+    setCurrentValue(changelevelElem.value);
+    changeLevel(changelevelElem.value);
+  };
+
   let word;
   let loc = 0;
   let startTime;
