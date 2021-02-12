@@ -13,6 +13,7 @@
 
   // ①：ゲームをセッティングする関数
   function setGame(num) {
+    counterContent.innerText = "";
     for (let i = 0; i < num; i++) {
       const div = document.createElement("div");
       div.classList.add("box");
