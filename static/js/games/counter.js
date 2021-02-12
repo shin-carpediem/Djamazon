@@ -59,14 +59,10 @@
     changeLevel(e.target.value); //③
   }
 
-  // ⑤：②をウィンドウロード時に発火
+  // ⑤：②③をウィンドウロード時に発火
   window.onload = () => {
     changelevelElem.addEventListener("input", rangeOnChange);
     setCurrentValue(changelevelElem.value);
     changeLevel(changelevelElem.value);
   };
-
-  // ⑥：③をrangeのvalueの値毎に発火
-  // changelevelElem.addEventListener("input", rangeOnChange);
-  // changeLevel(changelevelElem.value);
 }
