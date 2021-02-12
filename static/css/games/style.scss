@@ -250,7 +250,6 @@ html {
     // end of typing.html
     // quiz.html
     .quiz-wrapper {
-      height: 1000px;
       .quiz-area {
         .container {
           background: #fff;
@@ -290,6 +289,7 @@ html {
             }
           }
           #quiz-question {
+            color: $black;
             font-weight: bolder;
           }
           #quiz-choices {

@@ -348,10 +348,6 @@ html body .typing-wrapper .typing-area #typing-question {
   cursor: pointer;
 }
 
-html body .quiz-wrapper {
-  height: 1000px;
-}
-
 html body .quiz-wrapper .quiz-area .container {
   background: #fff;
   border-radius: 4px;
@@ -402,6 +398,7 @@ html body .quiz-wrapper .quiz-area .container #quiz-result div a {
 }
 
 html body .quiz-wrapper .quiz-area .container #quiz-question {
+  color: #000;
   font-weight: bolder;
 }
 
