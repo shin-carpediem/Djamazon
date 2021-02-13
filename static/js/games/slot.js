@@ -1,6 +1,28 @@
 "use strict";
 
 {
+  // ⓪：要素を取得
+  const changelevelElem = document.getElementById("slotChangeLevel");
+  const currentValueElem = document.getElementById("slot-current-value");
+
+  // ①：現在のレベルをレベル表示箇所に埋め込む関数
+  function setCurrentValue(val) {
+    currentValueElem.innerText = val;
+  }
+
+  // ③：①②をターゲットのvalueの値に応じて実行
+  function rangeOnChange(e) {
+    setCurrentValue(e.target.value); // ①
+    getImageSet(e.target.value); // ②
+  }
+
+  // ④：①②をウィンドウロード時に発火
+  window.onload = () => {
+    // ここが機能していない。どうやって、window_load時に発火させるか
+    changelevelElem.addEventListener("input", rangeOnChange);
+    setCurrentValue(changelevelElem.value);
+    getImageSet(changelevelElem.value);
+  };
   class Panel {
     constructor() {
       const section = document.createElement("section");
@@ -36,14 +58,70 @@
 
       const main = document.querySelector("main");
       main.appendChild(section);
+
+      // ⓪：要素を取得
+      this.changelevelElem = document.getElementById("slotChangeLevel");
+      this.currentValueElem = document.getElementById("slot-current-value");
     }
 
-    getRandomImage() {
-      const images = [
+    // ①：ゲームレベルを変更する関数
+    getImageSet(lev) {
+      const images_def = [
         "./../../../static/img/games/slot/seven.png",
         "./../../../static/img/games/slot/bell.png",
         "./../../../static/img/games/slot/cherry.png",
       ];
+      if (lev == 1) {
+        images_def = images_def;
+      } else if (lev == 2) {
+        images_def.push("./../../../static/img/games/slot/burger.png");
+      } else if (lev == 3) {
+        images_def.push("./../../../static/img/games/slot/burger.png");
+        images_def.push("./../../../static/img/games/slot/apple.png");
+      } else if (lev == 4) {
+        images_def.push("./../../../static/img/games/slot/burger.png");
+        images_def.push("./../../../static/img/games/slot/apple.png");
+        images_def.push("./../../../static/img/games/slot/pizza.png");
+      } else {
+        images_def.push("./../../../static/img/games/slot/burger.png");
+        images_def.push("./../../../static/img/games/slot/apple.png");
+        images_def.push("./../../../static/img/games/slot/pizza.png");
+        images_def.push("./../../../static/img/games/slot/grape.png");
+      }
+      return images_def;
+    }
+
+    // ②：現在のレベルをレベル表示箇所に埋め込む関数
+    setCurrentValue(val) {
+      this.currentValueElem.innerText = val;
+    }
+
+    // ③：①②をターゲットのvalueの値に応じて実行
+    rangeOnChange(e) {
+      this.getImageSet(e.target.value); // ①
+      this.setCurrentValue(e.target.value); // ②
+    }
+
+    // ④：①②をウィンドウロード時に発火
+    onload() {
+      // ここが機能していない。どうやって、window_load時に発火させるか
+      this.changelevelElem.addEventListener("input", this.rangeOnChange);
+      this.getImageSet(this.changelevelElem.value);
+      this.setCurrentValue(this.changelevelElem.value);
+    }
+
+    // 元々
+    // getRandomImage() {
+    //   const images = [
+    //     "./../../../static/img/games/slot/seven.png",
+    //     "./../../../static/img/games/slot/bell.png",
+    //     "./../../../static/img/games/slot/cherry.png",
+    //   ];
+    //   return images[Math.floor(Math.random() * images.length)];
+    // }
+
+    getRandomImage() {
+      let images = this.getImageSet();
       return images[Math.floor(Math.random() * images.length)];
     }
 
@@ -96,4 +174,11 @@
       panel.spin();
     });
   });
+
+  // ④：①②をウィンドウロード時に発火
+  // window.onload = () => {
+  //   changelevelElem.addEventListener("input", rangeOnChange);
+  //   getImageSet(changelevelElem.value);
+  //   setCurrentValue(changelevelElem.value);
+  // };
 }
