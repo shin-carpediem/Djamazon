@@ -88,13 +88,13 @@ $ pyenv global 3.8.6 && python -V
 $ brew install pip==20.2.1
 ```
 
-- [ ] \(**Important!**) Make and enter your own virtual environment
+- [ ] \(**Important!**) Make and enter your own virtual environment with venv
 
 ```
 $ python -m venv env && source env/bin/activate
 ```
 
-- [ ] Input the environment variable into your terminal.
+- [ ] Input the environment variable into your terminal
 
 ```
 (If you need, I will tell you when it is okay for me.)

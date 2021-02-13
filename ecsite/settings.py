@@ -248,13 +248,6 @@ else:
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.chache.backends.db.DatabaseCache',
-        'LOCATION': 'cache',
-    }
-}
-
 # IMAGEKIT_CACHEFILE_DIR = [
 #     os.path.join(BASE_DIR, 'imagekit_cache')
 # ]
