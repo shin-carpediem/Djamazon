@@ -44,7 +44,7 @@
 
     setup() {
       const board = document.getElementById("touch-board");
-      board.innerHTML = ""  //レベル変更前のPanelを削除
+      board.innerHTML = ""; //レベル変更前のPanelを削除
       this.panels.forEach((panel) => {
         // クラスのプロパティに外部から直接指定するのは避けた方が良いとされているので、
         // メソッド経由で呼び出す。（=オブジェクト思考のカプセル化）
@@ -132,35 +132,28 @@
     }
   }
 
-  // デフォルトの難易度（引数はlevel：上方を参照）
-  new Game(2);
-
   // https://code-kitchen.dev/html/input-range/
-  // input要素を取得
+  // ⓪要素を取得
   const changelevelElem = document.getElementById("changeLevel");
-  const changelevelValueElem = changelevelElem.value;
   const currentValueElem = document.getElementById("current-value");
 
-  // ①インスタンスを作成する関数
-  const changeLevel = (level) => {
-    new Game(level);
-  };
+  let randomNum = Math.floor(Math.random() * 5 + 1);
+  new Game(randomNum);
 
-  // ②現在の値をspanに埋め込む関数
+  // ①現在のレベルをレベル表示箇所に埋め込む関数
   const setCurrentValue = (val) => {
     currentValueElem.innerText = val;
-  }; // inputイベント時に値をセットする関数
+  };
 
   // ①②をターゲットのvalueに応じて実行する関数
   const rangeOnChange = (e) => {
-    const newlevel = e.target.value;
-    changeLevel(newlevel);
-    setCurrentValue(newlevel);
+    setCurrentValue(e.target.value);
   };
 
   // スライダー変化時に②を発火
   window.onload = () => {
     changelevelElem.addEventListener("input", rangeOnChange);
-    setCurrentValue(changelevelValueElem);
+    setCurrentValue(randomNum);
+    changelevelElem.value = randomNum;
   };
 }

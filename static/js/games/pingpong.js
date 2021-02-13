@@ -2,11 +2,6 @@
 
 // returnは関数にしか使えないので、以下を即時関数にする
 (() => {
-  // ボールが生成される位置や速度をランダムにする。Ballクラスや他のクラスとも関係ないので、ユーティリティとして一番上に置いとく
-  function rand(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
   // ⓪：要素を取得
   const changelevelElem = document.getElementById("pingpongChangeLevel");
   const currentValueElem = document.getElementById("pingpong-current-value");
@@ -16,20 +11,29 @@
     currentValueElem.innerText = val;
   }
 
-  // ③：①②をターゲットのvalueの値に応じて実行
+  // ②：①をターゲットのvalueの値に応じて実行
   function rangeOnChange(e) {
-    setCurrentValue(e.target.value); //②
-    changeLevel(e.target.value); //③
+    setCurrentValue(e.target.value);
   }
 
-  // ④：①②をウィンドウロード時に発火
+  // ④ウィンドウ読み込み完了時に発火
   window.onload = () => {
     changelevelElem.addEventListener("input", rangeOnChange);
-    setCurrentValue(changelevelElem.value);
-    changeLevel(changelevelElem.value);
+    setCurrentValue(randomNum);
+    changelevelElem.value = randomNum;
   };
+
+  // ゲームレベルをランダム設定させる
+  let randomNum = Math.floor(Math.random() * 5 + 1);
+
+  // ボールが生成される位置や速度をランダムにする。Ballクラスや他のクラスとも関係ないので、ユーティリティとして一番上に置いとく
+  function rand(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
   class Ball {
     constructor(canvas) {
+      this.range = randomNum;
       this.canvas = canvas;
       this.ctx = this.canvas.getContext("2d");
       this.x = rand(30, 250);
@@ -38,25 +42,28 @@
       this.vx = rand(3, 5) * (Math.random() < 0.5 ? 1 : -1); //0.5より小さかったら1、そうではなかったら-1の50%にする
       this.vy = rand(3, 5);
       this.isMissed = false;
+
+      this.changeLevel(this.range);
     }
 
-    // ②：ゲームレベルを変える関数
-    changeLevel(lev) {
-      if (lev == 1) {
+    // ゲームレベルを変える関数
+    changeLevel() {
+      console.log(this.range);
+      if (this.range == 1) {
         this.vx = this.vx;
         this.vy = this.vy;
-      } else if (lev == 2) {
-        this.vx *= 1.2;
-        this.vy *= 1.2;
-      } else if (lev == 3) {
-        this.vx *= 1.4;
-        this.vy *= 1.4;
-      } else if (lev == 4) {
-        this.vx *= 1.6;
-        this.vy *= 1.6;
+      } else if (this.range == 2) {
+        this.vx = rand(4, 6);
+        this.vy = rand(4, 6);
+      } else if (this.range == 3) {
+        this.vx = rand(5, 7);
+        this.vy = rand(5, 7);
+      } else if (this.range == 4) {
+        this.vx = rand(6, 8);
+        this.vy = rand(6, 8);
       } else {
-        this.vx *= 2;
-        this.vy *= 2;
+        this.vx = rand(8, 10);
+        this.vy = rand(8, 10);
       }
     }
 

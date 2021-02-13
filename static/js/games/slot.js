@@ -23,7 +23,7 @@
   };
 
   // ゲームレベルをランダム設定させる
-  let randomNum = Math.floor((Math.random() * 5) + 1);
+  let randomNum = Math.floor(Math.random() * 5 + 1);
 
   class Panel {
     constructor() {
