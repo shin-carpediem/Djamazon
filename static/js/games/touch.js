@@ -44,7 +44,6 @@
 
     setup() {
       const board = document.getElementById("touch-board");
-      board.innerHTML = ""; //レベル変更前のPanelを削除
       this.panels.forEach((panel) => {
         // クラスのプロパティに外部から直接指定するのは避けた方が良いとされているので、
         // メソッド経由で呼び出す。（=オブジェクト思考のカプセル化）
