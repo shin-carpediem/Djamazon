@@ -11,6 +11,7 @@
   }
 
   // ③：①②をターゲットのvalueの値に応じて実行
+  // 😇どうやってクラスの中のgetImageSetを呼び出すか
   function rangeOnChange(e) {
     setCurrentValue(e.target.value); // ①
     getImageSet(e.target.value); // ②
@@ -18,13 +19,12 @@
 
   // ④：①②をウィンドウロード時に発火
   window.onload = () => {
-    // ここが機能していない。どうやって、window_load時に発火させるか
     changelevelElem.addEventListener("input", rangeOnChange);
     setCurrentValue(changelevelElem.value);
     getImageSet(changelevelElem.value);
   };
   class Panel {
-    constructor() {
+    constructor(range) {
       const section = document.createElement("section");
       section.classList.add("panel");
 
@@ -62,6 +62,9 @@
       // ⓪：要素を取得
       this.changelevelElem = document.getElementById("slotChangeLevel");
       this.currentValueElem = document.getElementById("slot-current-value");
+
+      getImageSet(range);
+
     }
 
     // ①：ゲームレベルを変更する関数
@@ -92,23 +95,15 @@
     }
 
     // ②：現在のレベルをレベル表示箇所に埋め込む関数
-    setCurrentValue(val) {
-      this.currentValueElem.innerText = val;
-    }
+    // setCurrentValue(val) {
+    //   this.currentValueElem.innerText = val;
+    // }
 
     // ③：①②をターゲットのvalueの値に応じて実行
-    rangeOnChange(e) {
-      this.getImageSet(e.target.value); // ①
-      this.setCurrentValue(e.target.value); // ②
-    }
-
-    // ④：①②をウィンドウロード時に発火
-    onload() {
-      // ここが機能していない。どうやって、window_load時に発火させるか
-      this.changelevelElem.addEventListener("input", this.rangeOnChange);
-      this.getImageSet(this.changelevelElem.value);
-      this.setCurrentValue(this.changelevelElem.value);
-    }
+    // rangeOnChange(e) {
+    //   this.getImageSet(e.target.value); // ①
+    //   this.setCurrentValue(e.target.value); // ②
+    // }
 
     // 元々
     // getRandomImage() {
@@ -158,7 +153,7 @@
     }
   }
 
-  const panels = [new Panel(), new Panel(), new Panel()];
+  let panels = [new Panel(num), new Panel(num), new Panel(num)];
 
   let panelsLeft = 3;
 
