@@ -30,6 +30,10 @@
   <!-- Google Search Console Tag-->
   <meta name="google-site-verification" content="kWVl84MdZ2_36F2tAvQrEk-Sv796Nr5cKB9e5lDW27U">
 
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Piedra&family=Righteous&display=swap" rel="stylesheet">
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -42,11 +46,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="apple-touch-icon-precomposed" type="image/svg" href="{% static 'img/games/favicon.svg' %}">
-
-  <link rel="stylesheet" type="text/css" href="{% static 'css/games/style.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/games/style.min.css' %}">
   <link rel="icon" type="image/svg" href="{% static 'img/games/favicon.svg' %}">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Piedra&family=Righteous&display=swap" rel="stylesheet">
 
   <title>Djamazon Games</title>
   <meta name="description" content="If you win the games, you can get points and use for shopping.">
@@ -83,5 +84,9 @@
       </div>
     </div>
   </div>
+
+  <!-- TODO:when webpack can be used right, this comment out should be open. -->
+  <!-- device related -->
+  <!-- <script src="{% static 'js/pointUp.min.js' %}"></script> -->
 </body>
 </html>

@@ -119,6 +119,14 @@ html {
           color: $purple;
         }
       }
+      // https://qiita.com/gonshi_com/items/4ae066ef4bea6d519854
+      .each-game-container {
+        opacity: 0;
+        transition: 2s;
+      }
+      .show-each-game {
+        opacity: 1;
+      }
       .each-game-container {
         position: relative;
         .game-counter {
@@ -195,7 +203,7 @@ html {
     // end of index.html
     .explation-text {
       width: 40%;
-      background-color: #5593AB;
+      background-color: #5593ab;
       border-radius: 100px;
     }
     // counter.html

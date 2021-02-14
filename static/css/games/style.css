@@ -87,6 +87,16 @@ html body .front .title .title-span {
 }
 
 html body .front .each-game-container {
+  opacity: 0;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+html body .front .show-each-game {
+  opacity: 1;
+}
+
+html body .front .each-game-container {
   position: relative;
 }
 
@@ -304,7 +314,7 @@ html body .front .each-game-container .game-dungeon img {
 
 html body .explation-text {
   width: 40%;
-  background-color: #5593AB;
+  background-color: #5593ab;
   border-radius: 100px;
 }
 
