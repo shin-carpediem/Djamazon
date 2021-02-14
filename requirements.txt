@@ -16,7 +16,6 @@ django-filter==2.4.0
 django-imagekit==4.0.2
 djangorestframework==3.12.2
 executing==0.5.4
-icecream==2.0.0
 idna==2.10
 Markdown==3.3.3
 oauthlib==3.1.0

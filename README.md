@@ -2,6 +2,17 @@
 
 # [Djamazon](https://shinac.pythonanywhere.com/)
 
+## Feature
+
+- [x] Djamazon: Experience of e-commerce with imaginary money(= We call it "Point")
+- [x] Djamazon games: Lots of games will make you excited. Some games' levels are rumdam, and other games' levels you can set on purpose. Also, if you will these games, you will be able to get points for shopping.
+- [x] Djamazon Study: If you are a beginner for Django, you can learn the process of developing this whole application.
+
+## Production Policy
+
+- Securest
+- highly restricted namespace/scope at css/js
+
 Memo for me:\
 ✅ Each "product" image size should be less than 320px \* 320px.
 
@@ -12,11 +23,14 @@ local
 - Python==3.8.6
 - pip==20.2.1
 - Django==3.0.10
+- django-compressor==2.4.0
 - django-debug-toolbar==3.2.0
 - React(CDN)==17.0.1
 - Bootstrap(CDN)==4.5.0
 - jQuery(CDN)==3.5.1
 - SCSS
+- Sass compiler(vscode plugin)
+- Minifer(vscode plugin)
 - Darkmode.js(CDN)==1.5.7
 - Chart.js(CDN)==2.9.4
 - npm==6.14.8
@@ -29,7 +43,7 @@ unique to production
 - Python==3.6.0
 - MySQL==5.6.48(switching to sqlite now)
 
-## How to SetUp with your local server
+## How to SetUp with your local server?
 
 - [ ] Install Homebrew
 
@@ -167,11 +181,11 @@ $ python manage.py showmigrations
 - can show you the status of migrations to your local database.
 - If you want to check the content of database(sqlite3) easily with GUI, try using "DB Browser for SQlite".
 
-## How to SetUp with your remote server
+## How to SetUp with your remote server?
 
 https://tutorial.djangogirls.org/ja/deploy/
 
-### How to migrate from sqlite3 to MySQL of pythonanywhere
+### How to migrate from sqlite3 to MySQL of pythonanywhere?
 
 https://qiita.com/nnsnodnb/items/9e99e7f0ca3f82bf2171
 
@@ -183,7 +197,7 @@ To connect with mysql, use this command.
 $ mysql -u shinac -h shinac.mysql.pythonanywhere-services.com -p
 ```
 
-### How to optimaize the environment variables to pythonanywere
+### How to optimaize the environment variables to pythonanywere?
 
 https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/
 
@@ -192,3 +206,11 @@ When you added new environment variables to .env file, do not forget to type thi
 ```
 $ set -a; source ~/shinac.pythonanywhere.com/.env; set +a
 ```
+
+and do not forget to optimize static files to production.
+
+```
+$ python manage.py collectstatic
+```
+
+unless you would see admin page with non decorated by css.
