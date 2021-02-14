@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'debug_toolbar',
-    'webpack_loader',
+    'compressor',
 ]
 
 # Database
@@ -181,6 +181,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 print("MEDIA_ROOT", MEDIA_ROOT)
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+COMPRESS_ENABLED = True
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # メールサーバーへの接続設定
 # Gmailサーバーを経由
@@ -251,19 +258,6 @@ else:
 # IMAGEKIT_CACHEFILE_DIR = [
 #     os.path.join(BASE_DIR, 'imagekit_cache')
 # ]
-
-# to bundle JS file easier
-# https://qiita.com/gsk3beta/items/c2b902c3659610701071
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'CACHE': not DEBUG,
-        'BUNDLE_DIR_NAME': 'webpack_bundles/',  # must end with slash
-        'STATS_FILE': os.path.join(BASE_DIR, './webpack-stats.json'),
-        'POLL_INTERVAL': 0.1,
-        'TIMEOUT': None,
-        'IGNORE': [r'.+\.hot-update.js', r'.+\.map']
-    }
-}
 
 if DEBUG:
     LOGGING = {

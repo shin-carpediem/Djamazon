@@ -1,6 +1,6 @@
 {% load i18n %}
 {% load static %}
-{% load render_bundle from webpack_loader %}
+{% load compress %}
 {% load humanize %}
 
 <!DOCTYPE html>
@@ -51,8 +51,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="apple-touch-icon apple-touch-icon-precomposed" sizes="180x180" href="{% static 'img/app/apple-touch-icon.png' %}" />
+
+  {% compress css %}
   <link rel="stylesheet" href="{% static 'css/bootstrap-social.css' %}">
   <link rel="stylesheet" href="{% static 'css/app/style.min.css' %}">
+  {% endcompress %}
   <link rel="icon" href="{% static 'img/app/favicon.ico' %}">
 
   <title>Djamazon</title>
@@ -358,10 +361,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
     integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
     crossorigin="anonymous"></script>
+  {% compress js %}
   <script src="{% static 'js/app/pointHistory.min.js' %}"></script>
   <!-- device related -->
-  <!-- need to understand webpack -->
-  <!-- {% render_bundle 'main' 'js' %} -->
   <script src="{% static 'js/pointUp.min.js' %}"></script>
   <script src="{% static 'js/app/headerTitle.min.js' %}"></script>
   <script src="{% static 'js/app/changeLang.min.js' %}"></script>
@@ -373,5 +375,6 @@
   <script src="{% static 'js/app/hoverFadeIn.min.js' %}"></script>
   <script src="{% static 'js/app/calendar.min.js' %}"></script>
   <script src="{% static 'js/app/logOutConfirm.min.js' %}"></script>
+  {% endcompress %}
  </body>
 </html>
