@@ -13,7 +13,7 @@ local
 - pip==20.2.1
 - Django==3.0.10
 - django-debug-toolbar==3.2.0
-- React
+- React(CDN)==17.0.1
 - Bootstrap(CDN)==4.5.0
 - jQuery(CDN)==3.5.1
 - SCSS
@@ -27,7 +27,7 @@ local
 - SQlite==3.32.3
 - CircleCI==0.2.1
 
-production
+unique to production
 
 - Pythonanywhere(Free plan)
 - Python==3.6.0

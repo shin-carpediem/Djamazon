@@ -586,11 +586,7 @@ html body .pingpong-wrapper canvas {
   background-color: #000;
 }
 
-html body .tic_tac_toe-wrapper {
-  background-color: #000;
-}
-
-html body .tic_tac_toe-wrapper .tic_tac_toe-area {
+html body .tic_tac_toe-wrapper #tic_tac_toe-area {
   background-color: #fff;
 }
 

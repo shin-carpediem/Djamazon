@@ -456,8 +456,7 @@ html {
     // end of pingpong.html
     // tic_tac_toe.html
     .tic_tac_toe-wrapper {
-      background-color: $black;
-      .tic_tac_toe-area {
+      #tic_tac_toe-area {
         background-color: $white;
       }
     }
