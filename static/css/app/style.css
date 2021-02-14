@@ -682,6 +682,10 @@ html body .container .welcome-message .fly-in div:nth-child(8) {
   }
 }
 
+html body .container .icon span {
+  color: #fff;
+}
+
 html body .bg-img {
   position: relative;
 }
