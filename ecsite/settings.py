@@ -246,18 +246,21 @@ LOGOUT_REDIRECT_URL = 'app:login'
 # 限られたネットワーク性能の仮想化ホストにおいて、とても効果的。
 CONN_MAX_AGE = 0
 
-if DEBUG:
-    # 誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセット。
-    CSRF_COOKIE_SECURE = False
-    # 誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセット。
-    SESSION_COOKIE_SECURE = False
-else:
-    CSRF_COOKIE_SECURE = True
-    SESSION_COOKIE_SECURE = True
+# 誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセット。
+CSRF_COOKIE_SECURE = os.getenv("DEBUG") == "False"
+# 誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセット。
+SESSION_COOKIE_SECURE = os.getenv("DEBUG") == "False"
 
 # IMAGEKIT_CACHEFILE_DIR = [
 #     os.path.join(BASE_DIR, 'imagekit_cache')
 # ]
+
+# https://www.valentinog.com/blog/drf/#Django_REST_with_React_setting_up_React_and_webpack
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
+}
 
 if DEBUG:
     LOGGING = {
