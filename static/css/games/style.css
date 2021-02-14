@@ -465,6 +465,10 @@ html body .quiz-wrapper .quiz-area .container #quiz-btn.disabled {
   background-color: #ececec;
 }
 
+html body .quiz-wrapper .quiz-area .container #quiz-result p {
+  color: #000;
+}
+
 html body .slot-wrapper .slot-area {
   background: #ecf0f1;
   border-radius: 12px;

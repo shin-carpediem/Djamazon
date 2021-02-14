@@ -3,7 +3,7 @@
 // 1.54秒の所で、中断。canvasの表示の仕方がよくわからないので、まずはcanvasを理解する。
 "use strict";
 
-{
+const dungeon = () => {
   class Level {
     constructor() {
       this.tiles = [
@@ -355,4 +355,5 @@
       }
     }
   }
-}
+};
+dungeon();

@@ -1,6 +1,6 @@
 "use strict";
 
-{
+const counter = () => {
   // https://code-kitchen.dev/html/input-range/
   // ⓪：要素を取得
   const counterContent = document.getElementById("counterContent");
@@ -72,4 +72,5 @@
     setCurrentValue(changelevelElem.value);
     changeLevel(changelevelElem.value);
   };
-}
+};
+counter();

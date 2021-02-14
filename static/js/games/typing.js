@@ -1,6 +1,6 @@
 "use strict";
 
-{
+const typing = () => {
   function setWord() {
     word = words.splice(Math.floor(Math.random() * words.length), 1)[0]; // spliceの返り値は配列になるので、[0]で1番目を指定する。
     target.textContent = word;
@@ -92,4 +92,5 @@
       setWord();
     }
   });
-}
+};
+typing();

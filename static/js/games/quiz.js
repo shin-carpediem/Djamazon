@@ -1,6 +1,6 @@
 "use strict";
 
-{
+const quiz = () => {
   const question = document.getElementById("quiz-question");
   const choices = document.getElementById("quiz-choices");
   const btn = document.getElementById("quiz-btn");
@@ -96,4 +96,5 @@
       setQuiz();
     }
   });
-}
+};
+quiz();

@@ -1,7 +1,7 @@
 // https://djangobrothers.com/blogs/chartjs_usage/
 "use strict";
 
-{
+let pointHistory = () => {
   var type = "line";
 
   var data = {
@@ -50,4 +50,5 @@
     data: data,
     options: options,
   });
-}
+};
+pointHistory();

@@ -347,6 +347,11 @@ html {
               background-color: $light-grey;
             }
           }
+          #quiz-result {
+            p {
+              color: $black;
+            }
+          }
         }
       }
     }

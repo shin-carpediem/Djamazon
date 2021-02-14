@@ -1,6 +1,6 @@
 "use strict";
 
-{
+const omikuji = () => {
   // ⓪：要素を取得
   const btn = document.getElementById("btn");
   const changelevelElem = document.getElementById("omikujiChangeLevel");
@@ -58,4 +58,5 @@
     setCurrentValue(changelevelElem.value);
     setGame(changelevelElem.value);
   };
-}
+};
+omikuji();

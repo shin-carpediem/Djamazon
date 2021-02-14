@@ -1,6 +1,6 @@
 "use strict";
 
-{
+const slot = () => {
   // ⓪：要素を取得
   const changelevelElem = document.getElementById("slotChangeLevel");
   const currentValueElem = document.getElementById("slot-current-value");
@@ -140,4 +140,5 @@
       panel.spin();
     });
   });
-}
+};
+slot();

@@ -1,6 +1,6 @@
 "use strict";
 
-{
+const touch = () => {
   class Panel {
     constructor(game) {
       this.game = game;
@@ -155,4 +155,5 @@
     setCurrentValue(randomNum);
     changelevelElem.value = randomNum;
   };
-}
+};
+touch();
