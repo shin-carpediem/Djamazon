@@ -292,7 +292,7 @@ html body .front .each-game-container {
   position: relative;
 }
 
-html body .front .each-game-container .game-dungeon {
+html body .front .each-game-container .game-tic_tac_toe {
   position: absolute;
   background-color: #fff;
   border: solid 2px transparent;
@@ -303,12 +303,12 @@ html body .front .each-game-container .game-dungeon {
   left: 400px;
 }
 
-html body .front .each-game-container .game-dungeon:hover {
+html body .front .each-game-container .game-tic_tac_toe:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-html body .front .each-game-container .game-dungeon img {
+html body .front .each-game-container .game-tic_tac_toe img {
   border-radius: 10px;
 }
 
@@ -586,11 +586,11 @@ html body .pingpong-wrapper canvas {
   background-color: #000;
 }
 
-html body .dungeon-wrapper {
+html body .tic_tac_toe-wrapper {
   background-color: #000;
 }
 
-html body .dungeon-wrapper .dungeon-area {
+html body .tic_tac_toe-wrapper .tic_tac_toe-area {
   background-color: #fff;
 }
 

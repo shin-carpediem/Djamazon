@@ -12,5 +12,5 @@ urlpatterns = [
     path('games/slot/', views.slot, name='slot'),
     path('games/touch/', views.touch, name='touch'),
     path('games/pingpong/', views.pingpong, name='pingpong'),
-    path('games/dungeon/', views.dungeon, name='dungeon'),
+    path('games/tic_tac_toe/', views.tic_tac_toe, name='tic_tac_toe'),
 ]

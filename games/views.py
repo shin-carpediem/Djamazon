@@ -49,5 +49,5 @@ def pingpong(request):
 
 
 @login_required
-def dungeon(request):
-    return render(request, 'games/dungeon.html')
+def tic_tac_toe(request):
+    return render(request, 'games/tic_tac_toe.html')

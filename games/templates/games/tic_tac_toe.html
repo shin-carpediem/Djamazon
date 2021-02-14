@@ -3,12 +3,9 @@
 {% load humanize %}
 
 {% block content %}
-<div class="dungeon-wrapper d-flex justify-content-center text-center row">
+<div class="tic_tac_toe-wrapper d-flex justify-content-center text-center row">
   <div class="col-sm-4 col-12">
-    <div class="dungeon-area p-3 mt-5 mb-3 d-flex justify-content-around">
-      <canvas>
-        Canvas not supported.
-      </canvas>
+    <div class="tic_tac_toe p-3 mt-5 mb-3 d-flex justify-content-around">
     </div>
   </div>
   <div class="w-100">Point: {{ user.point | intcomma }}</div>
@@ -23,5 +20,5 @@
   integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <!-- device related -->
 <script src="{% static 'js/pointUp.min.js' %}"></script>
-<script src="{% static 'js/games/dungeon.min.js' %}"></script>
+<script src="{% static 'js/games/tic_tac_toe.min.js' %}"></script>
 {% endblock %}
