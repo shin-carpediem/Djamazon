@@ -186,7 +186,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
-COMPRESS_ENABLED = True
+COMPRESS_ENABLED = os.getenv("DEBUG") == "True"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # メールサーバーへの接続設定
