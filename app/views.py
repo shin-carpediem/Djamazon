@@ -343,7 +343,7 @@ def cart(request):
             # 住所が取得できたらフォームに入力してあげる
             purchase_form = PurchaseForm(
                 initial={'zip_code': zip_code, 'address': address})  # TODO:ここのみ、うまくいっていない（フォームに自動入力がされない）
-            print(purchase_form)  # ここは作動している。
+            print(purchase_form)  # OK
 
         # 購入ボタンが押された場合
         if 'buy_product' in request.POST:
@@ -408,8 +408,8 @@ def get_address(zip_code):
     response = requests.get(REQUEST_URL)
     response = json.loads(response.text)
     result, api_status = response['results'], response['status']
-    print(result) ## テーブルが返ってきてくれる
-    print(api_status)  ## 200が返ってきてくれてる
+    print(result) ## OK:テーブルが返ってきてくれる
+    print(api_status)  ## OK:200が返ってきてくれてる
     if (result != None) and (api_status == 200):
         result = result[0]
         address = result['address1'] + result['address2'] + result['address3']
