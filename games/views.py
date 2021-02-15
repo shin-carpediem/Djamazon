@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+from users.models import User
 
 # Create your views here.
 
@@ -16,6 +17,21 @@ def counter(request):
 @login_required
 def omikuji(request):
     return render(request, 'games/omikuji.html')
+
+
+@login_required
+def control_user_point(request):
+    if request.method == 'POST':
+        # ゲームの勝敗結果を経てhtmlのフォームからポストリクエストされた数値を受け取る
+        omikuji_point = request.POST["omikuji_point"]
+        print(omikuji_point)  # ok
+        # その数値をユーザーのポイントに足した値をユーザーのポイントとする
+        user = request.user
+        point = user.point
+        point += int(omikuji_point)
+        print(point) # きちんと足されている
+        user.save()
+    return redirect('games:omikuji')
 
 
 @login_required
