@@ -24,12 +24,9 @@ def control_user_point(request):
     if request.method == 'POST':
         # ゲームの勝敗結果を経てhtmlのフォームからポストリクエストされた数値を受け取る
         omikuji_point = request.POST["omikuji_point"]
-        print(omikuji_point)  # ok
         # その数値をユーザーのポイントに足した値をユーザーのポイントとする
         user = request.user
-        point = user.point
-        point += int(omikuji_point)
-        print(point) # きちんと足されている
+        user.point += int(omikuji_point)
         user.save()
     return redirect('games:omikuji')
 
