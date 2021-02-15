@@ -4,9 +4,9 @@
 
 ## Feature
 
-- [x] Djamazon: Experience of e-commerce with imaginary money(= We call it "Point")
-- [x] Djamazon games: Lots of games will make you excited. Some games' levels are rumdam, and other games' levels you can set on purpose. Also, if you will these games, you will be able to get points for shopping.
-- [x] Djamazon Study: If you are a beginner for Django, you can learn the process of developing this whole application.
+- [x] \(**Djamazon:**) Experience of e-commerce with imaginary money(= We call it "Point")
+- [x] \(**Djamazon Games:**) Lots of games will make you excited. Some games' levels are rumdam, and other games' levels you can set on purpose. Also, if you will these games, you will be able to get points for shopping.
+- [x] D\(**Djamazon Study:**): If you are a beginner for Django, you can learn the process of developing this whole application.
 
 ## Production Policy
 

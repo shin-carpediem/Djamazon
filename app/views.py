@@ -17,8 +17,8 @@ from operator import and_
 from email.mime.text import MIMEText
 import os
 import smtplib
-import json
 import requests
+import json
 from users.models import User
 from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
 from .models import Product, Sale, GoodManager, Good
@@ -334,13 +334,16 @@ def cart(request):
         if 'search_address' in request.POST:
             zip_code = request.POST['zip_code']
             address = get_address(zip_code)
+            # print(get_address(1000001))
+            # print(address)  ## OK
             # 住所が取得できなかった場合はメッセージを出してリダイレクト
-            if not address:
-                messages.warning(request, "You cannot get the adrress.")
+            if not address:  ## TODO: error:TypeError at /cart/ 'NoneType' object is not subscriptable
+                messages.warning(request, "could not get the adrress...")
+                print("no address")  ## printされない
                 return redirect('app:cart')
             # 住所が取得できたらフォームに入力してあげる
             purchase_form = PurchaseForm(
-                initial={'zip_code': zip_code, 'address': address})  # ここのみ、うまくいっていない（フォームに自動入力がされない）
+                initial={'zip_code': zip_code, 'address': address})  # TODO:ここのみ、うまくいっていない（フォームに自動入力がされない）
 
         # 購入ボタンが押された場合
         if 'buy_product' in request.POST:

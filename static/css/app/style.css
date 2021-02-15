@@ -422,8 +422,15 @@ html body .container .message-success {
   background-color: #36a57b;
   color: #fff;
   margin: 20px auto 0 auto;
-  padding: 10px;
+  padding: 10px 10px 10px 30px;
   border-radius: 0 50px 0 50px;
+}
+
+@media screen and (max-width: 600px) {
+  html body .container .message-success {
+    width: 80%;
+    margin-top: 0px;
+  }
 }
 
 html body .container .message-warning {
@@ -434,8 +441,15 @@ html body .container .message-warning {
   background-color: #eb5858;
   color: #fff;
   margin: 20px auto 0 auto;
-  padding: 10px;
+  padding: 10px 10px 10px 30px;
   border-radius: 50px 0 50px 0;
+}
+
+@media screen and (max-width: 600px) {
+  html body .container .message-warning {
+    width: 80%;
+    margin-top: 0px;
+  }
 }
 
 html body .container .account-wrapper .profile-wrapper {

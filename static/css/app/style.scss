@@ -375,8 +375,12 @@ html {
         background-color: $django-green;
         color: $white;
         margin: 20px auto 0 auto;
-        padding: 10px;
+        padding: 10px 10px 10px 30px;
         border-radius: 0 50px 0 50px;
+        @media screen and (max-width: 600px) {
+          width: 80%;
+          margin-top: 0px;
+        }
       }
       .message-warning {
         display: flex;
@@ -384,8 +388,12 @@ html {
         background-color: rgb(235, 88, 88);
         color: $white;
         margin: 20px auto 0 auto;
-        padding: 10px;
+        padding: 10px 10px 10px 30px;
         border-radius: 50px 0 50px 0;
+        @media screen and (max-width: 600px) {
+          width: 80%;
+          margin-top: 0px;
+        }
       }
       // account.html
       .account-wrapper {
