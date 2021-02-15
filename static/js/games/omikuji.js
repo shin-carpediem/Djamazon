@@ -22,7 +22,7 @@ const omikuji = () => {
       } else if (lev == 2) {
         n = n + 0.03;
       } else if (lev == 3) {
-        n = n + 0.1;
+        n = n + 0.06;
       } else if (lev == 4) {
         n = n + 0.1;
       } else {
