@@ -7,7 +7,7 @@ const omikuji = () => {
   const currentValueElem = document.getElementById("omikuji-current-value");
 
   const omikujiPoint = document.getElementById("omikuji_point");
-  const omikujiPpointBtn = document.getElementById("omikuji_point_btn");
+  const omikujiPointBtn = document.getElementById("omikuji_point_btn");
 
   // α：引いたくじの結果に応じてポイントをinput要素に入れる
   function setPoint(point) {
@@ -16,7 +16,7 @@ const omikuji = () => {
 
   // β：view.pyに値を返す
   function sendPoint(e) {
-    omikujiPpointBtn.click(e);
+    omikujiPointBtn.click(e);
   }
 
   // ①：現在のレベルをレベル表示箇所に埋め込む関数

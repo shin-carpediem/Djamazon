@@ -10,7 +10,21 @@ const typing = () => {
   // ⓪：要素を取得/設定
   const changelevelElem = document.getElementById("typingChangeLevel");
   const currentValueElem = document.getElementById("typing-current-value");
+
+  const typingPoint = document.getElementById("typing_point");
+  const typingPointBtn = document.getElementById("typing_point_btn");
+
   let words = ["red", "blue", "pink"];
+
+  // α：引いたくじの結果に応じてポイントをinput要素に入れる
+  function setPoint(point) {
+    typingPoint.value = point;
+  }
+
+  // β：view.pyに値を返す
+  function sendPoint(e) {
+    typingPointBtn.click(e);
+  }
 
   // ①：現在のレベルをレベル表示箇所に埋め込む関数
   function setCurrentValue(val) {
@@ -86,8 +100,43 @@ const typing = () => {
       if (words.length === 0) {
         const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2); // 時間はms単位で出力されるので、1000で割ってs単位にする。
         const result = document.getElementById("typing-result");
-        result.textContent = `Finished! ${elapsedTime} seconds!`;
-        return;
+        result.textContent = `Finished. ${elapsedTime} seconds.`;
+        if (elapsedTime <= 10) {
+          if (changelevelElem.value == 1) {
+            setPoint(100);
+            sendPoint();
+          } else if (changelevelElem.value == 2) {
+            setPoint(300);
+            sendPoint();
+          } else if (changelevelElem.value == 3) {
+            setPoint(800);
+            sendPoint();
+          } else if (changelevelElem.value == 4) {
+            setPoint(1000);
+            sendPoint();
+          } else {
+            setPoint(2000);
+            sendPoint();
+          }
+        } else {
+          if (changelevelElem.value == 1) {
+            setPoint(-300);
+            sendPoint();
+          } else if (changelevelElem.value == 2) {
+            setPoint(-400);
+            sendPoint();
+          } else if (changelevelElem.value == 3) {
+            setPoint(-500);
+            sendPoint();
+          } else if (changelevelElem.value == 4) {
+            setPoint(-800);
+            sendPoint();
+          } else {
+            setPoint(-2000);
+            sendPoint();
+          }
+          return;
+        }
       }
       setWord();
     }

@@ -7,9 +7,22 @@ const counter = () => {
   const changelevelElem = document.getElementById("counterChangeLevel");
   const currentValueElem = document.getElementById("counter-current-value");
 
+  const counterPoint = document.getElementById("counter_point");
+  const counterPpointBtn = document.getElementById("counter_point_btn");
+
   function radomNum(num) {
     let winner = Math.floor(Math.random() * num); // num = 3 の時は、0 - 2
     return winner;
+  }
+
+  // α：引いたくじの結果に応じてポイントをinput要素に入れる
+  function setPoint(point) {
+    counterPoint.value = point;
+  }
+
+  // β：view.pyに値を返す
+  function sendPoint(e) {
+    counterPpointBtn.click(e);
   }
 
   // ①：ゲームをセッティングする関数
@@ -25,9 +38,13 @@ const counter = () => {
         if (i === winner) {
           div.textContent = "Win!";
           div.classList.add("win");
+          setPoint(1000);
+          sendPoint();
         } else {
           div.textContent = "Lose!";
           div.classList.add("lose");
+          setPoint(-500);
+          sendPoint();
         }
       });
 
