@@ -61,7 +61,13 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <div class="w-100 back">
-    <video src="{% static 'movie/games/bg-movie.mp4' %}" autoplay muted></video>
+    {% if request.build_absolute_uri == 'http://127.0.0.1:8000/games' %}
+      <video src="{% static 'movie/games/bg-movie.mp4' %}" autoplay muted></video>
+    {% elif request.build_absolute_uri == 'https://shinac.pythonanywhere.com/games' %}
+      <video src="{% static 'movie/games/bg-movie.mp4' %}" autoplay muted></video>
+    {% else %}
+      <video src="{% static 'movie/games/bg-movie-shorter.mp4' %}" autoplay muted></video>
+    {% endif %}
   </div>
   <div class="w-100 front">
     <div class="w-100 games-container">
@@ -84,9 +90,5 @@
       </div>
     </div>
   </div>
-
-  <!-- TODO:when webpack can be used right, this comment out should be open. -->
-  <!-- device related -->
-  <!-- <script src="{% static 'js/pointUp.min.js' %}"></script> -->
 </body>
 </html>
