@@ -112,16 +112,34 @@ const slot = () => {
     }
   }
 
+  const slotPoint = document.getElementById("slot_point");
+  const slotPointBtn = document.getElementById("slot_point_btn");
+
+  // α：かかった時間に応じてポイントをinput要素に入れる
+  function setPoint(point) {
+    slotPoint.value = point;
+  }
+
+  // β：view.pyに値を返す
+  function sendPoint(e) {
+    slotPointBtn.click(e);
+  }
+
   function checkResult() {
     if (panels[0].isUnmatched(panels[1], panels[2])) {
       panels[0].unmatch();
-    }
-    if (panels[1].isUnmatched(panels[0], panels[2])) {
+      setPoint(-300);
+    } else if (panels[1].isUnmatched(panels[0], panels[2])) {
       panels[1].unmatch();
-    }
-    if (panels[2].isUnmatched(panels[0], panels[1])) {
+      setPoint(-300);
+    } else if (panels[2].isUnmatched(panels[0], panels[1])) {
       panels[2].unmatch();
+      setPoint(-300);
+    } else {
+      // 全て揃った時
+      setPoint(3000);
     }
+    sendPoint();
   }
 
   let panels = [new Panel(), new Panel(), new Panel()];
