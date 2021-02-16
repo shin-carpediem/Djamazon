@@ -27,6 +27,12 @@ const touch = () => {
         this.game.addCurrentNum();
 
         if (this.game.getCurrentNum() === this.game.getLevel() ** 2) {
+          // ゲーム結果に応じてポイント操作をするクラスを呼び出す
+          new judge();
+          this.game.judgepoint();
+          console.log(new judge());
+          console.log(this.game.judgepoint());
+
           clearTimeout(this.game.getTimeoutId());
         }
       }
@@ -122,12 +128,75 @@ const touch = () => {
       return this.currentNum;
     }
 
+    getStartTime() {
+      return this.startTime;
+    }
+
     getTimeoutId() {
       return this.timeoutId;
     }
 
     getLevel() {
       return this.level;
+    }
+  }
+
+  class judge {
+    constructor(time) {
+      this.time = time;
+      this.startTime = this.time.start();
+      console.log(this.startTime);
+      this.touchPoint = document.getElementById("touch_point");
+      this.touchPointBtn = document.getElementById("touch_point_btn");
+    }
+
+    // α：かかった時間に応じてポイントをinput要素に入れる
+    setPoint(po) {
+      this.touchPoint.value = po;
+    }
+
+    // β：view.pyに値を返す
+    sendPoint(e) {
+      this.touchPointBtn.click(e);
+    }
+
+    judgepoint() {
+      const spendTime = ((Date.now() - this.startTime) / 1000).toFixed(2);
+      if (spendTime <= 30) {
+        if (changelevelElem.value == 1) {
+          this.setPoint(100);
+          this.sendPoint();
+        } else if (changelevelElem.value == 2) {
+          this.setPoint(300);
+          this.sendPoint();
+        } else if (changelevelElem.value == 3) {
+          this.setPoint(800);
+          this.sendPoint();
+        } else if (changelevelElem.value == 4) {
+          this.setPoint(1000);
+          this.sendPoint();
+        } else {
+          this.setPoint(2000);
+          this.sendPoint();
+        }
+      } else {
+        if (changelevelElem.value == 1) {
+          this.setPoint(-300);
+          this.sendPoint();
+        } else if (changelevelElem.value == 2) {
+          this.setPoint(-400);
+          this.sendPoint();
+        } else if (changelevelElem.value == 3) {
+          this.setPoint(-500);
+          this.sendPoint();
+        } else if (changelevelElem.value == 4) {
+          this.setPoint(-800);
+          this.sendPoint();
+        } else {
+          this.setPoint(-2000);
+          this.sendPoint();
+        }
+      }
     }
   }
 

@@ -16,7 +16,7 @@ const typing = () => {
 
   let words = ["red", "blue", "pink"];
 
-  // α：引いたくじの結果に応じてポイントをinput要素に入れる
+  // α：かかった時間に応じてポイントをinput要素に入れる
   function setPoint(point) {
     typingPoint.value = point;
   }
