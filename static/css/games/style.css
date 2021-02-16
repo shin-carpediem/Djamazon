@@ -356,10 +356,6 @@ html body .bingo-wrapper .bingo-area td {
   height: 40px;
 }
 
-html body .bingo-wrapper .bingo-area .disabled {
-  background: transparent;
-}
-
 html body .bingo-wrapper .open-number {
   width: 200px;
   height: 100px;
@@ -647,6 +643,10 @@ html body .tic_tac_toe-wrapper #tic_tac_toe-area {
 .lose {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
+}
+
+.bingo-disabled {
+  background: transparent;
 }
 
 .unmatched {
