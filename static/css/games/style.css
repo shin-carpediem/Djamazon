@@ -27,6 +27,7 @@ select {
 html {
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
+  min-width: 1440px;
 }
 
 html:focus-within {
@@ -37,6 +38,7 @@ html body {
   text-rendering: optimizeSpeed;
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
+  min-width: 1440px;
 }
 
 @media screen and (max-width: 600px) {
@@ -71,10 +73,12 @@ html body li {
 
 html body .front {
   position: relative;
+  min-width: 1440px;
 }
 
 html body .back {
   position: absolute;
+  min-width: 1440px;
   z-index: -1;
 }
 
@@ -352,6 +356,33 @@ html body .bingo-wrapper .bingo-area td {
   height: 40px;
 }
 
+html body .bingo-wrapper .bingo-area .disabled {
+  background: transparent;
+}
+
+html body .bingo-wrapper .open-number {
+  width: 200px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+html body .bingo-wrapper .open-number button {
+  background-color: #e7a713;
+  border: transparent;
+  border-radius: 4px;
+  color: #fff;
+}
+
+html body .bingo-wrapper .open-number button:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+html body .bingo-wrapper .open-number span {
+  color: #000;
+}
+
 html body .typing-wrapper .typing-area #typing-question {
   font-size: 48px;
   letter-spacing: 0.1em;
@@ -624,5 +655,9 @@ html body .tic_tac_toe-wrapper #tic_tac_toe-area {
 
 .inactive {
   opacity: 0.5;
+}
+
+.control-user-point {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

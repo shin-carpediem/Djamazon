@@ -4,10 +4,10 @@
 {% block content %}
 <div class="bingo-wrapper text-center py-5">
   <div class="explation-text mx-auto">
-    <p>Click a square. If you hit yellow one, you will get point!</p>
-    <p>四角をクリックしてね。当たりだとポイントゲット！</p>
+    <p>If you can complete at least one line/row by 15 turns, you can get point!</p>
+    <p>15回以内にビンゴになったらポイントゲット！</p>
   </div>
-  <div class="bingo-area d-flex justify-content-center align-items-center pt-5">
+  <div class="bingo-area d-flex justify-content-around align-items-center pt-5">
     <div class="d-flex justify-content-center align-items-center">
       <table>
         <thead>
@@ -23,6 +23,17 @@
         </tbody>
       </table>
     </div>
+    <div class="open-number">
+      <div class="d-flex justify-content-around align-items-center py-3">
+        <button type="submit" class="p-2" id="open-number">Open Number</button>
+        <div id="bingo-number">
+          <b>?</b>
+        </div>
+      </div>
+      <div>
+        <span id="remained-number">15</span> turn remained
+      </div>
+    </div>
   </div>
   <h4 class=py-5>Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}"> 0</span></h4>
   <!-- bingo.js -->
@@ -32,11 +43,6 @@
   </form>
   <!-- bingo.js -->
   <div>
-    <!-- <div class="d-flex justify-content-center">
-      <img src="{% static 'img/games/level.png' %}" alt="level">
-    </div>
-      <input type="range" min="1" max="5" value="1" id="counterChangeLevel">
-      <p>Current level is <span id="counter-current-value"> --><!-- counter.js --><!-- </span></p> -->
     <div class="d-flex justify-content-center align-items-center pt-1">
       <p class="px-5"><a href="{% url 'games:bingo' %}"><i class="fas fa-undo-alt pr-2"></i>Retry</a></p>
       <p class="px-5"><a href="{% url 'games:index' %}"><i class="fas fa-cube pr-2"></i>Home</a></p>

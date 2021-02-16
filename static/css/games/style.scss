@@ -71,6 +71,7 @@ select {
 html {
   font-family: "Piedra", cursive;
   font-family: "Righteous", cursive;
+  min-width: 1440px;
   &:focus-within {
     scroll-behavior: smooth;
   }
@@ -78,6 +79,7 @@ html {
     text-rendering: optimizeSpeed;
     font-family: "Piedra", cursive;
     font-family: "Righteous", cursive;
+    min-width: 1440px;
     @media screen and (max-width: 600px) {
       font-size: 0.7rem;
     }
@@ -105,9 +107,11 @@ html {
     // index.html
     .front {
       position: relative;
+      min-width: 1440px;
     }
     .back {
       position: absolute;
+      min-width: 1440px;
       z-index: -1;
     }
     .front {
@@ -206,8 +210,6 @@ html {
       background-color: #5593ab;
       border-radius: 100px;
     }
-    // counter.html
-    // end of counter.html
     // omikuji.html
     .omikuji-wrapper {
       .omikuji-area {
@@ -241,6 +243,27 @@ html {
           background: pink;
           width: 40px;
           height: 40px;
+        }
+        .disabled {
+          background: transparent;
+        }
+      }
+      .open-number {
+        width: 200px;
+        height: 100px;
+        background-color: $white;
+        border-radius: 4px;
+        button {
+          background-color: $yellow;
+          border: transparent;
+          border-radius: 4px;
+          color: $white;
+          &:hover {
+            transform: scale(0.9);
+          }
+        }
+        span {
+          color: $black;
         }
       }
     }
@@ -493,6 +516,6 @@ html {
   opacity: 0.5;
 }
 
-// .control-user-point {
-//   display: none;
-// }
+.control-user-point {
+  display: none;
+}

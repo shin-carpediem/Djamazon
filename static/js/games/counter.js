@@ -8,7 +8,7 @@ const counter = () => {
   const currentValueElem = document.getElementById("counter-current-value");
 
   const counterPoint = document.getElementById("counter_point");
-  const counterPpointBtn = document.getElementById("counter_point_btn");
+  const counterPointBtn = document.getElementById("counter_point_btn");
 
   function radomNum(num) {
     let winner = Math.floor(Math.random() * num); // num = 3 の時は、0 - 2
@@ -22,7 +22,7 @@ const counter = () => {
 
   // β：view.pyに値を返す
   function sendPoint(e) {
-    counterPpointBtn.click(e);
+    counterPointBtn.click(e);
   }
 
   // ①：ゲームをセッティングする関数
