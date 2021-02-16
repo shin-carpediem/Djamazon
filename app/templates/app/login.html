@@ -4,7 +4,7 @@
 {% block content %}
 <form class="form-signin" method="post">{% csrf_token %}
   {% if form.errors %}
-  <p>Username or password is wrong.</p>
+    <p>Username or password is wrong.</p>
   {% endif %}
 
   <h2 class="d-flex justify-content-center pt-sm-5 pt-0 pb-5">Login</h2>
