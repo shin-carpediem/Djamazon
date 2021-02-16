@@ -28,7 +28,7 @@
   <!-- bingo.js -->
   <form action="{% url 'games:control_bingo_point' %}" method="post" class="control-user-point">{% csrf_token %}
     <input type="number" name="bingo_point" id="bingo_point">
-    <input type="submit">
+    <button type="submit" id="bingo_point_btn"></button>
   </form>
   <!-- bingo.js -->
   <div>

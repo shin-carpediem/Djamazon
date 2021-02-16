@@ -143,7 +143,7 @@ const touch = () => {
 
   class judge {
     constructor(time) {
-      this.time = time;
+      this.time = time; //TODO: どうやって開始地点の時刻を上のクラスから継承するか
       this.startTime = this.time.start();
       console.log(this.startTime);
       this.touchPoint = document.getElementById("touch_point");
@@ -165,38 +165,29 @@ const touch = () => {
       if (spendTime <= 30) {
         if (changelevelElem.value == 1) {
           this.setPoint(100);
-          this.sendPoint();
         } else if (changelevelElem.value == 2) {
           this.setPoint(300);
-          this.sendPoint();
         } else if (changelevelElem.value == 3) {
           this.setPoint(800);
-          this.sendPoint();
         } else if (changelevelElem.value == 4) {
           this.setPoint(1000);
-          this.sendPoint();
         } else {
           this.setPoint(2000);
-          this.sendPoint();
         }
       } else {
         if (changelevelElem.value == 1) {
           this.setPoint(-300);
-          this.sendPoint();
         } else if (changelevelElem.value == 2) {
           this.setPoint(-400);
-          this.sendPoint();
         } else if (changelevelElem.value == 3) {
           this.setPoint(-500);
-          this.sendPoint();
         } else if (changelevelElem.value == 4) {
           this.setPoint(-800);
-          this.sendPoint();
         } else {
           this.setPoint(-2000);
-          this.sendPoint();
         }
       }
+      this.sendPoint();
     }
   }
 

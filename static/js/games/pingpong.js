@@ -190,6 +190,9 @@
       this.loop();
       this.isGameOver = false;
       this.score = 0;
+
+      this.pingpongPoint = document.getElementById("pingpong_point");
+      this.pingpongPointBtn = document.getElementById("pingpong_point_btn");
     }
 
     addScore() {
@@ -205,7 +208,10 @@
       this.update();
       this.draw();
 
-      // 再帰的に呼び出すには setTimeout() を使ってもいいのですが、描画処理に最適化された requestAnimationFrame() というメソッドを使えばブラウザの次の描画タイミングに合わせて渡した関数を実行してくれます。
+      // 再帰的に呼び出すには setTimeout() を使ってもいいが、
+      // 描画処理に最適化された requestAnimationFrame() というメソッドを使えば
+      // ブラウザの次の描画タイミングに合わせて渡した関数を
+      // 実行してくれる
       requestAnimationFrame(() => {
         this.loop();
       });
@@ -222,8 +228,8 @@
 
     draw() {
       if (this.isGameOver) {
-        this.drawGameOver();
-        // ゲームオーバーになったらそれ以降の処理はしなくていいので、returnを返す
+        this.drawGameOver(); // ゲームオーバーになったら、
+        this.operatePoint(); // ポイント操作をする
         return;
       }
       // ボールが動いた後の軌跡を消す為に、clearRectをここで指定する
@@ -243,6 +249,46 @@
       this.ctx.font = "20px Arial";
       this.ctx.fillStyle = "#fdfdfd";
       this.ctx.fillText(this.score, 10, 25);
+    }
+
+    // α：かかった時間に応じてポイントをinput要素に入れる
+    setPoint(point) {
+      this.pingpongPoint.value = point;
+    }
+
+    // β：view.pyに値を返す
+    sendPoint(e) {
+      this.pingpongPointBtn.click(e);
+    }
+
+    // ゲームの難易度と跳ね返した回数に応じてポイント増減
+    operatePoint() {
+      if (this.score >= 5) {
+        if (changelevelElem.value == 1) {
+          this.setPoint(100);
+        } else if (changelevelElem.value == 2) {
+          this.setPoint(300);
+        } else if (changelevelElem.value == 3) {
+          this.setPoint(800);
+        } else if (changelevelElem.value == 4) {
+          this.setPoint(1000);
+        } else {
+          this.setPoint(2000);
+        }
+      } else {
+        if (changelevelElem.value == 1) {
+          this.setPoint(-300);
+        } else if (changelevelElem.value == 2) {
+          this.setPoint(-400);
+        } else if (changelevelElem.value == 3) {
+          this.setPoint(-500);
+        } else if (changelevelElem.value == 4) {
+          this.setPoint(-800);
+        } else {
+          this.setPoint(-2000);
+        }
+      }
+      this.sendPoint();
     }
   }
 

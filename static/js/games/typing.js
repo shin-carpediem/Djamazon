@@ -101,42 +101,32 @@ const typing = () => {
         const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2); // 時間はms単位で出力されるので、1000で割ってs単位にする。
         const result = document.getElementById("typing-result");
         result.textContent = `Finished. ${elapsedTime} seconds.`;
-        if (elapsedTime <= 10) {
+        if (elapsedTime <= 20) {
           if (changelevelElem.value == 1) {
             setPoint(100);
-            sendPoint();
           } else if (changelevelElem.value == 2) {
             setPoint(300);
-            sendPoint();
           } else if (changelevelElem.value == 3) {
             setPoint(800);
-            sendPoint();
           } else if (changelevelElem.value == 4) {
             setPoint(1000);
-            sendPoint();
           } else {
             setPoint(2000);
-            sendPoint();
           }
         } else {
           if (changelevelElem.value == 1) {
             setPoint(-300);
-            sendPoint();
           } else if (changelevelElem.value == 2) {
             setPoint(-400);
-            sendPoint();
           } else if (changelevelElem.value == 3) {
             setPoint(-500);
-            sendPoint();
           } else if (changelevelElem.value == 4) {
             setPoint(-800);
-            sendPoint();
           } else {
             setPoint(-2000);
-            sendPoint();
           }
-          return;
         }
+        sendPoint();
       }
       setWord();
     }
