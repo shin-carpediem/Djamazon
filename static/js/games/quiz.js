@@ -82,15 +82,43 @@ const quiz = () => {
 
   setQuiz();
 
+  const quizPoint = document.getElementById("quiz_point");
+  const quizPointBtn = document.getElementById("quiz_point_btn");
+
+  // α：結果に応じてポイントをinput要素に入れる
+  function setPoint(point) {
+    quizPoint.value = point;
+  }
+
+  // β：view.pyに値を返す
+  function sendPoint(e) {
+    quizPointBtn.click(e);
+  }
+
+  function checkResult() {
+    if (score == 3) {
+      setPoint(500);
+    } else if (score == 2) {
+      setPoint(300);
+    } else if (score == 1) {
+      setPoint(-300);
+    } else {
+      setPoint(-500);
+    }
+    sendPoint();
+  }
+
   btn.addEventListener("click", () => {
     if (btn.classList.contains("disabled")) {
       return;
     }
     btn.classList.add("disabled");
 
+    // ゲーム終了時
     if (currentNum === quizSet.length - 1) {
       scoreLabel.textContent = `Score: ${score} / ${quizSet.length}`;
       result.classList.remove("hidden");
+      setTimeout(checkResult, 2000);
     } else {
       currentNum++;
       setQuiz();

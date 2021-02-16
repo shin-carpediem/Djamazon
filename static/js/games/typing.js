@@ -126,7 +126,7 @@ const typing = () => {
             setPoint(-2000);
           }
         }
-        sendPoint();
+        setTimeout(sendPoint, 2000);
       }
       setWord();
     }

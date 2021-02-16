@@ -62,7 +62,7 @@ const omikuji = () => {
         btn.textContent = "凶"; // 1%
         setPoint(-1500);
       }
-      sendPoint();
+      setTimeout(sendPoint, 2000);
     });
   }
 

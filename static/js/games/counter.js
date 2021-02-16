@@ -39,13 +39,12 @@ const counter = () => {
           div.textContent = "Win!";
           div.classList.add("win");
           setPoint(1000);
-          sendPoint();
         } else {
           div.textContent = "Lose!";
           div.classList.add("lose");
           setPoint(-500);
-          sendPoint();
         }
+        setTimeout(sendPoint, 2000);
       });
 
       counterContent.appendChild(div);

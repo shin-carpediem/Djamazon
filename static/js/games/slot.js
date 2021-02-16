@@ -51,7 +51,7 @@ const slot = () => {
         panelsLeft--;
 
         if (panelsLeft === 0) {
-          checkResult();
+          setTimeout(checkResult, 2000);
           spin.classList.remove("inactive");
           panelsLeft = 3;
         }
@@ -115,7 +115,7 @@ const slot = () => {
   const slotPoint = document.getElementById("slot_point");
   const slotPointBtn = document.getElementById("slot_point_btn");
 
-  // α：かかった時間に応じてポイントをinput要素に入れる
+  // α：結果に応じてポイントをinput要素に入れる
   function setPoint(point) {
     slotPoint.value = point;
   }
