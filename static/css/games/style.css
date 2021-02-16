@@ -121,7 +121,9 @@ html body .front .each-game-container .game-counter:hover {
 }
 
 html body .front .each-game-container .game-counter img {
-  border-radius: 10px;
+  border-radius: 14px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 html body .front .each-game-container {
@@ -145,7 +147,9 @@ html body .front .each-game-container .game-omikuji:hover {
 }
 
 html body .front .each-game-container .game-omikuji img {
-  border-radius: 10px;
+  border-radius: 14px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 html body .front .each-game-container {
@@ -169,7 +173,9 @@ html body .front .each-game-container .game-bingo:hover {
 }
 
 html body .front .each-game-container .game-bingo img {
-  border-radius: 10px;
+  border-radius: 14px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 html body .front .each-game-container {
@@ -193,7 +199,9 @@ html body .front .each-game-container .game-typing:hover {
 }
 
 html body .front .each-game-container .game-typing img {
-  border-radius: 10px;
+  border-radius: 14px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 html body .front .each-game-container {
@@ -217,7 +225,9 @@ html body .front .each-game-container .game-quiz:hover {
 }
 
 html body .front .each-game-container .game-quiz img {
-  border-radius: 10px;
+  border-radius: 14px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 html body .front .each-game-container {
@@ -241,7 +251,9 @@ html body .front .each-game-container .game-slot:hover {
 }
 
 html body .front .each-game-container .game-slot img {
-  border-radius: 10px;
+  border-radius: 14px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 html body .front .each-game-container {
@@ -265,7 +277,9 @@ html body .front .each-game-container .game-touch:hover {
 }
 
 html body .front .each-game-container .game-touch img {
-  border-radius: 10px;
+  border-radius: 14px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 html body .front .each-game-container {
@@ -289,7 +303,9 @@ html body .front .each-game-container .game-pingpong:hover {
 }
 
 html body .front .each-game-container .game-pingpong img {
-  border-radius: 10px;
+  border-radius: 14px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 html body .front .each-game-container {
@@ -313,7 +329,9 @@ html body .front .each-game-container .game-tic_tac_toe:hover {
 }
 
 html body .front .each-game-container .game-tic_tac_toe img {
-  border-radius: 10px;
+  border-radius: 14px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 html body .explation-text {
