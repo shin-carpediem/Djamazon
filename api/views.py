@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from users.models import User
 from app.models import Product, Sale
 # from app.models import Product, Sale, Good
-from .serializer import UserSerializer, ProductSerializer, SaleSerializer
+from .serializer import UserSerializer, UserPointHistorySerializer, ProductSerializer, SaleSerializer
 # from rest_framework.generics import ListAPIView
 # from rest_framework.pagination import PageNumberPagination
 
@@ -16,6 +16,12 @@ from .serializer import UserSerializer, ProductSerializer, SaleSerializer
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+#     pagination_class = PageNumberPagination
+
+
+class UserPointHistoryViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserPointHistorySerializer
 #     pagination_class = PageNumberPagination
 
 

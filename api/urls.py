@@ -1,7 +1,7 @@
 from rest_framework import routers
 # from django.urls import path
 # from django.conf.urls import url, include
-from .views import UserViewSet, ProductViewSet, SaleViewSet
+from .views import UserViewSet, UserPointHistoryViewSet, ProductViewSet, SaleViewSet
 # from . import router
 
 
@@ -10,6 +10,7 @@ from .views import UserViewSet, ProductViewSet, SaleViewSet
 
 router = routers.DefaultRouter()
 router.register(r'user', UserViewSet)
+router.register(r'userpointhistory', UserPointHistoryViewSet)
 router.register(r'product', ProductViewSet)
 router.register(r'sale', SaleViewSet)
 

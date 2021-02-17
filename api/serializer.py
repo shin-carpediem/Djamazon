@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from users.models import User
+from users.models import User, UserPointHistory
 from app.models import Product, Sale
 
 
@@ -10,6 +10,12 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('initial_point', 'email', 'point',
                   'fav_products', 'is_staff', 'is_active', 'date_joined', 'is_img')
+
+
+class UserPointHistorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserPointHistory
+        fields = ('point', 'created_at')
 
 
 # app
