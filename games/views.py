@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-from users.models import User
+from users.models import User, UserPointHistory
 
 # Create your views here.
 
@@ -23,6 +23,10 @@ def control_counter_point(request):
         user = request.user
         user.point += int(counter_point)
         user.save()
+        # print(UserPointHistory)  # ok? buru.aoshin@gmail.com
+        # TODO: ここでapp/viewsの375行目と全く同じ内容と文法でエラー：Cannot assign "31000": "UserPointHistory.point" must be a "User" instance.
+        # userpointhistory = UserPointHistory(point=user.point)
+        # userpointhistory.save()
     return redirect('games:counter')
 
 
