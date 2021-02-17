@@ -19,7 +19,7 @@ import os
 import smtplib
 import json
 import requests
-from users.models import User
+from users.models import User, UserPointHistory
 from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
 from .models import Product, Sale, GoodManager, Good
 from ecsite.settings import DEBUG
@@ -364,12 +364,16 @@ def cart(request):
                 if not Product.objects.filter(pk=product_id).exists():
                     del cart[product_id]
                 product = Product.objects.get(pk=product_id)
-                sale = Sale(product=product, user=request.user, amount=num,
+                sale = Sale(product=product, user=user, amount=num,
                             price=product.price, total_price=num*product.price)
                 sale.save()
             # ポイントを削減
             user.point -= total_price
             user.save()
+            # print(UserPointHistory)  # ok? buru.aoshin@gmail.com
+            # TODO: ここでエラー：Cannot assign "31000": "UserPointHistory.point" must be a "User" instance.
+            # userpointhistory = UserPointHistory(point=user.point)
+            # userpointhistory.save()
             del request.session['cart']
             messages.success(request, "You purchased items!")
             return redirect('app:cart')
@@ -408,8 +412,8 @@ def get_address(zip_code):
     response = requests.get(REQUEST_URL)
     response = json.loads(response.text)
     result, api_status = response['results'], response['status']
-    print(result) ## OK:テーブルが返ってきてくれる
-    print(api_status)  ## OK:200が返ってきてくれてる
+    print(result)  # OK:テーブルが返ってきてくれる
+    print(api_status)  # OK:200が返ってきてくれてる
     if (result != None) and (api_status == 200):
         result = result[0]
         address = result['address1'] + result['address2'] + result['address3']

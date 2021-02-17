@@ -256,12 +256,14 @@ SESSION_COOKIE_SECURE = os.getenv("DEBUG") == "False"
 # ]
 
 # https://www.valentinog.com/blog/drf/#Django_REST_with_React_setting_up_React_and_webpack
+# disable the browseable API in production with this configuration
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     )
 }
 
+# https://qiita.com/okoppe8/items/3e8ab77c5801a7d21991
 if DEBUG:
     LOGGING = {
         'version': 1,
@@ -286,13 +288,13 @@ if DEBUG:
         'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
             'django': {
                 'handlers': ['console'],
-                'level': 'INFO',
+                'level': 'WARNING',
                 'propagate': True,
             },
             # 自分で追加したアプリケーション全般のログを拾うロガー
             '': {
                 'handlers': ['console'],
-                'level': 'INFO',
+                'level': 'WARNING',
                 'propagate': False,
             },
         }
@@ -320,7 +322,7 @@ else:
         'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
             'django': {
                 'handlers': ['mail_admins'],
-                'level': 'INFO',
+                'level': 'ERROR',
                 'propagate': True,
             },
             'django.request': {
@@ -331,7 +333,7 @@ else:
             # 自分で追加したアプリケーション全般のログを拾うロガー
             '': {
                 'handlers': ['mail_admins'],
-                'level': 'INFO',
+                'level': 'ERROR',
                 'propagate': False,
             },
         }

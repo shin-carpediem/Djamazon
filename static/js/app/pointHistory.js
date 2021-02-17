@@ -1,10 +1,13 @@
 // https://djangobrothers.com/blogs/chartjs_usage/
 "use strict";
 
-let pointHistory = () => {
-  var type = "line";
+// ECサイトでの商品購入情報を、debug_sale.js経由で取得
+callSaleApi();
 
-  var data = {
+let pointHistory = () => {
+  let type = "line";
+
+  let data = {
     labels: ["2021/02/01", "2021/02/02", "2021/02/03", "2021/02/04"],
     datasets: [
       {
@@ -17,13 +20,13 @@ let pointHistory = () => {
     ],
   };
 
-  var options = {
+  let options = {
     scales: {
       yAxes: [
         {
           ticks: {
-            suggestedMin: 45000,
-            suggestedMax: 55000,
+            suggestedMin: 30000,
+            suggestedMax: 70000,
             stepSize: 500,
             // callbackは、value=それぞれの軸の値、index=その軸が何番目か、values=全ての軸の値、が配列として返ってくる
             callback: function (value, index, values) {
@@ -44,8 +47,8 @@ let pointHistory = () => {
     },
   };
 
-  var ctx = document.getElementById("point-trasition").getContext("2d");
-  var pointhistory = new Chart(ctx, {
+  let ctx = document.getElementById("point-trasition").getContext("2d");
+  let pointhistory = new Chart(ctx, {
     type: type,
     data: data,
     options: options,

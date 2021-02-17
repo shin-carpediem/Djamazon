@@ -52,6 +52,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField("date_joined", default=timezone.now)
     is_img = models.ImageField(
         "is_img", upload_to="is_img", max_length=50, blank=True, null=True)
+    # django-imagekit
     resized_img = ImageSpecField(source="is_img",
                                  processors=[ResizeToFill(100, 100)],
                                  format="JPEG",
@@ -67,3 +68,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = "user"
         verbose_name_plural = "users"
+
+
+class UserPointHistory(models.Model):
+    # ゲームの勝敗やECサイトの購入によるポイント増減をその度毎に日付で管理する
+    point = models.OneToOneField(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now=True)
