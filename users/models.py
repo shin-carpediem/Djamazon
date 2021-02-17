@@ -72,5 +72,5 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class UserPointHistory(models.Model):
     # ゲームの勝敗やECサイトの購入によるポイント増減をその度毎に日付で管理する
-    point = models.OneToOneField(User, on_delete=models.CASCADE)
+    point_history = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now=True)

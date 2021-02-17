@@ -223,11 +223,9 @@ def welcome(request):
 @login_required
 def password_reset(request):
     user_mail = request.user.email
-    # send mail
     EMAIL = settings.DEFAULT_FROM_EMAIL
     PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
     TO = user_mail
-
     msg = MIMEText(
         'Hello.\n'
         '\n'
@@ -252,7 +250,6 @@ def password_reset(request):
     msg['Subject'] = '【Djamazon】You are just to change your password'
     msg['From'] = EMAIL
     msg['To'] = TO
-
     s = smtplib.SMTP(host='smtp.gmail.com', port=587)
     s.starttls()
     s.login(EMAIL, PASSWORD)
@@ -370,9 +367,8 @@ def cart(request):
             # ポイントを削減
             user.point -= total_price
             user.save()
-            # print(UserPointHistory)  # ok? buru.aoshin@gmail.com
-            # TODO: ここでエラー：Cannot assign "31000": "UserPointHistory.point" must be a "User" instance.
-            # userpointhistory = UserPointHistory(point=user.point)
+            # TODO: ここ↓でエラー：Cannot assign "31650": "UserPointHistory.point" must be a "User" instance.
+            # userpointhistory = UserPointHistory(point_history=user.point)
             # userpointhistory.save()
             del request.session['cart']
             messages.success(request, "You purchased items!")
