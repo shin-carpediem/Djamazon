@@ -2,7 +2,7 @@
 "use strict";
 
 // ECサイトでの商品購入情報を、debug_sale.js経由で取得
-callSaleApi();
+// callSaleApi();
 
 let pointHistory = () => {
   let type = "line";

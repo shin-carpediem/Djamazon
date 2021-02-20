@@ -13,6 +13,70 @@ $black: #000;
     transform: scale(0.9);
   }
 }
+@mixin btn-l-django-green {
+  text-align: center;
+  display: inline-block;
+  border-radius: 10px;
+  background-color: $django-green;
+  border: transparent;
+  color: $light-grey;
+  font-weight: bold;
+  padding: 15px;
+  &:hover {
+    transform: scale(0.9);
+  }
+}
+@mixin btn-s-django-green {
+  text-align: center;
+  display: inline-block;
+  border-radius: 10px;
+  background-color: $django-green;
+  border: transparent;
+  color: $light-grey;
+  font-weight: bold;
+  padding: 5px;
+  &:hover {
+    transform: scale(0.9);
+  }
+}
+@mixin btn-l-green {
+  text-align: center;
+  display: inline-block;
+  border-radius: 2px;
+  background-color: $green;
+  border: transparent;
+  color: $light-grey;
+  font-weight: bold;
+  padding: 15px;
+  &:hover {
+    transform: scale(0.9);
+  }
+}
+@mixin btn-s-green {
+  text-align: center;
+  display: inline-block;
+  border-radius: 2px;
+  background-color: $green;
+  border: transparent;
+  color: $light-grey;
+  font-weight: bold;
+  padding: 5px;
+  &:hover {
+    transform: scale(0.9);
+  }
+}
+@mixin message {
+  display: flex;
+  width: 30%;
+  color: $white;
+  margin: 20px auto 0 auto;
+  padding: 10px 10px 10px 30px;
+  border-radius: 50px 0 50px 0;
+  @media screen and (max-width: 600px) {
+    width: 80%;
+    margin-top: 0px;
+  }
+}
 
 ul {
   list-style: none;
@@ -206,17 +270,17 @@ html {
         // end of mobile size humbergar menu
         .header-right {
           select {
-            border-radius: 4px;
+            border-radius: 2px;
           }
           .search {
             .search-wrapper {
               .search-input {
-                border-radius: 4px;
+                border-radius: 2px;
               }
               .search-button {
                 @include button();
                 border-radius: transparent;
-                border-radius: 4px;
+                border-radius: 2px;
               }
             }
           }
@@ -238,14 +302,7 @@ html {
       }
       // welcome.html
       .welcome-button {
-        @include button;
-        background-color: $django-green;
-        font-size: 16px;
-        color: $light-grey;
-        font-weight: bold;
-        padding: 10px 16px;
-        border-radius: 10px;
-        border: transparent;
+        @include btn-l-django-green;
       }
       // index.html
       .product {
@@ -273,7 +330,7 @@ html {
         .category {
           display: inline-block;
           padding: 2px 5px;
-          border-radius: 4px;
+          border-radius: 2px;
           font-size: 12px;
           color: $light-grey;
           background-color: $black;
@@ -317,14 +374,7 @@ html {
           color: $light-grey;
         }
         .purchase-button {
-          @include button;
-          background-color: $django-green;
-          font-size: 16px;
-          color: $light-grey;
-          font-weight: bold;
-          padding: 10px 16px;
-          border-radius: 10px;
-          border: transparent;
+          @include btn-l-django-green;
         }
         .like-button {
           cursor: pointer;
@@ -337,14 +387,7 @@ html {
           background-color: $white;
           border-radius: 10px;
           .purchase-button {
-            @include button;
-            background-color: $django-green;
-            font-size: 16px;
-            color: $light-grey;
-            font-weight: bold;
-            padding: 10px 16px;
-            border-radius: 10px;
-            border: transparent;
+            @include btn-l-django-green;
           }
         }
       }
@@ -370,41 +413,19 @@ html {
         }
       }
       .message-success {
-        display: flex;
-        width: 30%;
+        @include message;
         background-color: $django-green;
-        color: $white;
-        margin: 20px auto 0 auto;
-        padding: 10px 10px 10px 30px;
-        border-radius: 0 50px 0 50px;
-        @media screen and (max-width: 600px) {
-          width: 80%;
-          margin-top: 0px;
-        }
       }
       .message-warning {
-        display: flex;
-        width: 30%;
+        @include message;
         background-color: rgb(235, 88, 88);
-        color: $white;
-        margin: 20px auto 0 auto;
-        padding: 10px 10px 10px 30px;
-        border-radius: 50px 0 50px 0;
-        @media screen and (max-width: 600px) {
-          width: 80%;
-          margin-top: 0px;
-        }
       }
       // account.html
       .account-wrapper {
         .profile-wrapper {
           margin: 0 auto;
           button {
-            @include button;
-            color: $white;
-            border-radius: 4px;
-            background: $green;
-            background-color: $green;
+            @include btn-s-green;
           }
           .profile {
             border: 1px solid transparent;
@@ -417,11 +438,7 @@ html {
               height: 100px;
             }
             .submit {
-              @include button;
-              color: $white;
-              border-radius: 4px;
-              background: $django-green;
-              border-color: $django-green;
+              @include btn-s-django-green;
             }
             .point {
               font-size: 26px;
@@ -432,11 +449,7 @@ html {
           display: none;
         }
         button {
-          @include button;
-          color: $white;
-          border-radius: 4px;
-          background: $green;
-          background-color: $green;
+          @include btn-s-green;
         }
         #onClickInForPwSend {
           display: none;

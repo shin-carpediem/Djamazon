@@ -193,18 +193,18 @@ html body header .header-wrapper .header-menu .is_img {
 }
 
 html body header .header-wrapper .header-right select {
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 html body header .header-wrapper .header-right .search .search-wrapper .search-input {
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 html body header .header-wrapper .header-right .search .search-wrapper .search-button {
   text-align: center;
   display: inline-block;
   border-radius: transparent;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 html body header .header-wrapper .header-right .search .search-wrapper .search-button:hover {
@@ -239,13 +239,12 @@ html body .container {
 html body .container .welcome-button {
   text-align: center;
   display: inline-block;
+  border-radius: 10px;
   background-color: #36a57b;
-  font-size: 16px;
+  border: transparent;
   color: #ececec;
   font-weight: bold;
-  padding: 10px 16px;
-  border-radius: 10px;
-  border: transparent;
+  padding: 15px;
 }
 
 html body .container .welcome-button:hover {
@@ -284,7 +283,7 @@ html body .container .product-info a:hover {
 html body .container .product-info .category {
   display: inline-block;
   padding: 2px 5px;
-  border-radius: 4px;
+  border-radius: 2px;
   font-size: 12px;
   color: #ececec;
   background-color: #000;
@@ -353,13 +352,12 @@ html body .container .product-detail-info .is_faved {
 html body .container .product-detail-info .purchase-button {
   text-align: center;
   display: inline-block;
+  border-radius: 10px;
   background-color: #36a57b;
-  font-size: 16px;
+  border: transparent;
   color: #ececec;
   font-weight: bold;
-  padding: 10px 16px;
-  border-radius: 10px;
-  border: transparent;
+  padding: 15px;
 }
 
 html body .container .product-detail-info .purchase-button:hover {
@@ -380,13 +378,12 @@ html body .container .cart .purchase-form {
 html body .container .cart .purchase-form .purchase-button {
   text-align: center;
   display: inline-block;
+  border-radius: 10px;
   background-color: #36a57b;
-  font-size: 16px;
+  border: transparent;
   color: #ececec;
   font-weight: bold;
-  padding: 10px 16px;
-  border-radius: 10px;
-  border: transparent;
+  padding: 15px;
 }
 
 html body .container .cart .purchase-form .purchase-button:hover {
@@ -419,11 +416,11 @@ html body .container .message-success {
   display: -ms-flexbox;
   display: flex;
   width: 30%;
-  background-color: #36a57b;
   color: #fff;
   margin: 20px auto 0 auto;
   padding: 10px 10px 10px 30px;
-  border-radius: 0 50px 0 50px;
+  border-radius: 50px 0 50px 0;
+  background-color: #36a57b;
 }
 
 @media screen and (max-width: 600px) {
@@ -438,11 +435,11 @@ html body .container .message-warning {
   display: -ms-flexbox;
   display: flex;
   width: 30%;
-  background-color: #eb5858;
   color: #fff;
   margin: 20px auto 0 auto;
   padding: 10px 10px 10px 30px;
   border-radius: 50px 0 50px 0;
+  background-color: #eb5858;
 }
 
 @media screen and (max-width: 600px) {
@@ -459,10 +456,12 @@ html body .container .account-wrapper .profile-wrapper {
 html body .container .account-wrapper .profile-wrapper button {
   text-align: center;
   display: inline-block;
-  color: #fff;
-  border-radius: 4px;
-  background: #0f4b34;
+  border-radius: 2px;
   background-color: #0f4b34;
+  border: transparent;
+  color: #ececec;
+  font-weight: bold;
+  padding: 5px;
 }
 
 html body .container .account-wrapper .profile-wrapper button:hover {
@@ -486,10 +485,12 @@ html body .container .account-wrapper .profile-wrapper .profile .is_img {
 html body .container .account-wrapper .profile-wrapper .profile .submit {
   text-align: center;
   display: inline-block;
-  color: #fff;
-  border-radius: 4px;
-  background: #36a57b;
-  border-color: #36a57b;
+  border-radius: 10px;
+  background-color: #36a57b;
+  border: transparent;
+  color: #ececec;
+  font-weight: bold;
+  padding: 5px;
 }
 
 html body .container .account-wrapper .profile-wrapper .profile .submit:hover {
@@ -508,10 +509,12 @@ html body .container .account-wrapper #onClickIn {
 html body .container .account-wrapper button {
   text-align: center;
   display: inline-block;
-  color: #fff;
-  border-radius: 4px;
-  background: #0f4b34;
+  border-radius: 2px;
   background-color: #0f4b34;
+  border: transparent;
+  color: #ececec;
+  font-weight: bold;
+  padding: 5px;
 }
 
 html body .container .account-wrapper button:hover {
