@@ -69,11 +69,11 @@ def login(request):
 def top(request):
     products = Product.objects.all().order_by('-id')
     page_obj = paginate_queryset(request, products, 16)
-    context = {
+    ctx = {
         'products': page_obj.object_list,
         'page_obj': page_obj,
     }
-    return render(request, 'app/top.html', context)
+    return render(request, 'app/top.html', ctx)
 
 
 @login_required
@@ -275,11 +275,11 @@ def detail(request, product_id):
             request.session['cart'] = {str(product_id): num}
         messages.success(request, f"You added {num} {product.name} !")
         return redirect('app:detail', product_id=product_id)
-    context = {
+    ctx = {
         'product': product,
         'add_to_cart_form': add_to_cart_form,
     }
-    return render(request, 'app/detail.html', context)
+    return render(request, 'app/detail.html', ctx)
 
 
 @login_required
@@ -367,9 +367,10 @@ def cart(request):
             # ポイントを削減
             user.point -= total_price
             user.save()
+            print(user.point)
             # TODO: ここ↓でエラー：Cannot assign "31650": "UserPointHistory.point" must be a "User" instance.
-            # userpointhistory = UserPointHistory(point_history=user.point)
-            # userpointhistory.save()
+            userpointhistory = UserPointHistory(point_history=user.point)
+            userpointhistory.save()
             del request.session['cart']
             messages.success(request, "You purchased items!")
             return redirect('app:cart')
@@ -377,12 +378,12 @@ def cart(request):
         else:
             return redirect('app:cart')
 
-    context = {
+    ctx = {
         'purchase_form': purchase_form,
         'cart_products': cart_products,
         'total_price': total_price,
     }
-    return render(request, 'app/cart.html', context)
+    return render(request, 'app/cart.html', ctx)
 
 
 @login_required

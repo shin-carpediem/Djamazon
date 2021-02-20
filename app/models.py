@@ -12,7 +12,7 @@ class Product(models.Model):
     like = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.name
+        return self.name + '__' + str(self.price)
 
 
 class Sale(models.Model):
@@ -23,6 +23,9 @@ class Sale(models.Model):
     price = models.PositiveIntegerField("Product unit price")
     total_price = models.PositiveIntegerField("subtotal")
     created_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.created_at)
 
 
 class GoodManager(models.Manager):
@@ -41,4 +44,4 @@ class Good(models.Model):
     objects = GoodManager()
 
     def __str__(self):
-        return self.ip_address
+        return str(self.ip_address)
