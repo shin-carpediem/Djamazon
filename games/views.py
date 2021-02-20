@@ -1,3 +1,4 @@
+from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from users.models import User, UserPointHistory
@@ -43,6 +44,19 @@ def control_omikuji_point(request):
         user.point += int(omikuji_point)
         user.save()
     return redirect('games:omikuji')
+
+
+# @login_required
+# def control_omikuji_point(request):
+#     if request.method == 'POST':
+#         omikuji_point = request.POST["omikuji_point"]
+#         user = request.user
+#         user.point += int(omikuji_point)
+#         user.save()
+#         ctx = {
+#             'user.point':user.point,
+#         }
+#     return JsonResponse(ctx)
 
 
 @login_required
