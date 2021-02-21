@@ -9,14 +9,15 @@ async function callUserPointHistoryApi() {
   let rowBar = [];
   for (let i = 0; i <= userpointhistory.length; i++) {
     rowBar.push(userpointhistory[i]["point_history"]);
-    console.log(rowBar);
-  }
+    console.log(rowBar); // ok
+  } // pointHistory.min.js:1 Uncaught (in promise) TypeError: Cannot read property 'point_history' of undefined at callUserPointHistoryApi (pointHistory.min.js:1)
+  console.log(rowBar); // not shown
 
   let colBar = [];
   for (let i = 0; i <= userpointhistory.length; i++) {
     colBar.push(userpointhistory[i]["created_at"]);
+    console.log(colBar);
   }
-  console.log(colBar);
 }
 callUserPointHistoryApi();
 
