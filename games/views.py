@@ -41,6 +41,8 @@ def control_omikuji_point(request):
         user = request.user
         user.point += int(omikuji_point)
         user.save()
+        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory.save()
     return redirect('games:omikuji')
 
 
@@ -54,6 +56,8 @@ def control_omikuji_point(request):
 #         ctx = {
 #             'user.point':user.point,
 #         }
+        # userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        # userpointhistory.save()
 #     return JsonResponse(ctx)
 
 
@@ -69,6 +73,8 @@ def control_bingo_point(request):
         user = request.user
         user.point += int(bingo_point)
         user.save()
+        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory.save()
     return redirect('games:bingo')
 
 
@@ -84,6 +90,8 @@ def control_typing_point(request):
         user = request.user
         user.point += int(typing_point)
         user.save()
+        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory.save()
     return redirect('games:typing')
 
 
@@ -99,6 +107,8 @@ def control_quiz_point(request):
         user = request.user
         user.point += int(quiz_point)
         user.save()
+        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory.save()
     return redirect('games:quiz')
 
 
@@ -114,6 +124,8 @@ def control_slot_point(request):
         user = request.user
         user.point += int(slot_point)
         user.save()
+        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory.save()
     return redirect('games:slot')
 
 
@@ -129,6 +141,8 @@ def control_touch_point(request):
         user = request.user
         user.point += int(touch_point)
         user.save()
+        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory.save()
     return redirect('games:touch')
 
 
@@ -144,6 +158,8 @@ def control_pingpong_point(request):
         user = request.user
         user.point += int(pingpong_point)
         user.save()
+        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory.save()
     return redirect('games:pingpong')
 
 
