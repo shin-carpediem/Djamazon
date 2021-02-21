@@ -18,7 +18,7 @@
         <form method="POST" enctype="multipart/form-data" action="{% url 'app:is_img' %}">{% csrf_token %}
           {{ form.is_img }}
           <input type="file" name="is_img" class="pt-2 pb-1">
-          <input type="submit" name="is_img" value="upload" class="submit">
+          <input type="submit" name="is_img" value="upload" class="submit mb-3">
         </form>
       </div>
       <ul class="col-8">
@@ -26,7 +26,7 @@
         <li>Password: ********</li>
         <li>Last Login: {{ user.last_login }}</li>
         <li>Started from: {{ user.date_joined }}</li>
-        <li class="pt-5 point text-center">Point:<span id="pointUp" data-from="0" data-to="{{ user.point }}"></span></li>
+        <li class="pt-5 mt-5 point text-center">Point:<span id="pointUp" data-from="0" data-to="{{ user.point }}"></span></li>
       </ul>
       <div class="pl-3">
         <button id="onClick">Reset Password</button>
