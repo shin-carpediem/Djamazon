@@ -15,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
 class UserPointHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = UserPointHistory
-        fields = ('point', 'created_at')
+        fields = ('point_history', 'user', 'created_at')
 
 
 # app

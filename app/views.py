@@ -369,7 +369,7 @@ def cart(request):
             user.save()
             print(user.point)
             # TODO: ここ↓でエラー：Cannot assign "31650": "UserPointHistory.point" must be a "User" instance.
-            userpointhistory = UserPointHistory(point_history=user.point)
+            userpointhistory = UserPointHistory(point_history=user.point, user=user)
             userpointhistory.save()
             del request.session['cart']
             messages.success(request, "You purchased items!")
