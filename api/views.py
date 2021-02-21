@@ -1,9 +1,10 @@
+from django.contrib.auth.models import UserManager
 import django_filters
 from rest_framework import viewsets, filters
 from django.shortcuts import render
 from django.views.generic import View
 from django.http import JsonResponse
-from users.models import User
+from users.models import User, UserPointHistory
 from app.models import Product, Sale
 # from app.models import Product, Sale, Good
 from .serializer import UserSerializer, UserPointHistorySerializer, ProductSerializer, SaleSerializer
@@ -20,7 +21,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class UserPointHistoryViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = UserPointHistory.objects.all()
     serializer_class = UserPointHistorySerializer
 #     pagination_class = PageNumberPagination
 

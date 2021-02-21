@@ -1,18 +1,38 @@
 // https://djangobrothers.com/blogs/chartjs_usage/
 "use strict";
 
-// ECサイトでの商品購入情報を、debug_sale.js経由で取得
-// callSaleApi();
+// ポイントの増減をuserpointhistory.js経由で取得
+async function callUserPointHistoryApi() {
+  const res = await fetch("http://127.0.0.1:8000/api/userpointhistory/");
+  const userpointhistory = await res.json();
 
-let pointHistory = () => {
+  let rowBar = [];
+  for (let i = 0; i <= userpointhistory.length; i++) {
+    rowBar.push(userpointhistory[i]["point_history"]);
+    console.log(rowBar);
+  }
+
+  let colBar = [];
+  for (let i = 0; i <= userpointhistory.length; i++) {
+    colBar.push(userpointhistory[i]["created_at"]);
+  }
+  console.log(colBar);
+}
+callUserPointHistoryApi();
+
+function pointHistory() {
   let type = "line";
 
   let data = {
-    labels: ["2021/02/01", "2021/02/02", "2021/02/03", "2021/02/04"],
+    // "created_at"のデータが入る
+    // labels: ["2021/02/01", "2021/02/02", "2021/02/03", "2021/02/04"],
+    labels: [rowBar],
     datasets: [
       {
         label: "",
-        data: [50000, 49000, 48000, 51000],
+        // "point_history"のデータが入る
+        // data: [50000, 49000, 48000, 51000],
+        data: [colBar],
         borderColor: "rgb(54, 165, 123)",
         backgroundColor: "rgb(54, 165, 123, 0.1)",
         lineTension: 0,
@@ -53,5 +73,5 @@ let pointHistory = () => {
     data: data,
     options: options,
   });
-};
+}
 pointHistory();
