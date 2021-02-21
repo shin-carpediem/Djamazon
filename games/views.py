@@ -24,10 +24,8 @@ def control_counter_point(request):
         user = request.user
         user.point += int(counter_point)
         user.save()
-        # print(UserPointHistory)  # ok? buru.aoshin@gmail.com
-        # TODO: ここでapp/viewsの375行目と全く同じ内容と文法でエラー：Cannot assign "31000": "UserPointHistory.point" must be a "User" instance.
-        # userpointhistory = UserPointHistory(point=user.point)
-        # userpointhistory.save()
+        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory.save()
     return redirect('games:counter')
 
 
