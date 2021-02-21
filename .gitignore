@@ -160,7 +160,7 @@ eb-virt
 tempCodeRunnerFile.py
 
 # use for bundling JS files with webpack
-node_modules
+node_modules/
 
 # scss cache
 .sass-cache/

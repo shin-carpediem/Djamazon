@@ -53,10 +53,15 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_img = models.ImageField(
         "is_img", upload_to="is_img", max_length=50, blank=True, null=True)
     # django-imagekit
-    resized_img = ImageSpecField(source="is_img",
+    profile_is_img = ImageSpecField(source="is_img",
                                  processors=[ResizeToFill(100, 100)],
                                  format="JPEG",
-                                 options={"quality": 60}
+                                 options={"quality": 70}
+                                 )
+    icon_is_img = ImageSpecField(source="is_img",
+                                 processors=[ResizeToFill(30, 30)],
+                                 format="JPEG",
+                                 options={"quality": 40}
                                  )
 
     objects = UserManager()

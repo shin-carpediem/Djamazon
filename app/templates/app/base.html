@@ -150,8 +150,8 @@
           </span>
           <span class="col-lg-2 col-sm-4 col-6">
             <a href="{% url 'app:account' %}">
-              {% if user.is_img %}
-                <img src="{{ user.is_img.url }}" class="is_img" alt="is_img">
+              {% if user.icon_is_img %}
+                <img src="{{ user.icon_is_img.url }}" class="is_img" alt="is_img">
               {% else %}
                 <img src="{% static 'img/app/user_default.png' %}" class="is_img" alt="user_default">
               {% endif %}
