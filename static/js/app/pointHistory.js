@@ -3,7 +3,8 @@
 
 // ポイントの増減をuserpointhistory.js経由で取得
 async function pointHistory() {
-  const res = await fetch("https://shinac.pythonanywhere.com/api/userpointhistory/");
+  const res = await fetch("http://127.0.0.1:8000/api/userpointhistory/");
+  // const res = await fetch("https://shinac.pythonanywhere.com/api/userpointhistory/");
   const userpointhistory = await res.json();
 
   let rowBar = [];
@@ -13,7 +14,7 @@ async function pointHistory() {
 
   let colBar = [];
   for (const date of userpointhistory) {
-    let splitedDate = date["created_at"].split(":")[0].slice(0, -3);
+    let splitedDate = date["created_at"].split(":")[0].slice(5, -3);
     colBar.push(splitedDate);
   }
 
