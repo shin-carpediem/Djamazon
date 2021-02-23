@@ -3,7 +3,7 @@
 
 // ポイントの増減をuserpointhistory.js経由で取得
 async function pointHistory() {
-  const res = await fetch("/api/userpointhistory/");
+  const res = await fetch("https://shinac.pythonanywhere.com/api/userpointhistory/");
   const userpointhistory = await res.json();
 
   let rowBar = [];
