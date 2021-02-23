@@ -10,50 +10,50 @@ const omikuji = () => {
   const omikujiPointBtn = document.getElementById("omikuji_point_btn");
 
   // https://blog.narito.ninja/detail/88/#fetch-api
-  ajax通信におけるcsrf対策
-  const getCookie = (name) => {
-    if (document.cookie && document.cookie !== "") {
-      for (const cookie of document.cookie.split(";")) {
-        const [key, value] = cookie.trim().split("=");
-        if (key === name) {
-          return decodeURIComponent(value);
-        }
-      }
-    }
-  };
-  const csrftoken = getCookie("csrftoken");
-  console.log(csrftoken); // ok
+  // ajax通信におけるcsrf対策
+  // const getCookie = (name) => {
+  //   if (document.cookie && document.cookie !== "") {
+  //     for (const cookie of document.cookie.split(";")) {
+  //       const [key, value] = cookie.trim().split("=");
+  //       if (key === name) {
+  //         return decodeURIComponent(value);
+  //       }
+  //     }
+  //   }
+  // };
+  // const csrftoken = getCookie("csrftoken");
+  // console.log(csrftoken); // ok
 
   // α：引いたくじの結果に応じてポイントをinput要素に入れる
   function setPoint(point) {
     omikujiPoint.value = point;
 
-    omikujiPoint.addEventListener("submit", (e) => {
-      // デフォルトのイベントをキャンセルし、ページ遷移しないように!
-      e.preventDefault();
+    // omikujiPoint.addEventListener("submit", (e) => {
+    //   // デフォルトのイベントをキャンセルし、ページ遷移しないように!
+    //   e.preventDefault();
 
-      const url = "{% url 'games:control_omikuji_point' %}";
-      const pointReUp = document.getElementById("pointUp");
+    //   const url = "{% url 'games:control_omikuji_point' %}";
+    //   const pointReUp = document.getElementById("pointUp");
 
-      fetch(url, {
-        method: "POST",
-        headers: {
-          // "Content-Type": "text/plain;charset=utf-8",
-          "X-CSRFToken": csrftoken,
-        },
-      })
-        .then((response) => {
-          console.log(response);
-          return response.json();
-        })
-        .then((response) => {
-          console.log(response);
-          pointReUp.innerText = response.user.point;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    });
+    //   fetch(url, {
+    //     method: "POST",
+    //     headers: {
+    //       // "Content-Type": "text/plain;charset=utf-8",
+    //       "X-CSRFToken": csrftoken,
+    //     },
+    //   })
+    //     .then((response) => {
+    //       console.log(response);
+    //       return response.json();
+    //     })
+    //     .then((response) => {
+    //       console.log(response);
+    //       pointReUp.innerText = response.user.point;
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // });
   }
 
   // β：view.pyに値を返す
@@ -104,7 +104,7 @@ const omikuji = () => {
         btn.textContent = "凶"; // 1%
         setPoint(-1500);
       }
-      // setTimeout(sendPoint, 2000);
+      setTimeout(sendPoint, 2000);
     });
   }
 
