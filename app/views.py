@@ -12,6 +12,7 @@ from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 from django.views.generic import ListView
 from django.db.models import Q
+from django.http import JsonResponse
 from functools import reduce
 from operator import and_
 from email.mime.text import MIMEText
@@ -451,6 +452,19 @@ def is_img(request):
         'icon_is_img': is_img,
     }
     return render(request, 'app/account.html', ctx)
+
+
+# @login_required
+# def like(request, product_id):
+#     # 商品ページのいいねボタンをクリック
+#     # if request.method == 'POST':
+#     #     product = Product.objects.filter(product_id=product_id)
+#     #     if product.count() == 0:
+#     #         likes = ()
+#     #         likes.save
+#     #     else:
+#     #         query.delete()
+#         return JsonResponse({"status": "responded by views.py"})
 
 
 def owner_profile(request):

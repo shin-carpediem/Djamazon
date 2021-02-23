@@ -5,8 +5,8 @@ from django.shortcuts import render
 from django.views.generic import View
 from django.http import JsonResponse
 from users.models import User, UserPointHistory
-from app.models import Likes, Product, Sale
-from .serializer import UserSerializer, UserPointHistorySerializer, ProductSerializer, SaleSerializer, LikesSerializer
+from app.models import Product, Sale
+from .serializer import UserSerializer, UserPointHistorySerializer, ProductSerializer, SaleSerializer
 
 
 # Create your views here.
@@ -30,8 +30,3 @@ class ProductViewSet(viewsets.ModelViewSet):
 class SaleViewSet(viewsets.ModelViewSet):
     queryset = Sale.objects.all()
     serializer_class = SaleSerializer
-
-
-class LikesViewSet(viewsets.ModelViewSet):
-    queryset = Likes.objects.all()
-    serializer_class = LikesSerializer

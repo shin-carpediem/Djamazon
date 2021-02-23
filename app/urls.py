@@ -18,7 +18,6 @@ urlpatterns = [
     path('fav_products/', views.fav_products, name='fav_products'),
     path('toggle_fav_product_status/', views.toggle_fav_product_status,
          name='toggle_fav_product_status'),
-    path('like/', views.like, name='like'),
     path('cart/', views.cart, name='cart'),
     path('change_item_amount/', views.change_item_amount,
          name='change_item_amount'),
@@ -26,7 +25,7 @@ urlpatterns = [
     path('search/', views.SearchResultView.as_view(template_name='app/result.html'), name='result'),
     path('account/', views.account, name='account'),
     path('is_img/', views.is_img, name='is_img'),
-    path('owner_profile/', views.owner_profile, name='owner_profile'),
+#     path('product/<int:pk>/like/', views.like, name='like'),
     path('policy/', views.policy, name='policy'),
     path('terms/', views.terms, name='terms'),
 ]

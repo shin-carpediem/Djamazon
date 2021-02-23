@@ -9,6 +9,7 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
     image = models.ImageField(upload_to='product')
+    like = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name + '__' + str(self.price)
@@ -21,16 +22,6 @@ class Sale(models.Model):
     amount = models.PositiveIntegerField(default=0)
     price = models.PositiveIntegerField("Product unit price")
     total_price = models.PositiveIntegerField("subtotal")
-    created_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return str(self.created_at)
-
-
-class Likes(models.Model):
-    # 商品毎のいいね機能
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    user = models.ForeignKey('users.User', on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
