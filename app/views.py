@@ -331,17 +331,13 @@ def cart(request):
         if 'search_address' in request.POST:
             zip_code = request.POST['zip_code']
             address = get_address(zip_code)
-            print(address)  # OK
             # 住所が取得できなかった場合はメッセージを出してリダイレクト
             if not address:
                 messages.warning(request, "could not get the adrress...")
-                print("no address")
                 return redirect('app:cart')
             # 住所が取得できたらフォームに入力してあげる
             purchase_form = PurchaseForm(
-                initial={'zip_code': zip_code, 'address': address})  # TODO:ここのみ、うまくいっていない（フォームに自動入力がされない）
-            print(purchase_form)  # OK
-
+                initial={'zip_code': zip_code, 'address': address})
         # 購入ボタンが押された場合
         if 'buy_product' in request.POST:
             # 住所が入力済みか確認する
@@ -373,10 +369,6 @@ def cart(request):
             del request.session['cart']
             messages.success(request, "You purchased items!")
             return redirect('app:cart')
-
-        else:
-            return redirect('app:cart')
-
     ctx = {
         'purchase_form': purchase_form,
         'cart_products': cart_products,
@@ -408,8 +400,6 @@ def get_address(zip_code):
     response = requests.get(REQUEST_URL)
     response = json.loads(response.text)
     result, api_status = response['results'], response['status']
-    print(result)  # OK:テーブルが返ってきてくれる
-    print(api_status)  # OK:200が返ってきてくれてる
     if (result != None) and (api_status == 200):
         result = result[0]
         address = result['address1'] + result['address2'] + result['address3']

@@ -7,17 +7,16 @@ async function callUserPointHistoryApi() {
   const userpointhistory = await res.json();
 
   let rowBar = [];
-  for (let i = 0; i <= userpointhistory.length; i++) {
-    rowBar.push(userpointhistory[i]["point_history"]);
-    console.log(rowBar); // ok
-  } // pointHistory.min.js:1 Uncaught (in promise) TypeError: Cannot read property 'point_history' of undefined at callUserPointHistoryApi (pointHistory.min.js:1)
-  console.log(rowBar); // not shown
+  for (const point of userpointhistory) {
+    rowBar.push(point["point_history"]);
+  }
+  console.log(rowBar);
 
   let colBar = [];
-  for (let i = 0; i <= userpointhistory.length; i++) {
-    colBar.push(userpointhistory[i]["created_at"]);
-    console.log(colBar);
+  for (const date of userpointhistory) {
+    colBar.push(date["created_at"]);
   }
+  console.log(colBar);
 }
 callUserPointHistoryApi();
 
@@ -26,14 +25,14 @@ function pointHistory() {
 
   let data = {
     // "created_at"のデータが入る
-    // labels: ["2021/02/01", "2021/02/02", "2021/02/03", "2021/02/04"],
-    labels: [rowBar],
+    labels: ["2021/02/01", "2021/02/02", "2021/02/03", "2021/02/04"],
+    // labels: [rowBar],
     datasets: [
       {
         label: "",
         // "point_history"のデータが入る
-        // data: [50000, 49000, 48000, 51000],
-        data: [colBar],
+        data: [50000, 49000, 48000, 51000],
+        // data: [colBar],
         borderColor: "rgb(54, 165, 123)",
         backgroundColor: "rgb(54, 165, 123, 0.1)",
         lineTension: 0,
