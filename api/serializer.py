@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from users.models import User, UserPointHistory
-from app.models import Product, Sale
+from app.models import Product, Sale, Likes
 
 
 # Create your models here.
@@ -30,3 +30,9 @@ class SaleSerializer(serializers.ModelSerializer):
         model = Sale
         fields = ('product', 'user', 'amount',
                   'price', 'total_price', 'created_at')
+
+
+class LikesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Likes
+        fields = ('product', 'user', 'created_at')

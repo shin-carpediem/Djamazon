@@ -9,7 +9,6 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
     image = models.ImageField(upload_to='product')
-    like = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name + '__' + str(self.price)
@@ -28,20 +27,11 @@ class Sale(models.Model):
         return str(self.created_at)
 
 
-class GoodManager(models.Manager):
-    def create_good(self, ip_address):
-        good = self.model(ip_address=ip_address)
-        try:
-            good.save()
-        except:
-            return False
-        return True
-
-
-class Good(models.Model):
-    ip_address = models.CharField('IP Address', max_length=50)
-
-    objects = GoodManager()
+class Likes(models.Model):
+    # 商品毎のいいね機能
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey('users.User', on_delete=models.PROTECT)
+    created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return str(self.ip_address)
+        return str(self.created_at)

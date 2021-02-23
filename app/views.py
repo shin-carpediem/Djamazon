@@ -21,7 +21,7 @@ import json
 import requests
 from users.models import User, UserPointHistory
 from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
-from .models import Product, Sale, GoodManager, Good
+from .models import Product, Sale
 from ecsite.settings import DEBUG
 
 
@@ -299,15 +299,6 @@ def toggle_fav_product_status(request):
 
 
 @login_required
-@require_POST
-def like(request):
-    product = get_object_or_404(Product, pk=request_POST["product_id"])
-    product.like += 1
-    product.save()
-    return redirect('app:detail', product_id=product.id)
-
-
-@login_required
 def fav_products(request):
     user = request.user
     products = user.fav_products.all().order_by('-id')
@@ -460,13 +451,6 @@ def is_img(request):
         'icon_is_img': is_img,
     }
     return render(request, 'app/account.html', ctx)
-
-
-def count_good(self):
-    # ctx = super().get_context_data()
-    ctx = User().get_context_data()
-    ctx['good_number'] = ip_address.annotate(good_count=Count('good'))
-    return ctx
 
 
 def owner_profile(request):
