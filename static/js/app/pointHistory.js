@@ -13,8 +13,10 @@ async function pointHistory() {
 
   let colBar = [];
   for (const date of userpointhistory) {
-    colBar.push(date["created_at"]);
+    let splitedDate = date["created_at"].split(":")[0].slice(0, -3);
+    colBar.push(splitedDate);
   }
+  console.log(colBar);
 
   let type = "line";
 
