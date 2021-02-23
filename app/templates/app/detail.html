@@ -14,15 +14,17 @@
     <div class="point-fav-section row">
       <h4 class="col-sm-6 col-12">{{ product.price | intcomma }} Point</h4>
       {% if request.user.is_authenticated %}
-        <form action="{% url 'app:toggle_fav_product_status' %}" method="post" class="col-sm-6 col-12">{% csrf_token %}
-          <input type="hidden" name="product_id" value="{{ product.id }}">
-          {% if product in user.fav_products.all %}
-            <input type="submit" name="submit" class="fav_button" value="remove from your favorite">
-          {% else %}
-            <input type="submit" name="submit" class="fav_button" value="add to your favorite">
-          {% endif %}
-        </form>
+      <form action="{% url 'app:toggle_fav_product_status' %}" method="post" class="col-sm-6 col-12">{% csrf_token %}
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+        {% if product in user.fav_products.all %}
+          <input type="submit" name="submit" class="fav_button" value="remove from your favorite">          {% else %}
+          <input type="submit" name="submit" class="fav_button" value="add to your favorite">
+        {% endif %}
+      </form>
       {% endif %}
+    </div>
+    <div class="py-3">
+      <p>{{ product.like | intcomma }} people like this.</p>
     </div>
     <p>{{ product.description }}</p>
     <div class="row">
@@ -37,13 +39,6 @@
             <button class="purchase-button">Login and purchase</button>
           </a>
         {% endif %}
-      </div>
-      <div class="col-6 like-button">
-        <li>
-          {% if request.user.is_authenticated %}
-            <i class="fas fa-thumbs-up"></i>
-          {% endif %}
-        </li>
       </div>
     </div>
   </div>
