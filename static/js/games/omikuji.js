@@ -9,11 +9,7 @@ const omikuji = () => {
   const omikujiPoint = document.getElementById("omikuji_point");
   const omikujiPointBtn = document.getElementById("omikuji_point_btn");
 
-<<<<<<< HEAD
   // // https://blog.narito.ninja/detail/88/#fetch-api
-=======
-  // https://blog.narito.ninja/detail/88/#fetch-api
->>>>>>> 9bb336e3914bbe9713526a932c441c2cd62b00b4
   // ajax通信におけるcsrf対策
   // const getCookie = (name) => {
   //   if (document.cookie && document.cookie !== "") {
