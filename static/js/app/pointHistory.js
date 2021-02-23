@@ -2,7 +2,7 @@
 "use strict";
 
 // ポイントの増減をuserpointhistory.js経由で取得
-async function callUserPointHistoryApi() {
+async function pointHistory() {
   const res = await fetch("http://127.0.0.1:8000/api/userpointhistory/");
   const userpointhistory = await res.json();
 
@@ -10,29 +10,22 @@ async function callUserPointHistoryApi() {
   for (const point of userpointhistory) {
     rowBar.push(point["point_history"]);
   }
-  console.log(rowBar);
 
   let colBar = [];
   for (const date of userpointhistory) {
     colBar.push(date["created_at"]);
   }
-  console.log(colBar);
-}
-callUserPointHistoryApi();
 
-function pointHistory() {
   let type = "line";
 
   let data = {
     // "created_at"のデータが入る
-    labels: ["2021/02/01", "2021/02/02", "2021/02/03", "2021/02/04"],
-    // labels: [rowBar],
+    labels: colBar,
     datasets: [
       {
         label: "",
         // "point_history"のデータが入る
-        data: [50000, 49000, 48000, 51000],
-        // data: [colBar],
+        data: rowBar,
         borderColor: "rgb(54, 165, 123)",
         backgroundColor: "rgb(54, 165, 123, 0.1)",
         lineTension: 0,
@@ -45,8 +38,8 @@ function pointHistory() {
       yAxes: [
         {
           ticks: {
-            suggestedMin: 30000,
-            suggestedMax: 70000,
+            suggestedMin: 40000,
+            suggestedMax: 60000,
             stepSize: 500,
             // callbackは、value=それぞれの軸の値、index=その軸が何番目か、values=全ての軸の値、が配列として返ってくる
             callback: function (value, index, values) {
