@@ -361,11 +361,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
     integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
     crossorigin="anonymous"></script>
-  {% if request.build_absolute_uri == 'http://127.0.0.1:8000/order_history/' %}
-    <!-- <script src="{% static 'js/api/debug_userpointhistory.min.js' %}"></script> -->
-  {% elif request.build_absolute_uri == 'https://shinac.pythonanywhere.com/order_history/' %}
-    <!-- <script src="{% static 'js/api/userpointhistory.min.js' %}"></script> -->
-  {% endif %}
   <script src="{% static 'js/app/pointHistory.min.js' %}"></script>
   <!-- device related -->
   <script src="{% static 'js/pointUp.min.js' %}"></script>
