@@ -16,7 +16,6 @@ async function pointHistory() {
     let splitedDate = date["created_at"].split(":")[0].slice(0, -3);
     colBar.push(splitedDate);
   }
-  console.log(colBar);
 
   let type = "line";
 
