@@ -199,7 +199,7 @@ html {
       }
       .each-game-container {
         position: relative;
-        .game-tic_tac_toe {
+        .game-dungeon {
           @include game-x();
           top: 500px;
           left: 400px;
@@ -476,13 +476,13 @@ html {
       }
     }
     // end of pingpong.html
-    // tic_tac_toe.html
+    // dungeon.html
     .tic_tac_toe-wrapper {
-      #tic_tac_toe-area {
+      #dungeone-area {
         background-color: $white;
       }
     }
-    // end of tic_tac_toe.html
+    // end of dungeon.html
   }
 }
 

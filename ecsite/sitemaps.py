@@ -7,7 +7,6 @@ class StaticViewSitemap(Sitemap):
 
     def items(self):
         return [
-            'users:owner_profile',
             'app:top',
             'app:cart',
             'app:login',
@@ -27,16 +26,14 @@ class StaticViewSitemap(Sitemap):
             'games:slot',
             'games:touch',
             'games:pingpong',
-            'games:tic_tac_toe',
+            'games:dungeon',
         ]
 
     def location(self, obj):
         return resolve_url(obj)
 
     def changefreq(self, obj):
-        if obj == 'users:owner_profile':
-            return 'always'
-        elif obj == 'app:top':
+        if obj == 'app:top':
             return 'always'
         elif obj == 'study:index':
             return 'always'

@@ -25,7 +25,6 @@ local
 - Django==3.0.10
 - django-compressor==2.4.0
 - django-debug-toolbar==3.2.0
-- React(CDN)==17.0.1
 - Bootstrap(CDN)==4.5.0
 - jQuery(CDN)==3.5.1
 - SCSS
