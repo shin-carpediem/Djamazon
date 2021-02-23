@@ -248,9 +248,10 @@ CSRF_COOKIE_SECURE = os.getenv("DEBUG") == "False"
 # 誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセット。
 SESSION_COOKIE_SECURE = os.getenv("DEBUG") == "False"
 
-IMAGEKIT_CACHEFILE_DIR = [
-    os.path.join(BASE_DIR, 'imagekit_cache')
-]
+## be careful: Imagelit cache crashs with memcache.
+# IMAGEKIT_CACHEFILE_DIR = [
+#     os.path.join(BASE_DIR, 'imagekit_cache')
+# ]
 
 # https://www.valentinog.com/blog/drf/#Django_REST_with_React_setting_up_React_and_webpack
 # disable the browseable API in production with this configuration
