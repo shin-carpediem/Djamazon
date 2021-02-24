@@ -5,7 +5,7 @@
 <div class="slot-wrapper text-center py-5">
   <div class="explation-text mx-auto">
     <p>You will win if all the card get same.</p>
-    <p>カードが全てそろったら勝ちだよ！</p>
+    <p>同じカードが全てそろったら勝ちだよ！</p>
   </div>
   <div class="col-sm-4 col-12 mx-auto">
     <main class="slot-area p-3 mt-5 mb-3 d-flex justify-content-around">
@@ -29,7 +29,6 @@
     <input type="range" min="1" max="5" value="1" id="slotChangeLevel">
     <p>Current level is <span id="slot-current-value"><!-- slot.js --></span></p>
     <div class="d-flex justify-content-center align-items-center pt-1">
-      <p class="px-5"><a href="{% url 'games:slot' %}"><i class="fas fa-undo-alt pr-2"></i>Retry</a></p>
       <p class="px-5"><a href="{% url 'games:index' %}"><i class="fas fa-cube pr-2"></i>Home</a></p>
     </div>
   </div>

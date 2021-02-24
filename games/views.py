@@ -89,19 +89,6 @@ def quiz(request):
 
 
 @login_required
-def control_quiz_point(request):
-    if request.method == 'POST':
-        quiz_point = request.POST["quiz_point"]
-        user = request.user
-        user.point += int(quiz_point)
-        user.save()
-        userpointhistory = UserPointHistory(
-            point_history=user.point, user=user)
-        userpointhistory.save()
-    return redirect('games:quiz')
-
-
-@login_required
 def slot(request):
     return render(request, 'games/slot.html')
 

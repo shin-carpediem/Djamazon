@@ -16,6 +16,12 @@ const typing = () => {
 
   let words = ["red", "blue", "pink"];
 
+  let word;
+  let loc = 0;
+  let startTime;
+  let isPlaying = false; // プレイ中もクリックできてしまうバグを直す
+  const target = document.getElementById("typing-question");
+
   // α：かかった時間に応じてポイントをinput要素に入れる
   function setPoint(point) {
     typingPoint.value = point;
@@ -65,12 +71,6 @@ const typing = () => {
     setCurrentValue(changelevelElem.value);
     changeLevel(changelevelElem.value);
   };
-
-  let word;
-  let loc = 0;
-  let startTime;
-  let isPlaying = false; // プレイ中もクリックできてしまうバグを直す
-  const target = document.getElementById("typing-question");
 
   document.addEventListener("click", () => {
     if (isPlaying === true) {

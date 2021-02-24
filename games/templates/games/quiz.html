@@ -22,18 +22,8 @@
       </div>
     </div>
   </div>
-  <h4 class=py-5>Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}"></span></h4>
-  <!-- quiz.js -->
-  <form action="{% url 'games:control_quiz_point' %}" method="post" class="control-user-point">{% csrf_token %}
-    <input type="number" name="quiz_point" id="quiz_point">
-    <button type="submit" id="quiz_point_btn"></button>
-  </form>
-  <!-- quiz.js -->
-  <div>
-    <div class="d-flex justify-content-center align-items-center pt-1">
-      <p class="px-5"><a href="{% url 'games:quiz' %}"><i class="fas fa-undo-alt pr-2"></i>Retry</a></p>
-      <p class="px-5"><a href="{% url 'games:index' %}"><i class="fas fa-cube pr-2"></i>Home</a></p>
-    </div>
+  <div class="d-flex justify-content-center align-items-center pt-5">
+    <p class="px-5"><a href="{% url 'games:index' %}"><i class="fas fa-cube pr-2"></i>Home</a></p>
   </div>
 </div>
 
@@ -45,6 +35,5 @@
 <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
   integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <!-- device related -->
-<script src="{% static 'js/pointUp.min.js' %}"></script>
 <script src="{% static 'js/games/quiz.min.js' %}"></script>
 {% endblock %}

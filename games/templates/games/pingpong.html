@@ -4,8 +4,8 @@
 {% block content %}
 <div class="pingpong-wrapper text-center py-5">
   <div class="explation-text mx-auto mb-5">
-    <p>Move the paddle right and left to keep a ball floating.</p>
-    <p>パドルを左右に動かして、ボールを拾ってね！</p>
+    <p>Move the paddle right and left to keep a ball bounding more than 5 times.</p>
+    <p>パドルを左右に動かして、ボールを5回以上拾ってね！</p>
   </div>
   <canvas width="280" height="280">
     Canvas not supported...
@@ -24,7 +24,6 @@
     <input type="range" min="1" max="5" value="1" id="pingpongChangeLevel">
     <p>Current level is <span id="pingpong-current-value"><!-- touch.js --></span></p>
     <div class="d-flex justify-content-center align-items-center pt-1">
-      <p class="px-5"><a href="{% url 'games:pingpong' %}"><i class="fas fa-undo-alt pr-2"></i>Retry</a></p>
       <p class="px-5"><a href="{% url 'games:index' %}"><i class="fas fa-cube pr-2"></i>Home</a></p>
     </div>
   </div>

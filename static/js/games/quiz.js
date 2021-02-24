@@ -21,6 +21,10 @@ const quiz = () => {
   let isAnswered;
   let score = 0;
 
+  window.onload = () => {
+    alert("This game is not related to point.")
+  }
+
   // フィッシャー・イェーツのシャッフル
   function shuffle(arr) {
     // 最初のセットで、配列全体の中からランダムに要素を選んで、
@@ -81,32 +85,6 @@ const quiz = () => {
   }
 
   setQuiz();
-
-  const quizPoint = document.getElementById("quiz_point");
-  const quizPointBtn = document.getElementById("quiz_point_btn");
-
-  // α：結果に応じてポイントをinput要素に入れる
-  function setPoint(point) {
-    quizPoint.value = point;
-  }
-
-  // β：view.pyに値を返す
-  function sendPoint(e) {
-    quizPointBtn.click(e);
-  }
-
-  function checkResult() {
-    if (score == 3) {
-      setPoint(500);
-    } else if (score == 2) {
-      setPoint(300);
-    } else if (score == 1) {
-      setPoint(-300);
-    } else {
-      setPoint(-500);
-    }
-    sendPoint();
-  }
 
   btn.addEventListener("click", () => {
     if (btn.classList.contains("disabled")) {
