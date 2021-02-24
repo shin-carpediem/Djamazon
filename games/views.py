@@ -1,11 +1,10 @@
-from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+from django.http.response import JsonResponse
 from users.models import User, UserPointHistory
 
+
 # Create your views here.
-
-
 def index(request):
     return render(request, 'games/index.html')
 
@@ -24,7 +23,8 @@ def control_counter_point(request):
         user = request.user
         user.point += int(counter_point)
         user.save()
-        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory = UserPointHistory(
+            point_history=user.point, user=user)
         userpointhistory.save()
     return redirect('games:counter')
 
@@ -41,24 +41,10 @@ def control_omikuji_point(request):
         user = request.user
         user.point += int(omikuji_point)
         user.save()
-        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory = UserPointHistory(
+            point_history=user.point, user=user)
         userpointhistory.save()
     return redirect('games:omikuji')
-
-
-# @login_required
-# def control_omikuji_point(request):
-#     if request.method == 'POST':
-#         omikuji_point = request.POST["omikuji_point"]
-#         user = request.user
-#         user.point += int(omikuji_point)
-#         user.save()
-#         ctx = {
-#             'user.point':user.point,
-#         }
-        # userpointhistory = UserPointHistory(point_history=user.point, user=user)
-        # userpointhistory.save()
-#     return JsonResponse(ctx)
 
 
 @login_required
@@ -73,7 +59,8 @@ def control_bingo_point(request):
         user = request.user
         user.point += int(bingo_point)
         user.save()
-        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory = UserPointHistory(
+            point_history=user.point, user=user)
         userpointhistory.save()
     return redirect('games:bingo')
 
@@ -90,7 +77,8 @@ def control_typing_point(request):
         user = request.user
         user.point += int(typing_point)
         user.save()
-        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory = UserPointHistory(
+            point_history=user.point, user=user)
         userpointhistory.save()
     return redirect('games:typing')
 
@@ -107,7 +95,8 @@ def control_quiz_point(request):
         user = request.user
         user.point += int(quiz_point)
         user.save()
-        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory = UserPointHistory(
+            point_history=user.point, user=user)
         userpointhistory.save()
     return redirect('games:quiz')
 
@@ -124,7 +113,8 @@ def control_slot_point(request):
         user = request.user
         user.point += int(slot_point)
         user.save()
-        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory = UserPointHistory(
+            point_history=user.point, user=user)
         userpointhistory.save()
     return redirect('games:slot')
 
@@ -141,7 +131,8 @@ def control_touch_point(request):
         user = request.user
         user.point += int(touch_point)
         user.save()
-        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory = UserPointHistory(
+            point_history=user.point, user=user)
         userpointhistory.save()
     return redirect('games:touch')
 
@@ -158,7 +149,8 @@ def control_pingpong_point(request):
         user = request.user
         user.point += int(pingpong_point)
         user.save()
-        userpointhistory = UserPointHistory(point_history=user.point, user=user)
+        userpointhistory = UserPointHistory(
+            point_history=user.point, user=user)
         userpointhistory.save()
     return redirect('games:pingpong')
 

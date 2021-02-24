@@ -12,7 +12,7 @@
       ?
     </div>
   </div>
-  <h4 class=py-5>Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}">{{ user.point }}</span></h4>
+  <h4 class=py-5>Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}"></span></h4>
   <!-- omikuji.js -->
   <form action="{% url 'games:control_omikuji_point' %}" method="post" class="control-user-point">{% csrf_token %}
     <input type="number" name="omikuji_point" id="omikuji_point">

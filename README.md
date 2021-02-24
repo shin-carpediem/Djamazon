@@ -131,18 +131,10 @@ $ cd Djamazon
 $ pip install -r requirements.txt
 ```
 
-- [ ] Open settings.py and switch DEBUG False to True
-
-```
-$ cd ecsite && sudo vi settings.py
-```
-
-> > Please edit DEBUG from False to True.
-
 - [ ] Migrate to your local database from our database
 
 ```
-$ cd .. && python manage.py makemigrations
+$ python manage.py makemigrations
 ```
 
 ```
