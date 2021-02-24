@@ -21,15 +21,16 @@ const omikuji = () => {
 
   // ①：現在のレベルをレベル表示箇所に埋め込む関数
   function setCurrentValue(val) {
+    changelevelElem.value = val;
     currentValueElem.innerText = val;
   }
 
-  // ②：ゲームのレベルを変えるかつ、セッティングする関数
+  // ②：ゲームのレベルをランダムに変えるかつ、セッティングする関数
   function setGame(lev) {
     btn.addEventListener("click", () => {
       let n = Math.random();
 
-      // ゲームのレベルを変える
+      // ゲームのレベルによってくじの出にくさを調整
       if (lev == 1) {
         n = n;
       } else if (lev == 2) {
@@ -42,41 +43,35 @@ const omikuji = () => {
         n = n + 0.15;
       }
 
-      // 結果を表示する
+      // 難易度毎に結果を表示する
       if (n < 0.2) {
         btn.textContent = "大吉"; // 19%
-        setPoint(2000);
+        setPoint(3000);
       } else if (n < 0.4) {
         btn.textContent = "吉"; // 20%
-        setPoint(1000);
+        setPoint(1200);
       } else if (n < 0.6) {
         btn.textContent = "中吉"; // 20%
         setPoint(600);
       } else if (n < 0.8) {
         btn.textContent = "小吉"; // 20%
-        setPoint(400);
+        setPoint(-200);
       } else if (n < 1) {
         btn.textContent = "末吉"; // 20%
-        setPoint(200);
+        setPoint(-400);
       } else {
         btn.textContent = "凶"; // 1%
-        setPoint(-1500);
+        setPoint(-2500);
       }
       setTimeout(sendPoint, 2000);
     });
   }
 
-  // ③：①②をターゲットのvalueの値に応じて実行
-  function rangeOnChange(e) {
-    setCurrentValue(e.target.value); //①
-    setGame(e.target.value); //②
-  }
-
-  // ④：①②をウィンドウロード時に発火
+  // ③：①②をウィンドウロード時に発火
   window.onload = () => {
-    changelevelElem.addEventListener("input", rangeOnChange);
-    setCurrentValue(changelevelElem.value);
-    setGame(changelevelElem.value);
+    let randomLev = Math.floor(Math.random() * 5 + 1);
+    setCurrentValue(randomLev);
+    setGame(randomLev);
   };
 };
 omikuji();
