@@ -674,4 +674,8 @@ html body .tic_tac_toe-wrapper #dungeone-area {
 .inactive {
   opacity: 0.5;
 }
+
+.control-user-point {
+  display: none;
+}
 /*# sourceMappingURL=style.css.map */
