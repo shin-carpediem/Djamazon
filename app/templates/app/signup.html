@@ -2,10 +2,9 @@
 {% load static %}
 
 {% block content %}
-<form method="post" action="{% url 'app:signup' %}">{% csrf_token %}
-  <h2 class="d-flex justify-content-center pt-sm-5 pt-0 pb-5">Signup</h2>
-
-  <div class="row">
+<h2 class="text-center pt-sm-5 pt-0 pb-5">Signup</h2>
+<div class="mx-auto">
+  <form method="post" action="{% url 'app:signup' %}" class="row mx-auto">{% csrf_token %}
     <div class="col-4 pl-sm-5 pl-0 pb-3">
       <div>
         <label>Email</label><br>
@@ -31,10 +30,44 @@
         </a>
       </div>
     </div>
-
     <div class="col-8">
       <img src="{% static 'img/app/signup_login.png' %}" alt="signup_login">
     </div>
+  </form>
+</div>
+<h3 class="text-center py-5">Feature</h3>
+<div class="row py-2">
+  <div class="col-md-6 col-12 row justify-content-end align-items-center">
+    <div class="col-lg-8 col-12">
+      <h5 class="pb-2">Djamazon</h5>
+      <p>You can experience of e-commerce with imaginary money(= We call it "Point").</p>
+    </div>
   </div>
-</form>
+  <div class="col-md-6 col-12">
+    <img src="{% static 'img/app/signup_login.png' %}" alt="feature1">
+  </div>
+</div>
+<div class="row py-2 d-flex flex-wrap-reverse">
+  <div class="col-md-6 col-12">
+    <img src="{% static 'img/app/signup_login.png' %}" alt="feature2">
+  </div>
+  <div class="col-md-6 col-12 row justify-content-first align-items-center">
+    <div class="col-lg-8 col-12">
+      <h5 class="pb-2">Djamazon Games</h5>
+      <p>Lots of games will make you excited. Some games' levels are rumdam, and other games' levels you can set on
+        purpose. Also, if you will these games, you will be able to get points for shopping.</p>
+    </div>
+  </div>
+</div>
+<div class="row py-2">
+  <div class="col-md-6 col-12 row justify-content-end align-items-center">
+    <div class="col-lg-8 col-12">
+      <h5 class="pb-2">Djamazon Study</h5>
+      <p>If you are a beginner for Django, you can learn the process of developing this whole application.</p>
+    </div>
+  </div>
+  <div class="col-md-6 col-12">
+    <img src="{% static 'img/app/signup_login.png' %}" alt="feature3">
+  </div>
+</div>
 {% endblock %}
