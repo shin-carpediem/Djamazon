@@ -15,6 +15,10 @@ video {
   display: block;
 }
 
+video {
+  border-radius: 10px;
+}
+
 /* Inherit fonts for inputs and buttons */
 input,
 button,
