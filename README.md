@@ -1,6 +1,6 @@
 <img src="https://img.shields.io/badge/-Django-092E20.svg?logo=django&style=flat"> <img src="https://img.shields.io/badge/-Bootstrap-563D7C.svg?logo=bootstrap&style=flat"> <img src="https://img.shields.io/badge/-jQuery-0769AD.svg?logo=jquery&style=flat"> <img src="https://img.shields.io/badge/-MySQL-4479A1.svg?logo=mysql&style=flat"> <img src="https://img.shields.io/badge/-Linux-6C6694.svg?logo=linux&style=flat"> <img src="https://img.shields.io/badge/-Sass-CC6699.svg?logo=sass&style=flat"> <img src="https://img.shields.io/badge/-CircleCI-343434.svg?logo=circleci&style=flat">
 
-# [Djamazon](https://shinac.pythonanywhere.com/)
+# [Djamazon](https://djamazonapp.pythonanywhere.com/)
 
 ## Feature
 
@@ -184,7 +184,7 @@ https://qiita.com/nnsnodnb/items/9e99e7f0ca3f82bf2171
 To connect with mysql, use this command.
 
 ```
-$ mysql -u shinac -h shinac.mysql.pythonanywhere-services.com -p
+$ mysql -u djamazonapp -h djamazonapp.mysql.pythonanywhere-services.com -p
 ```
 
 ### How to optimaize the environment variables to pythonanywere?
@@ -194,7 +194,7 @@ https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/
 When you added new environment variables to .env file, do not forget to type this command.
 
 ```
-$ set -a; source ~/shinac.pythonanywhere.com/.env; set +a
+$ set -a; source ~/djamazonapp.pythonanywhere.com/.env; set +a
 ```
 
 and do not forget to optimize static files to production.

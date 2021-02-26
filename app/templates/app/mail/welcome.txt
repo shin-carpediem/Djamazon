@@ -10,7 +10,7 @@ Password: ********
 
 From now on, you will get awesome experience!
 
-https://shinac.pythonanywhere.com/
+https://djamazonapp.pythonanywhere.com/
 
 
 If you have a question, feel free to contact with us.
@@ -19,5 +19,5 @@ Sincerely,
 ---------------------------------------------
 Djamazon.Corporation
 
-Email: buru.aoshin@gmail.com
+Email: fke129@icloud.com
 ---------------------------------------------

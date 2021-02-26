@@ -3,7 +3,7 @@ Hello {{ user_email }}.
 You are almost signed up.
 To confirm your email address, please click this URL.
 
-https://shinac.pythonanywhere.com/authsignup/
+https://djamazonapp.pythonanywhere.com/authsignup/
 
 
 If you have a question, feel free to contact with us.
