@@ -38,7 +38,7 @@ local
 unique to production
 
 - Pythonanywhere(Free plan)
-- Python==3.6.0
+- Python==3.8.0
 - MySQL==5.6.48(switching to sqlite now)
 
 ## How to SetUp with your local server?

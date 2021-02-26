@@ -146,7 +146,6 @@ static/vid/
 
 ## virtual environment
 env-pythonanywhere
-eb-virt
 
 ## production
 /assets/
