@@ -498,6 +498,11 @@ html {
           color: $white;
         }
       }
+      .accordion {
+        .btn-link {
+          color: $green;
+        }
+      }
     }
     // endblock
     // below container

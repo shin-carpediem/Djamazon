@@ -2,40 +2,7 @@
 {% load static %}
 
 {% block content %}
-<h2 class="text-center pt-sm-5 pt-0 pb-5">Signup</h2>
-<div class="mx-auto">
-  <form method="post" action="{% url 'app:signup' %}" class="row mx-auto">{% csrf_token %}
-    <div class="col-4 pl-sm-5 pl-0 pb-3">
-      <div>
-        <label>Email</label><br>
-        {{ form.email }}
-        {{ form.email.errors }}<br>
-      </div>
-      <div>
-        <label>Password</label><br>
-        {{ form.password1 }}
-        {{ form.password1.errors }}<br>
-      </div>
-      <div>
-        <label>password(Again)</label><br>
-        {{ form.password2 }}
-        {{ form.password2.errors }}<br>
-      </div>
-      <div class="pt-3 pb-5">
-        <input type="submit" value="Signup">
-      </div>
-      <div class="mr-lg-5 icon">
-        <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-block btn-social btn-google">
-          <span class="fa fa-google"></span> sign up with Google
-        </a>
-      </div>
-    </div>
-    <div class="col-8">
-      <img src="{% static 'img/app/signup_login.png' %}" alt="signup_login">
-    </div>
-  </form>
-</div>
-<h3 class="text-center py-5">Feature</h3>
+<h2 class="text-center py-5">What is Djamazon? :D</h2>
 <div class="row py-5">
   <div class="col-md-6 col-12 row justify-content-end align-items-center">
     <div class="col-lg-10 col-12 pl-lg-0 pl-5 pb-lg-0 pb-3">
@@ -68,6 +35,86 @@
   </div>
   <div class="col-md-6 col-12">
     <video src="{% static 'movie/app/feature3.mov' %}" poster="{% static 'img/app/feature3.png' %}" muted autoplay loop></video>
+  </div>
+</div>
+<h2 class="text-center pt-sm-5 pt-0 pb-5">Start Up!</h2>
+<div class="mx-auto">
+  <form method="post" action="{% url 'app:signup' %}" class="row mx-auto">{% csrf_token %}
+    <div class="col-4 pl-sm-5 pl-0 pb-3">
+      <div>
+        <label>Email</label><br>
+        {{ form.email }}
+        {{ form.email.errors }}<br>
+      </div>
+      <div>
+        <label>Password</label><br>
+        {{ form.password1 }}
+        {{ form.password1.errors }}<br>
+      </div>
+      <div>
+        <label>password (Again)</label><br>
+        {{ form.password2 }}
+        {{ form.password2.errors }}<br>
+      </div>
+      <div class="pt-3 pb-5">
+        <input type="submit" value="Signup">
+      </div>
+      <div class="mr-lg-5 icon">
+        <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-block btn-social btn-google">
+          <span class="fa fa-google"></span> start with Google
+        </a>
+      </div>
+    </div>
+    <div class="col-8">
+      <img src="{% static 'img/app/signup_login.png' %}" alt="signup_login">
+    </div>
+  </form>
+  <h4 class="pt-5 pb-4 text-center">FAQ</h4>
+  <div class="row">
+    <div class="accordion col-sm-8 col-12 mx-auto" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Should Email for sign up be existing one?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            Not existing is okay but we recommend existing one because you will not be able to change password after sign up.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Is this free at all?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+            Of course!!
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Where is the location of "Djamazon Games" and "Djamazon Study"?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+            Please go to "Account" page and you can see "Djamazon Software" at the bottom of the page. That's it!
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}

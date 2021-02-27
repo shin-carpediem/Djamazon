@@ -574,6 +574,10 @@ html body .container .icon span {
   color: #fff;
 }
 
+html body .container .accordion .btn-link {
+  color: #0f4b34;
+}
+
 html body .bg-img {
   position: relative;
 }
