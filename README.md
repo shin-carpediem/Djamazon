@@ -215,7 +215,7 @@ load_dotenv(os.path.join(project_folder, '.env'))
 $ set -a; source ~/djamazonapp.pythonanywhere.com/.env; set +a
 ```
 
-and do not forget to optimize static files to production.
+- [ ] and do not forget to optimize static files to production.
 
 ```
 $ python manage.py collectstatic
