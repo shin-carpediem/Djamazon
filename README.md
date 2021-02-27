@@ -175,18 +175,6 @@ $ python manage.py showmigrations
 
 https://tutorial.djangogirls.org/ja/deploy/
 
-### How to migrate from sqlite3 to MySQL of pythonanywhere?
-
-https://qiita.com/nnsnodnb/items/9e99e7f0ca3f82bf2171
-
-＊Each word of Every method should be CAPITAL.
-
-To connect with mysql, use this command.
-
-```
-$ mysql -u djamazonapp -h djamazonapp.mysql.pythonanywhere-services.com -p
-```
-
 ### How to optimaize the environment variables to pythonanywhere?
 
 https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/
@@ -236,9 +224,21 @@ $ python manage.py collectstatic
 
 unless you would see admin page with non decorated by css.
 
-#### How to avairable lanugage translation at pythonanywhere?
+### How to avairable lanugage translation at pythonanywhere?
 
 ```
 
 $ python manage.py compilemessages
+```
+
+### How to migrate from sqlite3 to MySQL of pythonanywhere?
+
+https://qiita.com/nnsnodnb/items/9e99e7f0ca3f82bf2171
+
+＊Each word of Every method should be CAPITAL.
+
+To connect with mysql, use this command.
+
+```
+$ mysql -u djamazonapp -h djamazonapp.mysql.pythonanywhere-services.com -p
 ```
