@@ -106,6 +106,17 @@ html {
     li {
       list-style: none;
     }
+    .modal {
+      button {
+        transform: scale(2);
+        span {
+          color: $black;
+        }
+      }
+      p {
+        color: $black;
+      }
+    }
     // index.html
     .front {
       position: relative;

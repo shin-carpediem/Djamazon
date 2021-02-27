@@ -72,34 +72,31 @@
       <!-- header part -->
       <div class="header-wrapper d-flex justify-content-around pt-3">
         <h1 class="title">Dj<span>a</span>m<span>a</span>z<span class="title-span">o</span>n G<span>a</span>mes</h1>
-
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-          Launch demo modal
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter">
+          How to play ?
         </button>
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
           aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">How to play ?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <p>　Lots of games will make you excited. Some games' levels are rumdam, and other games' levels you can set on purpose.</p>
+                <p>　Also, if you will these games, you will be able to get points for shopping.</p>
+                <div>
+                  <img src="{% static 'img/games/modal.png' %}" alt="modal">
+                </div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="d-flex justify-content-center">
           <div class="d-flex align-items-center px-2">
             <a href="{% url 'app:top' %}" target="_brank" rel="noopener noreferrer">Djamazon</a>

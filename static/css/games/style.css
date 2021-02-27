@@ -71,6 +71,19 @@ html body li {
   list-style: none;
 }
 
+html body .modal button {
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+html body .modal button span {
+  color: #000;
+}
+
+html body .modal p {
+  color: #000;
+}
+
 html body .front {
   position: relative;
   min-width: 1440px;
