@@ -85,13 +85,16 @@ const binGo = () => {
     // マス目の数とオープンした数が一致したら、マスの表示を変える
     if (splicedNum in bingo_sheet_num) {
       // console.log("ok");
-      // console.log(splicedNum); // 16 ここまではOK
+      console.log(splicedNum); // 16 ここまではOK
       // マス１つ1つの数値に対して、オープンした数を照らし合わせる
       for (let id = 0; id < 25; id++) {
-        if ((bingo_td[id].innerText = splicedNum)) {
-          bingo_td[this].innerText = "🎯"; // TODO: bingo.min.js:1 Uncaught TypeError: Cannot set property 'innerText' of undefined at HTMLButtonElement.<anonymous> (bingo.min.js:1)
+        console.log(bingo_td[id].innerText);
+        if (bingo_td[id].innerText === splicedNum) { // TODO: 共に数値型のはずだがtrueにならない
+          console.log("true");
+          bingo_td[id].innerText = "🎯";
         } else {
-          return;
+          console.log("else");
+          // return;
         }
       }
     } else {
@@ -112,7 +115,7 @@ const binGo = () => {
 
     // 上記を合わせた関数（3秒後にリダイレクト）
     function operatePoint() {
-      if ((winOrNot === true)) {
+      if (winOrNot === true) {
         setPoint(2500);
       } else {
         setPoint(-1000);
