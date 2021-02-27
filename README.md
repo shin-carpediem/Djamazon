@@ -218,7 +218,6 @@ $ set -a; source ~/djamazonapp.pythonanywhere.com/.env; set +a
 and do not forget to optimize static files to production.
 
 ```
-
 $ python manage.py collectstatic
 ```
 
@@ -227,7 +226,6 @@ unless you would see admin page with non decorated by css.
 ### How to avairable lanugage translation at pythonanywhere?
 
 ```
-
 $ python manage.py compilemessages
 ```
 
