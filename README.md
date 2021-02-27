@@ -200,6 +200,14 @@ $ set -a; source ~/djamazonapp.pythonanywhere.com/.env; set +a
 and do not forget to optimize static files to production.
 
 ```
+To avairable lanugage translation, compile laungage files.
+
+```
+
+$ python manage.py compilemessages
+
+```
+
 $ python manage.py collectstatic
 ```
 
