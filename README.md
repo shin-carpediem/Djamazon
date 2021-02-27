@@ -107,7 +107,7 @@ $ python -m venv env && source env/bin/activate
 
 ```
 (If you need, I will tell you when it is okay for me.)
-$ export ...
+$ export SECRET_KEY="hogehoge"
 $ export ...
 .
 .
@@ -187,11 +187,41 @@ To connect with mysql, use this command.
 $ mysql -u djamazonapp -h djamazonapp.mysql.pythonanywhere-services.com -p
 ```
 
-### How to optimaize the environment variables to pythonanywere?
+### How to optimaize the environment variables to pythonanywhere?
 
 https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/
 
-When you added new environment variables to .env file, do not forget to type this command.
+- [ ] Make ”.env” file at base directory.
+
+```
+$ touch .env && vi .env
+```
+
+- [ ] Write environment variables into .env file.
+
+```
+export SECRET_KEY="hogehoge"
+export ...
+.
+.
+```
+
+- [ ] check ”dotenv” has already installed, and if not, install it.
+
+```
+$ pip install dotenv
+```
+
+- [ ] write some code at wsgi file uniqe to pythonanywhere
+
+```
+import os
+from dotenv import load_dotenv
+project_folder = os.path.expanduser('~/my-project-dir')  # adjust as appropriate
+load_dotenv(os.path.join(project_folder, '.env'))
+```
+
+- [ ] To avairable environment variables, do not forget to type this command.
 
 ```
 $ set -a; source ~/djamazonapp.pythonanywhere.com/.env; set +a
@@ -200,15 +230,15 @@ $ set -a; source ~/djamazonapp.pythonanywhere.com/.env; set +a
 and do not forget to optimize static files to production.
 
 ```
-To avairable lanugage translation, compile laungage files.
-
-```
-
-$ python manage.py compilemessages
-
-```
 
 $ python manage.py collectstatic
 ```
 
 unless you would see admin page with non decorated by css.
+
+#### How to avairable lanugage translation at pythonanywhere?
+
+```
+
+$ python manage.py compilemessages
+```
