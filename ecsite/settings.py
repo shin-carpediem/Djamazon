@@ -305,16 +305,13 @@ else:
             'verbose': {
                 'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
                 'style': '{',
-            },
-            'simple': {
-                'format': '{levelname} {message}',
-                'style': '{',
-            },
+            }
         },
         'handlers': {
             'mail_admins': {    # メールを送信する
                 'level': 'ERROR',    # ERROR以上の場合出力
                 'class': 'django.utils.log.AdminEmailHandler',    # ログを出力するクラス
+                'formatter': 'verbose'
             }
         },
         'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
