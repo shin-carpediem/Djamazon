@@ -28,10 +28,36 @@ const touch = () => {
 
         if (this.game.getCurrentNum() === this.game.getLevel() ** 2) {
           // ゲーム結果に応じてポイント操作をするクラスを呼び出す
-          new judge();
-          this.game.judgepoint();
-          console.log(new judge());
-          console.log(this.game.judgepoint());
+          const spendTime = (
+            (Date.now() - this.game.getStartTime()) /
+            1000
+          ).toFixed(2);
+          if (spendTime <= 30) {
+            if (changelevelElem.value == 1) {
+              setPoint(100);
+            } else if (changelevelElem.value == 2) {
+              setPoint(300);
+            } else if (changelevelElem.value == 3) {
+              setPoint(800);
+            } else if (changelevelElem.value == 4) {
+              setPoint(1000);
+            } else {
+              setPoint(2000);
+            }
+          } else {
+            if (changelevelElem.value == 1) {
+              setPoint(-300);
+            } else if (changelevelElem.value == 2) {
+              setPoint(-400);
+            } else if (changelevelElem.value == 3) {
+              setPoint(-500);
+            } else if (changelevelElem.value == 4) {
+              setPoint(-800);
+            } else {
+              setPoint(-2000);
+            }
+          }
+          setTimeout(sendPoint, 2000);
 
           clearTimeout(this.game.getTimeoutId());
         }
@@ -141,63 +167,25 @@ const touch = () => {
     }
   }
 
-  class judge {
-    constructor(time) {
-      this.time = time; //TODO: どうやって開始地点の時刻を上のクラスから継承するか
-      this.startTime = this.time.start();
-      console.log(this.startTime);
-      this.touchPoint = document.getElementById("touch_point");
-      this.touchPointBtn = document.getElementById("touch_point_btn");
-    }
-
-    // α：かかった時間に応じてポイントをinput要素に入れる
-    setPoint(po) {
-      this.touchPoint.value = po;
-    }
-
-    // β：view.pyに値を返す
-    sendPoint(e) {
-      this.touchPointBtn.click(e);
-    }
-
-    judgepoint() {
-      const spendTime = ((Date.now() - this.startTime) / 1000).toFixed(2);
-      if (spendTime <= 30) {
-        if (changelevelElem.value == 1) {
-          this.setPoint(100);
-        } else if (changelevelElem.value == 2) {
-          this.setPoint(300);
-        } else if (changelevelElem.value == 3) {
-          this.setPoint(800);
-        } else if (changelevelElem.value == 4) {
-          this.setPoint(1000);
-        } else {
-          this.setPoint(2000);
-        }
-      } else {
-        if (changelevelElem.value == 1) {
-          this.setPoint(-300);
-        } else if (changelevelElem.value == 2) {
-          this.setPoint(-400);
-        } else if (changelevelElem.value == 3) {
-          this.setPoint(-500);
-        } else if (changelevelElem.value == 4) {
-          this.setPoint(-800);
-        } else {
-          this.setPoint(-2000);
-        }
-      }
-      this.sendPoint();
-    }
-  }
-
   // https://code-kitchen.dev/html/input-range/
   // ⓪要素を取得
+  const touchPoint = document.getElementById("touch_point");
+  const touchPointBtn = document.getElementById("touch_point_btn");
   const changelevelElem = document.getElementById("changeLevel");
   const currentValueElem = document.getElementById("current-value");
 
   let randomNum = Math.floor(Math.random() * 5 + 1);
   new Game(randomNum);
+
+  // α：かかった時間に応じてポイントをinput要素に入れる
+  const setPoint = (po) => {
+    touchPoint.value = po;
+  };
+
+  // β：view.pyに値を返す
+  const sendPoint = (e) => {
+    touchPointBtn.click(e);
+  };
 
   // ①現在のレベルをレベル表示箇所に埋め込む関数
   const setCurrentValue = (val) => {
