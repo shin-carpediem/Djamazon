@@ -1,3 +1,4 @@
+appdirs==1.4.4
 asgiref==3.3.1
 asttokens==2.0.4
 certifi==2020.12.5
@@ -7,6 +8,7 @@ colorama==0.4.4
 coverage==5.3.1
 cryptography==3.3.2
 defusedxml==0.7.0rc1
+distlib==0.3.1
 Django==3.0.10
 django-allauth==0.44.0
 django-appconf==1.0.4
@@ -16,8 +18,10 @@ django-filter==2.4.0
 django-imagekit==4.0.2
 djangorestframework==3.12.2
 executing==0.5.4
+filelock==3.0.12
 idna==2.10
 Markdown==3.3.3
+mysqlclient==2.0.3
 numpy==1.20.1
 oauthlib==3.1.0
 pilkit==2.0
@@ -42,3 +46,5 @@ social-auth-app-django==4.0.0
 social-auth-core==3.3.3
 sqlparse==0.4.1
 urllib3==1.26.2
+virtualenv==20.4.2
+virtualenv-clone==0.5.4

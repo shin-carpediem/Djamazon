@@ -194,13 +194,13 @@ export ...
 .
 ```
 
-- [ ] check ”dotenv” has already installed, and if not, install it.
+- [ ] Check ”dotenv” has already installed, and if not, install it.
 
 ```
 $ pip install dotenv
 ```
 
-- [ ] write some code at wsgi file uniqe to pythonanywhere
+- [ ] Write some code at wsgi file uniqe to pythonanywhere
 
 ```
 import os
@@ -221,7 +221,7 @@ $ set -a; source ~/djamazonapp.pythonanywhere.com/.env; set +a
 $ python manage.py collectstatic
 ```
 
-unless you would see admin page with non decorated by css.
+..unless you would see admin page with non decorated by css.
 
 ### How to avairable lanugage translation at pythonanywhere?
 
