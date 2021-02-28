@@ -1,13 +1,11 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% load humanize %}
-
 {% block content %}
 <div class="product-detail row">
   <div class="product-detail-image col-sm-6 col-12">
     <img src="{{ product.image.url }}" class="product-img" alt="product-img">
   </div>
-
   <div class="product-detail-info col-sm-6 col-12">
     <h2>{{ product.name }}</h2>
     <hr>

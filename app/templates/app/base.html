@@ -2,10 +2,8 @@
 {% load static %}
 {% load compress %}
 {% load humanize %}
-
 <!DOCTYPE html>
 <html lang="ja">
-
  <head>
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
@@ -17,7 +15,6 @@
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-K8S5PL7');</script>
   <!-- End Google Tag Manager -->
-
   <!-- Google Analytics -->
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178766347-1"></script>
@@ -29,45 +26,35 @@
     gtag('config', 'UA-178766347-1');
   </script>
   <!-- End Google Analytics -->
-
   <!-- Google Search Console Tag-->
   <meta name="google-site-verification" content="XPxxrffbnencjTVJuBumoIjZqhT3W3bPToxkQIpRtJQ">
-
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Piedra&family=Righteous&display=swap" rel="stylesheet">
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
   <!-- Font Awesome -->
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <!-- bootstrap social -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-
   <!-- Device related -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="apple-touch-icon apple-touch-icon-precomposed" sizes="180x180" href="{% static 'img/app/apple-touch-icon.png' %}" />
-
   {% compress css %}
     <link rel="stylesheet" href="{% static 'css/bootstrap-social.css' %}">
     <link rel="stylesheet" href="{% static 'css/app/style.min.css' %}">
   {% endcompress %}
   <link rel="icon" href="{% static 'img/app/favicon.ico' %}">
-
   <title>Djamazon</title>
   <meta name="description" content="Why don't you taste a hunny Django application?">
   <meta name="keywords" content="Django Amazon unique funny">
  </head>
-
  <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8S5PL7" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-
   <header class="w-100">
     <div class="header-wrapper pb-sm-3">
       <div class="row pt-3 justify-content-between">
@@ -115,8 +102,6 @@
           {% endif %}
         </div>
       </div>
-
-        <!-- PC size -->
         <div class="header-menu pt-3 row d-sm-flex d-none justify-content-center align-items-center text-center">
           {% if request.user.is_authenticated %}
           <span class="col-lg-2 col-sm-4 col-6">
@@ -172,9 +157,6 @@
           </span>
           {% endif %}
         </div>
-        <!-- end of PC size -->
-
-        <!-- Mobile size humbergar menu -->
         <nav role="navigation" class="navigation d-sm-none d-block">
           <div id="menuToggle" class="pl-4">
             <input type="checkbox">
@@ -233,12 +215,9 @@
               {% endif %}
           </div>
         </nav>
-        <!-- end of Mobile size humbergar menu -->
-
       </div>
     </div>
   </header>
-
   <div class="container">
     {% for message in messages %}
       <p class="message-{{ message.tags }}">{{ message }}</p>
@@ -246,20 +225,16 @@
     {% block content %}
     {% endblock content %}
   </div>
-
   <div class="bg-img">
     <img src="{% static 'img/app/bg-1.svg' %}" alt="bg-1" class="bg-1" id="bg">
   </div>
-
   <nav aria-label="Page navigation" class="my-5">
     <ul class="pagination justify-content-center">
-      <!-- 前へ の部分 -->
       {% if page_obj.has_previous %}
         <li class="page-item">
           <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
         </li>
       {% endif %}
-      <!-- 数字の部分 -->
       {% for num in page_obj.paginator.page_range %}
         {% if page_obj.number == num %}
           <li class="page-item active">
@@ -271,7 +246,6 @@
           </li>
         {% endif %}
       {% endfor %}
-      <!-- 次へ の部分 -->
       {% if page_obj.has_next %}
         <li class="page-item">
           <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
@@ -279,9 +253,7 @@
       {% endif %}
     </ul>
   </nav>
-
   <a href="#top" id="btn-backtotop"><span class="arrow arrow_up"></span></a>
-
   <footer class="w-100">
     <div class="footer-wrapper pt-lg-5 pt-3 pb-3 mx-auto">
       <div class="footer-left w-100">
@@ -303,9 +275,7 @@
           </li>
         </ul>
       </div>
-
       <hr noshade="" class="my-3">
-
       <div class="footer-right row py-3">
         <div class="col-lg-1"></div>
         <div class="column col-lg-3 col-12 mx-auto">
@@ -330,7 +300,6 @@
       </div>
     </div>
   </footer>
-
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

@@ -53,31 +53,12 @@ INSTALLED_APPS = [
     'compressor',
 ]
 
-# Database
-# if DEBUG:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#         }
-#     }
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.mysql',
-#             'NAME': os.getenv("DB_NAME"),
-#             'USER': os.getenv("DB_USER"),
-#             'PASSWORD': os.getenv("DB_PASSWORD"),
-#             'HOST': os.getenv("DB_HOST"),
-#         }
-#     }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 MIDDLEWARE = [
     # Django can also be configured to email errors about broken links
@@ -97,9 +78,6 @@ MIDDLEWARE = [
 
 ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS")]
 
-# The Debug Toolbar is shown
-# only if your IP address is listed in the INTERNAL_IPS setting.
-# https://django-debug-toolbar.readthedocs.io/en/stable/installation.html
 if DEBUG:
     INTERNAL_IPS = [os.getenv("ALLOWED_HOSTS")]
 
@@ -142,13 +120,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.0/topics/i18n/
 LANGUAGE_CODE = 'en'
 TIME_ZONE = 'Asia/Tokyo'
-# enable translations
 USE_I18N = True
-# 日付フォーマット設定
 USE_L10N = True
 USE_TZ = True
 LANGUAGES = [
@@ -157,20 +131,14 @@ LANGUAGES = [
 ]
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
-# 数字3桁毎にカンマで区切る
 NUMBER_GROUPING = 3
 
-# セッションを毎回更新
 SESSION_SAVE_EVERY_REQUEST = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-# when DEBUG==False, Django automatically load collected static file.
-# this is for Django to use 'collectstatic'.
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 
 MEDIA_URL = '/media/'
@@ -185,87 +153,51 @@ STATICFILES_FINDERS = (
 COMPRESS_ENABLED = os.getenv("DEBUG") == "True"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# メールサーバーへの接続設定
-# Gmailサーバーを経由
 EMAIL_HOST = os.getenv("GMAIL_HOST")
 EMAIL_HOST_USER = os.getenv("GMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
 EMAIL_POST = os.getenv("GMAIL_POST")
 EMAIL_USE_TLS = True
-# mailtrapで擬似的にSMTPバックエンドでメールを受信
-# https://mailtrap.io/inboxes/1181697/messages
-# if DEBUG:
-#     EMAIL_HOST = os.getenv("MAILTRAP_HOST")
-#     EMAIL_HOST_USER = os.getenv("MAILTRAP_HOST_USER")
-#     EMAIL_HOST_PASSWORD = os.getenv("MAILTRAP_HOST_PASSWORD")
-#     EMAIL_PORT = os.getenv("MAILTRAP_POST")
 
-# アカウント認証設定
-# django-allauthで利用するdjango.contrib.sitesを使うためにサイト識別用IDを設定
 SITE_ID = 1
-# 認証バックエンド-ログイン時に何でログインするかを配列の先頭から順に認証する
-# https://nmomos.com/tips/2019/07/05/django-social-auth/
+
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
-    # メールアドレス認証
     'allauth.account.auth_backends.AuthenticationBackend',
-    # ユーザー名認証
     'django.contrib.auth.backends.ModelBackend',
 )
-# メールアドレス認証に変更する設定
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# ユーザー名の入力を必要とする設定
 ACCOUNT_USERNAME_REQUIRED = False
-# サインアップにメールアドレス確認をはさむよう設定
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
 DEFAULT_FROM_EMAIL = 'buru.aoshin@gmail.com'
 
-# Google認証
-# クライアントID
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
-# クライアント シークレット
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv(
     "SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
 
 AUTH_USER_MODEL = 'users.User'
 
-# ログイン/ログアウト後の遷移先を設定
 LOGIN_URL = 'app:login'
 LOGIN_REDIRECT_URL = 'app:top'
 LOGOUT_REDIRECT_URL = 'app:login'
 
-# パフォーマンスの最適化
-# DEBUG = False をセットすることで、開発向けの複数の機能が無効化。
-# 加えて、以下の設定をチューンすることもできます。
-# 永続的なデータベース接続を有効化すると、リクエストのプロセス時間の多くの部分に対するデータベースアカウントへの接続において、高速になります。
-# 限られたネットワーク性能の仮想化ホストにおいて、とても効果的。
 CONN_MAX_AGE = 0
 
-# 誤ってHTTPによってCSRFクッキーを送信してしまうのを防ぐにはTrueをセット。
 CSRF_COOKIE_SECURE = os.getenv("DEBUG") == "False"
-# 誤ってHTTPによってセッションクッキーを送信してしまうのを防ぐにはTrueをセット。
 SESSION_COOKIE_SECURE = os.getenv("DEBUG") == "False"
 
-# be careful: Imagelit cache crashs with memcache.
-# IMAGEKIT_CACHEFILE_DIR = [
-#     os.path.join(BASE_DIR, 'imagekit_cache')
-# ]
-
-# https://www.valentinog.com/blog/drf/#Django_REST_with_React_setting_up_React_and_webpack
-# disable the browseable API in production with this configuration
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     )
 }
 
-# https://qiita.com/okoppe8/items/3e8ab77c5801a7d21991
 if DEBUG:
     LOGGING = {
         'version': 1,
         'disable_existing_loggers': False,
-        'formatters': {    # ログの書式を設定
+        'formatters': {
             'verbose': {
                 'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
                 'style': '{',
@@ -279,16 +211,15 @@ if DEBUG:
             'console': {
                 'level': 'DEBUG',
                 'class': 'logging.StreamHandler',
-                'formatter': 'simple'    # どの出力フォーマットで出すかを名前で指定
+                'formatter': 'simple'
             },
         },
-        'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
+        'loggers': {
             'django': {
                 'handlers': ['console'],
                 'level': 'WARNING',
                 'propagate': True,
             },
-            # 自分で追加したアプリケーション全般のログを拾うロガー
             '': {
                 'handlers': ['console'],
                 'level': 'WARNING',
@@ -300,20 +231,20 @@ else:
     LOGGING = {
         'version': 1,
         'disable_existing_loggers': False,
-        'formatters': {    # ログの書式を設定
+        'formatters': {
             'verbose': {
                 'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
                 'style': '{',
             }
         },
         'handlers': {
-            'mail_admins': {    # メールを送信する
-                'level': 'ERROR',    # ERROR以上の場合出力
-                'class': 'django.utils.log.AdminEmailHandler',    # ログを出力するクラス
+            'mail_admins': {
+                'level': 'ERROR',
+                'class': 'django.utils.log.AdminEmailHandler',
                 'formatter': 'verbose'
             }
         },
-        'loggers': {    # ロガーを設定、ここに設定した名前を呼び出す
+        'loggers': {
             'django': {
                 'handlers': ['mail_admins'],
                 'level': 'ERROR',
@@ -324,7 +255,6 @@ else:
                 'level': 'ERROR',
                 'propagate': False,
             },
-            # 自分で追加したアプリケーション全般のログを拾うロガー
             '': {
                 'handlers': ['mail_admins'],
                 'level': 'ERROR',
