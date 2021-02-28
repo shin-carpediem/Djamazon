@@ -1,6 +1,5 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-from django.http.response import JsonResponse
 from users.models import User, UserPointHistory
 
 
