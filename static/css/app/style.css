@@ -585,6 +585,10 @@ html body .container .signup_login_2 {
 }
 
 html body .container .accordion .btn-link {
+  color: #000;
+}
+
+html body .container .accordion .btn-link:hover {
   color: #0f4b34;
 }
 

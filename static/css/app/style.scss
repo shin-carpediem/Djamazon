@@ -506,7 +506,10 @@ html {
       }
       .accordion {
         .btn-link {
-          color: $green;
+          color: $black;
+          &:hover {
+            color: $green;
+          }
         }
       }
     }
