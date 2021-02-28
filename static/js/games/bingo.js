@@ -47,16 +47,14 @@ const binGo = () => {
 
   // ビンゴシートの各マスを取得
   const bingo_td = document.querySelectorAll("td");
-  // console.log(bingo_td[0]);
   // ビンゴシートの各マスの数値を配列として取得
   const bingo_sheet_num = [];
   for (let num = 0; num < 25; num++) {
     bingo_sheet_num.push(bingo_td[num].innerText);
   }
-  // console.log(bingo_sheet_num);
 
-  const bingoPoint = document.getElementById("counter_point");
-  const bingoPointBtn = document.getElementById("counter_point_btn");
+  const bingoPoint = document.getElementById("bingo_point");
+  const bingoPointBtn = document.getElementById("bingo_point_btn");
 
   const totalNum = [];
   // 当たって透明になったパネルを取得
@@ -74,31 +72,23 @@ const binGo = () => {
       Math.floor(Math.random() * totalNum.length),
       1
     )[0];
-    // console.log(splicedNum); //ok...70
     // 右側のパネルの操作
     bingoNumber.innerText = splicedNum;
     currentTurn++;
-    // console.log(currentTurn); //ok...1
     remainedNumber.innerText = `${15 - currentTurn}`;
 
     // 左側のビンゴシートの操作
     // マス目の数とオープンした数が一致したら、マスの表示を変える
     if (splicedNum in bingo_sheet_num) {
-      // console.log("ok");
       console.log(splicedNum); // 16 ここまではOK
       // マス１つ1つの数値に対して、オープンした数を照らし合わせる
       for (let id = 0; id < 25; id++) {
         console.log(bingo_td[id].innerText);
-        if (bingo_td[id].innerText === splicedNum) { // TODO: 共に数値型のはずだがtrueにならない
-          console.log("true");
+        if (String(bingo_td[id].innerText) === String(splicedNum)) {
           bingo_td[id].innerText = "🎯";
         } else {
-          console.log("else");
-          // return;
         }
       }
-    } else {
-      return;
     }
 
     // α：引いたくじの結果に応じてポイントをinput要素に入れる
@@ -115,12 +105,12 @@ const binGo = () => {
 
     // 上記を合わせた関数（3秒後にリダイレクト）
     function operatePoint() {
+      openNumber.classList.add("bingo-btn-hidden");
       if (winOrNot === true) {
         setPoint(2500);
       } else {
         setPoint(-1000);
       }
-      // console.log(openNumber);
       setTimeout(sendPoint, 3000);
     }
 

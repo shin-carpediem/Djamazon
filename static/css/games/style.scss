@@ -517,7 +517,10 @@ html {
 .lose {
   transform: scale(0.9);
 }
-
+//bingo.js
+.bingo-btn-hidden {
+  visibility: hidden;
+}
 // slot.js
 .unmatched {
   opacity: 0.5;
