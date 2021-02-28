@@ -7,8 +7,6 @@ from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 from app.models import Product
 
-# Create your models here.
-
 
 class UserManager(BaseUserManager):
     use_in_migrations = True
@@ -48,10 +46,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_img = models.ImageField(
         "is_img", upload_to="is_img", max_length=50, blank=True, null=True)
     profile_is_img = ImageSpecField(source="is_img",
-                                 processors=[ResizeToFill(100, 100)],
-                                 format="JPEG",
-                                 options={"quality": 70}
-                                 )
+                                    processors=[ResizeToFill(100, 100)],
+                                    format="JPEG",
+                                    options={"quality": 70}
+                                    )
     icon_is_img = ImageSpecField(source="is_img",
                                  processors=[ResizeToFill(30, 30)],
                                  format="JPEG",
@@ -59,7 +57,6 @@ class User(AbstractBaseUser, PermissionsMixin):
                                  )
 
     objects = UserManager()
-
     USERNAME_FIELD = "email"
     EMAIL_FIELD = "email"
     REQUIRED_FIELDS = []

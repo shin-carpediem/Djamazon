@@ -3,8 +3,6 @@ from users.models import User, UserPointHistory
 from app.models import Product, Sale
 
 
-# Create your models here.
-# users
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -18,7 +16,6 @@ class UserPointHistorySerializer(serializers.ModelSerializer):
         fields = ('point_history', 'user', 'created_at')
 
 
-# app
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product

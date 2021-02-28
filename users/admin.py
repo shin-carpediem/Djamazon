@@ -4,8 +4,6 @@ from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.utils.translation import ugettext_lazy as _
 from .models import User
 
-# Register your models here.
-
 
 class MyUserChangeForm(UserChangeForm):
     class Meta:
