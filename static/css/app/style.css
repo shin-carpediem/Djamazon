@@ -574,6 +574,16 @@ html body .container .icon span {
   color: #fff;
 }
 
+html body .container .signup_login {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+html body .container .signup_login_2 {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
 html body .container .accordion .btn-link {
   color: #0f4b34;
 }

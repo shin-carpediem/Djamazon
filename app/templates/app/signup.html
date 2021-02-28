@@ -2,7 +2,40 @@
 {% load static %}
 
 {% block content %}
-<h2 class="text-center py-5">What is Djamazon? :D</h2>
+<h2 class="text-center pt-sm-5 pt-0 pb-5">Start Up!</h2>
+<div class="mx-auto">
+  <form method="post" action="{% url 'app:signup' %}" class="row mx-auto">{% csrf_token %}
+    <div class="col-4 pl-sm-5 pl-0 pb-3">
+      <div>
+        <label>Email</label><br>
+        {{ form.email }}
+        {{ form.email.errors }}<br>
+      </div>
+      <div>
+        <label>Password</label><br>
+        {{ form.password1 }}
+        {{ form.password1.errors }}<br>
+      </div>
+      <div>
+        <label>password (Again)</label><br>
+        {{ form.password2 }}
+        {{ form.password2.errors }}<br>
+      </div>
+      <div class="pt-3 pb-5">
+        <input type="submit" value="Signup">
+      </div>
+      <div class="mr-lg-5 icon">
+        <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-block btn-social btn-google">
+          <span class="fa fa-google"></span> start with Google
+        </a>
+      </div>
+    </div>
+    <div class="col-8 text-right">
+      <img src="{% static 'img/app/signup_login.png' %}" alt="signup_login" class="signup_login">
+    </div>
+  </form>
+</div>
+<h2 class="text-center py-5">What is Djamazon?</h2>
 <div class="row py-5">
   <div class="col-md-6 col-12 row justify-content-end align-items-center">
     <div class="col-lg-10 col-12 pl-lg-0 pl-5 pb-lg-0 pb-3">
@@ -37,38 +70,7 @@
     <video src="{% static 'movie/app/feature3.mov' %}" poster="{% static 'img/app/feature3.png' %}" muted autoplay loop></video>
   </div>
 </div>
-<h2 class="text-center pt-sm-5 pt-0 pb-5">Start Up!</h2>
 <div class="mx-auto">
-  <form method="post" action="{% url 'app:signup' %}" class="row mx-auto">{% csrf_token %}
-    <div class="col-4 pl-sm-5 pl-0 pb-3">
-      <div>
-        <label>Email</label><br>
-        {{ form.email }}
-        {{ form.email.errors }}<br>
-      </div>
-      <div>
-        <label>Password</label><br>
-        {{ form.password1 }}
-        {{ form.password1.errors }}<br>
-      </div>
-      <div>
-        <label>password (Again)</label><br>
-        {{ form.password2 }}
-        {{ form.password2.errors }}<br>
-      </div>
-      <div class="pt-3 pb-5">
-        <input type="submit" value="Signup">
-      </div>
-      <div class="mr-lg-5 icon">
-        <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-block btn-social btn-google">
-          <span class="fa fa-google"></span> start with Google
-        </a>
-      </div>
-    </div>
-    <div class="col-8">
-      <img src="{% static 'img/app/signup_login.png' %}" alt="signup_login">
-    </div>
-  </form>
   <h4 class="pt-5 pb-4 text-center">FAQ</h4>
   <div class="row">
     <div class="accordion col-sm-8 col-12 mx-auto" id="accordionExample">
@@ -116,5 +118,36 @@
       </div>
     </div>
   </div>
+  <h2 class="text-center pt-5 pb-sm-5 pb-0">Try using</h2>
+  <form method="post" action="{% url 'app:signup' %}" class="row mx-auto">{% csrf_token %}
+    <div class="col-4 pl-sm-5 pl-0 pb-3">
+      <div>
+        <label>Email</label><br>
+        {{ form.email }}
+        {{ form.email.errors }}<br>
+      </div>
+      <div>
+        <label>Password</label><br>
+        {{ form.password1 }}
+        {{ form.password1.errors }}<br>
+      </div>
+      <div>
+        <label>password (Again)</label><br>
+        {{ form.password2 }}
+        {{ form.password2.errors }}<br>
+      </div>
+      <div class="pt-3 pb-5">
+        <input type="submit" value="Signup">
+      </div>
+      <div class="mr-lg-5 icon">
+        <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-block btn-social btn-google">
+          <span class="fa fa-google"></span> start with Google
+        </a>
+      </div>
+    </div>
+    <div class="col-8 text-right">
+      <img src="{% static 'img/app/signup_login_2.png' %}" alt="signup_login_2" class="signup_login_2">
+    </div>
+  </form>
 </div>
 {% endblock %}

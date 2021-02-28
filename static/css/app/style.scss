@@ -308,7 +308,7 @@ html {
       .welcome-button {
         @include btn-l-django-green;
       }
-      // index.html
+      // top.html
       .product {
         width: calc(100% / 4);
         float: left;
@@ -497,6 +497,12 @@ html {
         span {
           color: $white;
         }
+      }
+      .signup_login {
+        transform: scale(1.15);
+      }
+      .signup_login_2 {
+        transform: scale(0.9);
       }
       .accordion {
         .btn-link {
