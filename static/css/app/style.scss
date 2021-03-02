@@ -451,6 +451,7 @@ html {
         }
         #onClickIn {
           display: none;
+          // display: block;
         }
         button {
           @include btn-s-green;
@@ -701,6 +702,17 @@ html {
   }
 }
 
+// onClick.js
+.account-onclick-in {
+  display: block;
+}
+// calendar.js
+.disabled {
+  opacity: 0.3;
+}
+.today {
+  font-size: 20px;
+}
 // hoverFadeIn.js
 .software-wrapper {
   .each-wrapper {
@@ -715,12 +727,4 @@ html {
       display: block;
     }
   }
-}
-
-// calendar.js
-.disabled {
-  opacity: 0.3;
-}
-.today {
-  font-size: 20px;
 }

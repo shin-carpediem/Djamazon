@@ -152,11 +152,10 @@ def password_reset(request):
         '\n'
         'You offered to change your password.\n'
         'Follow the link below:\n'
-        'From now on, you will get awesome experience!\n'
         '\n'
         'https://djamazonapp.pythonanywhere.com/admin/password_reset/\n'
         '\n'
-        'If clicking the link above doesn’t work, please copy and paste the UR in a new browser window instead.\n'
+        'If clicking the link above doesn’t work, please copy and paste the URL in a new browser window instead.\n'
         '\n'
         'If you’ve received this mail in error, it’s likely that another user entered your email address by mistake while trying to reset a password. If you didn’t initiate the request, you don’t need to take any further action and can safely disregard this email.\n'
         '\n'
@@ -176,7 +175,8 @@ def password_reset(request):
     s.login(EMAIL, PASSWORD)
     s.sendmail(EMAIL, TO, msg.as_string())
     s.quit()
-    return render(request, 'app/account.html')
+    messages.success(request, f"Email sent.")
+    return redirect('app:account')
 
 
 def detail(request, product_id):

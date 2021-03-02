@@ -820,6 +820,18 @@ html body footer .footer-wrapper .footer-right .copyright {
   }
 }
 
+.account-onclick-in {
+  display: block;
+}
+
+.disabled {
+  opacity: 0.3;
+}
+
+.today {
+  font-size: 20px;
+}
+
 .software-wrapper .each-wrapper .text_soft {
   border: solid 5px #ececec4d;
   border-radius: 5px;
@@ -830,13 +842,5 @@ html body footer .footer-wrapper .footer-right .copyright {
 
 .software-wrapper .each-wrapper .text-active {
   display: block;
-}
-
-.disabled {
-  opacity: 0.3;
-}
-
-.today {
-  font-size: 20px;
 }
 /*# sourceMappingURL=style.css.map */

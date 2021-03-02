@@ -295,19 +295,25 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
   <script src="{% static 'js/app/darkmode.min.js' %}"></script>
+  <!-- chart.js -->
+  {% if request.path == "/order_history/" %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
     integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
     crossorigin="anonymous"></script>
   <script src="{% static 'js/app/pointHistory.min.js' %}"></script>
-  <script src="{% static 'js/pointUp.min.js' %}"></script>
+  {% endif %}
+  <!-- device related -->
   <script src="{% static 'js/app/headerTitle.min.js' %}"></script>
   <script src="{% static 'js/app/changeLang.min.js' %}"></script>
   <script src="{% static 'js/app/pointFilter.min.js' %}"></script>
   <script src="{% static 'js/app/scrollButton.min.js' %}"></script>
   <script src="{% static 'js/app/mouseMove.min.js' %}"></script>
+  <script src="{% static 'js/app/logOutConfirm.min.js' %}"></script>
+  {% if request.path == "/account/" %}
+  <script src="{% static 'js/pointUp.min.js' %}"></script>
+  <script src="{% static 'js/app/calendar.min.js' %}"></script>
   <script src="{% static 'js/app/onClick.min.js' %}"></script>
   <script src="{% static 'js/app/hoverFadeIn.min.js' %}"></script>
-  <script src="{% static 'js/app/calendar.min.js' %}"></script>
-  <script src="{% static 'js/app/logOutConfirm.min.js' %}"></script>
+  {% endif %}
  </body>
 </html>

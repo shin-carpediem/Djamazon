@@ -1,15 +1,23 @@
 "use strict";
 
-const onClick = () => {
-  $("#onClick").click(() => {
-    $("#onClickIn").fadeIn();
-  });
-};
-onClick();
+const accountOnClickJs = () => {
+  const resetPass = document.getElementById("resetPass");
+  const accountOnClickIn = document.getElementById("onClickIn");
 
-const onClickForPwSend = () => {
-  $("#onClickForPwSend").click(() => {
-    $("#onClickInForPwSend").fadeIn();
+  resetPass.addEventListener("click", () => {
+    accountOnClickIn.classList.add("account-onclick-in");
   });
 };
-onClickForPwSend();
+accountOnClickJs();
+
+const accountOnClickForPwSendJs = () => {
+  const accountOnClickForPwSend = document.getElementById("onClickForPwSend");
+  const accountOnClickInForPwSend = document.getElementById(
+    "onClickInForPwSend"
+  );
+
+  accountOnClickForPwSend.addEventListener("click", () => {
+    accountOnClickInForPwSend.classList.add("account-onclick-in");
+  });
+};
+accountOnClickForPwSendJs();

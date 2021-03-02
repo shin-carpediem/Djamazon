@@ -94,5 +94,39 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
+  <!-- device related -->
+  {% if not request.path == "/games/quiz/" %}
+  <script src="{% static 'js/pointUp.min.js' %}"></script>
+  {% endif %}
+  {% if request.path == "/games/" %}
+  <script src="{% static 'js/games/showUp.min.js' %}"></script>
+  {% endif %}
+  {% if request.path == "/games/bingo/" %}
+  <script src="{% static 'js/games/bingo.min.js' %}"></script>
+  {% endif %}
+  {% if request.path == "/games/counter/" %}
+  <script src="{% static 'js/games/counter.min.js' %}"></script>
+  {% endif %}
+  {% if request.path == "/games/dungeon/" %}
+  <script src="{% static 'js/games/dungeon.min.js' %}"></script>
+  {% endif %}
+  {% if request.path == "/games/omikuji/" %}
+  <script src="{% static 'js/games/omikuji.min.js' %}"></script>
+  {% endif %}
+  {% if request.path == "/games/pingpong/" %}
+  <script src="{% static 'js/games/pingpong.min.js' %}"></script>
+  {% endif %}
+  {% if request.path == "/games/quiz/" %}
+  <script src="{% static 'js/games/quiz.min.js' %}"></script>
+  {% endif %}
+  {% if request.path == "/games/slot/" %}
+  <script src="{% static 'js/games/slot.min.js' %}"></script>
+  {% endif %}
+  {% if request.path == "/games/touch/" %}
+  <script src="{% static 'js/games/touch.min.js' %}"></script>
+  {% endif %}
+  {% if request.path == "/games/typing/" %}
+  <script src="{% static 'js/games/typing.min.js' %}"></script>
+  {% endif %}
 </body>
 </html>
