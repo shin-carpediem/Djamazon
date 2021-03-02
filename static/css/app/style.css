@@ -489,7 +489,7 @@ html body .container .account-wrapper .profile-wrapper .profile .is_img {
 html body .container .account-wrapper .profile-wrapper .profile .submit {
   text-align: center;
   display: inline-block;
-  border-radius: 10px;
+  border-radius: 2px;
   background-color: #36a57b;
   border: transparent;
   color: #ececec;
