@@ -125,35 +125,37 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
   <!-- device related -->
+  {% if not request.path == "/games/quiz/" %}
   <script src="{% static 'js/pointUp.min.js' %}"></script>
-  {% if request.path == "/" %}
+  {% endif %}
+  {% if request.path == "/games/" %}
   <script src="{% static 'js/games/showUp.min.js' %}"></script>
   {% endif %}
-  {% if request.path == "/bingo/" %}
+  {% if request.path == "/games/bingo/" %}
   <script src="{% static 'js/games/bingo.min.js' %}"></script>
   {% endif %}
-  {% if request.path == "/counter/" %}
+  {% if request.path == "/games/counter/" %}
   <script src="{% static 'js/games/counter.min.js' %}"></script>
   {% endif %}
-  {% if request.path == "/dungeon/" %}
+  {% if request.path == "/games/dungeon/" %}
   <script src="{% static 'js/games/dungeon.min.js' %}"></script>
   {% endif %}
-  {% if request.path == "/omikuji/" %}
+  {% if request.path == "/games/omikuji/" %}
   <script src="{% static 'js/games/omikuji.min.js' %}"></script>
   {% endif %}
-  {% if request.path == "/pingpong/" %}
+  {% if request.path == "/games/pingpong/" %}
   <script src="{% static 'js/games/pingpong.min.js' %}"></script>
   {% endif %}
-  {% if request.path == "/quiz/" %}
+  {% if request.path == "/games/quiz/" %}
   <script src="{% static 'js/games/quiz.min.js' %}"></script>
   {% endif %}
-  {% if request.path == "/slot/" %}
+  {% if request.path == "/games/slot/" %}
   <script src="{% static 'js/games/slot.min.js' %}"></script>
   {% endif %}
-  {% if request.path == "/touch/" %}
+  {% if request.path == "/games/touch/" %}
   <script src="{% static 'js/games/touch.min.js' %}"></script>
   {% endif %}
-  {% if request.path == "/typing/" %}
+  {% if request.path == "/games/typing/" %}
   <script src="{% static 'js/games/typing.min.js' %}"></script>
   {% endif %}
 </body>
