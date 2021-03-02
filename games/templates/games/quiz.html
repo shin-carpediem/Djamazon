@@ -1,6 +1,5 @@
 {% extends 'games/base.html' %}
 {% load static %}
-
 {% block content %}
 <div class="quiz-wrapper text-center py-5">
   <div class="explation-text mx-auto">
@@ -9,13 +8,12 @@
   </div>
   <div class="quiz-area d-flex justify-content-center align-items-center row pt-3">
     <div class="col-6 container py-4">
-      <p id="quiz-question" class="mb-3"><!-- quiz.js --></p>
+      <p id="quiz-question" class="mb-3"></p>
       <ul id="quiz-choices" class="mr-5 text-left">
-        <!-- quiz.js -->
       </ul>
       <div id="quiz-btn" class="py-2 px-5 disabled">Next</div>
       <div id="quiz-result" class="p-5 hidden">
-        <p><!-- quiz.js --></p>
+        <p></p>
         <div class="py-1 px-5">
           <a href="{% url 'games:quiz' %}">Replay?</a>
         </div>

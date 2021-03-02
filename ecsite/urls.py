@@ -23,7 +23,6 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
-# from django.views.generic import TemplateView
 from .sitemaps import StaticViewSitemap, ProductViewSitemap
 from api.urls import router as api_router
 
@@ -40,9 +39,9 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('oauth/', include('social_django.urls', namespace='social')),
-    path('', include('users.urls')),  # different app: user
-    path('', include('study.urls')),    # different app: Djamazon Study
-    path('', include('games.urls')), # different app: Djamazon games
+    path('', include('users.urls')),
+    path('', include('study.urls')),
+    path('', include('games.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
     path('__debug__/', include(debug_toolbar.urls)),
     url(r'^api/', include(api_router.urls)),

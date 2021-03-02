@@ -9,8 +9,6 @@ from app.models import Product, Sale
 from .serializer import UserSerializer, UserPointHistorySerializer, ProductSerializer, SaleSerializer
 
 
-# Create your views here.
-# users
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -21,7 +19,6 @@ class UserPointHistoryViewSet(viewsets.ModelViewSet):
     serializer_class = UserPointHistorySerializer
 
 
-# # app
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer

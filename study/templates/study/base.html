@@ -1,10 +1,7 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-  <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
         'gtm.start':
@@ -13,10 +10,6 @@
         j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-K8S5PL7');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Google Analytics -->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178766347-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -25,46 +18,27 @@
 
     gtag('config', 'UA-178766347-1');
   </script>
-  <!-- End Google Analytics -->
-
-  <!-- Google Search Console Tag-->
   <meta name="google-site-verification" content="XPxxrffbnencjTVJuBumoIjZqhT3W3bPToxkQIpRtJQ">
-
-  <!-- fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Piedra&family=Righteous&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-  <!-- Font Awesome -->
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-
-  <!-- Device related -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="apple-touch-icon-precomposed" href="{% static 'img/study/favicon.ico' %}">
-
   <link rel="stylesheet" href="{% static 'css/study/style.min.css' %}">
   <link rel="icon" href="{% static 'img/study/favicon.ico' %}">
-
   <title>Djamazon Study</title>
   <meta name="description"
     content="You can access the source code of this whole application and learn how a beginner develops this one by one.">
   <meta name="keywords" content="Django プログラミング 独学 教材 参考">
 </head>
-
 <body id="top">
-  <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8S5PL7" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
   <header class="w-100">
     <div class="header-wrapper">
-      <!-- logo title -->
       <div class="stage pl-sm-3 pt-sm-3 pl-2 pt-2">
         <div class="layer"></div>
         <div class="layer"></div>
@@ -87,7 +61,6 @@
         <div class="layer"></div>
         <div class="layer"></div>
       </div>
-      <!-- end of logo title -->
       <div class="arrow text-right p-sm-5 p-3 row">
         <div class="col-12">
           <a href="#top"><i class="fas fa-sort-up"></i></a>
@@ -98,11 +71,9 @@
       </div>
     </div>
   </header>
-
   <div class="w-100 study-container">
     {% block content %}{% endblock %}
   </div>
-
   <footer class="w-100 row justify-content-center align-items-center text-center p-sm-5 p-3">
     <div class="col-sm-10 col-12 row justify-content-center align-items-center text-center">
       <div class="col-sm-6 col-12" id="bottom">
@@ -122,12 +93,9 @@
       </div>
     </div>
   </footer>
-
-  <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
@@ -137,8 +105,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
-  <!-- device related -->
   <script src="{% static 'js/study/fadeIn.min.js' %}"></script>
 </body>
-
 </html>

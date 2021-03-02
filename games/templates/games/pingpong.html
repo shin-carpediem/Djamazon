@@ -1,6 +1,5 @@
 {% extends 'games/base.html' %}
 {% load static %}
-
 {% block content %}
 <div class="pingpong-wrapper text-center py-5">
   <div class="explation-text mx-auto mb-5">
@@ -11,18 +10,16 @@
     Canvas not supported...
   </canvas>
   <h4 class=py-4>Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}"></span></h4>
-  <!-- pingpong.js -->
   <form action="{% url 'games:control_pingpong_point' %}" method="post" class="control-user-point">{% csrf_token %}
     <input type="number" name="pingpong_point" id="pingpong_point">
     <button type="submit" id="pingpong_point_btn"></button>
   </form>
-  <!-- pingpong.js -->
   <div>
     <div class="d-flex justify-content-center">
       <img src="{% static 'img/games/level.png' %}" alt="level">
     </div>
     <input type="range" min="1" max="5" value="1" id="pingpongChangeLevel">
-    <p>Current level is <span id="pingpong-current-value"><!-- touch.js --></span></p>
+    <p>Current level is <span id="pingpong-current-value"></span></p>
     <div class="d-flex justify-content-center align-items-center pt-1">
       <p class="px-5"><a href="{% url 'games:index' %}"><i class="fas fa-cube pr-2"></i>Home</a></p>
     </div>

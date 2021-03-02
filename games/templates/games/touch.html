@@ -1,7 +1,6 @@
 {% extends 'games/base.html' %}
 {% load static %}
 {% load humanize %}
-
 {% block content %}
 <div class="touch-wrapper text-center py-5">
   <div class="explation-text mx-auto">
@@ -13,19 +12,16 @@
       0.0
     </div>
     <ul id="touch-board" class="text-center">
-      <!-- touch.js -->
     </ul>
     <div id="touch-btn">
       START
     </div>
   </div>
   <h4 class=py-5>Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}"></span></h4>
-  <!-- touch.js -->
   <form action="{% url 'games:control_touch_point' %}" method="post" class="control-user-point">{% csrf_token %}
     <input type="number" name="touch_point" id="touch_point">
     <button type="submit" id="touch_point_btn"></button>
   </form>
-  <!-- touch.js -->
   <div>
     <div class="d-flex justify-content-center pr-5 mr-5">
       <img src="{% static 'img/games/level.png' %}" alt="level">
@@ -33,7 +29,7 @@
     <div class="d-flex justify-content-center">
       <div>
         <input type="range" min="1" max="5" value="1" id="changeLevel">
-        <p>Current level is <span id="current-value"><!-- touch.js --></span></p>
+        <p>Current level is <span id="current-value"></span></p>
       </div>
       <div>
         <p class="pl-4 ml-3"><a href="{% url 'games:index' %}"><i class="fas fa-cube pr-2"></i>Home</a></p>
