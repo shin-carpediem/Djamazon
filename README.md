@@ -28,8 +28,8 @@ local
 - Bootstrap(CDN)==4.5.0
 - jQuery(CDN)==3.5.1
 - SCSS
-- Sass compiler(vscode plugin)
-- Minifer(vscode plugin)
+- Sass compiler(VSode plugin)
+- Minifer(VScode plugin)
 - Darkmode.js(CDN)==1.5.7
 - Chart.js(CDN)==2.9.4
 - SQlite==3.32.3
@@ -40,6 +40,53 @@ unique to production
 - Pythonanywhere(Free plan)
 - Python==3.8.0
 - MySQL==5.7.48(switching to sqlite now)
+
+## Branch Rule
+
+- **master:** is only used for deployment to the production environment(=Pythonanywhere).
+- **staging:** is used to optimize dev branch for production environment.
+- **dev:** is used for every development.
+
+### Work Flow
+
+- [ ] **(For other developer)** Create new branch from dev branch and clone to your local repository.
+
+```
+$ git clone -b dev-hogehoge
+```
+
+- [ ] **(For other developer)** After development, Minifer all css/js with VS code plugin at your branch, then update your branch.
+
+```
+$ git commit -am "Write messages."
+```
+
+```
+$ git push origin dev-hogehoge
+```
+
+- [ ] **(For other developer)** Then, make pull request(=PR) from your branch to dev branch at GitHub.
+- [ ] (For develop manager) Swtich to staging branch and merge update of dev branch.
+
+```
+$ git switch staging
+```
+
+```
+$ git pull origin dev
+```
+
+- [ ] (For develop manager) Delete all remained original css/js after miniferd at staging branch and upgrade your local staging repositry,then push to staging branch.
+
+```
+$ git commit -am "hogehoge"
+```
+
+```
+$ git push origin staging
+```
+
+- [ ] Make PR from staging branch to master branch at GitHub.
 
 ## How to SetUp with your local server?
 
