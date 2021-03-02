@@ -1,5 +1,7 @@
+"use strict";
+
 const logOutConfirm = () => {
-  logout = document.getElementById("logOut");
+  const logout = document.getElementById("logOut");
 
   logout.addEventListener("click", () => {
     const answer = confirm("Are you sure logout?");

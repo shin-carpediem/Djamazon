@@ -503,7 +503,11 @@ html body .container .account-wrapper .profile-wrapper .profile .point {
 }
 
 html body .container .account-wrapper #accountOnClickIn {
-  display: none;
+  visibility: hidden;
+}
+
+html body .container .account-wrapper .account-onclick-in {
+  visibility: visible;
 }
 
 html body .container .account-wrapper button {
@@ -520,10 +524,6 @@ html body .container .account-wrapper button {
 html body .container .account-wrapper button:hover {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
-}
-
-html body .container .account-wrapper #onClickInForPwSend {
-  display: none;
 }
 
 html body .container .account-wrapper .calendar {
@@ -792,7 +792,7 @@ html body footer .footer-wrapper .footer-right .copyright {
 .header-title {
   font-size: 4vw;
   font-family: "Decovar Regular24";
-  color: white;
+  color: #fff;
   font-variation-settings: "SSTR" 1000;
   -webkit-animation: loadin 4s infinite linear;
           animation: loadin 4s infinite linear;
@@ -817,7 +817,7 @@ html body footer .footer-wrapper .footer-right .copyright {
 }
 
 .account-onclick-in {
-  display: block;
+  visibility: visible;
 }
 
 .disabled {
@@ -832,11 +832,11 @@ html body footer .footer-wrapper .footer-right .copyright {
   border: solid 5px #ececec4d;
   border-radius: 5px;
   background-color: #fff;
-  display: none;
+  visibility: hidden;
   font-size: smaller;
 }
 
 .software-wrapper .each-wrapper .text-active {
-  display: block;
+  visibility: visible;
 }
 /*# sourceMappingURL=style.css.map */

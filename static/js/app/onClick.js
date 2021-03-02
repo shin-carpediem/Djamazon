@@ -9,15 +9,3 @@ const accountOnClickJs = () => {
   });
 };
 accountOnClickJs();
-
-const accountOnClickForPwSendJs = () => {
-  const accountOnClickForPwSend = document.getElementById("onClickForPwSend");
-  const accountOnClickInForPwSend = document.getElementById(
-    "onClickInForPwSend"
-  );
-
-  accountOnClickForPwSend.addEventListener("click", () => {
-    accountOnClickInForPwSend.classList.add("account-onclick-in");
-  });
-};
-accountOnClickForPwSendJs();

@@ -451,13 +451,14 @@ html {
           }
         }
         #accountOnClickIn {
-          display: none;
+          visibility: hidden;
+        }
+        // onClick.js
+        .account-onclick-in {
+          visibility: visible;
         }
         button {
           @include btn-s-green;
-        }
-        #onClickInForPwSend {
-          display: none;
         }
         .calendar {
           font-size: smaller;
@@ -607,7 +608,7 @@ html {
       &::after {
         content: "";
         display: block;
-        color: #fff;
+        color: $white;
         text-align: center;
         width: 80px;
         height: 80px;
@@ -688,7 +689,7 @@ html {
 .header-title {
   font-size: 4vw;
   font-family: "Decovar Regular24";
-  color: white;
+  color: $white;
   font-variation-settings: "SSTR" 1000;
   animation: loadin 4s infinite linear;
 }
@@ -704,7 +705,7 @@ html {
 
 // onClick.js
 .account-onclick-in {
-  display: block;
+  visibility: visible;
 }
 // calendar.js
 .disabled {
@@ -720,11 +721,11 @@ html {
       border: solid 5px $grey;
       border-radius: 5px;
       background-color: $white;
-      display: none;
+      visibility: hidden;
       font-size: smaller;
     }
     .text-active {
-      display: block;
+      visibility: visible;
     }
   }
 }
