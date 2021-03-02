@@ -1,10 +1,7 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-  <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
         'gtm.start':
@@ -13,10 +10,6 @@
         j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-K8S5PL7');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Google Analytics -->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178766347-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -25,41 +18,24 @@
 
     gtag('config', 'UA-178766347-1');
   </script>
-  <!-- End Google Analytics -->
-
-  <!-- Google Search Console Tag-->
   <meta name="google-site-verification" content="XPxxrffbnencjTVJuBumoIjZqhT3W3bPToxkQIpRtJQ">
-
-  <!-- fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Piedra&family=Righteous&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-  <!-- Font Awesome -->
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-
-  <!-- Device related -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="apple-touch-icon-precomposed" type="image/svg" href="{% static 'img/games/favicon.ico' %}">
   <link rel="stylesheet" href="{% static 'css/games/style.min.css' %}">
   <link rel="icon" type="image/svg" href="{% static 'img/games/favicon.ico' %}">
-
   <title>Djamazon Games</title>
   <meta name="description" content="If you win the games, you can get points and use for shopping.">
   <meta name="keywords" content="Game ゲーム">
 </head>
-
 <body>
-  <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8S5PL7" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
   <div class="w-100 back">
     {% if request.path == '/games' %}
     <video src="{% static 'movie/games/bg-movie.mp4' %}" autoplay muted></video>
@@ -69,14 +45,11 @@
   </div>
   <div class="w-100 front">
     <div class="w-100 games-container">
-      <!-- header part -->
       <div class="header-wrapper d-flex justify-content-around pt-3">
         <h1 class="title">Dj<span>a</span>m<span>a</span>z<span class="title-span">o</span>n G<span>a</span>mes</h1>
-        <!-- Button trigger modal -->
         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter">
           How to play ?
         </button>
-        <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
           aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -106,15 +79,12 @@
           </div>
         </div>
       </div>
-      <!-- end of header part -->
       <div>
         {% block content %}
         {% endblock %}
       </div>
     </div>
   </div>
-
-  <!-- bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
@@ -159,5 +129,4 @@
   <script src="{% static 'js/games/typing.min.js' %}"></script>
   {% endif %}
 </body>
-
 </html>

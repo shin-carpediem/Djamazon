@@ -1,6 +1,5 @@
 {% extends 'games/base.html' %}
 {% load static %}
-
 {% block content %}
 <div class="counter-wrapper text-center py-5">
   <div class="explation-text mx-auto">
@@ -8,21 +7,18 @@
     <p>四角をクリックしてね。当たりだとポイントゲット！</p>
   </div>
   <section id="counterContent" class="counter-area d-flex justify-content-center align-items-center p-5 m-5">
-    <!-- counter.js -->
   </section>
   <h4 class=py-5>Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}"></span></h4>
-  <!-- counter.js -->
   <form action="{% url 'games:control_counter_point' %}" method="post" class="control-user-point">{% csrf_token %}
     <input type="number" name="counter_point" id="counter_point">
     <button type="submit" id="counter_point_btn"></button>
   </form>
-  <!-- counter.js -->
   <div>
     <div class="d-flex justify-content-center">
       <img src="{% static 'img/games/level.png' %}" alt="level">
     </div>
     <input type="range" min="1" max="5" value="1" id="counterChangeLevel">
-    <p>Current level is <span id="counter-current-value"><!-- counter.js --></span></p>
+    <p>Current level is <span id="counter-current-value"></span></p>
     <div class="d-flex justify-content-center align-items-center pt-1">
       <p class="px-5"><a href="{% url 'games:index' %}"><i class="fas fa-cube pr-2"></i>Home</a></p>
     </div>

@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from users.models import User, UserPointHistory
 
 
-# Create your views here.
 def index(request):
     return render(request, 'games/index.html')
 
@@ -17,9 +16,7 @@ def counter(request):
 @login_required
 def control_counter_point(request):
     if request.method == 'POST':
-        # ゲームの勝敗結果を経てhtmlのフォームからポストリクエストされた数値を受け取る
         counter_point = request.POST["counter_point"]
-        # その数値をユーザーのポイントに足した値をユーザーのポイントとする
         user = request.user
         user.point += int(counter_point)
         user.save()

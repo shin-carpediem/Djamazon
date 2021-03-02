@@ -25,31 +25,24 @@ from .models import Product, Sale
 from ecsite.settings import DEBUG
 
 
-# Create your views here.
 class CacheRouter:
-    # A router to control all database cache operations
-
     def db_for_read(self, model, **hints):
-        # All cache read operations go to the replica
         if model._meta.app_label == 'django_cache':
             return 'cache_replica'
         return None
 
     def db_for_write(self, model, **hints):
-        # All cache write operations go to primary
         if model._meta.app_label == 'django_cache':
             return 'cache_primary'
         return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
-        # Only install the cache model on primary
         if app_label == 'django_cache':
             return db == 'cache_primary'
         return None
 
 
 def paginate_queryset(request, queryset, count):
-    # Pageオブジェクトを返す。countは、1ページに表示する件数。
     paginator = Paginator(queryset, count)
     page = request.GET.get('page')
     try:
@@ -96,74 +89,6 @@ def top_filtered(request):
     return render(request, 'app/top_filtered.html', {'products_filtered': products_filtered})
 
 
-# [pending] tried to separate authentication, but i did not know how to get the exact user's info,
-# so, i swicthed to use the latter signup view.
-
-# def signup(request):
-#     if request.method == 'POST':
-#         form = CustomUserCreationForm(request.POST)
-#         if form.is_valid():
-#             new_user = form.save()
-#             # 仮登録と本登録の切り替えは、is_active属性を使うと簡単です。
-#             # 退会処理も、is_activeをFalseにするだけにしておくと捗ります。
-#             new_user.is_active = False
-#             new_user.save()
-#             input_email = form.cleaned_data['email']
-#             input_password = form.cleaned_data['password1']
-#             new_user = authenticate(email=input_email, password=input_password)
-#             if new_user is not None:
-#                 login(request, new_user)
-#             # メース送信処理
-#             template = get_template('app/mail/pleasecheckmail.txt')
-#             mail_ctx = {
-#                 'user_email': form.cleaned_data['email'],
-#             }
-#             EmailMessage(
-#                 subject='【Djamazon】Please confirm your mail address',
-#                 body=template.render(mail_ctx),
-#                 from_email=settings.DEFAULT_FROM_EMAIL,
-#                 to=[
-#                     'fke129@icloud.com',
-#                 ],
-#                 bcc=[
-#                     'buru.aoshin@gmail.com',
-#                 ]
-#             ).send()
-#             return render(request, 'app/go_to_your_mail.html')
-#     else:
-#         form = CustomUserCreationForm()
-#     return render(request, 'app/signup.html', {'form': form})
-
-
-# def go_to_your_mail(request):
-#     return render(request, 'app/go_to_your_mail')
-
-
-# def authsignup(request):
-#     authsignup_user = User.objects.all()
-#     authsignup_user.is_active = True
-#     authsignup_user.update()
-#     # メース送信処理
-#     template = get_template('app/mail/welcome.txt')
-#     mail_ctx = {
-#         # 'user_email': User.email.all(),
-#     }
-#     EmailMessage(
-#         subject='【Djamazon】Your account is created now',
-#         body=template.render(mail_ctx),
-#         from_email=settings.DEFAULT_FROM_EMAIL,
-#         to=[
-#             'fke129@icloud.com',
-#         ],
-#         bcc=[
-#             'buru.aoshin@gmail.com',
-#         ]
-#     ).send()
-#     return render(request, 'app/welcome.html')
-
-# End [pending]
-
-
 def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -174,11 +99,9 @@ def signup(request):
             new_user = authenticate(email=input_email, password=input_password)
             if new_user is not None:
                 login(request, new_user)
-            # send mail
             EMAIL = settings.DEFAULT_FROM_EMAIL
             PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
             TO = form.cleaned_data['email']
-
             msg = MIMEText(
                 'Hello.\n'
                 'Welcome to Djamazon.\n'
@@ -202,8 +125,6 @@ def signup(request):
             msg['Subject'] = '【Djamazon】Your account is created now'
             msg['From'] = EMAIL
             msg['To'] = TO
-
-            # access to the socket
             s = smtplib.SMTP(host='smtp.gmail.com', port=587)
             s.starttls()
             s.login(EMAIL, PASSWORD)
@@ -263,15 +184,12 @@ def detail(request, product_id):
     add_to_cart_form = AddToCartForm(request.POST or None)
     if add_to_cart_form.is_valid():
         num = add_to_cart_form.cleaned_data['num']
-        # whether the key named 'cart' exists in session or not
         if 'cart' in request.session:
-            # if the number of product already exist, add the number, if not, add new key
             if str(product_id) in request.session['cart']:
                 request.session['cart'][str(product_id)] += num
             else:
                 request.session['cart'][str(product_id)] = num
         else:
-            # add new session key named 'cart'
             request.session['cart'] = {str(product_id): num}
         messages.success(request, f"You added {num} {product.name} !")
         return redirect('app:detail', product_id=product_id)
@@ -322,32 +240,24 @@ def cart(request):
 
     purchase_form = PurchaseForm(request.POST or None)
     if purchase_form.is_valid():
-        # 住所検索ボタンが押された場合
         if 'search_address' in request.POST:
             zip_code = request.POST['zip_code']
             address = get_address(zip_code)
-            # 住所が取得できなかった場合はメッセージを出してリダイレクト
             if not address:
                 messages.warning(request, "could not get the adrress...")
                 return redirect('app:cart')
-            # 住所が取得できたらフォームに入力してあげる
             purchase_form = PurchaseForm(
                 initial={'zip_code': zip_code, 'address': address})
-        # 購入ボタンが押された場合
         if 'buy_product' in request.POST:
-            # 住所が入力済みか確認する
             if not purchase_form.cleaned_data['address']:
                 messages.warning(request, "Address needs.")
                 return redirect('app:cart')
-            # カートが空じゃないか確認
             if not bool(cart):
                 messages.warning(request, "Cart is empty.")
                 return redirect('app:cart')
-            # 所持ポイントが十分にあるか確認
             if total_price > user.point:
                 messages.warning(request, "You do not have enough points...")
                 return redirect('app:cart')
-            # 各プロダクトの Sale 情報を保存
             for product_id, num in cart.items():
                 if not Product.objects.filter(pk=product_id).exists():
                     del cart[product_id]
@@ -355,7 +265,6 @@ def cart(request):
                 sale = Sale(product=product, user=user, amount=num,
                             price=product.price, total_price=num*product.price)
                 sale.save()
-            # ポイントを削減
             user.point -= total_price
             user.save()
             userpointhistory = UserPointHistory(
@@ -387,8 +296,6 @@ def change_item_amount(request):
     return redirect('app:cart')
 
 
-# http://zipcloud.ibsnet.co.jp/doc/api
-# 郵便番号検索の API を利用する関数
 def get_address(zip_code):
     REQUEST_URL = f'http://zipcloud.ibsnet.co.jp/api/search?zipcode={zip_code}'
     address = ''
@@ -443,7 +350,6 @@ def account(request):
 def is_img(request):
     if request.method == 'POST':
         user = User.objects.get(id=request.user.id)
-        # 既に登録されているis_imgを削除する（連続投稿によるデータ量圧迫を防ぐ）
         user.is_img.delete(False)
         user.is_img = request.FILES.get("is_img")
         if user.is_img == None:

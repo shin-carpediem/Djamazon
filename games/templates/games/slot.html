@@ -1,6 +1,5 @@
 {% extends 'games/base.html' %}
 {% load static %}
-
 {% block content %}
 <div class="slot-wrapper text-center py-5">
   <div class="explation-text mx-auto">
@@ -9,25 +8,22 @@
   </div>
   <div class="col-sm-4 col-12 mx-auto">
     <main class="slot-area p-3 mt-5 mb-3 d-flex justify-content-around">
-      <!-- slot.js -->
     </main>
     <div id="spin" class="mb-2">
       SPIN
     </div>
   </div>
   <h4 class=py-5>Point: <span id="pointUp" data-from="0" data-to="{{ user.point }}"></span></h4>
-  <!-- slot.js -->
   <form action="{% url 'games:control_slot_point' %}" method="post" class="control-user-point">{% csrf_token %}
     <input type="number" name="slot_point" id="slot_point">
     <button type="submit" id="slot_point_btn"></button>
   </form>
-  <!-- slot.js -->
   <div>
     <div class="d-flex justify-content-center">
       <img src="{% static 'img/games/level.png' %}" alt="level">
     </div>
     <input type="range" min="1" max="5" value="1" id="slotChangeLevel">
-    <p>Current level is <span id="slot-current-value"><!-- slot.js --></span></p>
+    <p>Current level is <span id="slot-current-value"></span></p>
     <div class="d-flex justify-content-center align-items-center pt-1">
       <p class="px-5"><a href="{% url 'games:index' %}"><i class="fas fa-cube pr-2"></i>Home</a></p>
     </div>

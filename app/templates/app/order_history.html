@@ -1,12 +1,10 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% load humanize %}
-
 {% block content %}
 <div class="order-history">
   <h2 class="mt-sm-3 pt-sm-5 pb-5 pl-4">Order-history</h2>
   <canvas id="point-trasition" height="70px" class="px-lg-5">
-  <!-- pointHistory.js -->
   </canvas>
   <div class="row mx-auto">
     {% for sale in sales %}

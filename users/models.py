@@ -3,23 +3,17 @@ from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.core.mail import send_mail
 from django.utils import timezone
-# https://qiita.com/dai-takahashi/items/57421ea191ab89175e9e
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 from app.models import Product
 
-# Create your models here.
-
 
 class UserManager(BaseUserManager):
-    # カスタムユーザーマネージャー
     use_in_migrations = True
 
     def _create_user(self, email, password, **extra_fields):
-        # email を必須にする
         if not email:
             raise ValueError('The given email must be set')
-        # email で User モデルを作成
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
@@ -43,7 +37,6 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     initial_point = 50000
-    # カスタムユーザーモデル
     email = models.EmailField("email_address", unique=True)
     point = models.PositiveIntegerField(default=initial_point)
     fav_products = models.ManyToManyField(Product, blank=True)
@@ -52,12 +45,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField("date_joined", default=timezone.now)
     is_img = models.ImageField(
         "is_img", upload_to="is_img", max_length=50, blank=True, null=True)
-    # django-imagekit
     profile_is_img = ImageSpecField(source="is_img",
-                                 processors=[ResizeToFill(100, 100)],
-                                 format="JPEG",
-                                 options={"quality": 70}
-                                 )
+                                    processors=[ResizeToFill(100, 100)],
+                                    format="JPEG",
+                                    options={"quality": 70}
+                                    )
     icon_is_img = ImageSpecField(source="is_img",
                                  processors=[ResizeToFill(30, 30)],
                                  format="JPEG",
@@ -65,7 +57,6 @@ class User(AbstractBaseUser, PermissionsMixin):
                                  )
 
     objects = UserManager()
-
     USERNAME_FIELD = "email"
     EMAIL_FIELD = "email"
     REQUIRED_FIELDS = []
@@ -76,7 +67,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class UserPointHistory(models.Model):
-    # ゲームの勝敗やECサイトの購入によるポイント増減をその度毎に日付で管理する
     point_history = models.PositiveIntegerField("User point this time")
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     created_at = models.DateTimeField(auto_now=True)

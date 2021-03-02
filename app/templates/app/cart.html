@@ -1,9 +1,7 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% load humanize %}
-<!-- filters ファイルをロードする -->
 {% load filters %}
-
 {% block content %}
 <div class="cart">
   <h2 class="mt-sm-3 pt-sm-5 pl-4">Cart</h2>
@@ -32,7 +30,6 @@
       </div>
     </form>
   </div>
-
   <div class="row">
     {% for product, num in cart_products.items %}
     <div class="order-item px-lg-5 col-lg-6 col-12 row">

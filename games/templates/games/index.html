@@ -1,6 +1,5 @@
 {% extends 'games/base.html' %}
 {% load static %}
-
 {% block content %}
 <div class="each-game-container row" id="each-game-container">
   <a href="{% url 'games:counter' %}">
@@ -69,13 +68,9 @@
     <div class="game-dungeon m-5 p-3 col-2">
       <div class="text-center">
         <p style="color: black;">COMMING SOON</p>
-        <!-- <p><small>🌶multi-level</small></p> -->
-        <!-- <img src="{% static 'img/games/img-dungeon.png' %}" alt="img-dungeon"> -->
       </div>
     </div>
   </a>
 </div>
-
-<!-- device related -->
 <script src="{% static 'js/games/showUp.min.js' %}"></script>
 {% endblock %}
