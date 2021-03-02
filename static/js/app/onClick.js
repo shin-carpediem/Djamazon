@@ -1,10 +1,10 @@
 "use strict";
 
 const accountOnClickJs = () => {
-  const accountOnClick = document.getElementById("onClick");
+  const resetPass = document.getElementById("resetPass");
   const accountOnClickIn = document.getElementById("onClickIn");
 
-  accountOnClick.addEventListener("click", () => {
+  resetPass.addEventListener("click", () => {
     accountOnClickIn.classList.add("account-onclick-in");
   });
 };
