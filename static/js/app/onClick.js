@@ -2,7 +2,7 @@
 
 const accountOnClickJs = () => {
   const resetPass = document.getElementById("resetPass");
-  const accountOnClickIn = document.getElementById("onClickIn");
+  const accountOnClickIn = document.getElementById("accountOnClickIn");
 
   resetPass.addEventListener("click", () => {
     accountOnClickIn.classList.add("account-onclick-in");

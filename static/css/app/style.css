@@ -443,7 +443,7 @@ html body .container .message-warning {
   margin: 20px auto 0 auto;
   padding: 10px 10px 10px 30px;
   border-radius: 50px 0 50px 0;
-  background-color: #eb5858;
+  background-color: #e05849;
 }
 
 @media screen and (max-width: 600px) {
@@ -451,10 +451,6 @@ html body .container .message-warning {
     width: 80%;
     margin-top: 0px;
   }
-}
-
-html body .container .account-wrapper .profile-wrapper {
-  margin: 0 auto;
 }
 
 html body .container .account-wrapper .profile-wrapper button {
@@ -506,7 +502,7 @@ html body .container .account-wrapper .profile-wrapper .profile .point {
   font-size: 26px;
 }
 
-html body .container .account-wrapper #onClickIn {
+html body .container .account-wrapper #accountOnClickIn {
   display: none;
 }
 
@@ -549,11 +545,11 @@ html body .container .account-wrapper .calendar td {
 }
 
 html body .container .account-wrapper .calendar tbody td:first-child {
-  color: red;
+  color: #e05849;
 }
 
 html body .container .account-wrapper .calendar tbody td:last-child {
-  color: blue;
+  color: #07a9f0;
 }
 
 html body .container .account-wrapper .calendar tbody tfoot {

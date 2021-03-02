@@ -5,6 +5,8 @@ $white: #fff;
 $light-grey: #ececec;
 $grey: #ececec4d;
 $black: #000;
+$red: #e05849;
+$blue: #07a9f0;
 
 @mixin button {
   text-align: center;
@@ -422,12 +424,11 @@ html {
       }
       .message-warning {
         @include message;
-        background-color: rgb(235, 88, 88);
+        background-color: $red;
       }
       // account.html
       .account-wrapper {
         .profile-wrapper {
-          margin: 0 auto;
           button {
             @include btn-s-green;
           }
@@ -449,9 +450,8 @@ html {
             }
           }
         }
-        #onClickIn {
+        #accountOnClickIn {
           display: none;
-          // display: block;
         }
         button {
           @include btn-s-green;
@@ -475,10 +475,10 @@ html {
           tbody {
             td {
               &:first-child {
-                color: red;
+                color: $red;
               }
               &:last-child {
-                color: blue;
+                color: $blue;
               }
             }
             tfoot {
