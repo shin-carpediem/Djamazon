@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from users.models import User, UserPointHistory
 
@@ -25,6 +26,10 @@ def control_counter_point(request):
         userpointhistory = UserPointHistory(
             point_history=user.point, user=user)
         userpointhistory.save()
+        if int(counter_point) > 0:
+            messages.success(request, f"You won {counter_point}!")
+        if int(counter_point) <= 0:
+            messages.warning(request, f"You lost {counter_point}..")
     return redirect('games:counter')
 
 
