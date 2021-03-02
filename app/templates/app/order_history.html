@@ -4,13 +4,13 @@
 
 {% block content %}
 <div class="order-history">
-  <h2 class="mt-3 pt-5 pb-5 pl-4">Order-history</h2>
+  <h2 class="mt-sm-3 pt-sm-5 pb-5 pl-4">Order-history</h2>
   <canvas id="point-trasition" height="70px" class="px-lg-5">
   <!-- pointHistory.js -->
   </canvas>
-  <div class="row">
+  <div class="row mx-auto">
     {% for sale in sales %}
-    <div class="order-item px-lg-5 col-lg-6 col-12 row">
+    <div class="order-item px-lg-5 col-lg-6 col-12 row mx-auto">
       <div class="order-item-image col-6 px-lg-5">
         <a href="{% url 'app:detail' sale.product.id %}">
           <img src="{{ sale.product.image.url }}" class="product-img" alt="product-img">

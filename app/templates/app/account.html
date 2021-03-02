@@ -4,10 +4,10 @@
 
 {% block content %}
 <div class="m-auto account-wrapper">
-  <h2 class="d-flex justify-content-center p-5">Account</h2>
+  <h2 class="d-flex justify-content-center p-sm-5 pt-0 pb-2">Account</h2>
   <div class="row profile-wrapper">
-    <div class="col-sm-6 col-12 row profile p-4">
-      <div class="col-4">
+    <div class="col-sm-6 col-12 row profile p-4 mx-auto">
+      <div class="col-4 mx-auto">
         <div>
           {% if user.profile_is_img %}
             <img src="{{ user.profile_is_img.url }}" alt="is_img" class="is_img">
@@ -34,8 +34,8 @@
     </div>
     <div class="col-sm-3">
     </div>
-    <div class="col-sm-3 col-12 calendar">
-      <table class="text-center">
+    <div class="col-sm-3 col-12 calendar mx-auto pt-sm-2 pt-5">
+      <table class="text-center mx-auto">
         <thead>
           <tr>
             <th id="prev"><i class="fas fa-chevron-left"></i></th>
@@ -68,7 +68,7 @@
   </div>
   <p id="onClickInForPwSend">Check your email for a link to reset your password. If it doesn't appear within a few minutes, check your spam folder.</p>
 
-  <h2 class="d-flex justify-content-center p-5 text-center">Djamazon Software</h2>
+  <h2 class="d-flex justify-content-center p-sm-5 pt-5 pb-2 text-center">Djamazon Software</h2>
   <div class="row software-wrapper">
     <div class="col-sm-2 col-6 each-wrapper">
       <a href="{% url 'study:index' %}" target="_blank" rel="noopener noreferrer">
