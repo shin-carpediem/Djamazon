@@ -175,7 +175,8 @@ def password_reset(request):
     s.login(EMAIL, PASSWORD)
     s.sendmail(EMAIL, TO, msg.as_string())
     s.quit()
-    messages.success(request, f"Email sent.")
+    messages.success(
+        request, "Check your email for a link to reset your password. If it doesn't appear within a few minutes, check your spam folder.")
     return redirect('app:account')
 
 
