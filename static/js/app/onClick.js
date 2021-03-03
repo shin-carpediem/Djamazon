@@ -6,6 +6,7 @@ const accountOnClickJs = () => {
 
   resetPass.addEventListener("click", () => {
     accountOnClickIn.classList.add("account-onclick-in");
+    console.log(accountOnClickIn);
   });
 };
 accountOnClickJs();

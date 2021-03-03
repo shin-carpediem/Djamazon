@@ -450,7 +450,7 @@ html {
             }
           }
         }
-        #accountOnClickIn {
+        .accountOnClickIn {
           visibility: hidden;
         }
         // onClick.js
@@ -707,10 +707,6 @@ html {
   }
 }
 
-// onClick.js
-.account-onclick-in {
-  visibility: visible;
-}
 // calendar.js
 .disabled {
   opacity: 0.3;

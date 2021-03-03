@@ -502,7 +502,7 @@ html body .container .account-wrapper .profile-wrapper .profile .point {
   font-size: 26px;
 }
 
-html body .container .account-wrapper #accountOnClickIn {
+html body .container .account-wrapper .accountOnClickIn {
   visibility: hidden;
 }
 
@@ -818,10 +818,6 @@ html body footer .footer-wrapper .footer-right .copyright {
   50% {
     font-variation-settings: "SSTR" 0;
   }
-}
-
-.account-onclick-in {
-  visibility: visible;
 }
 
 .disabled {

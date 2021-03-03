@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <div id="accountOnClickIn" class="pl-4 pt-3">
+  <div id="accountOnClickIn" class="pl-4 pt-3 accountOnClickIn">
     <p>I will get an mail for password reset.</p>
     <form method="post" action="{% url 'app:password_reset' %}">
       {% csrf_token %}{{ form.as_p }}
