@@ -571,11 +571,15 @@ html body .container .icon span {
 }
 
 html body .container .signup_login {
+  width: 700px;
+  height: auto;
   -webkit-transform: scale(1.15);
           transform: scale(1.15);
 }
 
 html body .container .signup_login_2 {
+  width: 300px;
+  height: auto;
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
 }
