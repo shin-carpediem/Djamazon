@@ -20,26 +20,27 @@ Technique/Version:
 
 local
 
-- Python==3.8.6
+- python==3.8.6
+- venv
 - pip==20.2.1
-- Django==3.0.10
+- django==3.0.10
 - django-compressor==2.4.0
 - django-debug-toolbar==3.2.0
-- Bootstrap(CDN)==4.5.0
-- jQuery(CDN)==3.5.1
-- SCSS
-- Sass compiler(VSode plugin)
-- Minifer(VScode plugin)
-- Darkmode.js(CDN)==1.5.7
-- Chart.js(CDN)==2.9.4
-- SQlite==3.32.3
-- CircleCI==0.2.1
+- bootstrap(cdn)==4.5.0
+- jquery(cdn)==3.5.1
+- scss
+- sass compiler(vscode plugin)
+- minifer(vscode plugin)
+- darkmode.js(cdn)==1.5.7
+- chart.js(cdn)==2.9.4
+- sqlite==3.32.3
+- circleci==0.2.1
 
 unique to production
 
-- Pythonanywhere(Free plan)
-- Python==3.8.0
-- MySQL==5.7.48(switching to sqlite now)
+- pythonanywhere(free plan)
+- python==3.8.0
+- mysql==5.7.48(switching to sqlite now)
 
 ## Branch Rule
 
