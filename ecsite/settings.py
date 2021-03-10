@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'compressor',
 ]
 
+SITE_ID = 1
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -147,18 +149,12 @@ EMAIL_HOST_PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
 EMAIL_POST = os.getenv("GMAIL_POST")
 EMAIL_USE_TLS = True
 
-SITE_ID = 1
-
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
-    'allauth.account.auth_backends.AuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_EMAIL_REQUIRED = True
-DEFAULT_FROM_EMAIL = 'buru.aoshin@gmail.com'
+
+DEFAULT_FROM_EMAIL = os.getenv("GMAIL_HOST_USER")
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv(
@@ -174,6 +170,10 @@ CONN_MAX_AGE = 0
 
 CSRF_COOKIE_SECURE = os.getenv("DEBUG") == "False"
 SESSION_COOKIE_SECURE = os.getenv("DEBUG") == "False"
+
+IMAGEKIT_CACHEFILE_DIR = [
+    os.path.join(BASE_DIR, 'imagekit_cache')
+]
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
