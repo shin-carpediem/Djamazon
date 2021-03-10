@@ -18,18 +18,6 @@
     })(window, document, 'script', 'dataLayer', 'GTM-K8S5PL7');</script>
   <!-- End Google Tag Manager -->
 
-  <!-- Google Analytics -->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178766347-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-178766347-1');
-  </script> -->
-  <!-- End Google Analytics -->
-
   <!-- Google Search Console Tag-->
   <meta name="google-site-verification" content="XPxxrffbnencjTVJuBumoIjZqhT3W3bPToxkQIpRtJQ">
 
@@ -47,6 +35,7 @@
 
   <!-- Device related -->
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="apple-touch-icon apple-touch-icon-precomposed" sizes="180x180" href="{% static 'img/app/apple-touch-icon.png' %}" />
@@ -310,17 +299,17 @@
         <div class="col-lg-1"></div>
         <div class="column col-lg-3 col-12 mx-auto">
           <div class="mx-lg-0 mx-5">
-            <a class="btn btn-block btn-social btn-facebook"
+            <a class="btn btn-block btn-social btn-facebook text-center"
              href="http://www.facebook.com/share.php?u={{ request.scheme }}://{{ request.get_host }}{{ request.path }}&t={{ item_obj.title }}"
               target="_blank">
               <span class="fa fa-facebook"></span>share with Facebook
             </a>
           </div>
           <div class="mx-lg-0 mx-5">
-            <a class="btn btn-block btn-social btn-twitter mt-1"
+            <a class="btn btn-block btn-social btn-twitter mt-1 text-center"
              href="https://twitter.com/share?url={{ request.scheme }}://{{ request.get_host }}{{ request.path }}"
               target="_blank" rel="nofollow">
-              <span class="fa fa-twitter"></span>share with Tweeter
+              <span class="fa fa-twitter"></span>share with Twitter
             </a>
           </div>
         </div>

@@ -31,7 +31,6 @@ select {
   color: #fff;
 }
 
-/* Remove all animations and transitions for people that prefer not to see them */
 html {
   font-family: "Righteous", cursive;
 }
