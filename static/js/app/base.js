@@ -101,9 +101,6 @@ const logOutConfirm = () => {
     const answer = confirm("Are you sure logout?");
     if (answer) {
       window.location.href = "/logout/";
-      console.log("Logout succeeded.");
-    } else {
-      console.log("Logout cancelled.");
     }
   });
 };

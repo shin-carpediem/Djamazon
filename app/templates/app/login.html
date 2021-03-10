@@ -6,24 +6,24 @@
 <div class="mx-auto">
   <form class="form-signin mx-auto" method="post" action="{% url 'app:login' %}">{% csrf_token %}
     {% if form.errors %}
-    <p>Username or password is wrong.</p>
+    <p>Email or password is wrong.</p>
     {% endif %}
     <div class="row">
       <div class="col-4 pl-sm-5 pl-4">
         <div>
           <label>Email</label><br>
-          <input name="username"><br> <!--emailではない-->
+          <input name="username" id="username"><br> <!--emailではない-->
         </div>
         <div>
           <label>Password</label><br>
-          <input type="password" name="password"><br>
+          <input type="password" name="password" id="password"><br>
         </div>
         <div class="pt-3 pb-5">
           <input type="submit" value="Login">
         </div>
         <div class="mr-lg-5 icon">
           <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-block btn-social btn-google text-center">
-            <span class="fa fa-google"></span> log in with Google
+            <span class="fa fa-google"></span> Log in with Google
           </a>
         </div>
       </div>
