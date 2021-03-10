@@ -295,17 +295,11 @@
     crossorigin="anonymous"></script>
   <script src="{% static 'js/app/pointHistory.min.js' %}"></script>
   {% endif %}
-  <script src="{% static 'js/app/headerTitle.min.js' %}"></script>
-  <script src="{% static 'js/app/changeLang.min.js' %}"></script>
-  <script src="{% static 'js/app/pointFilter.min.js' %}"></script>
-  <script src="{% static 'js/app/scrollButton.min.js' %}"></script>
-  <script src="{% static 'js/app/mouseMove.min.js' %}"></script>
-  <script src="{% static 'js/app/logOutConfirm.min.js' %}"></script>
+  <script src="{% static 'js/app/base.min.js' %}"></script>
+  <script src="{% static 'js/app/signup.min.js' %}"></script>
   {% if request.path == "/account/" %}
   <script src="{% static 'js/pointUp.min.js' %}"></script>
-  <script src="{% static 'js/app/onClick.min.js' %}"></script>
-  <script src="{% static 'js/app/calendar.min.js' %}"></script>
-  <script src="{% static 'js/app/hoverFadeIn.min.js' %}"></script>
+  <script src="{% static 'js/app/account.min.js' %}"></script>
   {% endif %}
  </body>
 </html>

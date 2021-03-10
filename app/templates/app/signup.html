@@ -4,7 +4,7 @@
 <h2 class="text-center pt-sm-5 pt-0 pb-5">Start Up!</h2>
 <div class="mx-auto">
   <form method="post" action="{% url 'app:signup' %}" class="row mx-auto">{% csrf_token %}
-    <div class="col-4 pl-sm-5 pl-0 pb-3">
+    <div class="col-4 pl-sm-5 pl-0 pb-3 signupForm">
       <div>
         <label>Email</label><br>
         {{ form.email }}
@@ -25,7 +25,7 @@
       </div>
       <div class="mr-lg-5 icon">
         <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-block btn-social btn-google text-center">
-          <span class="fa fa-google"></span> start with Google
+          <span class="fa fa-google"></span> Start with Google
         </a>
       </div>
     </div>
@@ -119,7 +119,7 @@
   </div>
   <h2 class="text-center pt-5 pb-sm-5 pb-0">Try using</h2>
   <form method="post" action="{% url 'app:signup' %}" class="row mx-auto">{% csrf_token %}
-    <div class="col-4 pl-sm-5 pl-0 pb-3">
+    <div class="col-4 pl-sm-5 pl-0 pb-3 signupForm">
       <div>
         <label>Email</label><br>
         {{ form.email }}
