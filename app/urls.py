@@ -11,7 +11,8 @@ urlpatterns = [
     #     path('go_to_your_mail/', views.go_to_your_mail, name='go_to_your_mail'),
     #     path('authsignup/', views.authsignup, name='authsignup'),
     path('welcome/', views.welcome, name='welcome'),
-    path('login', auth_views.LoginView.as_view(template_name='app/login.html'), name='login'),
+    path('login/', auth_views.LoginView.as_view(
+        template_name='app/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('password_reset/', views.password_reset, name='password_reset'),
     path('product/<int:product_id>/', views.detail, name='detail'),
