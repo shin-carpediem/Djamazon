@@ -22,7 +22,7 @@ import requests
 from users.models import User, UserPointHistory
 from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
 from .models import Product, Sale
-from ecsite.settings import DEBUG
+from ecsite.settings import DEBUG, DEFAULT_FROM_EMAIL
 
 
 class CacheRouter:
@@ -99,7 +99,7 @@ def signup(request):
             new_user = authenticate(email=input_email, password=input_password)
             if new_user is not None:
                 login(request, new_user)
-            EMAIL = settings.DEFAULT_FROM_EMAIL
+            EMAIL = DEFAULT_FROM_EMAIL
             PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
             TO = form.cleaned_data['email']
             msg = MIMEText(
@@ -123,7 +123,7 @@ def signup(request):
                 '---------------------------------------------\n'
             )
             msg['Subject'] = '【Djamazon】Your account is created now'
-            msg['From'] = EMAIL
+            msg['From'] = DEFAULT_FROM_EMAIL
             msg['To'] = TO
             s = smtplib.SMTP(host='smtp.gmail.com', port=587)
             s.starttls()
