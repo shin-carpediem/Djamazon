@@ -14,7 +14,7 @@
 - highly restricted namespace/scope at css/js
 
 Memo for me:\
-✅ Each "product" image size should be less than 320px \* 320px.
+✅  Each "product" image size should be less than 320px \* 320px.
 
 Technique/Version:
 
