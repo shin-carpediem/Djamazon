@@ -1,6 +1,17 @@
-// https://dotinstall.com/lessons/calendar_js/55609
 "use strict";
 
+const accountOnClickJs = () => {
+  const resetPass = document.getElementById("resetPass");
+  const accountOnClickIn = document.getElementById("accountOnClickIn");
+
+  resetPass.addEventListener("click", () => {
+    accountOnClickIn.classList.add("account-onclick-in");
+    console.log(accountOnClickIn);
+  });
+};
+accountOnClickJs();
+
+// https://dotinstall.com/lessons/calendar_js/55609
 const calendar = () => {
   const today = new Date();
   let year = today.getFullYear();
@@ -147,3 +158,15 @@ const calendar = () => {
   createCalendar();
 };
 calendar();
+
+const hoverFadeIn = () => {
+  $(".each-wrapper").hover(
+    function () {
+      $(this).find(".text_soft").addClass("text-active");
+    },
+    function () {
+      $(this).find(".text_soft").removeClass("text-active");
+    }
+  );
+};
+hoverFadeIn();
