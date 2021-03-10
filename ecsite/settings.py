@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     'compressor',
 ]
 
+# サイトマップ作成時に必要
+SITE_ID = 1
+
 # Database
 # if DEBUG:
 #     DATABASES = {
@@ -144,7 +147,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Tokyo'
 # enable translations
 USE_I18N = True
@@ -200,26 +203,22 @@ EMAIL_USE_TLS = True
 #     EMAIL_HOST_PASSWORD = os.getenv("MAILTRAP_HOST_PASSWORD")
 #     EMAIL_PORT = os.getenv("MAILTRAP_POST")
 
-# アカウント認証設定
-# django-allauthで利用するdjango.contrib.sitesを使うためにサイト識別用IDを設定
-SITE_ID = 1
-# 認証バックエンド-ログイン時に何でログインするかを配列の先頭から順に認証する
 # https://nmomos.com/tips/2019/07/05/django-social-auth/
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     # メールアドレス認証
-    'allauth.account.auth_backends.AuthenticationBackend',
+    # 'allauth.account.auth_backends.AuthenticationBackend',
     # ユーザー名認証
     'django.contrib.auth.backends.ModelBackend',
 )
 # メールアドレス認証に変更する設定
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
 # ユーザー名の入力を必要とする設定
-ACCOUNT_USERNAME_REQUIRED = False
+# ACCOUNT_USERNAME_REQUIRED = False
 # サインアップにメールアドレス確認をはさむよう設定
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_EMAIL_REQUIRED = True
-DEFAULT_FROM_EMAIL = 'buru.aoshin@gmail.com'
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# ACCOUNT_EMAIL_REQUIRED = True
+DEFAULT_FROM_EMAIL = os.getenv("GMAIL_HOST_USER")
 
 # Google認証
 # クライアントID
@@ -236,9 +235,8 @@ LOGIN_REDIRECT_URL = 'app:top'
 LOGOUT_REDIRECT_URL = 'app:login'
 
 # パフォーマンスの最適化
-# DEBUG = False をセットすることで、開発向けの複数の機能が無効化。
-# 加えて、以下の設定をチューンすることもできます。
-# 永続的なデータベース接続を有効化すると、リクエストのプロセス時間の多くの部分に対するデータベースアカウントへの接続において、高速になります。
+# 永続的なデータベース接続を有効化すると、
+# リクエストのプロセス時間の多くの部分に対するデータベースアカウントへの接続において高速になる。
 # 限られたネットワーク性能の仮想化ホストにおいて、とても効果的。
 CONN_MAX_AGE = 0
 
@@ -248,9 +246,9 @@ CSRF_COOKIE_SECURE = os.getenv("DEBUG") == "False"
 SESSION_COOKIE_SECURE = os.getenv("DEBUG") == "False"
 
 # be careful: Imagelit cache crashs with memcache.
-# IMAGEKIT_CACHEFILE_DIR = [
-#     os.path.join(BASE_DIR, 'imagekit_cache')
-# ]
+IMAGEKIT_CACHEFILE_DIR = [
+    os.path.join(BASE_DIR, 'imagekit_cache')
+]
 
 # https://www.valentinog.com/blog/drf/#Django_REST_with_React_setting_up_React_and_webpack
 # disable the browseable API in production with this configuration

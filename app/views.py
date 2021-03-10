@@ -22,7 +22,7 @@ import requests
 from users.models import User, UserPointHistory
 from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
 from .models import Product, Sale
-from ecsite.settings import DEBUG
+from ecsite.settings import DEBUG, DEFAULT_FROM_EMAIL
 
 
 # Create your views here.
@@ -175,7 +175,7 @@ def signup(request):
             if new_user is not None:
                 login(request, new_user)
             # send mail
-            EMAIL = settings.DEFAULT_FROM_EMAIL
+            EMAIL = DEFAULT_FROM_EMAIL
             PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
             TO = form.cleaned_data['email']
 
@@ -200,7 +200,7 @@ def signup(request):
                 '---------------------------------------------\n'
             )
             msg['Subject'] = '【Djamazon】Your account is created now'
-            msg['From'] = EMAIL
+            msg['From'] = DEFAULT_FROM_EMAIL
             msg['To'] = TO
 
             # access to the socket
