@@ -231,7 +231,7 @@ AUTH_USER_MODEL = 'users.User'
 
 # ログイン/ログアウト後の遷移先を設定
 LOGIN_URL = 'app:login'
-LOGIN_REDIRECT_URL = 'app:top'
+LOGIN_REDIRECT_URL = 'app:welcome'
 LOGOUT_REDIRECT_URL = 'app:login'
 
 # パフォーマンスの最適化

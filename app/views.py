@@ -209,7 +209,7 @@ def signup(request):
                 s.login(EMAIL, PASSWORD)
                 s.sendmail(EMAIL, TO, msg.as_string())
                 s.quit()
-                return render(request, 'app/welcome.html')
+                return redirect('app:welcome')
     else:
         form = CustomUserCreationForm()
     return render(request, 'app/signup.html', {'form': form})
