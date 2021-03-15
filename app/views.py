@@ -99,45 +99,9 @@ def signup(request):
             new_user = authenticate(email=input_email, password=input_password)
             if new_user is not None:
                 login(request, new_user)
-<<<<<<< HEAD
-            EMAIL = DEFAULT_FROM_EMAIL
-            PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
-            TO = form.cleaned_data['email']
-            msg = MIMEText(
-                'Hello.\n'
-                'Welcome to Djamazon.\n'
-                '\n'
-                'You created your own account on Djamazon.\n'
-                'From now on, you will get awesome experience!\n'
-                '\n'
-                'https: // djamazonapp.pythonanywhere.com /\n'
-                '\n'
-                'If you have a question, feel free to contact with us.\n'
-                '\n'
-                '\n'
-                'Sincerely,\n'
-                '\n'
-                '---------------------------------------------\n'
-                'Djamazon.Corporation\n'
-                '\n'
-                'Email: buru.aoshin@gmail.com\n'
-                '---------------------------------------------\n'
-            )
-            msg['Subject'] = '【Djamazon】Your account is created now'
-            msg['From'] = DEFAULT_FROM_EMAIL
-            msg['To'] = TO
-            s = smtplib.SMTP(host='smtp.gmail.com', port=587)
-            s.starttls()
-            s.login(EMAIL, PASSWORD)
-            s.sendmail(EMAIL, TO, msg.as_string())
-            s.quit()
-            return render(request, 'app/welcome.html')
-=======
-                # send mail
                 EMAIL = DEFAULT_FROM_EMAIL
                 PASSWORD = EMAIL_HOST_PASSWORD
                 TO = input_email
-
                 msg = MIMEText(
                     'Hello.\n'
                     'Welcome to Djamazon.\n'
@@ -161,15 +125,12 @@ def signup(request):
                 msg['Subject'] = '【Djamazon】Your account is created now'
                 msg['From'] = DEFAULT_FROM_EMAIL
                 msg['To'] = TO
-
-                # access to the socket
                 s = smtplib.SMTP(host=EMAIL_HOST, port=EMAIL_PORT)
                 s.starttls()
                 s.login(EMAIL, PASSWORD)
                 s.sendmail(EMAIL, TO, msg.as_string())
                 s.quit()
                 return redirect('app:welcome')
->>>>>>> f3b2f9508299c8fa1bf06cf256c33db2b3ea29df
     else:
         form = CustomUserCreationForm()
     return render(request, 'app/signup.html', {'form': form})
