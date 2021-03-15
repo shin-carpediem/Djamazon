@@ -280,7 +280,16 @@
       </div>
     </div>
   </footer>
+<<<<<<< HEAD
   {% if request.path == "/account/" %}
+=======
+
+  {% if request.path == "/signup/" %}
+  <!-- jQuery -->
+>>>>>>> f3b2f9508299c8fa1bf06cf256c33db2b3ea29df
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  {% elif request.path == "/account/" %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   {% endif %}
@@ -296,7 +305,10 @@
   <script src="{% static 'js/app/pointHistory.min.js' %}"></script>
   {% endif %}
   <script src="{% static 'js/app/base.min.js' %}"></script>
+  {% if request.path == "/" %}
+  <script src="{% static 'js/fadeIn.min.js' %}"></script>
   <script src="{% static 'js/app/signup.min.js' %}"></script>
+  {% endif %}
   {% if request.path == "/account/" %}
   <script src="{% static 'js/pointUp.min.js' %}"></script>
   <script src="{% static 'js/app/account.min.js' %}"></script>

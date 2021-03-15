@@ -126,10 +126,7 @@ NUMBER_GROUPING = 3
 SESSION_SAVE_EVERY_REQUEST = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
-STATIC_ROOT = os.path.join(BASE_DIR, "assets")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -146,7 +143,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.getenv("GMAIL_HOST")
 EMAIL_HOST_USER = os.getenv("GMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
-EMAIL_POST = os.getenv("GMAIL_POST")
+EMAIL_PORT = os.getenv("GMAIL_POST")
 EMAIL_USE_TLS = True
 
 AUTHENTICATION_BACKENDS = (
@@ -163,7 +160,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv(
 AUTH_USER_MODEL = 'users.User'
 
 LOGIN_URL = 'app:login'
-LOGIN_REDIRECT_URL = 'app:top'
+LOGIN_REDIRECT_URL = 'app:welcome'
 LOGOUT_REDIRECT_URL = 'app:login'
 
 CONN_MAX_AGE = 0
