@@ -4,17 +4,14 @@ const recommendDemo = () => {
   try {
     let signupForm = document.getElementsByClassName("signupForm")[0];
 
-    function signUpMotion() {
-      signupForm.addEventListener("mousemove", (e) => {
-        const useDemo = confirm(
-          "You can also use demo account*. Are you want to login with it? (*The password cannot be changed.)"
-        );
-        if (useDemo) {
-          window.location.href = "/login/";
-        }
-      });
-    }
-    signUpMotion();
+    $(signupForm).one("mousemove", function () {
+      const useDemo = confirm(
+        "You can also use demo account*. Are you want to login with it? (*The password cannot be changed.)"
+      );
+      if (useDemo) {
+        window.location.href = "/login/";
+      }
+    });
 
     signupForm = document.getElementsByClassName("signupForm")[1];
     signUpMotion();

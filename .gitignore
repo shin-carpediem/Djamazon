@@ -163,3 +163,6 @@ node_modules/
 
 # imagekit_cache
 .imagekit_cache/
+
+# compiled cache
+/static/CACHE/
