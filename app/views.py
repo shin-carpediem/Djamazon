@@ -22,7 +22,7 @@ import requests
 from users.models import User, UserPointHistory
 from .forms import CustomUserCreationForm, AddToCartForm, PurchaseForm
 from .models import Product, Sale
-from ecsite.settings import DEBUG
+from ecsite.settings import DEFAULT_FROM_EMAIL, EMAIL_HOST_PASSWORD, EMAIL_HOST, EMAIL_PORT
 
 
 class CacheRouter:
@@ -99,38 +99,38 @@ def signup(request):
             new_user = authenticate(email=input_email, password=input_password)
             if new_user is not None:
                 login(request, new_user)
-            EMAIL = settings.DEFAULT_FROM_EMAIL
-            PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
-            TO = form.cleaned_data['email']
-            msg = MIMEText(
-                'Hello.\n'
-                'Welcome to Djamazon.\n'
-                '\n'
-                'You created your own account on Djamazon.\n'
-                'From now on, you will get awesome experience!\n'
-                '\n'
-                'https: // djamazonapp.pythonanywhere.com /\n'
-                '\n'
-                'If you have a question, feel free to contact with us.\n'
-                '\n'
-                '\n'
-                'Sincerely,\n'
-                '\n'
-                '---------------------------------------------\n'
-                'Djamazon.Corporation\n'
-                '\n'
-                'Email: buru.aoshin@gmail.com\n'
-                '---------------------------------------------\n'
-            )
-            msg['Subject'] = '【Djamazon】Your account is created now'
-            msg['From'] = EMAIL
-            msg['To'] = TO
-            s = smtplib.SMTP(host='smtp.gmail.com', port=587)
-            s.starttls()
-            s.login(EMAIL, PASSWORD)
-            s.sendmail(EMAIL, TO, msg.as_string())
-            s.quit()
-            return render(request, 'app/welcome.html')
+                EMAIL = DEFAULT_FROM_EMAIL
+                PASSWORD = EMAIL_HOST_PASSWORD
+                TO = input_email
+                msg = MIMEText(
+                    'Hello.\n'
+                    'Welcome to Djamazon.\n'
+                    '\n'
+                    'You created your own account on Djamazon.\n'
+                    'From now on, you will get awesome experience!\n'
+                    '\n'
+                    'https: // djamazonapp.pythonanywhere.com /\n'
+                    '\n'
+                    'If you have a question, feel free to contact with us.\n'
+                    '\n'
+                    '\n'
+                    'Sincerely,\n'
+                    '\n'
+                    '---------------------------------------------\n'
+                    'Djamazon.Corporation\n'
+                    '\n'
+                    'Email: buru.aoshin@gmail.com\n'
+                    '---------------------------------------------\n'
+                )
+                msg['Subject'] = '【Djamazon】Your account is created now'
+                msg['From'] = DEFAULT_FROM_EMAIL
+                msg['To'] = TO
+                s = smtplib.SMTP(host=EMAIL_HOST, port=EMAIL_PORT)
+                s.starttls()
+                s.login(EMAIL, PASSWORD)
+                s.sendmail(EMAIL, TO, msg.as_string())
+                s.quit()
+                return redirect('app:welcome')
     else:
         form = CustomUserCreationForm()
     return render(request, 'app/signup.html', {'form': form})
@@ -144,8 +144,8 @@ def welcome(request):
 @login_required
 def password_reset(request):
     user_mail = request.user.email
-    EMAIL = settings.DEFAULT_FROM_EMAIL
-    PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
+    EMAIL = DEFAULT_FROM_EMAIL
+    PASSWORD = EMAIL_HOST_PASSWORD
     TO = user_mail
     msg = MIMEText(
         'Hello.\n'
@@ -170,7 +170,7 @@ def password_reset(request):
     msg['Subject'] = '【Djamazon】You are just to change your password'
     msg['From'] = EMAIL
     msg['To'] = TO
-    s = smtplib.SMTP(host='smtp.gmail.com', port=587)
+    s = smtplib.SMTP(host=EMAIL_HOST, port=EMAIL_PORT)
     s.starttls()
     s.login(EMAIL, PASSWORD)
     s.sendmail(EMAIL, TO, msg.as_string())
@@ -370,8 +370,3 @@ def policy(request):
 
 def terms(request):
     return render(request, 'app/terms.html')
-
-
-@login_required
-def logout(request):
-    return render(request, 'app/signup.html')

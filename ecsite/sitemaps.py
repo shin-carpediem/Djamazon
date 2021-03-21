@@ -8,6 +8,7 @@ class StaticViewSitemap(Sitemap):
     def items(self):
         return [
             'app:top',
+            'app:top_filtered',
             'app:cart',
             'app:login',
             'app:order_history',

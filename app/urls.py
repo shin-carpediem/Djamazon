@@ -9,8 +9,9 @@ urlpatterns = [
     path('top_filtered/', views.top_filtered, name='top_filtered'),
     path('', views.signup, name='signup'),
     path('welcome/', views.welcome, name='welcome'),
-    path('login', auth_views.LoginView.as_view(template_name='app/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='app/login.html'), name='logout'),
+    path('login/', auth_views.LoginView.as_view(
+        template_name='app/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('password_reset/', views.password_reset, name='password_reset'),
     path('product/<int:product_id>/', views.detail, name='detail'),
     path('fav_products/', views.fav_products, name='fav_products'),

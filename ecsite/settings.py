@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'compressor',
 ]
 
+SITE_ID = 1
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -124,10 +126,7 @@ NUMBER_GROUPING = 3
 SESSION_SAVE_EVERY_REQUEST = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
-STATIC_ROOT = os.path.join(BASE_DIR, "assets")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -144,21 +143,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.getenv("GMAIL_HOST")
 EMAIL_HOST_USER = os.getenv("GMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
-EMAIL_POST = os.getenv("GMAIL_POST")
+EMAIL_PORT = os.getenv("GMAIL_POST")
 EMAIL_USE_TLS = True
-
-SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
-    'allauth.account.auth_backends.AuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_EMAIL_REQUIRED = True
-DEFAULT_FROM_EMAIL = 'buru.aoshin@gmail.com'
+
+DEFAULT_FROM_EMAIL = os.getenv("GMAIL_HOST_USER")
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv(
@@ -167,13 +160,17 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv(
 AUTH_USER_MODEL = 'users.User'
 
 LOGIN_URL = 'app:login'
-LOGIN_REDIRECT_URL = 'app:top'
+LOGIN_REDIRECT_URL = 'app:welcome'
 LOGOUT_REDIRECT_URL = 'app:login'
 
 CONN_MAX_AGE = 0
 
 CSRF_COOKIE_SECURE = os.getenv("DEBUG") == "False"
 SESSION_COOKIE_SECURE = os.getenv("DEBUG") == "False"
+
+IMAGEKIT_CACHEFILE_DIR = [
+    os.path.join(BASE_DIR, 'imagekit_cache')
+]
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
