@@ -166,3 +166,7 @@ node_modules/
 
 # compiled cache
 /static/CACHE/
+
+# pythonanywhere
+.git
+.env
