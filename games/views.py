@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from users.models import User, UserPointHistory
+from users.models import UserPointHistory
 
 
 def index(request):
@@ -141,8 +141,3 @@ def control_pingpong_point(request):
             point_history=user.point, user=user)
         userpointhistory.save()
     return redirect('games:pingpong')
-
-
-@login_required
-def dungeon(request):
-    return render(request, 'games/dungeon.html')
