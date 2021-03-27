@@ -406,14 +406,6 @@ html {
           }
         }
       }
-      .message-success {
-        @include message;
-        background-color: $django-green;
-      }
-      .message-warning {
-        @include message;
-        background-color: $red;
-      }
       // account.html
       .account-wrapper {
         .profile-wrapper {
@@ -726,4 +718,13 @@ html {
       visibility: visible;
     }
   }
+}
+
+.message-success {
+  @include message;
+  background-color: $django-green;
+}
+.message-warning {
+  @include message;
+  background-color: $red;
 }

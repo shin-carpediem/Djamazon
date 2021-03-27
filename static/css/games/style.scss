@@ -208,14 +208,6 @@ html {
           right: 230px;
         }
       }
-      .each-game-container {
-        position: relative;
-        .game-dungeon {
-          @include game-x();
-          top: 500px;
-          left: 400px;
-        }
-      }
     }
     // end of index.html
     .explation-text {
@@ -487,13 +479,6 @@ html {
       }
     }
     // end of pingpong.html
-    // dungeon.html
-    .tic_tac_toe-wrapper {
-      #dungeone-area {
-        background-color: $white;
-      }
-    }
-    // end of dungeon.html
   }
 }
 

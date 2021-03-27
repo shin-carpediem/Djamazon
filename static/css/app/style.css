@@ -414,44 +414,6 @@ html body .container .order-history .order-item-amount-form input {
   font-size: 20px;
 }
 
-html body .container .message-success {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 30%;
-  color: #fff;
-  margin: 20px auto 0 auto;
-  padding: 10px 10px 10px 30px;
-  border-radius: 50px 0 50px 0;
-  background-color: #36a57b;
-}
-
-@media screen and (max-width: 600px) {
-  html body .container .message-success {
-    width: 80%;
-    margin-top: 0px;
-  }
-}
-
-html body .container .message-warning {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 30%;
-  color: #fff;
-  margin: 20px auto 0 auto;
-  padding: 10px 10px 10px 30px;
-  border-radius: 50px 0 50px 0;
-  background-color: #e05849;
-}
-
-@media screen and (max-width: 600px) {
-  html body .container .message-warning {
-    width: 80%;
-    margin-top: 0px;
-  }
-}
-
 html body .container .account-wrapper .profile-wrapper button {
   text-align: center;
   display: inline-block;
@@ -851,5 +813,43 @@ html body footer .footer-wrapper .footer-right .copyright {
 
 .software-wrapper .each-wrapper .text-active {
   visibility: visible;
+}
+
+.message-success {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30%;
+  color: #fff;
+  margin: 20px auto 0 auto;
+  padding: 10px 10px 10px 30px;
+  border-radius: 50px 0 50px 0;
+  background-color: #36a57b;
+}
+
+@media screen and (max-width: 600px) {
+  .message-success {
+    width: 80%;
+    margin-top: 0px;
+  }
+}
+
+.message-warning {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30%;
+  color: #fff;
+  margin: 20px auto 0 auto;
+  padding: 10px 10px 10px 30px;
+  border-radius: 50px 0 50px 0;
+  background-color: #e05849;
+}
+
+@media screen and (max-width: 600px) {
+  .message-warning {
+    width: 80%;
+    margin-top: 0px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -97,6 +97,9 @@
       </div>
       <!-- end of header part -->
       <div>
+        {% for message in messages %}
+        <p class="message-{{ message.tags }} text-center pt-2">{{ message }}</p>
+        {% endfor %}
         {% block content %}
         {% endblock %}
       </div>
