@@ -284,7 +284,19 @@
   {% if request.path == "/signup/" %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  {% elif request.path == "/en/signup/" %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  {% elif request.path == "/ja/signup/" %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   {% elif request.path == "/account/" %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  {% elif request.path == "/en/account/" %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  {% elif request.path == "/ja/account/" %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   {% endif %}
@@ -298,13 +310,35 @@
     integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
     crossorigin="anonymous"></script>
   <script src="{% static 'js/app/pointHistory.min.js' %}"></script>
+  {% elif request.path == "/en/order_history/" %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+    integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/app/pointHistory.min.js' %}"></script>
+  {% elif request.path == "/ja/order_history/" %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+    integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/app/pointHistory.min.js' %}"></script>
   {% endif %}
   <script src="{% static 'js/app/base.min.js' %}"></script>
   {% if request.path == "/" %}
   <script src="{% static 'js/fadeIn.min.js' %}"></script>
   <script src="{% static 'js/app/signup.min.js' %}"></script>
+  {% elif request.path == "/en/" %}
+  <script src="{% static 'js/fadeIn.min.js' %}"></script>
+  <script src="{% static 'js/app/signup.min.js' %}"></script>
+  {% elif request.path == "/ja/" %}
+  <script src="{% static 'js/fadeIn.min.js' %}"></script>
+  <script src="{% static 'js/app/signup.min.js' %}"></script>
   {% endif %}
   {% if request.path == "/account/" %}
+  <script src="{% static 'js/pointUp.min.js' %}"></script>
+  <script src="{% static 'js/app/account.min.js' %}"></script>
+  {% elif request.path == "/en/account/" %}
+  <script src="{% static 'js/pointUp.min.js' %}"></script>
+  <script src="{% static 'js/app/account.min.js' %}"></script>
+  {% elif request.path == "/ja/account/" %}
   <script src="{% static 'js/pointUp.min.js' %}"></script>
   <script src="{% static 'js/app/account.min.js' %}"></script>
   {% endif %}
