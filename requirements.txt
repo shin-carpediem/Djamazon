@@ -9,11 +9,11 @@ coverage==5.3.1
 cryptography==3.3.2
 defusedxml==0.7.0rc1
 distlib==0.3.1
-Django==3.0.10
+Django==3.0.14
 django-allauth==0.44.0
 django-appconf==1.0.4
 django-compressor==2.4
-django-debug-toolbar==3.2
+django-debug-toolbar==3.2.1
 django-filter==2.4.0
 django-imagekit==4.0.2
 djangorestframework==3.12.2

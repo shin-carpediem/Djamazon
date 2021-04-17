@@ -23,9 +23,9 @@ local
 - python==3.8.6
 - venv
 - pip==20.2.1
-- django==3.0.10
+- django==3.0.14
 - django-compressor==2.4.0
-- django-debug-toolbar==3.2.0
+- django-debug-toolbar==3.2.1
 - bootstrap(cdn)==4.5.0
 - jquery(cdn)==3.5.1
 - scss
