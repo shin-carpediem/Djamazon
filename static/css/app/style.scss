@@ -91,7 +91,6 @@ video {
   max-width: 100%;
   display: block;
 }
-
 video {
   border-radius: 10px;
 }
@@ -102,7 +101,6 @@ textarea,
 select {
   font: inherit;
 }
-
 // Compensate some browser cannot read Social_Buttons_for_Bootstrap properly
 .btn.btn-block.btn-social {
   color: #fff;
@@ -692,7 +690,6 @@ html {
   font-variation-settings: "SSTR" 1000;
   animation: loadin 4s infinite linear;
 }
-
 @keyframes loadin {
   0% {
     font-variation-settings: "SSTR" 1000;
