@@ -61,10 +61,6 @@ def paginate_queryset(request, queryset, count):
     return page_obj
 
 
-def login(request):
-    return render(request, 'app/login.html')
-
-
 @login_required
 def top(request):
     products = Product.objects.all().order_by('-id')
@@ -96,74 +92,6 @@ def top_filtered(request):
     return render(request, 'app/top_filtered.html', {'products_filtered': products_filtered})
 
 
-# [pending] tried to separate authentication, but i did not know how to get the exact user's info,
-# so, i swicthed to use the latter signup view.
-
-# def signup(request):
-#     if request.method == 'POST':
-#         form = CustomUserCreationForm(request.POST)
-#         if form.is_valid():
-#             new_user = form.save()
-#             # 仮登録と本登録の切り替えは、is_active属性を使うと簡単です。
-#             # 退会処理も、is_activeをFalseにするだけにしておくと捗ります。
-#             new_user.is_active = False
-#             new_user.save()
-#             input_email = form.cleaned_data['email']
-#             input_password = form.cleaned_data['password1']
-#             new_user = authenticate(email=input_email, password=input_password)
-#             if new_user is not None:
-#                 login(request, new_user)
-#             # メース送信処理
-#             template = get_template('app/mail/pleasecheckmail.txt')
-#             mail_ctx = {
-#                 'user_email': form.cleaned_data['email'],
-#             }
-#             EmailMessage(
-#                 subject='【Djamazon】Please confirm your mail address',
-#                 body=template.render(mail_ctx),
-#                 from_email=settings.DEFAULT_FROM_EMAIL,
-#                 to=[
-#                     'fke129@icloud.com',
-#                 ],
-#                 bcc=[
-#                     'buru.aoshin@gmail.com',
-#                 ]
-#             ).send()
-#             return render(request, 'app/go_to_your_mail.html')
-#     else:
-#         form = CustomUserCreationForm()
-#     return render(request, 'app/signup.html', {'form': form})
-
-
-# def go_to_your_mail(request):
-#     return render(request, 'app/go_to_your_mail')
-
-
-# def authsignup(request):
-#     authsignup_user = User.objects.all()
-#     authsignup_user.is_active = True
-#     authsignup_user.update()
-#     # メース送信処理
-#     template = get_template('app/mail/welcome.txt')
-#     mail_ctx = {
-#         # 'user_email': User.email.all(),
-#     }
-#     EmailMessage(
-#         subject='【Djamazon】Your account is created now',
-#         body=template.render(mail_ctx),
-#         from_email=settings.DEFAULT_FROM_EMAIL,
-#         to=[
-#             'fke129@icloud.com',
-#         ],
-#         bcc=[
-#             'buru.aoshin@gmail.com',
-#         ]
-#     ).send()
-#     return render(request, 'app/welcome.html')
-
-# End [pending]
-
-
 def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -174,42 +102,43 @@ def signup(request):
             new_user = authenticate(email=input_email, password=input_password)
             if new_user is not None:
                 login(request, new_user)
-            # send mail
-            EMAIL = settings.DEFAULT_FROM_EMAIL
-            PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
-            TO = form.cleaned_data['email']
 
-            msg = MIMEText(
-                'Hello.\n'
-                'Welcome to Djamazon.\n'
-                '\n'
-                'You created your own account on Djamazon.\n'
-                'From now on, you will get awesome experience!\n'
-                '\n'
-                'https: // djamazonapp.pythonanywhere.com /\n'
-                '\n'
-                'If you have a question, feel free to contact with us.\n'
-                '\n'
-                '\n'
-                'Sincerely,\n'
-                '\n'
-                '---------------------------------------------\n'
-                'Djamazon.Corporation\n'
-                '\n'
-                'Email: buru.aoshin@gmail.com\n'
-                '---------------------------------------------\n'
-            )
-            msg['Subject'] = '【Djamazon】Your account is created now'
-            msg['From'] = EMAIL
-            msg['To'] = TO
+                # send mail
+                EMAIL = settings.DEFAULT_FROM_EMAIL
+                PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
+                TO = form.cleaned_data['email']
 
-            # access to the socket
-            s = smtplib.SMTP(host='smtp.gmail.com', port=587)
-            s.starttls()
-            s.login(EMAIL, PASSWORD)
-            s.sendmail(EMAIL, TO, msg.as_string())
-            s.quit()
-            return render(request, 'app/welcome.html')
+                msg = MIMEText(
+                    'Hello.\n'
+                    'Welcome to Djamazon.\n'
+                    '\n'
+                    'You created your own account on Djamazon.\n'
+                    'From now on, you will get awesome experience!\n'
+                    '\n'
+                    'https: // djamazonapp.pythonanywhere.com /\n'
+                    '\n'
+                    'If you have a question, feel free to contact with us.\n'
+                    '\n'
+                    '\n'
+                    'Sincerely,\n'
+                    '\n'
+                    '---------------------------------------------\n'
+                    'Djamazon.Corporation\n'
+                    '\n'
+                    'Email: buru.aoshin@gmail.com\n'
+                    '---------------------------------------------\n'
+                )
+                msg['Subject'] = '【Djamazon】Your account is created now'
+                msg['From'] = EMAIL
+                msg['To'] = TO
+
+                # access to the socket
+                s = smtplib.SMTP(host='smtp.gmail.com', port=587)
+                s.starttls()
+                s.login(EMAIL, PASSWORD)
+                s.sendmail(EMAIL, TO, msg.as_string())
+                s.quit()
+                return render(request, 'app/welcome.html')
     else:
         form = CustomUserCreationForm()
     return render(request, 'app/signup.html', {'form': form})
