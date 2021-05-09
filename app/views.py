@@ -54,10 +54,6 @@ def paginate_queryset(request, queryset, count):
     return page_obj
 
 
-def login(request):
-    return render(request, 'app/login.html')
-
-
 @login_required
 def top(request):
     products = Product.objects.all().order_by('-id')
@@ -99,9 +95,9 @@ def signup(request):
             new_user = authenticate(email=input_email, password=input_password)
             if new_user is not None:
                 login(request, new_user)
-                EMAIL = DEFAULT_FROM_EMAIL
-                PASSWORD = EMAIL_HOST_PASSWORD
-                TO = input_email
+                EMAIL = settings.DEFAULT_FROM_EMAIL
+                PASSWORD = os.getenv("GMAIL_HOST_PASSWORD")
+                TO = form.cleaned_data['email']
                 msg = MIMEText(
                     'Hello.\n'
                     'Welcome to Djamazon.\n'
@@ -123,14 +119,14 @@ def signup(request):
                     '---------------------------------------------\n'
                 )
                 msg['Subject'] = '【Djamazon】Your account is created now'
-                msg['From'] = DEFAULT_FROM_EMAIL
+                msg['From'] = EMAIL
                 msg['To'] = TO
-                s = smtplib.SMTP(host=EMAIL_HOST, port=EMAIL_PORT)
+                s = smtplib.SMTP(host='smtp.gmail.com', port=587)
                 s.starttls()
                 s.login(EMAIL, PASSWORD)
                 s.sendmail(EMAIL, TO, msg.as_string())
                 s.quit()
-                return redirect('app:welcome')
+                return render(request, 'app/welcome.html')
     else:
         form = CustomUserCreationForm()
     return render(request, 'app/signup.html', {'form': form})

@@ -1,0 +1,533 @@
+/* default */
+$purple: #3a556a;
+$blue: #07a9f0;
+$red: #e05849;
+$yellow: #e7a713;
+$black: #000;
+$light-grey: #ececec;
+$white: #fff;
+
+@mixin game-x {
+  position: absolute;
+  background-color: $white;
+  border: solid 2px transparent;
+  border-radius: 30% 40% 0 0;
+  transition: 0.5s;
+  &:hover {
+    transform: scale(1.1);
+  }
+  img {
+    border-radius: 14px;
+    transform: scale(0.9);
+  }
+}
+
+@mixin game-y {
+  position: absolute;
+  background-color: $white;
+  border: solid 2px transparent;
+  border-radius: 40% 30% 0 0;
+  transition: 0.5s;
+  &:hover {
+    transform: scale(1.1);
+  }
+  img {
+    border-radius: 14px;
+    transform: scale(0.9);
+  }
+}
+
+ul {
+  list-style: none;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+/* Make images easier to work with */
+img,
+picture,
+video {
+  max-width: 100%;
+  display: block;
+}
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* Remove all animations and transitions for people that prefer not to see them */
+// @media (prefers-reduced-motion: reduce) {
+//   *,
+//   *::before,
+//   *::after {
+//     animation-duration: 0.01ms !important;
+//     animation-iteration-count: 1 !important;
+//     transition-duration: 0.01ms !important;
+//     scroll-behavior: auto !important;
+//   }
+// }
+// end of default
+
+html {
+  font-family: "Piedra", cursive;
+  font-family: "Righteous", cursive;
+  min-width: 1440px;
+  &:focus-within {
+    scroll-behavior: smooth;
+  }
+  body {
+    text-rendering: optimizeSpeed;
+    font-family: "Piedra", cursive;
+    font-family: "Righteous", cursive;
+    min-width: 1440px;
+    @media screen and (max-width: 600px) {
+      font-size: 0.7rem;
+    }
+    a {
+      color: $white;
+      &:hover {
+        color: $white;
+      }
+    }
+    h1,
+    h4,
+    p,
+    span,
+    #pointUp {
+      color: $white;
+    }
+    p {
+      small {
+        color: $black;
+      }
+    }
+    li {
+      list-style: none;
+    }
+    .modal {
+      button {
+        transform: scale(2);
+        span {
+          color: $black;
+        }
+      }
+      p {
+        color: $black;
+      }
+    }
+    // index.html
+    .front {
+      position: relative;
+      min-width: 1440px;
+    }
+    .back {
+      position: absolute;
+      min-width: 1440px;
+      z-index: -1;
+    }
+    .front {
+      .title {
+        span {
+          color: $red;
+        }
+        .title-span {
+          color: $purple;
+        }
+      }
+      // https://qiita.com/gonshi_com/items/4ae066ef4bea6d519854
+      .each-game-container {
+        opacity: 0;
+        transition: 2s;
+      }
+      .show-each-game {
+        opacity: 1;
+      }
+      .each-game-container {
+        position: relative;
+        .game-counter {
+          @include game-x();
+          top: 60px;
+          left: 150px;
+        }
+      }
+      .each-game-container {
+        position: relative;
+        .game-omikuji {
+          @include game-x();
+          top: 200px;
+          left: 360px;
+        }
+      }
+      .each-game-container {
+        position: relative;
+        .game-bingo {
+          @include game-x();
+          top: 300px;
+          left: 30px;
+        }
+      }
+      .each-game-container {
+        position: relative;
+        .game-typing {
+          @include game-y();
+          top: 300px;
+          right: 30px;
+        }
+      }
+      .each-game-container {
+        position: relative;
+        .game-quiz {
+          @include game-y();
+          top: 100px;
+          right: 55px;
+        }
+      }
+      .each-game-container {
+        position: relative;
+        .game-slot {
+          @include game-y();
+          top: 40px;
+          right: 200px;
+        }
+      }
+      .each-game-container {
+        position: relative;
+        .game-touch {
+          @include game-x();
+          top: 300px;
+          left: 200px;
+        }
+      }
+      .each-game-container {
+        position: relative;
+        .game-pingpong {
+          @include game-y();
+          top: 340px;
+          right: 230px;
+        }
+      }
+      .each-game-container {
+        position: relative;
+        .game-dungeon {
+          @include game-x();
+          top: 500px;
+          left: 400px;
+        }
+      }
+    }
+    // end of index.html
+    .explation-text {
+      width: 40%;
+      background-color: #5593ab;
+      border-radius: 100px;
+    }
+    // omikuji.html
+    .omikuji-wrapper {
+      .omikuji-area {
+        #btn {
+          width: 200px;
+          height: 200px;
+          background-color: red;
+          border-radius: 50%;
+          color: $white;
+          font-weight: bolder;
+          font-size: 52px;
+          cursor: pointer;
+          box-shadow: 0 10px 0 #d1483e;
+          user-select: none;
+          &:hover {
+            opacity: 0.9;
+          }
+          &:active {
+            box-shadow: 0 5px 0 #d1483e;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    // end of omikuji.html
+    // bingo.html
+    .bingo-wrapper {
+      .bingo-area {
+        th,
+        td {
+          background: pink;
+          width: 40px;
+          height: 40px;
+        }
+      }
+      .open-number {
+        width: 200px;
+        height: 100px;
+        background-color: $white;
+        border-radius: 4px;
+        button {
+          background-color: $yellow;
+          border: transparent;
+          border-radius: 4px;
+          color: $white;
+          &:hover {
+            transform: scale(0.9);
+          }
+        }
+        span {
+          color: $black;
+        }
+      }
+    }
+    // end of bingo.html
+    // typing.html
+    .typing-wrapper {
+      .typing-area {
+        #typing-question {
+          font-size: 48px;
+          letter-spacing: 0.1em;
+          cursor: pointer;
+        }
+      }
+    }
+    // end of typing.html
+    // quiz.html
+    .quiz-wrapper {
+      .quiz-area {
+        .container {
+          background: #fff;
+          border-radius: 4px;
+          position: relative;
+          #quiz-result {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 60%;
+            background: $white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            transition: 0.4s;
+            &.hidden {
+              transform: translateY(-500px);
+            }
+            p {
+              font-size: larger;
+            }
+            div {
+              display: inline-block;
+              background-color: $blue;
+              cursor: pointer;
+              border-radius: 4px;
+              border: transparent;
+              &:hover {
+                transform: scale(0.9);
+              }
+              a {
+                color: $white;
+                font-weight: bolder;
+                text-decoration: none;
+              }
+            }
+          }
+          #quiz-question {
+            color: $black;
+            font-weight: bolder;
+          }
+          #quiz-choices {
+            li {
+              border: 1px solid #cccccc;
+              border-radius: 4px;
+              padding: 10px;
+              margin-bottom: 10px;
+              cursor: pointer;
+              &:hover {
+                background: $light-grey;
+              }
+              // quiz.js
+              &.correct {
+                background: #d4edda;
+                border-color: #c3e6cb;
+                color: #155724;
+                font-weight: bolder;
+                &::after {
+                  content: "... correct!";
+                }
+              }
+              // quiz.js
+              &.wrong {
+                background: #f8d8da;
+                border-color: #f5c6cb;
+                color: #721c24;
+                font-weight: bolder;
+                &::after {
+                  content: "... wrong!";
+                }
+              }
+            }
+          }
+          #quiz-btn {
+            display: inline-block;
+            background-color: $blue;
+            color: $white;
+            font-weight: bolder;
+            cursor: pointer;
+            border-radius: 10px;
+            border: transparent;
+            &:hover {
+              transform: scale(0.9);
+            }
+            &.disabled {
+              background-color: $light-grey;
+            }
+          }
+          #quiz-result {
+            p {
+              color: $black;
+            }
+          }
+        }
+      }
+    }
+    // end of quiz.html
+    // slot.html
+    .slot-wrapper {
+      .slot-area {
+        background: #ecf0f1;
+        border-radius: 12px;
+        border: 4px solid $white;
+        .panel {
+          img {
+            width: 90px;
+            height: 110px;
+          }
+          .stop {
+            margin-top: 10px;
+            cursor: pointer;
+            width: 90px;
+            height: 32px;
+            background: #ef454a;
+            box-shadow: 0 4px 0 #d1483e;
+            border-radius: 16px;
+            line-height: 32px;
+            color: $white;
+            user-select: none;
+          }
+        }
+      }
+      #spin {
+        cursor: pointer;
+        width: 260px;
+        height: 36px;
+        margin: 0 auto;
+        background: #3498db;
+        box-shadow: 0 4px 0 #2880b9;
+        border-radius: 18px;
+        line-height: 36px;
+        color: $white;
+        user-select: none;
+        font-size: larger;
+      }
+    }
+    // end of slot.html
+    // touch.html
+    .touch-wrapper {
+      color: $white;
+      font-size: 16px;
+      font-weight: bold;
+      .touch-area {
+        /* 50px * 2 + 10px * 2 */
+        margin: 16px auto;
+        #touch-timer {
+          margin-bottom: 8px;
+          font-size: 20px;
+        }
+        #touch-board {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 0 8px;
+          padding: 10px;
+          background: $white;
+          border-radius: 4px;
+          li {
+            background: #00aaff;
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            line-height: 40px;
+            box-shadow: 0 4px 0 #0088cc;
+          }
+          .pressed {
+            background-color: $light-grey;
+            box-shadow: none;
+            margin-top: 9px;
+            margin-bottom: 1px;
+          }
+        }
+        #touch-btn {
+          cursor: pointer;
+          user-select: none;
+          background: #f44336;
+          padding: 8px;
+          border-radius: 4px;
+          box-shadow: 0 4px 0 #d1483e;
+          &:active {
+            margin-top: 12px;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+    // end of touch.html
+    // pingpong.html
+    .pingpong-wrapper {
+      canvas {
+        background-color: $black;
+      }
+    }
+    // end of pingpong.html
+    // dungeon.html
+    .tic_tac_toe-wrapper {
+      #dungeone-area {
+        background-color: $white;
+      }
+    }
+    // end of dungeon.html
+  }
+}
+
+//counter.js
+.box {
+  width: 100px;
+  height: 100px;
+  background: $white;
+  transition: 0.8s;
+  margin: 0 8px 8px 0;
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+  user-select: none;
+}
+.win {
+  background: $yellow;
+  border-radius: 50%;
+  transform: rotate(360deg);
+}
+.lose {
+  transform: scale(0.9);
+}
+//bingo.js
+.bingo-btn-hidden {
+  visibility: hidden;
+}
+// slot.js
+.unmatched {
+  opacity: 0.5;
+}
+.inactive {
+  opacity: 0.5;
+}
+.control-user-point {
+  display: none;
+}
