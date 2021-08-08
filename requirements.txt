@@ -9,7 +9,7 @@ coverage==5.3.1
 cryptography==3.3.2
 defusedxml==0.7.0rc1
 distlib==0.3.1
-Django==3.0.14
+Django==3.1.12
 django-allauth==0.44.0
 django-appconf==1.0.4
 django-compressor==2.4
